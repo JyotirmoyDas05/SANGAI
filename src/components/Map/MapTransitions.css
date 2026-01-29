@@ -1,0 +1,145 @@
+/* =========================================
+   MAP TRANSITIONS (GPU Accelerated)
+   ========================================= */
+
+/* BASE STATES */
+.map-container .state-path,
+.map-container .district-path {
+    transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Synced with D3 Zoom (750ms) */
+    will-change: opacity;
+    /* Hint to browser to promote to layer */
+}
+
+/* Optimize the group trigger for zoom */
+.map-svg g {
+    will-change: transform;
+}
+
+/* ---------------------------------------------------------
+   VIEW: DEFAULT (Show all states, hide districts)
+--------------------------------------------------------- */
+.map-container[data-view="default"] .state-path {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* West Bengal Exception */
+.map-container[data-view="default"] .state-path.west-bengal {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.map-container[data-view="default"] .district-path {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   VIEW: STATE (Hide other states, Show selected districts)
+--------------------------------------------------------- */
+
+/* HIDE all states by default in this view */
+.map-container[data-view="state"] .state-path {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* OPTIONAL: Keep the selected state visible (as a background)? 
+   Currently design typically hides the state shape and shows districts.
+   If we want the state shape to fade out, the above rule works.
+*/
+
+/* SHOW districts of the selected state */
+/* We target districts where data-state matches the container's selected state */
+/* NOTE: We cannot use attr() in selector yet. We need a specific class or trick.
+   TRICK: We can't match data-state == data-selected-state in pure CSS level 3.
+   
+   SOLUTION: We rely on the React Logic to add a class '.is-active-state' or similar?
+   NO, that brings us back to JS looping.
+   
+   BETTER SOLUTION - PARENT FILTERING:
+   Since we can't do `.map[data-sel="A"] .district[data-state="A"]`,
+   We need the map wrapper to assume we are Filtering.
+   
+   WAIT: The `DistrictsLayer` renders ALL districts.
+   CSS Variables Approach?
+   .district-path { opacity: 0; }
+   .district-path[data-state="Manipur"] { opacity: var(--opacity-manipur, 0); }
+   
+   JS sets style={{ "--opacity-manipur": 1 }} on container?
+   YES. This is O(1) for JS.
+*/
+
+/* ---------------------------------------------------------
+   HYBRID APPROACH (CSS Vars)
+--------------------------------------------------------- */
+
+/* Default: All districts hidden */
+.district-path {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* State View: Districts become visible based on parent variable */
+/* We will set --active-state-opacity: 1 on the container, but we need to know WHICH list.
+   Actually, simpler:
+   We just keep the logic in React for "classing" but minimal?
+   No, React re-render is expensive.
+   
+   Let's use the CSS Variable technique for the STATES.
+   But for districts it's harder because we have 8 states.
+   
+   ACTUALLY: The user's issue is the HANG.
+   The hang comes from D3 running 100 transitions.
+   If we simply set a class `visible` on the filtered districts in React,
+   React diffing might still be heavy if it touches 100 DOM nodes.
+   
+   BUT checking `StatesLayer.jsx`, we see we were computing `visibilityClass`.
+   Let's look at `DistrictsLayer.jsx` again.
+   It renders ALL districts.
+   
+   If we just add `style={{ opacity: isSelectedState ? 1 : 0 }}` to the district path...
+   That requires re-rendering the list.
+   
+   Re-rendering the list during a zoom is bad (React tries to reconcile).
+   
+   BEST APPROACH:
+   On the `.map-container`, we set `data-selected-state="manipur"`.
+   We write CSS rules for all 8 states manually. It's only 8.
+*/
+
+.map-container[data-view="state"][data-selected-state="Arunachal Pradesh"] .district-path[data-state="Arunachal Pradesh"],
+.map-container[data-view="state"][data-selected-state="Assam"] .district-path[data-state="Assam"],
+.map-container[data-view="state"][data-selected-state="Manipur"] .district-path[data-state="Manipur"],
+.map-container[data-view="state"][data-selected-state="Meghalaya"] .district-path[data-state="Meghalaya"],
+.map-container[data-view="state"][data-selected-state="Mizoram"] .district-path[data-state="Mizoram"],
+.map-container[data-view="state"][data-selected-state="Nagaland"] .district-path[data-state="Nagaland"],
+.map-container[data-view="state"][data-selected-state="Sikkim"] .district-path[data-state="Sikkim"],
+.map-container[data-view="state"][data-selected-state="Tripura"] .district-path[data-state="Tripura"] {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------
+   VIEW: DISTRICT (Focus on one district)
+--------------------------------------------------------- */
+.map-container[data-view="district"] .state-path {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Hide all districts by default in this view */
+.map-container[data-view="district"] .district-path {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Show only the selected district */
+/* We can target by ID or data attributes */
+.map-container[data-view="district"] .district-path.is-selected {
+    opacity: 1;
+    pointer-events: auto;
+}

@@ -29,9 +29,13 @@ export default function Navbar() {
     };
 
     const handleLogoClick = () => {
-        // User wants logo to always act as "Back to Map"
-        // Since Navbar is hidden on Intro page, this always goes to /explore
-        navigate('/explore');
+        // User Request: If on /explore, go to / (Intro Page)
+        // Otherwise, act as "Back to Map" (/explore)
+        if (isExplorePage) {
+            navigate('/');
+        } else {
+            navigate('/explore');
+        }
     };
 
     return (

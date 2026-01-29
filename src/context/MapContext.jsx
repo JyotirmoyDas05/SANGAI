@@ -67,15 +67,12 @@ export function MapProvider({ children }) {
         setZoomTarget(stateFeature);
         stateFeatureRef.current = stateFeature;
 
-        // Solution B: Defer DOM-changing state updates to next frame
-        // This allows D3 animation to start before React mounts new components
-        requestAnimationFrame(() => {
-            setZoomCounter(c => c + 1);
-            setSelectedState(stateName);
-            setSelectedDistrict(null);
-            setCurrentLabel(stateName);
-            setViewState('state');
-        });
+        // Synchronous update to ensure D3 and CSS start together
+        setZoomCounter(c => c + 1);
+        setSelectedState(stateName);
+        setSelectedDistrict(null);
+        setCurrentLabel(stateName);
+        setViewState('state');
     }, []);
 
     // Select a district - transition from state to district view
@@ -83,13 +80,11 @@ export function MapProvider({ children }) {
         // Set zoom target first (triggers D3 animation)
         setZoomTarget(districtFeature);
 
-        // Solution B: Defer DOM-changing state updates to next frame
-        requestAnimationFrame(() => {
-            setZoomCounter(c => c + 1);
-            setSelectedDistrict(districtName);
-            setCurrentLabel(districtName);
-            setViewState('district');
-        });
+        // Synchronous update
+        setZoomCounter(c => c + 1);
+        setSelectedDistrict(districtName);
+        setCurrentLabel(districtName);
+        setViewState('district');
     }, []);
 
     // Go back one level
@@ -98,26 +93,22 @@ export function MapProvider({ children }) {
             // Go back to state view - restore the state feature as zoom target
             setZoomTarget(stateFeatureRef.current);
 
-            // Solution B: Defer DOM-changing state updates
-            requestAnimationFrame(() => {
-                setZoomCounter(c => c + 1);
-                setSelectedDistrict(null);
-                setCurrentLabel(selectedState);
-                setViewState('state');
-            });
+            // Synchronous update
+            setZoomCounter(c => c + 1);
+            setSelectedDistrict(null);
+            setCurrentLabel(selectedState);
+            setViewState('state');
         } else if (viewState === 'state') {
             // Go back to default view
             setZoomTarget(null);
 
-            // Solution B: Defer DOM-changing state updates
-            requestAnimationFrame(() => {
-                setZoomCounter(c => c + 1);
-                setSelectedState(null);
-                setSelectedDistrict(null);
-                setCurrentLabel('Northeast India');
-                stateFeatureRef.current = null;
-                setViewState('default');
-            });
+            // Synchronous update
+            setZoomCounter(c => c + 1);
+            setSelectedState(null);
+            setSelectedDistrict(null);
+            setCurrentLabel('Northeast India');
+            stateFeatureRef.current = null;
+            setViewState('default');
         }
     }, [viewState, selectedState]);
 

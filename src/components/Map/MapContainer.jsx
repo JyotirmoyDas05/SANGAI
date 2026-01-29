@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useCallback } from 'react';
+import { useEffect, useMemo, useRef, useCallback, useLayoutEffect, useState } from 'react';
 import { geoMercator, geoPath } from 'd3-geo';
 import { zoom, zoomIdentity } from 'd3-zoom';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -12,6 +12,8 @@ import DistrictsLayer from './DistrictsLayer';
 import Tooltip from './Tooltip';
 import rawStatesData from '../../MAP/NEW STATES.json';
 import rawDistrictsData from '../../MAP/NEW DISTRICTS.json';
+import gsap from 'gsap';
+import './MapTransitions.css'; // Import GPU-accelerated transitions
 
 const MAP_WIDTH = 900;
 const MAP_HEIGHT = 700;
@@ -39,6 +41,7 @@ export default function MapContainer() {
     const isTransitioningRef = useRef(false); // Solution A: Transition guard
     const lastZoomCounterRef = useRef(0); // Track last processed zoomCounter to prevent double-run
     const isLoaded = true; // Map is considered loaded when component mounts
+    const labelRef = useRef(null); // Ref for label animation
 
     const navigate = useNavigate();
     const {
@@ -51,6 +54,9 @@ export default function MapContainer() {
         goBack,
         selectState
     } = useMapContext();
+
+    // Local state for sequenced label animation
+    const [displayLabel, setDisplayLabel] = useState(currentLabel);
 
     /**
      * Handle Explore button click - navigate based on current selection
@@ -119,107 +125,51 @@ export default function MapContainer() {
         return districtsData.features;
     }, [districtsData]);
 
-    // D3 OPACITY TRANSITIONS
-    // These run when viewState changes
-    // Removed 50ms timeout as expensive math (path generation) is now memoized
-    // D3 OPACITY TRANSITIONS
-    // These run when viewState changes
+    // 1. Trigger OUT animation when context label changes
     useEffect(() => {
-        if (!svgRef.current) return;
+        if (!labelRef.current || currentLabel === displayLabel) return;
 
-        const svg = select(svgRef.current);
-        const TRANSITION_DURATION = 1000;
+        // Kill existing tweens to prevent conflict
+        gsap.killTweensOf(labelRef.current);
 
-        if (viewState === 'default') {
-            // DEFAULT VIEW: All states visible, all districts hidden
-            svg.selectAll('.state-path')
-                .transition('opacity')
-                .duration(TRANSITION_DURATION)
-                .ease(easeCubicInOut)
-                .style('opacity', 1);
+        gsap.to(labelRef.current, {
+            y: -20,
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.in",
+            onComplete: () => setDisplayLabel(currentLabel)
+        });
+    }, [currentLabel]);
 
-            svg.selectAll('.district-path')
-                .transition('opacity')
-                .duration(600)
-                .ease(easeCubicInOut)
-                .style('opacity', 0);
-
-        } else if (viewState === 'state') {
-            // STATE VIEW: Non-selected states fade out, selected stays visible
-            svg.selectAll('.state-path')
-                .transition('opacity')
-                .duration(TRANSITION_DURATION)
-                .ease(easeCubicInOut)
-                .style('opacity', function () {
-                    const pathId = select(this).attr('id') || '';
-                    const isSelected = pathId.includes(selectedState?.toLowerCase().replace(/\s+/g, '-'));
-                    return isSelected ? 1 : 0;
-                });
-
-            // Optimization: Target districts of selected state (to show) 
-            // AND currently visible districts (to hide, if any)
-            // 1. SELECT ALL
-            const allDistricts = svg.selectAll('.district-path');
-
-            // 2. DEFINE GROUPS
-            // Entering: Districts of selected state
-            const enteringDistricts = allDistricts.filter(function () {
-                return select(this).attr('data-state') === selectedState;
-            });
-
-            // Exiting: Visible districts of OTHER states
-            const exitingDistricts = allDistricts.filter(function () {
-                const isTarget = select(this).attr('data-state') === selectedState;
-                const isVisible = this.style.opacity > 0;
-                return !isTarget && isVisible;
-            });
-
-            // 3. HIDE OTHERS (Transition down)
-            exitingDistricts
-                .interrupt('show_districts')
-                .transition('hide_districts')
-                .duration(TRANSITION_DURATION)
-                .style('opacity', 0);
-
-            // 4. SHOW TARGETS (Force 0 -> Transition up)
-            enteringDistricts
-                .interrupt('hide_districts')
-                .each(function () {
-                    // Force start opacity to 0 if not already visible
-                    // This handles the 'persistence restore' case where element is fresh
-                    const current = parseFloat(select(this).style('opacity')) || 0;
-                    if (current < 0.1) {
-                        select(this).style('opacity', 0);
-                    }
-                })
-                .transition('show_districts')
-                .duration(TRANSITION_DURATION)
-                .ease(easeCubicInOut)
-                .style('opacity', 1);
-
-        } else if (viewState === 'district') {
-            // DISTRICT VIEW: All states hidden, only selected district visible
-            svg.selectAll('.state-path')
-                .transition('opacity')
-                .duration(TRANSITION_DURATION)
-                .ease(easeCubicInOut)
-                .style('opacity', 0);
-
-            svg.selectAll('.district-path')
-                .transition('opacity')
-                .duration(TRANSITION_DURATION)
-                .ease(easeCubicInOut)
-                .style('opacity', function () {
-                    const districtName = select(this).attr('data-district');
-                    return districtName === selectedDistrict ? 1 : 0;
-                });
-        }
-
-    }, [viewState, selectedState, selectedDistrict]);
-
-    // Initialize d3-zoom and handle transitions
-    // Combined into a single effect to ensure proper initialization
+    // 2. Trigger IN animation when local state updates (text actually changes in DOM)
     useEffect(() => {
+        if (!labelRef.current) return;
+
+        // Animate In: Slide Up + Fade In
+        gsap.fromTo(labelRef.current,
+            { y: 30, opacity: 0, scale: 0.95 },
+            {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                ease: "power3.out"
+            }
+        );
+    }, [displayLabel]);
+
+    // Initialize D3 Logic...
+
+    // Initialize D3 Logic...
+
+    // D3 ZOOM LOGIC (Pure Transform)
+    // Runs on viewState/zoom change
+    // Using simple transform allows CSS to handle opacity in parallel
+    // D3 ZOOM LOGIC (Pure Transform)
+    // Runs on viewState/zoom change
+    // Using simple transform allows CSS to handle opacity in parallel
+    // useLayoutEffect ensures the transform starts BEFORE the paint of the new view state
+    useLayoutEffect(() => {
         if (!svgRef.current || !gRef.current) return;
 
         const svg = select(svgRef.current);
@@ -230,121 +180,72 @@ export default function MapContainer() {
             const zoomBehavior = zoom()
                 .scaleExtent([0.5, 20])
                 .on('zoom', (event) => {
-                    g.attr('transform', event.transform.toString());
+                    if (gRef.current) {
+                        // Directly set transform attribute for max performance (bypass D3 selection overhead if possible)
+                        gRef.current.setAttribute('transform', event.transform.toString());
+                    }
                 });
 
             svg.call(zoomBehavior);
 
-            // Disable default zoom interactions (we only want programmatic zoom)
+            // Disable default zoom interactions
             svg.on('dblclick.zoom', null);
             svg.on('wheel.zoom', null);
 
             zoomBehaviorRef.current = zoomBehavior;
         }
 
-
         const zoomBehavior = zoomBehaviorRef.current;
         if (!zoomBehavior || !pathGenerator || !projection) return;
 
-        // CRITICAL: Skip if this zoomCounter was already processed FOR ZOOM-IN only
-        // This prevents the effect from re-running when viewState changes (RAF pattern)
-        // But we ALWAYS process zoom-out to default (when zoomTarget is null)
+        // CRITICAL: Skip duplicate zoom-in calls
         const isZoomIn = zoomTarget !== null;
         if (isZoomIn && zoomCounter === lastZoomCounterRef.current && zoomCounter !== 0) {
-            return; // Already processed this zoom-in action
+            return;
         }
         if (isZoomIn) {
             lastZoomCounterRef.current = zoomCounter;
         }
 
-        // Check zoomTarget FIRST (fixes RAF deferral timing issue)
-        // zoomTarget is set immediately, viewState is deferred via RAF
-        if (zoomTarget) {
-            // Calculate bounds for the target feature
-            let x0, y0, x1, y1;
+        // Apply Zoom Transform
+        let targetTransform = zoomIdentity;
+        let duration = 750;
 
-            // Try using pathGenerator.bounds first
-            const bounds = pathGenerator.bounds(zoomTarget);
-            [[x0, y0], [x1, y1]] = bounds;
-
-            // Check if bounds are valid
-            const isValidBounds =
-                isFinite(x0) && isFinite(y0) && isFinite(x1) && isFinite(y1) &&
-                x1 > x0 && y1 > y0 &&
-                Math.abs(x1 - x0) < MAP_WIDTH * 10 &&
-                Math.abs(y1 - y0) < MAP_HEIGHT * 10;
-
-            if (!isValidBounds) {
-                // Calculate bounds manually from coordinates
-                const coords = zoomTarget.geometry.coordinates;
-                let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-
-                function processCoords(c) {
-                    if (typeof c[0] === 'number' && typeof c[1] === 'number') {
-                        const projected = projection(c);
-                        if (projected) {
-                            minX = Math.min(minX, projected[0]);
-                            maxX = Math.max(maxX, projected[0]);
-                            minY = Math.min(minY, projected[1]);
-                            maxY = Math.max(maxY, projected[1]);
-                        }
-                    } else if (Array.isArray(c)) {
-                        c.forEach(processCoords);
-                    }
-                }
-                processCoords(coords);
-
-                x0 = minX; y0 = minY; x1 = maxX; y1 = maxY;
+        if (viewState === 'default') {
+            targetTransform = zoomIdentity.translate(MAP_WIDTH / 2, MAP_HEIGHT / 2).scale(1).translate(-MAP_WIDTH / 2, -MAP_HEIGHT / 2);
+        } else if (viewState === 'state' && selectedState) {
+            // Find bounds of selected state... (Logic remains same, just simplified block)
+            const feature = statesData?.features.find(f => f.properties.ST_NM === selectedState);
+            if (feature) {
+                const [[x0, y0], [x1, y1]] = pathGenerator.bounds(feature);
+                const width = x1 - x0;
+                const height = y1 - y0;
+                const scale = 0.85 / Math.max(width / MAP_WIDTH, height / MAP_HEIGHT);
+                const x = -(x0 + x1) / 2;
+                const y = -(y0 + y1) / 2;
+                targetTransform = zoomIdentity.translate(MAP_WIDTH / 2, MAP_HEIGHT / 2).scale(scale).translate(x, y);
             }
-
-            // Calculate zoom transform
-            const dx = x1 - x0;
-            const dy = y1 - y0;
-            const cx = (x0 + x1) / 2;
-            const cy = (y0 + y1) / 2;
-
-            // Determine zoom type from target feature properties (not viewState, which may be deferred)
-            // District features have a DISTRICT property, state features only have ST_NM
-            const isDistrictZoom = zoomTarget.properties && zoomTarget.properties.DISTRICT;
-            const padding = isDistrictZoom ? 30 : 40;
-            const scaleFactor = isDistrictZoom ? 0.97 : 0.93;
-
-            const scale = scaleFactor * Math.min(
-                MAP_WIDTH / (dx + padding * 2),
-                MAP_HEIGHT / (dy + padding * 2)
-            );
-            const clampedScale = Math.max(Math.min(scale, 15), 1);
-
-            const tx = MAP_WIDTH / 2 - clampedScale * cx;
-            const ty = MAP_HEIGHT / 2 - clampedScale * cy;
-
-            const newTransform = zoomIdentity.translate(tx, ty).scale(clampedScale);
-
-            isTransitioningRef.current = true;
-            svg.transition('zoom')  // Named transition to avoid conflict with opacity
-                .duration(1500)
-                .ease(easeCubicInOut)
-                .call(zoomBehavior.transform, newTransform)
-                .on('end', () => {
-                    isTransitioningRef.current = false;
-                });
-        } else if (viewState === 'default') {
-            // Reset to identity transform (no zoom) - only when no target
-            isTransitioningRef.current = true;
-            svg.transition('zoom')  // Named transition to avoid conflict with opacity
-                .duration(1500)
-                .ease(easeCubicInOut)
-                .call(zoomBehavior.transform, zoomIdentity)
-                .on('end', () => {
-                    isTransitioningRef.current = false;
-                });
+        } else if (viewState === 'district' && selectedDistrict) {
+            const feature = districtsData?.features.find(f => f.properties.DISTRICT === selectedDistrict);
+            if (feature) {
+                const [[x0, y0], [x1, y1]] = pathGenerator.bounds(feature);
+                const width = x1 - x0;
+                const height = y1 - y0;
+                const scale = 0.5 / Math.max(width / MAP_WIDTH, height / MAP_HEIGHT);
+                const x = -(x0 + x1) / 2;
+                const y = -(y0 + y1) / 2;
+                targetTransform = zoomIdentity.translate(MAP_WIDTH / 2, MAP_HEIGHT / 2).scale(scale).translate(x, y);
+            }
         }
 
-        // Cleanup function - only remove zoom handlers when component unmounts
-        return () => {
-            // Don't clear zoomBehaviorRef here, only on unmount
-        };
-    }, [viewState, zoomTarget, zoomCounter, pathGenerator, projection]);
+        // Execute Zoom
+        svg.transition()
+            .duration(duration)
+            .call(zoomBehavior.transform, targetTransform);
+
+    }, [viewState, selectedState, selectedDistrict, zoomTarget, zoomCounter, statesData, districtsData, pathGenerator, projection]);
+
+
 
 
     // Sync Map with URL Params (External Control)
@@ -390,13 +291,21 @@ export default function MapContainer() {
                 Explore →
             </button>
 
+            {/* Region Label - Animates on change */}
             <div className="region-label">
-                {currentLabel}
+                <h1 ref={labelRef}>
+                    {displayLabel}
+                </h1>
             </div>
 
             {/* Map container - centered SVG */}
             <div
                 className="map-container"
+                data-view={viewState}
+                data-selected-state={
+                    selectedState === 'Arunanchal Pradesh' ? 'Arunachal Pradesh' : selectedState
+                }
+                data-selected-district={selectedDistrict}
                 onMouseMove={(e) => {
                     const tooltip = document.querySelector('.custom-tooltip');
                     if (tooltip) {

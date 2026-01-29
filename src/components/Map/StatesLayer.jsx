@@ -1,5 +1,65 @@
+import React, { memo } from 'react';
 import { useMapContext } from '../../context/MapContext';
 import { generateId, STATE_COLORS } from './mapUtils';
+
+/**
+ * StatePath - Memoized component for individual state paths
+ * Prevents re-renders of all 35+ states when only one is selected.
+ */
+const StatePath = memo(({
+    feature,
+    pathD,
+    stateId,
+    stateName,
+    isWestBengal,
+    isSelected,
+    onSelect,
+    setTooltip,
+    hideTooltip,
+    viewState
+}) => {
+
+    // Handlers
+    const handleClick = (e) => {
+        e.stopPropagation();
+        if (stateName === 'West Bengal') return;
+        if (viewState !== 'default') return;
+        onSelect(stateName, feature);
+    };
+
+    const handleMouseEnter = () => {
+        if (viewState === 'default' && !isWestBengal) {
+            setTooltip({ content: stateName, visible: true });
+        }
+    };
+
+    // Determine basic classes - Visibility is handled by CSS (MapTransitions.css)
+    const className = `state-path ${isWestBengal ? 'west-bengal' : ''} ${isSelected ? 'selected' : ''}`;
+
+    return (
+        <path
+            id={stateId}
+            d={pathD}
+            className={className}
+            onClick={handleClick}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={hideTooltip}
+            style={{
+                fill: isSelected ? '#FBEAAF' : (STATE_COLORS[stateName] || '#e8f4ea'),
+                stroke: '#000000',
+                strokeWidth: isSelected ? 2 : 1,
+            }}
+        />
+    );
+}, (prevProps, nextProps) => {
+    return (
+        prevProps.isSelected === nextProps.isSelected &&
+        prevProps.viewState === nextProps.viewState &&
+        prevProps.pathD === nextProps.pathD
+    );
+});
+
+StatePath.displayName = 'StatePath';
 
 export default function StatesLayer({ pathGenerator, statesData }) {
     const { viewState, selectedState, selectState, setTooltip, hideTooltip } = useMapContext();
@@ -7,19 +67,6 @@ export default function StatesLayer({ pathGenerator, statesData }) {
     if (!pathGenerator || !statesData) {
         return null;
     }
-
-    const handleStateClick = (feature, e) => {
-        e.stopPropagation();
-        const stateName = feature.properties.ST_NM;
-
-        // West Bengal is not interactive
-        if (stateName === 'West Bengal') return;
-
-        // Only allow clicks in default view
-        if (viewState !== 'default') return;
-
-        selectState(stateName, feature);
-    };
 
     return (
         <g className="states-layer">
@@ -32,38 +79,20 @@ export default function StatesLayer({ pathGenerator, statesData }) {
 
                 if (!pathD) return null;
 
-                // Determine visibility class based on viewState
-                let visibilityClass = '';
-                if (viewState === 'state') {
-                    // In state view, hide all except selected state (including West Bengal)
-                    if (!isSelected) {
-                        visibilityClass = 'hidden';
-                    }
-                } else if (viewState === 'district') {
-                    // In district view, hide all states (including West Bengal)
-                    visibilityClass = 'hidden';
-                }
-
                 return (
-                    <path
+                    <StatePath
                         key={stateId}
-                        id={stateId}
-                        d={pathD}
-                        className={`state-path ${isWestBengal ? 'west-bengal' : ''} ${isSelected ? 'selected' : ''} ${visibilityClass}`}
-                        onClick={(e) => handleStateClick(feature, e)}
-                        onMouseEnter={() => {
-                            if (viewState === 'default' && !isWestBengal) {
-                                setTooltip({ content: stateName, visible: true });
-                            }
-                        }}
-                        onMouseLeave={() => hideTooltip()}
-                        style={{
-                            fill: isSelected ? '#a8d5ba' : (STATE_COLORS[stateName] || '#e8f4ea'),
-                            stroke: '#000000',
-                            strokeWidth: isSelected ? 2 : 1,
-                        }}
-                    >
-                    </path>
+                        stateId={stateId}
+                        stateName={stateName}
+                        feature={feature}
+                        pathD={pathD}
+                        isWestBengal={isWestBengal}
+                        isSelected={isSelected}
+                        viewState={viewState}
+                        onSelect={selectState}
+                        setTooltip={setTooltip}
+                        hideTooltip={hideTooltip}
+                    />
                 );
             })}
         </g>

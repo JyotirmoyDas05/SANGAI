@@ -1,36 +1,80 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useCallback, memo, useState, useEffect, useRef } from 'react';
 import { useMapContext } from '../../context/MapContext';
 import { generateId, STATE_COLORS, getParentShade } from './mapUtils';
 
 /**
- * DistrictsLayer - Renders ALL districts always for CSS transition stability
- * 
- * CRITICAL: For CSS transitions to work, DOM elements must EXIST before
- * the class change. We render ALL districts and use CSS classes to control
- * visibility (opacity 0/1) rather than conditional rendering.
+ * DistrictPath - Memoized component for individual district paths
  */
-export default function DistrictsLayer({ pathGenerator, allDistricts, selectedStateName }) {
-    const { viewState, selectedDistrict, selectDistrict, setTooltip, hideTooltip } = useMapContext();
+const DistrictPath = memo(({
+    feature,
+    pathD,
+    districtId,
+    districtName,
+    normalizedStateName,
+    fillColor,
+    isSelected,
+    onSelect,
+    setTooltip,
+    hideTooltip
+}) => {
+    // Inline click handler that calls the parent-provided memoized handler
+    const handleClick = (e) => onSelect(feature, e);
 
-    // Memoize the expensive path generation and data preparation
-    // This prevents recalculating 700+ paths on every render (especially during zoom)
+    // CSS handles pointer-events based on visibility
+    const handleMouseEnter = () => setTooltip({ content: districtName, visible: true });
+
+    return (
+        <path
+            id={districtId}
+            d={pathD}
+            data-state={normalizedStateName}
+            data-district={districtName}
+            className={`district-path ${isSelected ? 'is-selected' : ''}`}
+            onClick={handleClick}
+            onMouseLeave={hideTooltip}
+            onMouseEnter={handleMouseEnter}
+            style={{
+                fill: isSelected ? '#FBEAAF' : fillColor,
+                stroke: '#4A4A4A',
+                strokeWidth: isSelected ? 0.3 : 0.15,
+            }}
+        />
+    );
+}, (prevProps, nextProps) => {
+    return (
+        prevProps.isSelected === nextProps.isSelected &&
+        prevProps.fillColor === nextProps.fillColor &&
+        prevProps.pathD === nextProps.pathD &&
+        prevProps.onSelect === nextProps.onSelect
+    );
+});
+
+DistrictPath.displayName = 'DistrictPath';
+
+/**
+ * DistrictsLayer - Renders visible districts
+ * UPDATED: Implements Graceful Exit (delayed culling) for smooth zoom-out transitions.
+ */
+export default function DistrictsLayer({ pathGenerator, allDistricts }) {
+    const { viewState, selectDistrict, setTooltip, hideTooltip, selectedState, selectedDistrict } = useMapContext();
+
+    // 1. Memoize Data Preparation (unchanged)
     const districtElements = useMemo(() => {
         if (!pathGenerator || !allDistricts || allDistricts.length === 0) return [];
 
         return allDistricts.map((feature) => {
             const districtName = feature.properties.DISTRICT;
             const stateName = feature.properties.ST_NM;
+
+            // Generate stable ID
             const districtId = generateId('district', districtName);
             const pathD = pathGenerator(feature);
 
             if (!pathD) return null;
 
-            // Handle the Arunachal Pradesh name mismatch in GeoJSON
-            const normalizedStateName = stateName === 'Arunanchal Pradesh'
-                ? 'Arunachal Pradesh'
-                : stateName;
-
-            const parentColor = STATE_COLORS[stateName] || '#e8f4ea';
+            const normalizedStateName = stateName === 'Arunanchal Pradesh' ? 'Arunachal Pradesh' : stateName;
+            const effectiveStateName = districtName === 'Upper Siang' ? 'Arunachal Pradesh' : normalizedStateName;
+            const parentColor = STATE_COLORS[effectiveStateName] || '#D8D4C5';
             const fillColor = getParentShade(parentColor, districtName);
 
             return {
@@ -38,84 +82,93 @@ export default function DistrictsLayer({ pathGenerator, allDistricts, selectedSt
                 pathD,
                 districtId,
                 districtName,
-                stateName,
                 normalizedStateName,
-                fillColor
+                fillColor,
+                stateName
             };
         }).filter(Boolean);
     }, [allDistricts, pathGenerator]);
 
-    // Always render the group, even if empty (maintains DOM structure)
-    if (!districtElements || districtElements.length === 0) {
+    // 2. Stable Callbacks (unchanged)
+    const viewStateRef = useRef(viewState);
+    useEffect(() => { viewStateRef.current = viewState; }, [viewState]);
+
+    const handleDistrictClick = useCallback((feature, e) => {
+        e.stopPropagation();
+        if (viewStateRef.current !== 'state') return;
+        selectDistrict(feature.properties.DISTRICT, feature);
+    }, [selectDistrict]);
+
+    // 3. Graceful Exit Logic (Hybrid Pattern)
+    // We want INSTANT appearance on Zoom In, but DELAYED disappearance on Zoom Out.
+
+    // State to control what is actually rendered
+    const [renderingState, setRenderingState] = useState(selectedState);
+    const prevSelectedState = useRef(selectedState);
+    const fadeTimerRef = useRef(null);
+
+    // PATTERN: Synchronous State Update for Zoom In (Derived State)
+    // If we receive a new valid state, update IMMEDIATELY during render to avoid 1-frame gap.
+    if (selectedState && selectedState !== renderingState) {
+        setRenderingState(selectedState);
+        prevSelectedState.current = selectedState;
+        // Clear any pending fade-out
+        if (fadeTimerRef.current) {
+            clearTimeout(fadeTimerRef.current);
+            fadeTimerRef.current = null;
+        }
+    }
+
+    // Effect for Zoom Out (Delayed)
+    useEffect(() => {
+        // Only trigger if we are transitioning TO null (Zoom Out)
+        // (Zoom In is handled synchronously above)
+        if (!selectedState && prevSelectedState.current) {
+            // We are zooming out. Keep the OLD state for 800ms.
+            fadeTimerRef.current = setTimeout(() => {
+                setRenderingState(null);
+            }, 800);
+        }
+
+        // Update ref for next pass
+        if (selectedState !== prevSelectedState.current) {
+            prevSelectedState.current = selectedState;
+        }
+
+        return () => {
+            if (fadeTimerRef.current) clearTimeout(fadeTimerRef.current);
+        };
+    }, [selectedState]);
+
+    // 4. View-Dependent Culling
+    // Use `renderingState` to determine what to show
+    const visibleDistricts = useMemo(() => {
+        // If we have no state to render, show nothing.
+        if (!renderingState) return [];
+
+        const activeStateName = renderingState === 'Arunachal Pradesh' ? 'Arunanchal Pradesh' : renderingState;
+
+        return districtElements.filter(d => {
+            return d.stateName === activeStateName || d.normalizedStateName === renderingState;
+        });
+    }, [renderingState, districtElements]);
+
+    if (!visibleDistricts || visibleDistricts.length === 0) {
         return <g className="districts-layer" />;
     }
 
-    const handleDistrictClick = (feature, e) => {
-        e.stopPropagation();
-
-        // Only allow clicks in state view
-        if (viewState !== 'state') return;
-
-        const districtName = feature.properties.DISTRICT;
-        selectDistrict(districtName, feature);
-    };
-
     return (
         <g className="districts-layer">
-            {districtElements.map((data) => {
-                const { feature, pathD, districtId, districtName, normalizedStateName, fillColor } = data;
-
-                // Dynamic checks happen during render (cheap compared to path generation)
-                const isSelected = selectedDistrict === districtName;
-                const belongsToSelectedState = selectedStateName &&
-                    normalizedStateName === selectedStateName;
-
-                // Build CSS classes for visibility:
-                // - 'visible': District belongs to selected state AND we're in state/district view
-                // - 'hidden': In district view and this is not the selected district
-                // - (default): No class = opacity:0 as per CSS base state
-                let visibilityClass = '';
-
-                if (viewState === 'state' && belongsToSelectedState) {
-                    // In state view, show all districts of selected state
-                    visibilityClass = 'visible';
-                } else if (viewState === 'district') {
-                    if (isSelected) {
-                        // Selected district is visible
-                        visibilityClass = 'visible';
-                    } else if (belongsToSelectedState) {
-                        // Other districts of same state - hidden
-                        visibilityClass = 'hidden';
-                    }
-                    // Districts from other states stay at base opacity:0
-                }
-
-                return (
-                    <path
-                        key={districtId}
-                        id={districtId}
-                        d={pathD} // Validated pre-calculated path
-                        data-state={normalizedStateName}
-                        data-district={districtName}
-                        className={`district-path ${isSelected ? 'selected' : ''} ${visibilityClass}`}
-                        onClick={(e) => handleDistrictClick(feature, e)}
-                        // Single onMouseLeave handler
-                        onMouseLeave={() => hideTooltip()}
-                        onMouseEnter={() => {
-                            // Only show tooltip for visible districts
-                            if (visibilityClass === 'visible') {
-                                setTooltip({ content: districtName, visible: true });
-                            }
-                        }}
-                        style={{
-                            fill: isSelected ? '#34ab48' : fillColor,
-                            stroke: '#000000',
-                            strokeWidth: isSelected ? 0.25 : 0.15,
-                        }}
-                    >
-                    </path>
-                );
-            })}
+            {visibleDistricts.map((data) => (
+                <DistrictPath
+                    key={data.districtId}
+                    {...data}
+                    isSelected={selectedDistrict === data.districtName}
+                    onSelect={handleDistrictClick}
+                    setTooltip={setTooltip}
+                    hideTooltip={hideTooltip}
+                />
+            ))}
         </g>
     );
 }

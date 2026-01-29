@@ -41,14 +41,45 @@
   position: absolute;
   bottom: 40px;
   left: 40px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.05em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: all 0.5s ease;
+  min-width: 300px;
+  /* Prevent layout shift */
   z-index: 100;
+  pointer-events: none;
+  /* Let clicks pass through to map */
+}
+
+/* Typography for the label text */
+.region-label h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 3.5rem;
+  /* Large and bold */
+  font-weight: 800;
+  margin: 0;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+  /* Lift off map */
+}
+
+/* Explicit Animation Class */
+.animate-fade-in-up {
+  animation: labelEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes labelEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
 }
 
 /* Back Button - Top Left of Map Container (Absolute Position) */
@@ -173,7 +204,8 @@
 }
 
 .district-path.visible:hover {
-  fill: #D8D8C0 !important;
+  opacity: 0.9;
+  /* Just slight fade on hover instead of color change */
 }
 
 .district-path.hidden {
@@ -182,7 +214,8 @@
 }
 
 .district-path.selected {
-  fill: var(--primary) !important;
+  /* fill: var(--primary) !important;  -- Handled by React inline style now */
+  stroke: var(--text-primary) !important;
 }
 
 /* Loading State */
