@@ -37,6 +37,7 @@ export default function MapContainer() {
     const gRef = useRef(null);
     const zoomBehaviorRef = useRef(null);
     const isTransitioningRef = useRef(false); // Solution A: Transition guard
+    const lastZoomCounterRef = useRef(0); // Track last processed zoomCounter to prevent double-run
     const isLoaded = true; // Map is considered loaded when component mounts
 
     const navigate = useNavigate();
@@ -112,16 +113,106 @@ export default function MapContainer() {
         return { pathGenerator: pathGen, projection: proj };
     }, [statesData]);
 
-    // Get districts for selected state
-    const stateDistricts = useMemo(() => {
-        if (!selectedState || !districtsData || !districtsData.features) return [];
+    // Get ALL districts - render all for DOM stability (CSS controls visibility)
+    const allDistricts = useMemo(() => {
+        if (!districtsData || !districtsData.features) return [];
+        return districtsData.features;
+    }, [districtsData]);
 
-        const districtStateName = selectedState === 'Arunachal Pradesh'
-            ? 'Arunanchal Pradesh'
-            : selectedState;
+    // D3 OPACITY TRANSITIONS
+    // These run when viewState changes (which is deferred by RAF)
+    // Use setTimeout to stagger slightly after zoom starts (avoids CPU spike)
+    useEffect(() => {
+        if (!svgRef.current) return;
 
-        return districtsData.features.filter(f => f.properties.ST_NM === districtStateName);
-    }, [selectedState, districtsData]);
+        const svg = select(svgRef.current);
+        const TRANSITION_DURATION = 1000;
+
+        // Delay opacity transitions by 50ms to avoid competing with zoom calculations
+        const timeoutId = setTimeout(() => {
+            const DISTRICT_DELAY = 300;
+
+            if (viewState === 'default') {
+                // DEFAULT VIEW: All states visible, all districts hidden
+                svg.selectAll('.state-path')
+                    .transition('opacity')
+                    .duration(TRANSITION_DURATION)
+                    .ease(easeCubicInOut)
+                    .style('opacity', function () {
+                        return select(this).classed('west-bengal') ? 0.3 : 1;
+                    });
+
+                // Optimization: Only transition districts that are currently visible (opacity > 0)
+                // If they are already 0, no need to create a transition
+                svg.selectAll('.district-path')
+                    .filter(function () {
+                        return this.style.opacity > 0;
+                    })
+                    .transition('opacity')
+                    .duration(600)
+                    .ease(easeCubicInOut)
+                    .style('opacity', 0);
+
+            } else if (viewState === 'state') {
+                // STATE VIEW: Non-selected states fade out, selected stays visible
+                svg.selectAll('.state-path')
+                    .transition('opacity')
+                    .duration(TRANSITION_DURATION)
+                    .ease(easeCubicInOut)
+                    .style('opacity', function () {
+                        const pathId = select(this).attr('id') || '';
+                        const isSelected = pathId.includes(selectedState?.toLowerCase().replace(/\s+/g, '-'));
+                        return isSelected ? 1 : 0;
+                    });
+
+                // Optimization: Target districts of selected state (to show) 
+                // AND currently visible districts (to hide, if any)
+                svg.selectAll('.district-path')
+                    .filter(function () {
+                        const districtState = select(this).attr('data-state');
+                        const isTarget = districtState === selectedState;
+                        const isVisible = this.style.opacity > 0;
+                        return isTarget || isVisible;
+                    })
+                    .transition('opacity')
+                    .duration(TRANSITION_DURATION)
+                    .ease(easeCubicInOut)
+                    .style('opacity', function () {
+                        const districtState = select(this).attr('data-state');
+                        return districtState === selectedState ? 1 : 0;
+                    });
+
+            } else if (viewState === 'district') {
+                // DISTRICT VIEW: All states hidden, only selected district visible
+                svg.selectAll('.state-path')
+                    .transition('opacity')
+                    .duration(TRANSITION_DURATION)
+                    .ease(easeCubicInOut)
+                    .style('opacity', 0);
+
+                // Optimization: Target selected district (to show)
+                // AND currently visible districts (to hide others)
+                svg.selectAll('.district-path')
+                    .filter(function () {
+                        const districtName = select(this).attr('data-district');
+                        const isTarget = districtName === selectedDistrict;
+                        const isVisible = this.style.opacity > 0;
+                        return isTarget || isVisible;
+                    })
+                    .transition('opacity')
+                    .duration(TRANSITION_DURATION)
+                    .ease(easeCubicInOut)
+                    .style('opacity', function () {
+                        const districtName = select(this).attr('data-district');
+                        return districtName === selectedDistrict ? 1 : 0;
+                    });
+            }
+
+        }, 50);
+
+        return () => clearTimeout(timeoutId);
+
+    }, [viewState, selectedState, selectedDistrict]);
 
     // Initialize d3-zoom and handle transitions
     // Combined into a single effect to ensure proper initialization
@@ -152,10 +243,16 @@ export default function MapContainer() {
         const zoomBehavior = zoomBehaviorRef.current;
         if (!zoomBehavior || !pathGenerator || !projection) return;
 
-        // Cancel any ongoing transition and start new one
-        // D3 automatically handles interruption gracefully
-        svg.interrupt();  // Stop any ongoing transition
-        isTransitioningRef.current = false;  // Reset flag
+        // CRITICAL: Skip if this zoomCounter was already processed FOR ZOOM-IN only
+        // This prevents the effect from re-running when viewState changes (RAF pattern)
+        // But we ALWAYS process zoom-out to default (when zoomTarget is null)
+        const isZoomIn = zoomTarget !== null;
+        if (isZoomIn && zoomCounter === lastZoomCounterRef.current && zoomCounter !== 0) {
+            return; // Already processed this zoom-in action
+        }
+        if (isZoomIn) {
+            lastZoomCounterRef.current = zoomCounter;
+        }
 
         // Check zoomTarget FIRST (fixes RAF deferral timing issue)
         // zoomTarget is set immediately, viewState is deferred via RAF
@@ -221,7 +318,7 @@ export default function MapContainer() {
             const newTransform = zoomIdentity.translate(tx, ty).scale(clampedScale);
 
             isTransitioningRef.current = true;
-            svg.transition()
+            svg.transition('zoom')  // Named transition to avoid conflict with opacity
                 .duration(1500)
                 .ease(easeCubicInOut)
                 .call(zoomBehavior.transform, newTransform)
@@ -231,7 +328,7 @@ export default function MapContainer() {
         } else if (viewState === 'default') {
             // Reset to identity transform (no zoom) - only when no target
             isTransitioningRef.current = true;
-            svg.transition()
+            svg.transition('zoom')  // Named transition to avoid conflict with opacity
                 .duration(1500)
                 .ease(easeCubicInOut)
                 .call(zoomBehavior.transform, zoomIdentity)
@@ -319,12 +416,12 @@ export default function MapContainer() {
                             statesData={statesData}
                         />
 
-                        {/* Solution C: Always render DistrictsLayer (hidden when not needed)
-                            This eliminates DOM mounting cost during zoom transitions */}
+                        {/* Render ALL districts for DOM stability (CSS controls visibility)
+                            This enables smooth CSS opacity transitions */}
                         <DistrictsLayer
                             pathGenerator={pathGenerator}
-                            districts={stateDistricts}
-                            hidden={viewState === 'default'}
+                            allDistricts={allDistricts}
+                            selectedStateName={selectedState}
                         />
                     </g>
                 </svg>

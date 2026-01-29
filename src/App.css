@@ -1,6 +1,6 @@
 /* ===========================================
    MAP STYLES - SANGAI
-   Dark Forest Green Theme
+   CSS handles opacity transitions
    =========================================== */
 
 /* Map Wrapper - Full width container for absolute positioning */
@@ -114,15 +114,19 @@
   transform: translateX(2px) scale(0.98);
 }
 
-/* State Paths - Dark Theme */
+/* ===========================================
+   STATE PATHS - CSS Transitions
+   =========================================== */
+
 .state-path {
   cursor: pointer;
   fill: #E8E8D0;
   stroke: rgba(74, 74, 74, 0.4);
   stroke-width: 1.5;
-  transition: fill 0.3s ease, opacity 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-  will-change: opacity, transform;
-  transform: translateZ(0);
+  opacity: 1;
+  /* CSS transition for opacity - works when React adds/removes .hidden class */
+  transition: opacity 1s ease-out;
+  will-change: opacity;
 }
 
 .state-path:hover {
@@ -142,41 +146,43 @@
 .state-path.hidden {
   opacity: 0;
   pointer-events: none;
+  transition: opacity 1s ease-out;
 }
 
 .state-path.selected {
   fill: var(--primary) !important;
 }
 
-/* District Paths - Dark Theme */
+/* ===========================================
+   DISTRICT PATHS - D3 Controls Opacity
+   =========================================== */
+
 .district-path {
   cursor: pointer;
   fill: #E8E8D0;
   stroke: rgba(74, 74, 74, 0.3);
   stroke-width: 1;
-  transition: fill 0.3s ease, opacity 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-  will-change: opacity, transform;
-  transform: translateZ(0);
+  pointer-events: none;
+  opacity: 0;
+  /* Base state hidden - D3 overrides this via inline style */
 }
 
-.district-path:hover {
+.district-path.visible {
+  pointer-events: auto;
+  /* D3 sets opacity to 1 when visible */
+}
+
+.district-path.visible:hover {
   fill: #D8D8C0 !important;
 }
 
 .district-path.hidden {
-  opacity: 0;
   pointer-events: none;
+  /* D3 sets opacity to 0 when hidden */
 }
 
 .district-path.selected {
   fill: var(--primary) !important;
-}
-
-/* Hide entire layer without unmounting from DOM */
-.layer-hidden {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 /* Loading State */

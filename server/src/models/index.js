@@ -1,4 +1,6 @@
 // Export all models
+export { default as Region } from './Region.js';
+export { default as State } from './State.js';
 export { default as District } from './District.js';
 export { default as Place } from './Place.js';
 export { default as Homestay } from './Homestay.js';

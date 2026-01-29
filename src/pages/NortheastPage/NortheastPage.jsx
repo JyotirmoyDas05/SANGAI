@@ -1,10 +1,22 @@
 /**
  * NortheastPage - Dedicated page for Northeast region overview
  * Accessed via /northeast route
+ * 
+ * Fetches data from API and renders 8-section content structure
  */
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
-import StoryView from '../ExplorePage/views/StoryView';
+import { getRegionBySlug } from '../../api/apiService';
+import {
+    HeroSection,
+    DefiningThemesGrid,
+    NarrativeBlock,
+    PeopleGallery,
+    CulturalThreadsScroll,
+    ContributionCards,
+    ExplorationGrid,
+    GatewayGrid
+} from '../../components/RegionalPages';
 import './NortheastPage.css';
 
 const HIDE_DELAY = 5000; // 5 seconds before auto-hide
@@ -95,9 +107,126 @@ export default function NortheastPage() {
 
 /**
  * NortheastOverview - Default content when no subpage is selected
- * Story content is now included directly in the overview
+ * Fetches data from API and renders 8-section layout
  */
 function NortheastOverview() {
+    const [regionData, setRegionData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        async function fetchRegionData() {
+            try {
+                setLoading(true);
+                const data = await getRegionBySlug('northeast');
+                setRegionData(data);
+            } catch (err) {
+                console.error('Failed to fetch region data:', err);
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchRegionData();
+    }, []);
+
+    // Loading state
+    if (loading) {
+        return (
+            <div className="loading-container">
+                <div className="loading-spinner"></div>
+                <span className="loading-text">Discovering Northeast India...</span>
+            </div>
+        );
+    }
+
+    // Error state - show fallback content
+    if (error || !regionData) {
+        return <FallbackOverview />;
+    }
+
+    return (
+        <div className="region-overview">
+            {/* Section 1: Hero */}
+            <HeroSection
+                title={regionData.name || 'NORTHEAST INDIA'}
+                tagline={regionData.tagline}
+                subtitle="A land of eight sisters, bound by mountains, rivers, and a tapestry of over 200 tribes. Discover the unexplored paradise."
+                heroImage={regionData.heroImages?.[0]}
+                badge={{ icon: 'public', text: 'The Hidden Jewel' }}
+                size="large"
+            />
+
+            {/* Section 2: Defining Themes */}
+            {regionData.definingThemes?.length > 0 && (
+                <DefiningThemesGrid
+                    themes={regionData.definingThemes}
+                    title="What Defines This Land"
+                />
+            )}
+
+            {/* Section 3: Shared Story */}
+            {regionData.sharedStory?.paragraphs?.length > 0 && (
+                <NarrativeBlock
+                    paragraphs={regionData.sharedStory.paragraphs}
+                    title={regionData.sharedStory.title || 'A Story of Connection'}
+                    tone="philosophical"
+                    align="center"
+                />
+            )}
+
+            {/* Section 4: People */}
+            {regionData.people && (
+                <PeopleGallery
+                    title={regionData.people.title || 'People of the Northeast'}
+                    description={regionData.people.description}
+                    portraits={regionData.people.portraits}
+                />
+            )}
+
+            {/* Section 5: Cultural Threads */}
+            {regionData.culturalThreads?.length > 0 && (
+                <CulturalThreadsScroll
+                    threads={regionData.culturalThreads}
+                    title="Cultural Threads That Bind"
+                />
+            )}
+
+            {/* Section 6: Contributions */}
+            {regionData.contributions?.length > 0 && (
+                <ContributionCards
+                    contributions={regionData.contributions}
+                    title="What the Northeast Gives India"
+                />
+            )}
+
+            {/* Section 7: Ways to Explore */}
+            {regionData.explorationCategories?.length > 0 && (
+                <ExplorationGrid
+                    categories={regionData.explorationCategories}
+                    title="Ways to Explore"
+                />
+            )}
+
+            {/* Section 8: Gateway to States */}
+            {regionData.states?.length > 0 && (
+                <GatewayGrid
+                    items={regionData.states}
+                    title="Explore the Eight Sisters"
+                    basePath="/"
+                    entityType="state"
+                />
+            )}
+        </div>
+    );
+}
+
+/**
+ * FallbackOverview - Shown when API fails or data is unavailable
+ * Contains static content for graceful degradation
+ */
+function FallbackOverview() {
     return (
         <div className="region-overview">
             <section className="region-hero">
@@ -115,8 +244,32 @@ function NortheastOverview() {
                 </div>
             </section>
 
-            {/* Story content merged into overview */}
-            <StoryView />
+            <section className="defining-themes-section">
+                <h2 className="section-title">What Defines This Land</h2>
+                <div className="themes-grid">
+                    <div className="theme-card">
+                        <div className="theme-icon">
+                            <span className="material-symbols-outlined">forest</span>
+                        </div>
+                        <h3 className="theme-title">Living Landscapes</h3>
+                        <p className="theme-description">Mountains that touch clouds, rivers that birth civilizations, and forests older than memory.</p>
+                    </div>
+                    <div className="theme-card">
+                        <div className="theme-icon">
+                            <span className="material-symbols-outlined">diversity_3</span>
+                        </div>
+                        <h3 className="theme-title">200+ Indigenous Communities</h3>
+                        <p className="theme-description">Each hill, each valley harbors distinct languages, customs, and worldviews.</p>
+                    </div>
+                    <div className="theme-card">
+                        <div className="theme-icon">
+                            <span className="material-symbols-outlined">spa</span>
+                        </div>
+                        <h3 className="theme-title">Harmony with Nature</h3>
+                        <p className="theme-description">Traditional knowledge systems that have sustained biodiversity for millennia.</p>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

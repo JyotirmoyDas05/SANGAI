@@ -1,0 +1,932 @@
+[
+    {
+        "_id": "AR",
+        "code": "AR",
+        "name": "Arunachal Pradesh",
+        "slug": "arunachal_pradesh",
+        "regionId": "NE",
+        "tagline": "The Land of the Dawn-Lit Mountains",
+        "heroImage": {
+            "url": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1920",
+            "caption": "Tawang Monastery at sunrise"
+        },
+        "glance": {
+            "capital": "Itanagar",
+            "landscapeType": "Snow-capped peaks, deep valleys, alpine meadows",
+            "languages": [
+                "Nyishi",
+                "Adi",
+                "Monpa",
+                "Apatani",
+                "Hindi"
+            ],
+            "climate": "Alpine to subtropical, heavy monsoons",
+            "population": "~1.4 million",
+            "area": "83,743 sq km"
+        },
+        "landMemory": {
+            "narrative": "Where India greets the first rays of the sun, Arunachal Pradesh rises in layers of mountains that have sheltered diverse communities for millennia. This is a land where Buddhism meets animism, where every mountain has a guardian spirit, and where the concept of nature and culture have never been separate.",
+            "keyTransitions": [
+                "Ancient tribal kingdoms preserving unique identities",
+                "Buddhist monasteries establishing spiritual centers",
+                "Integration with India while maintaining cultural autonomy"
+            ]
+        },
+        "communities": {
+            "description": "Home to 26 major tribes and over 100 sub-tribes, each valley in Arunachal hosts communities with distinct languages, customs, and governance systems that have evolved over centuries.",
+            "coexistingGroups": [
+                "Hill communities",
+                "Valley settlers",
+                "Buddhist practitioners",
+                "Animist traditions"
+            ],
+            "sharedValues": [
+                "Respect for elders",
+                "Community decision-making",
+                "Forest stewardship",
+                "Oral traditions"
+            ]
+        },
+        "culturalLife": {
+            "festivals": [
+                {
+                    "name": "Losar",
+                    "meaning": "Tibetan New Year celebrated by Monpa people with prayers, dances, and community feasts"
+                },
+                {
+                    "name": "Mopin",
+                    "meaning": "Harvest festival of the Galo tribe invoking prosperity and driving away evil spirits"
+                },
+                {
+                    "name": "Solung",
+                    "meaning": "Agricultural festival of the Adi tribe celebrating the completion of sowing"
+                }
+            ],
+            "foodCulture": "Rice-based cuisine with bamboo shoots, wild herbs, and fermented preparations. Apong (rice beer) is central to social gatherings.",
+            "artForms": [
+                "Intricate cane and bamboo crafts",
+                "Traditional weaving",
+                "Wood carving",
+                "Mask-making for rituals"
+            ]
+        },
+        "contributions": [
+            {
+                "type": "Ecology",
+                "title": "Forest Guardians",
+                "description": "Community-managed forests using traditional conservation practices"
+            },
+            {
+                "type": "Crafts",
+                "title": "Bamboo Artistry",
+                "description": "Sustainable crafts using locally sourced materials passed down generations"
+            },
+            {
+                "type": "Ideas",
+                "title": "Living Democracy",
+                "description": "Village councils (Kebang) practicing consensus-based governance for centuries"
+            }
+        ],
+        "experienceCategories": [
+            {
+                "title": "Sacred Landscapes",
+                "description": "Monasteries perched on mountains, sacred groves, and pilgrimage routes",
+                "icon": "temple_buddhist"
+            },
+            {
+                "title": "Tribal Heritage",
+                "description": "Village stays with indigenous communities and cultural exchanges",
+                "icon": "groups"
+            },
+            {
+                "title": "High Altitude Trails",
+                "description": "Treks through alpine meadows and snow-touched passes",
+                "icon": "hiking"
+            }
+        ],
+        "searchKeywords": [
+            "arunachal",
+            "tawang",
+            "dawn lit mountains",
+            "monpa",
+            "adi",
+            "northeast frontier",
+            "ziro",
+            "itanagar"
+        ],
+        "districtCount": 28
+    },
+    {
+        "_id": "AS",
+        "code": "AS",
+        "name": "Assam",
+        "slug": "assam",
+        "regionId": "NE",
+        "tagline": "The Gateway to the Seven Sisters",
+        "heroImage": {
+            "url": "https://images.unsplash.com/photo-1582531029528-eb1c27b6aa61?w=1920",
+            "caption": "Tea gardens stretching to the horizon"
+        },
+        "glance": {
+            "capital": "Dispur",
+            "landscapeType": "Brahmaputra plains, tea gardens, wildlife sanctuaries",
+            "languages": [
+                "Assamese",
+                "Bodo",
+                "Bengali",
+                "Hindi"
+            ],
+            "climate": "Subtropical monsoon with warm summers",
+            "population": "~35 million",
+            "area": "78,438 sq km"
+        },
+        "landMemory": {
+            "narrative": "Assam is defined by the mighty Brahmaputra, one of the world's great rivers that brings both life and floods to this vast plain. For centuries, this was a crossroads—where traders, saints, and settlers from all directions met, creating a culture that embraces diversity while maintaining a distinct Assamese identity.",
+            "keyTransitions": [
+                "Ancient Kamarupa kingdom spreading Tantric Buddhism",
+                "Ahom dynasty ruling for six centuries with unique governance",
+                "British tea plantations reshaping economy and demographics"
+            ]
+        },
+        "communities": {
+            "description": "A mosaic of communities including Assamese, Bodo, Karbi, Mishing, Bengali settlers, and tea garden workers, all contributing to the state's cultural richness.",
+            "coexistingGroups": [
+                "Plains communities",
+                "Hill tribes",
+                "Tea garden families",
+                "Riverine settlements"
+            ],
+            "sharedValues": [
+                "Hospitality to strangers",
+                "Reverence for the Brahmaputra",
+                "Community celebrations",
+                "Artistic expression"
+            ]
+        },
+        "culturalLife": {
+            "festivals": [
+                {
+                    "name": "Bihu",
+                    "meaning": "The soul of Assam—three seasonal celebrations marking harvest, new year, and cattle with music and dance"
+                },
+                {
+                    "name": "Ambubachi Mela",
+                    "meaning": "Tantric festival at Kamakhya Temple celebrating the goddess and fertility"
+                },
+                {
+                    "name": "Me-Dam-Me-Phi",
+                    "meaning": "Ahom festival honoring ancestors and departed souls"
+                }
+            ],
+            "foodCulture": "Rice and fish are staples, flavored with mustard oil and herbs. Duck curry, pitha (rice cakes), and tamul-paan (betel nut) define Assamese hospitality.",
+            "artForms": [
+                "Muga and Eri silk weaving",
+                "Xattriya dance tradition",
+                "Manuscript painting",
+                "Bamboo and cane crafts"
+            ]
+        },
+        "contributions": [
+            {
+                "type": "Agriculture",
+                "title": "Tea Heritage",
+                "description": "Producer of over half of India's tea, with unique Assam varietals prized globally"
+            },
+            {
+                "type": "Ecology",
+                "title": "One-Horned Rhino",
+                "description": "Kaziranga and Manas—last strongholds of the Indian rhinoceros"
+            },
+            {
+                "type": "Crafts",
+                "title": "Silk Traditions",
+                "description": "Muga silk, golden and durable, woven nowhere else in the world"
+            }
+        ],
+        "experienceCategories": [
+            {
+                "title": "Wildlife Encounters",
+                "description": "Rhinos, elephants, tigers in UNESCO World Heritage sites",
+                "icon": "pets"
+            },
+            {
+                "title": "River Journeys",
+                "description": "Cruise the Brahmaputra, visit river islands, meet fishing communities",
+                "icon": "sailing"
+            },
+            {
+                "title": "Tea Heritage",
+                "description": "Stay in tea bungalows, walk the gardens, taste estate-made chai",
+                "icon": "local_cafe"
+            }
+        ],
+        "searchKeywords": [
+            "assam",
+            "brahmaputra",
+            "kaziranga",
+            "bihu",
+            "tea gardens",
+            "kamakhya",
+            "muga silk",
+            "rhino"
+        ],
+        "districtCount": 35
+    },
+    {
+        "_id": "MN",
+        "code": "MN",
+        "name": "Manipur",
+        "slug": "manipur",
+        "regionId": "NE",
+        "tagline": "The Jewel of India",
+        "heroImage": {
+            "url": "https://images.unsplash.com/photo-1603867106100-0d7f3b8e8b74?w=1920",
+            "caption": "Loktak Lake floating islands at dawn"
+        },
+        "glance": {
+            "capital": "Imphal",
+            "landscapeType": "Central valley, surrounding hills, floating lakes",
+            "languages": [
+                "Meiteilon (Manipuri)",
+                "Tangkhul",
+                "Thadou",
+                "Hindi"
+            ],
+            "climate": "Subtropical highland with pleasant summers",
+            "population": "~3 million",
+            "area": "22,327 sq km"
+        },
+        "landMemory": {
+            "narrative": "Manipur is a valley ringed by hills, where the Meitei people developed one of the most sophisticated classical cultures in South Asia. Dance, martial arts, and polo (which originated here) share space with the traditions of hill tribes who have their own rich heritage. This is a land where resilience and beauty coexist.",
+            "keyTransitions": [
+                "Ancient Meitei kingdom with unique script and calendar",
+                "Development of Manipuri classical dance and Thang-Ta martial arts",
+                "British influence and the sacrifices of Rani Gaidinliu"
+            ]
+        },
+        "communities": {
+            "description": "The valley Meitei and hill communities like Tangkhul, Kabui, and Kuki have shaped a multi-layered culture where different traditions find expression.",
+            "coexistingGroups": [
+                "Valley Meitei",
+                "Naga hill tribes",
+                "Kuki-Chin communities",
+                "Pangal Muslims"
+            ],
+            "sharedValues": [
+                "Artistic excellence",
+                "Martial tradition",
+                "Community feasts",
+                "Sports culture"
+            ]
+        },
+        "culturalLife": {
+            "festivals": [
+                {
+                    "name": "Yaoshang",
+                    "meaning": "Holi celebrated with Thabal Chongba moonlit dances for five days"
+                },
+                {
+                    "name": "Lai Haraoba",
+                    "meaning": "Ancient festival invoking local deities through elaborate dance-dramas"
+                },
+                {
+                    "name": "Ningol Chakouba",
+                    "meaning": "Married daughters return to their maternal homes for a grand family feast"
+                }
+            ],
+            "foodCulture": "Fermented fish (ngari), bamboo shoots, and singju (spicy salad) define the cuisine. Eromba, a mashed vegetable dish, is comfort food.",
+            "artForms": [
+                "Manipuri classical dance",
+                "Thang-Ta martial arts",
+                "Handloom phees (textiles)",
+                "Pottery and metalwork"
+            ]
+        },
+        "contributions": [
+            {
+                "type": "Culture",
+                "title": "Classical Dance",
+                "description": "Manipuri dance, recognized among India's eight classical forms, known for its grace"
+            },
+            {
+                "type": "Ideas",
+                "title": "Modern Polo Origin",
+                "description": "Sagol Kangjei, the original form of polo, invented here centuries ago"
+            },
+            {
+                "type": "Ecology",
+                "title": "Loktak Lake",
+                "description": "World's only floating lake with unique phumdis (floating biomass) ecosystem"
+            }
+        ],
+        "experienceCategories": [
+            {
+                "title": "Dance & Performance",
+                "description": "Witness classical dance, martial arts demonstrations, and ritual performances",
+                "icon": "theater_comedy"
+            },
+            {
+                "title": "Floating World",
+                "description": "Explore Loktak Lake, stay on floating huts, meet the Keibul Lamjao deer",
+                "icon": "water"
+            },
+            {
+                "title": "Craft Villages",
+                "description": "Pottery at Thongjao, weaving at Wangkhei, metalwork at Andro",
+                "icon": "handyman"
+            }
+        ],
+        "searchKeywords": [
+            "manipur",
+            "loktak",
+            "imphal",
+            "sangai",
+            "polo",
+            "manipuri dance",
+            "thang ta",
+            "ima keithel"
+        ],
+        "districtCount": 16
+    },
+    {
+        "_id": "ML",
+        "code": "ML",
+        "name": "Meghalaya",
+        "slug": "meghalaya",
+        "regionId": "NE",
+        "tagline": "The Abode of Clouds",
+        "heroImage": {
+            "url": "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=1920",
+            "caption": "Living root bridges of Cherrapunji"
+        },
+        "glance": {
+            "capital": "Shillong",
+            "landscapeType": "Rolling hills, waterfalls, caves, living root bridges",
+            "languages": [
+                "Khasi",
+                "Garo",
+                "Jaintia",
+                "English",
+                "Hindi"
+            ],
+            "climate": "Subtropical highland, among world's wettest regions",
+            "population": "~3.3 million",
+            "area": "22,429 sq km"
+        },
+        "landMemory": {
+            "narrative": "Meghalaya is where the monsoon clouds come to rest, creating one of the wettest places on Earth. But this is not just about rain—it's about a matrilineal society where lineage passes through the mother, where communities grew bridges from living tree roots, and where the rhythm of the hills shaped a unique worldview.",
+            "keyTransitions": [
+                "Autonomous Khasi and Garo kingdoms with distinct governance",
+                "British hill station development in Shillong",
+                "Modern recognition of matrilineal traditions and living root bridges"
+            ]
+        },
+        "communities": {
+            "description": "Three main tribes—Khasi, Garo, and Jaintia—each with matrilineal traditions where children take their mother's surname and property passes through women.",
+            "coexistingGroups": [
+                "Khasi hill people",
+                "Garo communities",
+                "Jaintia tribes",
+                "Plains settlers"
+            ],
+            "sharedValues": [
+                "Matrilineal lineage",
+                "Community forest protection",
+                "Music and dance",
+                "Respect for nature"
+            ]
+        },
+        "culturalLife": {
+            "festivals": [
+                {
+                    "name": "Wangala",
+                    "meaning": "Garo 100-drum festival celebrating the harvest with music and dance"
+                },
+                {
+                    "name": "Shad Suk Mynsiem",
+                    "meaning": "Khasi thanksgiving dance festival where unmarried girls dance in ceremonial attire"
+                },
+                {
+                    "name": "Behdienkhlam",
+                    "meaning": "Jaintia festival to drive away evil and pray for good harvest"
+                }
+            ],
+            "foodCulture": "Pork dishes reign supreme—jadoh (pork rice), dohneiiong (pork with sesame), tungrymbai (fermented soybean). Rice beer flows freely at gatherings.",
+            "artForms": [
+                "Bamboo and cane weaving",
+                "Traditional attire weaving",
+                "Musical instruments",
+                "Cave paintings"
+            ]
+        },
+        "contributions": [
+            {
+                "type": "Ideas",
+                "title": "Living Architecture",
+                "description": "Root bridges grown over generations—a UNESCO-recognized example of sustainable engineering"
+            },
+            {
+                "type": "Culture",
+                "title": "Matrilineal Society",
+                "description": "One of the world's few matrilineal societies with unique family structures"
+            },
+            {
+                "type": "Ecology",
+                "title": "Sacred Groves",
+                "description": "Ancient community-protected forests preserving biodiversity through taboo and tradition"
+            }
+        ],
+        "experienceCategories": [
+            {
+                "title": "Living Root Bridges",
+                "description": "Trek to bridges grown from tree roots over centuries",
+                "icon": "nature"
+            },
+            {
+                "title": "Cave Exploration",
+                "description": "Longest caves in the subcontinent, many still unexplored",
+                "icon": "explore"
+            },
+            {
+                "title": "Waterfall Trails",
+                "description": "Chase waterfalls during monsoon season's spectacular displays",
+                "icon": "waves"
+            }
+        ],
+        "searchKeywords": [
+            "meghalaya",
+            "shillong",
+            "cherrapunji",
+            "living root bridges",
+            "mawsynram",
+            "khasi",
+            "matrilineal",
+            "clouds"
+        ],
+        "districtCount": 12
+    },
+    {
+        "_id": "MZ",
+        "code": "MZ",
+        "name": "Mizoram",
+        "slug": "mizoram",
+        "regionId": "NE",
+        "tagline": "The Land of the Blue Mountains",
+        "heroImage": {
+            "url": "https://images.unsplash.com/photo-1516617442634-75371039cb3a?w=1920",
+            "caption": "Rolling blue mountains and morning mist"
+        },
+        "glance": {
+            "capital": "Aizawl",
+            "landscapeType": "Endless rolling hills, bamboo forests, river valleys",
+            "languages": [
+                "Mizo",
+                "English",
+                "Hindi"
+            ],
+            "climate": "Mild winters, pleasant summers, heavy monsoons",
+            "population": "~1.2 million",
+            "area": "21,081 sq km"
+        },
+        "landMemory": {
+            "narrative": "Mizoram emerged from the Blue Mountains that roll endlessly into the horizon. Here, a society organized around the concept of 'Tlawmngaihna'—a code of selfless service and community responsibility—created one of India's most literate and tightly-knit states. The Mizo identity forged through common purpose remains strong.",
+            "keyTransitions": [
+                "Migration legends from the Chin Hills",
+                "Christian missionary influence transforming society",
+                "Peaceful resolution of insurgency and statehood achievement"
+            ]
+        },
+        "communities": {
+            "description": "A remarkably homogeneous society where the Mizo identity unites various clans, creating strong social cohesion and community bonds.",
+            "coexistingGroups": [
+                "Various Mizo clans",
+                "Chakma communities",
+                "Lai tribes"
+            ],
+            "sharedValues": [
+                "Tlawmngaihna (selfless service)",
+                "Community responsibility",
+                "Music and choir traditions",
+                "Church-centered social life"
+            ]
+        },
+        "culturalLife": {
+            "festivals": [
+                {
+                    "name": "Chapchar Kut",
+                    "meaning": "Spring festival celebrating the completion of jhum (shifting cultivation) preparation"
+                },
+                {
+                    "name": "Mim Kut",
+                    "meaning": "Harvest festival honoring the departed with offerings of maize"
+                },
+                {
+                    "name": "Christmas",
+                    "meaning": "The most celebrated festival with entire communities gathering for music and feasts"
+                }
+            ],
+            "foodCulture": "Mizo cuisine features bai (leaf and vegetable stew), vawksa (pork preparations), and saum (fermented pork fat). Meals are simple but communal.",
+            "artForms": [
+                "Puan weaving (traditional shawls)",
+                "Bamboo crafts",
+                "Cheraw bamboo dance",
+                "Choral music traditions"
+            ]
+        },
+        "contributions": [
+            {
+                "type": "Ideas",
+                "title": "Tlawmngaihna Ethics",
+                "description": "A social code of conduct emphasizing hospitality and selfless community service"
+            },
+            {
+                "type": "Culture",
+                "title": "Choral Traditions",
+                "description": "Among India's finest choral music traditions, with churches doubling as music schools"
+            },
+            {
+                "type": "Ecology",
+                "title": "Bamboo Conservation",
+                "description": "Sustainable use of bamboo forests that cover much of the state"
+            }
+        ],
+        "experienceCategories": [
+            {
+                "title": "Hill Village Life",
+                "description": "Stay in village homestays and experience daily Mizo life",
+                "icon": "cabin"
+            },
+            {
+                "title": "Blue Mountain Trails",
+                "description": "Trek through rolling hills with panoramic views at every turn",
+                "icon": "terrain"
+            },
+            {
+                "title": "Music & Worship",
+                "description": "Experience Sunday services with spectacular choral performances",
+                "icon": "music_note"
+            }
+        ],
+        "searchKeywords": [
+            "mizoram",
+            "aizawl",
+            "blue mountains",
+            "cheraw dance",
+            "mizo",
+            "tlawmngaihna",
+            "bamboo dance",
+            "chapchar kut"
+        ],
+        "districtCount": 11
+    },
+    {
+        "_id": "NL",
+        "code": "NL",
+        "name": "Nagaland",
+        "slug": "nagaland",
+        "regionId": "NE",
+        "tagline": "The Land of Festivals",
+        "heroImage": {
+            "url": "https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=1920",
+            "caption": "Hornbill Festival performers in traditional warrior attire"
+        },
+        "glance": {
+            "capital": "Kohima",
+            "landscapeType": "Steep mountains, terraced fields, misty valleys",
+            "languages": [
+                "English",
+                "Nagamese",
+                "Various tribal languages"
+            ],
+            "climate": "Moderate summers, cold winters in higher elevations",
+            "population": "~2 million",
+            "area": "16,579 sq km"
+        },
+        "landMemory": {
+            "narrative": "Nagaland is where sixteen major tribes, each fiercely independent, found unity in their shared love for their land. Once known for their warrior traditions and headhunting practices, the Naga people have preserved their distinct tribal identities while embracing modernity. The mountains here breed resilience.",
+            "keyTransitions": [
+                "Independent tribal kingdoms with inter-village alliances",
+                "Christian conversion transforming social structures",
+                "Movement for Naga identity and subsequent peace accords"
+            ]
+        },
+        "communities": {
+            "description": "Sixteen major tribes—Angami, Ao, Sumi, Lotha, Konyak, and more—each with unique dialects, customs, and traditional attire that they proudly display at festivals.",
+            "coexistingGroups": [
+                "Angami",
+                "Ao",
+                "Sumi",
+                "Lotha",
+                "Konyak",
+                "Rengma",
+                "Chakesang",
+                "Others"
+            ],
+            "sharedValues": [
+                "Tribal identity",
+                "Warrior heritage",
+                "Community feasts (Morungs)",
+                "Respect for nature"
+            ]
+        },
+        "culturalLife": {
+            "festivals": [
+                {
+                    "name": "Hornbill Festival",
+                    "meaning": "Festival of Festivals celebrating all Naga tribes together with dance, music, and indigenous games"
+                },
+                {
+                    "name": "Moatsu",
+                    "meaning": "Ao tribe's post-sowing festival with feasting and folk songs"
+                },
+                {
+                    "name": "Sekrenyi",
+                    "meaning": "Angami purification festival with rituals spanning several days"
+                }
+            ],
+            "foodCulture": "Smoked and fermented meats, bamboo shoot preparations, axone (fermented soybean), and rice beer are central to Naga cuisine.",
+            "artForms": [
+                "Traditional warrior shawls",
+                "Blacksmithing",
+                "Wood carving",
+                "Beadwork and jewelry"
+            ]
+        },
+        "contributions": [
+            {
+                "type": "Culture",
+                "title": "Festival Heritage",
+                "description": "Each tribe's annual festival preserving ancient traditions in living form"
+            },
+            {
+                "type": "Crafts",
+                "title": "Warrior Aesthetics",
+                "description": "Shawls, spears, dao (machetes), and ornaments that are wearable identity"
+            },
+            {
+                "type": "Ideas",
+                "title": "Community Governance",
+                "description": "Traditional village councils (Morungs) maintaining social order"
+            }
+        ],
+        "experienceCategories": [
+            {
+                "title": "Festival Experiences",
+                "description": "Time your visit to witness tribal festivals in villages",
+                "icon": "celebration"
+            },
+            {
+                "title": "Village Homestays",
+                "description": "Stay with Naga families, learn traditions, share meals",
+                "icon": "home"
+            },
+            {
+                "title": "Craft Workshops",
+                "description": "Learn weaving, blacksmithing, and traditional arts from masters",
+                "icon": "brush"
+            }
+        ],
+        "searchKeywords": [
+            "nagaland",
+            "hornbill festival",
+            "kohima",
+            "naga",
+            "konyak",
+            "dimapur",
+            "warrior tribes",
+            "morungs"
+        ],
+        "districtCount": 16
+    },
+    {
+        "_id": "SK",
+        "code": "SK",
+        "name": "Sikkim",
+        "slug": "sikkim",
+        "regionId": "NE",
+        "tagline": "Where Mountains Touch the Sky",
+        "heroImage": {
+            "url": "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=1920",
+            "caption": "Kanchenjunga peak at golden hour"
+        },
+        "glance": {
+            "capital": "Gangtok",
+            "landscapeType": "Himalayan peaks, alpine valleys, glacial lakes",
+            "languages": [
+                "Nepali",
+                "Sikkimese",
+                "Lepcha",
+                "Bhutia",
+                "English"
+            ],
+            "climate": "Alpine to subtropical, varies with altitude",
+            "population": "~0.6 million",
+            "area": "7,096 sq km"
+        },
+        "landMemory": {
+            "narrative": "In the shadow of Kanchenjunga, the world's third-highest peak, Sikkim evolved as a Buddhist kingdom where the Chogyal rulers fostered a culture of peace and reverence for nature. Today, as India's first fully organic state, Sikkim continues its tradition of living in harmony with its magnificent but fragile environment.",
+            "keyTransitions": [
+                "Establishment of the Buddhist Namgyal dynasty",
+                "Monasteries becoming centers of learning and art",
+                "Merger with India while preserving cultural identity"
+            ]
+        },
+        "communities": {
+            "description": "Three communities—Lepcha (original inhabitants), Bhutia (Tibetan origin), and Nepali settlers—have created a harmonious multicultural society united by Buddhist values.",
+            "coexistingGroups": [
+                "Lepcha indigenous people",
+                "Bhutia Buddhists",
+                "Nepali communities"
+            ],
+            "sharedValues": [
+                "Buddhist philosophy",
+                "Environmental stewardship",
+                "Hospitality",
+                "Mountain respect"
+            ]
+        },
+        "culturalLife": {
+            "festivals": [
+                {
+                    "name": "Losar",
+                    "meaning": "Tibetan New Year with monastery prayers, masked dances, and community celebrations"
+                },
+                {
+                    "name": "Pang Lhabsol",
+                    "meaning": "Worship of Kanchenjunga, the guardian deity, with masked warrior dances"
+                },
+                {
+                    "name": "Saga Dawa",
+                    "meaning": "Buddha's birth, enlightenment, and death commemorated with pilgrimages and prayers"
+                }
+            ],
+            "foodCulture": "Momos (dumplings), thukpa (noodle soup), and gundruk (fermented greens) reflect Tibetan and Nepali influences. Tongba (millet beer) warms cold evenings.",
+            "artForms": [
+                "Thangka painting",
+                "Mask making",
+                "Carpet weaving",
+                "Monastery murals"
+            ]
+        },
+        "contributions": [
+            {
+                "type": "Ecology",
+                "title": "Organic Pioneer",
+                "description": "India's first 100% organic state, banning chemical farming entirely"
+            },
+            {
+                "type": "Culture",
+                "title": "Buddhist Heritage",
+                "description": "Ancient monasteries preserving Vajrayana Buddhism and Tibetan arts"
+            },
+            {
+                "type": "Ideas",
+                "title": "Sustainable Tourism",
+                "description": "Model for managing tourism in fragile mountain ecosystems"
+            }
+        ],
+        "experienceCategories": [
+            {
+                "title": "Monastery Circuit",
+                "description": "Visit ancient Buddhist monasteries with panoramic Himalayan views",
+                "icon": "temple_buddhist"
+            },
+            {
+                "title": "High Altitude Lakes",
+                "description": "Journey to sacred lakes like Gurudongmar and Tsomgo",
+                "icon": "water"
+            },
+            {
+                "title": "Kanchenjunga Views",
+                "description": "Multiple vantage points to witness the guardian peak at sunrise",
+                "icon": "landscape"
+            }
+        ],
+        "searchKeywords": [
+            "sikkim",
+            "gangtok",
+            "kanchenjunga",
+            "monastery",
+            "organic state",
+            "lepcha",
+            "pelling",
+            "rumtek"
+        ],
+        "districtCount": 6
+    },
+    {
+        "_id": "TR",
+        "code": "TR",
+        "name": "Tripura",
+        "slug": "tripura",
+        "regionId": "NE",
+        "tagline": "The Land of Fourteen Gods",
+        "heroImage": {
+            "url": "https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=1920",
+            "caption": "Ujjayanta Palace in Agartala"
+        },
+        "glance": {
+            "capital": "Agartala",
+            "landscapeType": "Low hills, plains, bamboo forests, river valleys",
+            "languages": [
+                "Bengali",
+                "Kokborok",
+                "Hindi"
+            ],
+            "climate": "Tropical monsoon with warm temperatures year-round",
+            "population": "~4 million",
+            "area": "10,491 sq km"
+        },
+        "landMemory": {
+            "narrative": "Tripura was an independent kingdom for over two thousand years, ruled by the Manikya dynasty who traced their lineage to lunar gods. Despite being surrounded by Bangladesh on three sides, Tripura forged a unique identity blending indigenous Tiprasa culture with Bengali influences, creating a land where temple traditions meet tribal heritage.",
+            "keyTransitions": [
+                "Manikya dynasty establishing a sophisticated court culture",
+                "Integration with India while maintaining princely traditions",
+                "Balancing tribal and settler community relations"
+            ]
+        },
+        "communities": {
+            "description": "Indigenous Tiprasa (nineteen tribes including Tripuri, Reang, Jamatia) alongside Bengali settlers have created a bilingual, bicultural society.",
+            "coexistingGroups": [
+                "Tripuri tribes",
+                "Reang community",
+                "Bengali settlers",
+                "Other indigenous groups"
+            ],
+            "sharedValues": [
+                "Religious harmony",
+                "Artistic traditions",
+                "Community festivals",
+                "Reverence for royalty"
+            ]
+        },
+        "culturalLife": {
+            "festivals": [
+                {
+                    "name": "Kharchi Puja",
+                    "meaning": "Worship of the fourteen gods of the Tripuri pantheon at the Chaturdash Devata temple"
+                },
+                {
+                    "name": "Garia Puja",
+                    "meaning": "Tribal spring festival invoking Garia deity for prosperity and good harvest"
+                },
+                {
+                    "name": "Durga Puja",
+                    "meaning": "Grand Bengali celebrations with elaborate pandals and community gatherings"
+                }
+            ],
+            "foodCulture": "Bengali and tribal cuisines coexist—fish preparations with mustard, bamboo shoot curries (gudok), and various pitha (rice cakes).",
+            "artForms": [
+                "Bamboo and cane crafts",
+                "Traditional Tripuri dance",
+                "Handloom weaving",
+                "Clay pottery"
+            ]
+        },
+        "contributions": [
+            {
+                "type": "Culture",
+                "title": "Fourteen Gods Tradition",
+                "description": "Unique syncretic worship blending tribal and Hindu deities"
+            },
+            {
+                "type": "Crafts",
+                "title": "Bamboo Heritage",
+                "description": "Intricate bamboo work from houses to household items"
+            },
+            {
+                "type": "Ideas",
+                "title": "Royal Legacy",
+                "description": "One of India's oldest continuous dynasties until modern integration"
+            }
+        ],
+        "experienceCategories": [
+            {
+                "title": "Temple Heritage",
+                "description": "Ancient temples and royal palaces telling stories of the Manikya kings",
+                "icon": "temple_hindu"
+            },
+            {
+                "title": "Tribal Villages",
+                "description": "Meet Tripura's indigenous communities and learn their crafts",
+                "icon": "groups"
+            },
+            {
+                "title": "Rock-Cut Art",
+                "description": "Discover ancient rock carvings at Unakoti and Pilak",
+                "icon": "terrain"
+            }
+        ],
+        "searchKeywords": [
+            "tripura",
+            "agartala",
+            "ujjayanta palace",
+            "unakoti",
+            "fourteen gods",
+            "tripuri",
+            "kharchi",
+            "manikya"
+        ],
+        "districtCount": 8
+    }
+]

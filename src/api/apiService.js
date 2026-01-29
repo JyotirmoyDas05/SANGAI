@@ -49,6 +49,40 @@ export async function getDistrictById(id) {
     return result.data;
 }
 
+export async function getDistrictBySlug(slug) {
+    const result = await fetchAPI(`/districts/by-slug/${slug}`);
+    return result.data;
+}
+
+// ============ Regions API ============
+
+export async function getRegions() {
+    const result = await fetchAPI('/regions');
+    return result.data;
+}
+
+export async function getRegionBySlug(slug) {
+    const result = await fetchAPI(`/regions/${slug}`);
+    return result.data;
+}
+
+// ============ States API ============
+
+export async function getStates() {
+    const result = await fetchAPI('/states');
+    return result.data;
+}
+
+export async function getStateBySlug(slug) {
+    const result = await fetchAPI(`/states/${slug}`);
+    return result.data;
+}
+
+export async function getStateDistricts(slug) {
+    const result = await fetchAPI(`/states/${slug}/districts`);
+    return result.data;
+}
+
 // ============ Places API ============
 
 export async function getPlaces(params = {}) {
@@ -160,10 +194,18 @@ export async function healthCheck() {
 
 // Export all as default object for convenience
 export default {
+    // Regions
+    getRegions,
+    getRegionBySlug,
+    // States
+    getStates,
+    getStateBySlug,
+    getStateDistricts,
     // Districts
     getDistricts,
     getDistrictsByState,
     getDistrictById,
+    getDistrictBySlug,
     // Places
     getPlaces,
     getPlaceById,

@@ -3,12 +3,14 @@
  * Run with: npm run seed
  */
 import 'dotenv/config';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import connectDB from '../src/config/database.js';
 import {
+    Region,
+    State,
     District,
     Place,
     Homestay,
@@ -22,10 +24,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const JSON_DIR = join(__dirname, '../../src/json_backend');
 
 /**
- * Load JSON file
+ * Load JSON file safely
  */
 const loadJSON = (filename) => {
     const filepath = join(JSON_DIR, filename);
+    if (!existsSync(filepath)) {
+        console.log(`   ⚠️  File not found: ${filename}, skipping...`);
+        return [];
+    }
     const content = readFileSync(filepath, 'utf-8');
     return JSON.parse(content);
 };
@@ -43,6 +49,8 @@ const seedDatabase = async () => {
         // Clear existing data
         console.log('🗑️  Clearing existing data...');
         await Promise.all([
+            Region.deleteMany({}),
+            State.deleteMany({}),
             District.deleteMany({}),
             Place.deleteMany({}),
             Homestay.deleteMany({}),
@@ -54,6 +62,8 @@ const seedDatabase = async () => {
 
         // Load JSON files
         console.log('📂 Loading JSON files...');
+        const regions = loadJSON('regions.json');
+        const states = loadJSON('states.json');
         const districts = loadJSON('districts.json');
         const tags = loadJSON('tags.json');
         const places = loadJSON('places_normalized.json');
@@ -62,39 +72,67 @@ const seedDatabase = async () => {
         const festivalMasters = loadJSON('festival_master.json');
         const festivalOccurrences = loadJSON('festival_occurrences.json');
 
-        // Insert data
+        // Insert data in order
+        console.log('📥 Inserting Regions...');
+        if (regions.length > 0) {
+            await Region.insertMany(regions);
+            console.log(`   ✓ ${regions.length} regions inserted`);
+        }
+
+        console.log('📥 Inserting States...');
+        if (states.length > 0) {
+            await State.insertMany(states);
+            console.log(`   ✓ ${states.length} states inserted`);
+        }
+
         console.log('📥 Inserting Districts...');
-        await District.insertMany(districts);
-        console.log(`   ✓ ${districts.length} districts inserted`);
+        if (districts.length > 0) {
+            await District.insertMany(districts);
+            console.log(`   ✓ ${districts.length} districts inserted`);
+        }
 
         console.log('📥 Inserting Tags...');
-        await Tag.insertMany(tags);
-        console.log(`   ✓ ${tags.length} tags inserted`);
+        if (tags.length > 0) {
+            await Tag.insertMany(tags);
+            console.log(`   ✓ ${tags.length} tags inserted`);
+        }
 
         console.log('📥 Inserting Places...');
-        await Place.insertMany(places);
-        console.log(`   ✓ ${places.length} places inserted`);
+        if (places.length > 0) {
+            await Place.insertMany(places);
+            console.log(`   ✓ ${places.length} places inserted`);
+        }
 
         console.log('📥 Inserting Homestays...');
-        await Homestay.insertMany(homestays);
-        console.log(`   ✓ ${homestays.length} homestays inserted`);
+        if (homestays.length > 0) {
+            await Homestay.insertMany(homestays);
+            console.log(`   ✓ ${homestays.length} homestays inserted`);
+        }
 
         console.log('📥 Inserting Guides...');
-        await Guide.insertMany(guides);
-        console.log(`   ✓ ${guides.length} guides inserted`);
+        if (guides.length > 0) {
+            await Guide.insertMany(guides);
+            console.log(`   ✓ ${guides.length} guides inserted`);
+        }
 
         console.log('📥 Inserting Festival Masters...');
-        await FestivalMaster.insertMany(festivalMasters);
-        console.log(`   ✓ ${festivalMasters.length} festival masters inserted`);
+        if (festivalMasters.length > 0) {
+            await FestivalMaster.insertMany(festivalMasters);
+            console.log(`   ✓ ${festivalMasters.length} festival masters inserted`);
+        }
 
         console.log('📥 Inserting Festival Occurrences...');
-        await FestivalOccurrence.insertMany(festivalOccurrences);
-        console.log(`   ✓ ${festivalOccurrences.length} festival occurrences inserted`);
+        if (festivalOccurrences.length > 0) {
+            await FestivalOccurrence.insertMany(festivalOccurrences);
+            console.log(`   ✓ ${festivalOccurrences.length} festival occurrences inserted`);
+        }
 
         console.log('\n✅ Database seeded successfully!');
 
         // Print summary
         console.log('\n📊 Summary:');
+        console.log(`   Regions:             ${regions.length}`);
+        console.log(`   States:              ${states.length}`);
         console.log(`   Districts:           ${districts.length}`);
         console.log(`   Tags:                ${tags.length}`);
         console.log(`   Places:              ${places.length}`);
@@ -103,7 +141,10 @@ const seedDatabase = async () => {
         console.log(`   Festival Masters:    ${festivalMasters.length}`);
         console.log(`   Festival Occurrences: ${festivalOccurrences.length}`);
         console.log(`   ─────────────────────────────`);
-        console.log(`   Total records:       ${districts.length + tags.length + places.length + homestays.length + guides.length + festivalMasters.length + festivalOccurrences.length}`);
+        const total = regions.length + states.length + districts.length + tags.length +
+            places.length + homestays.length + guides.length +
+            festivalMasters.length + festivalOccurrences.length;
+        console.log(`   Total records:       ${total}`);
 
     }
     catch (error) {

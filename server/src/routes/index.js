@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import regionsRouter from './regions.js';
+import statesRouter from './states.js';
 import districtsRouter from './districts.js';
 import placesRouter from './places.js';
 import homestaysRouter from './homestays.js';
@@ -10,6 +12,8 @@ import { Tag } from '../models/index.js';
 const router = Router();
 
 // Mount routers
+router.use('/regions', regionsRouter);
+router.use('/states', statesRouter);
 router.use('/districts', districtsRouter);
 router.use('/places', placesRouter);
 router.use('/homestays', homestaysRouter);
