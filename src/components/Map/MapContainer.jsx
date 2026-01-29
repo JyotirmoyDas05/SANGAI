@@ -120,97 +120,100 @@ export default function MapContainer() {
     }, [districtsData]);
 
     // D3 OPACITY TRANSITIONS
-    // These run when viewState changes (which is deferred by RAF)
-    // Use setTimeout to stagger slightly after zoom starts (avoids CPU spike)
+    // These run when viewState changes
+    // Removed 50ms timeout as expensive math (path generation) is now memoized
+    // D3 OPACITY TRANSITIONS
+    // These run when viewState changes
     useEffect(() => {
         if (!svgRef.current) return;
 
         const svg = select(svgRef.current);
         const TRANSITION_DURATION = 1000;
 
-        // Delay opacity transitions by 50ms to avoid competing with zoom calculations
-        const timeoutId = setTimeout(() => {
-            const DISTRICT_DELAY = 300;
+        if (viewState === 'default') {
+            // DEFAULT VIEW: All states visible, all districts hidden
+            svg.selectAll('.state-path')
+                .transition('opacity')
+                .duration(TRANSITION_DURATION)
+                .ease(easeCubicInOut)
+                .style('opacity', 1);
 
-            if (viewState === 'default') {
-                // DEFAULT VIEW: All states visible, all districts hidden
-                svg.selectAll('.state-path')
-                    .transition('opacity')
-                    .duration(TRANSITION_DURATION)
-                    .ease(easeCubicInOut)
-                    .style('opacity', function () {
-                        return select(this).classed('west-bengal') ? 0.3 : 1;
-                    });
+            svg.selectAll('.district-path')
+                .transition('opacity')
+                .duration(600)
+                .ease(easeCubicInOut)
+                .style('opacity', 0);
 
-                // Optimization: Only transition districts that are currently visible (opacity > 0)
-                // If they are already 0, no need to create a transition
-                svg.selectAll('.district-path')
-                    .filter(function () {
-                        return this.style.opacity > 0;
-                    })
-                    .transition('opacity')
-                    .duration(600)
-                    .ease(easeCubicInOut)
-                    .style('opacity', 0);
+        } else if (viewState === 'state') {
+            // STATE VIEW: Non-selected states fade out, selected stays visible
+            svg.selectAll('.state-path')
+                .transition('opacity')
+                .duration(TRANSITION_DURATION)
+                .ease(easeCubicInOut)
+                .style('opacity', function () {
+                    const pathId = select(this).attr('id') || '';
+                    const isSelected = pathId.includes(selectedState?.toLowerCase().replace(/\s+/g, '-'));
+                    return isSelected ? 1 : 0;
+                });
 
-            } else if (viewState === 'state') {
-                // STATE VIEW: Non-selected states fade out, selected stays visible
-                svg.selectAll('.state-path')
-                    .transition('opacity')
-                    .duration(TRANSITION_DURATION)
-                    .ease(easeCubicInOut)
-                    .style('opacity', function () {
-                        const pathId = select(this).attr('id') || '';
-                        const isSelected = pathId.includes(selectedState?.toLowerCase().replace(/\s+/g, '-'));
-                        return isSelected ? 1 : 0;
-                    });
+            // Optimization: Target districts of selected state (to show) 
+            // AND currently visible districts (to hide, if any)
+            // 1. SELECT ALL
+            const allDistricts = svg.selectAll('.district-path');
 
-                // Optimization: Target districts of selected state (to show) 
-                // AND currently visible districts (to hide, if any)
-                svg.selectAll('.district-path')
-                    .filter(function () {
-                        const districtState = select(this).attr('data-state');
-                        const isTarget = districtState === selectedState;
-                        const isVisible = this.style.opacity > 0;
-                        return isTarget || isVisible;
-                    })
-                    .transition('opacity')
-                    .duration(TRANSITION_DURATION)
-                    .ease(easeCubicInOut)
-                    .style('opacity', function () {
-                        const districtState = select(this).attr('data-state');
-                        return districtState === selectedState ? 1 : 0;
-                    });
+            // 2. DEFINE GROUPS
+            // Entering: Districts of selected state
+            const enteringDistricts = allDistricts.filter(function () {
+                return select(this).attr('data-state') === selectedState;
+            });
 
-            } else if (viewState === 'district') {
-                // DISTRICT VIEW: All states hidden, only selected district visible
-                svg.selectAll('.state-path')
-                    .transition('opacity')
-                    .duration(TRANSITION_DURATION)
-                    .ease(easeCubicInOut)
-                    .style('opacity', 0);
+            // Exiting: Visible districts of OTHER states
+            const exitingDistricts = allDistricts.filter(function () {
+                const isTarget = select(this).attr('data-state') === selectedState;
+                const isVisible = this.style.opacity > 0;
+                return !isTarget && isVisible;
+            });
 
-                // Optimization: Target selected district (to show)
-                // AND currently visible districts (to hide others)
-                svg.selectAll('.district-path')
-                    .filter(function () {
-                        const districtName = select(this).attr('data-district');
-                        const isTarget = districtName === selectedDistrict;
-                        const isVisible = this.style.opacity > 0;
-                        return isTarget || isVisible;
-                    })
-                    .transition('opacity')
-                    .duration(TRANSITION_DURATION)
-                    .ease(easeCubicInOut)
-                    .style('opacity', function () {
-                        const districtName = select(this).attr('data-district');
-                        return districtName === selectedDistrict ? 1 : 0;
-                    });
-            }
+            // 3. HIDE OTHERS (Transition down)
+            exitingDistricts
+                .interrupt('show_districts')
+                .transition('hide_districts')
+                .duration(TRANSITION_DURATION)
+                .style('opacity', 0);
 
-        }, 50);
+            // 4. SHOW TARGETS (Force 0 -> Transition up)
+            enteringDistricts
+                .interrupt('hide_districts')
+                .each(function () {
+                    // Force start opacity to 0 if not already visible
+                    // This handles the 'persistence restore' case where element is fresh
+                    const current = parseFloat(select(this).style('opacity')) || 0;
+                    if (current < 0.1) {
+                        select(this).style('opacity', 0);
+                    }
+                })
+                .transition('show_districts')
+                .duration(TRANSITION_DURATION)
+                .ease(easeCubicInOut)
+                .style('opacity', 1);
 
-        return () => clearTimeout(timeoutId);
+        } else if (viewState === 'district') {
+            // DISTRICT VIEW: All states hidden, only selected district visible
+            svg.selectAll('.state-path')
+                .transition('opacity')
+                .duration(TRANSITION_DURATION)
+                .ease(easeCubicInOut)
+                .style('opacity', 0);
+
+            svg.selectAll('.district-path')
+                .transition('opacity')
+                .duration(TRANSITION_DURATION)
+                .ease(easeCubicInOut)
+                .style('opacity', function () {
+                    const districtName = select(this).attr('data-district');
+                    return districtName === selectedDistrict ? 1 : 0;
+                });
+        }
 
     }, [viewState, selectedState, selectedDistrict]);
 

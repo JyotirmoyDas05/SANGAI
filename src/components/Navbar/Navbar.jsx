@@ -29,13 +29,9 @@ export default function Navbar() {
     };
 
     const handleLogoClick = () => {
-        // From region pages, go back to explore map
-        // From explore or other pages, go to home
-        if (isRegionPage || location.pathname.startsWith('/northeast')) {
-            navigate('/explore');
-        } else {
-            navigate('/');
-        }
+        // User wants logo to always act as "Back to Map"
+        // Since Navbar is hidden on Intro page, this always goes to /explore
+        navigate('/explore');
     };
 
     return (

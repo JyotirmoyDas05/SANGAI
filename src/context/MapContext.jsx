@@ -1,27 +1,63 @@
-import { createContext, useContext, useState, useCallback, useRef } from 'react';
+import { createContext, useContext, useState, useCallback, useRef, useEffect } from 'react';
 
 const MapContext = createContext(null);
 
 // View states: 'default' | 'state' | 'district'
+const STORAGE_KEY = 'sangai_map_state';
+
+// Helper to get saved state
+const getSavedState = () => {
+    try {
+        const saved = sessionStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+        console.warn('Failed to load map state', e);
+        return null;
+    }
+};
+
 export function MapProvider({ children }) {
+    // Initialize state from storage if available
+    const savedState = getSavedState();
+
     // Current view state
-    const [viewState, setViewState] = useState('default');
+    const [viewState, setViewState] = useState(savedState?.viewState || 'default');
 
     // Selected state and district
-    const [selectedState, setSelectedState] = useState(null);
-    const [selectedDistrict, setSelectedDistrict] = useState(null);
+    const [selectedState, setSelectedState] = useState(savedState?.selectedState || null);
+    const [selectedDistrict, setSelectedDistrict] = useState(savedState?.selectedDistrict || null);
 
     // Label shown at bottom-left
-    const [currentLabel, setCurrentLabel] = useState('Northeast India');
+    const [currentLabel, setCurrentLabel] = useState(savedState?.currentLabel || 'Northeast India');
 
     // Zoom target feature (for calculating zoom bounds)
-    const [zoomTarget, setZoomTarget] = useState(null);
+    const [zoomTarget, setZoomTarget] = useState(savedState?.zoomTarget || null);
 
     // Counter to force zoom effect re-trigger (incremented on each zoom action)
-    const [zoomCounter, setZoomCounter] = useState(0);
+    // We increment if restored to ensure trigger calls effect
+    const [zoomCounter, setZoomCounter] = useState((savedState?.zoomCounter || 0) + 1);
 
     // Store the state feature for when we go back from district view
-    const stateFeatureRef = useRef(null);
+    // Initialize from storage if available
+    const stateFeatureRef = useRef(savedState?.stateFeature || null);
+
+    // Persist state changes
+    useEffect(() => {
+        const stateToSave = {
+            viewState,
+            selectedState,
+            selectedDistrict,
+            currentLabel,
+            zoomTarget,
+            zoomCounter,
+            stateFeature: stateFeatureRef.current
+        };
+        try {
+            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
+        } catch (e) {
+            console.warn('Failed to save map state', e);
+        }
+    }, [viewState, selectedState, selectedDistrict, currentLabel, zoomTarget, zoomCounter]);
 
     // Select a state - transition from default to state view
     const selectState = useCallback((stateName, stateFeature) => {
@@ -30,11 +66,11 @@ export function MapProvider({ children }) {
         // Set zoom target first (triggers D3 animation)
         setZoomTarget(stateFeature);
         stateFeatureRef.current = stateFeature;
-        setZoomCounter(c => c + 1);
 
         // Solution B: Defer DOM-changing state updates to next frame
         // This allows D3 animation to start before React mounts new components
         requestAnimationFrame(() => {
+            setZoomCounter(c => c + 1);
             setSelectedState(stateName);
             setSelectedDistrict(null);
             setCurrentLabel(stateName);
@@ -46,10 +82,10 @@ export function MapProvider({ children }) {
     const selectDistrict = useCallback((districtName, districtFeature) => {
         // Set zoom target first (triggers D3 animation)
         setZoomTarget(districtFeature);
-        setZoomCounter(c => c + 1);
 
         // Solution B: Defer DOM-changing state updates to next frame
         requestAnimationFrame(() => {
+            setZoomCounter(c => c + 1);
             setSelectedDistrict(districtName);
             setCurrentLabel(districtName);
             setViewState('district');
@@ -61,10 +97,10 @@ export function MapProvider({ children }) {
         if (viewState === 'district') {
             // Go back to state view - restore the state feature as zoom target
             setZoomTarget(stateFeatureRef.current);
-            setZoomCounter(c => c + 1);
 
             // Solution B: Defer DOM-changing state updates
             requestAnimationFrame(() => {
+                setZoomCounter(c => c + 1);
                 setSelectedDistrict(null);
                 setCurrentLabel(selectedState);
                 setViewState('state');
@@ -72,10 +108,10 @@ export function MapProvider({ children }) {
         } else if (viewState === 'state') {
             // Go back to default view
             setZoomTarget(null);
-            setZoomCounter(c => c + 1);
 
             // Solution B: Defer DOM-changing state updates
             requestAnimationFrame(() => {
+                setZoomCounter(c => c + 1);
                 setSelectedState(null);
                 setSelectedDistrict(null);
                 setCurrentLabel('Northeast India');
@@ -94,6 +130,7 @@ export function MapProvider({ children }) {
         setZoomTarget(null);
         stateFeatureRef.current = null;
         setZoomCounter(c => c + 1);
+        sessionStorage.removeItem(STORAGE_KEY); // Clear storage on explicit reset
     }, []);
 
     // Tooltip State
