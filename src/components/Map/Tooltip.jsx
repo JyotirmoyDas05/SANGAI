@@ -1,11 +1,12 @@
 import { forwardRef } from 'react';
+import { createPortal } from 'react-dom';
 import { useMapContext } from '../../context/MapContext';
 
 const Tooltip = forwardRef((props, ref) => {
     const { tooltipData } = useMapContext();
     const { content, visible } = tooltipData;
 
-    return (
+    return createPortal(
         <div
             ref={ref}
             className={`custom-tooltip ${visible ? 'visible' : ''}`}
@@ -21,7 +22,8 @@ const Tooltip = forwardRef((props, ref) => {
             }}
         >
             {content}
-        </div>
+        </div>,
+        document.body
     );
 });
 

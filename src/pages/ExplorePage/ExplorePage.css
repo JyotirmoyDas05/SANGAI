@@ -158,37 +158,7 @@
    REGION LABEL - Handled in App.css
    =========================================== */
 
-/* ===========================================
-   TOOLTIP
-   =========================================== */
-.custom-tooltip {
-    position: fixed;
-    pointer-events: none;
-    background: rgba(0, 0, 0, 0.85);
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    z-index: 1000;
-    transform: translate(10px, 10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    /* Fade in animation */
-    animation: tooltipFadeIn 0.15s ease both;
-}
-
-@keyframes tooltipFadeIn {
-    from {
-        opacity: 0;
-        transform: translate(10px, 20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate(10px, 10px);
-    }
-}
+/* Tooltip styles moved to App.css to avoid conflicts */
 
 /* ===========================================
    MAP LOADING STATE

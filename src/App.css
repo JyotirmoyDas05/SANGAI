@@ -246,7 +246,8 @@
   pointer-events: none;
   z-index: 9999;
   white-space: nowrap;
-  transform: translate(-50%, -150%);
+  /* Position above cursor with a fixed gap (20px) */
+  transform: translate(-50%, calc(-100% - 25px));
   opacity: 0;
   transition: opacity 0.2s ease;
 }
