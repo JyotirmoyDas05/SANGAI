@@ -109,8 +109,8 @@
 }
 
 /* Constrain other sections back to center */
-.northeast-content .region-overview>*:not(.hero-section):not(.description-section):not(.defining-themes-section),
-.region-full-content .region-overview>*:not(.hero-section):not(.description-section):not(.defining-themes-section) {
+.northeast-content .region-overview>*:not(.hero-section):not(.description-section):not(.defining-themes-section):not(.shopping-section):not(.glance-section-redesigned),
+.region-full-content .region-overview>*:not(.hero-section):not(.description-section):not(.defining-themes-section):not(.shopping-section):not(.glance-section-redesigned) {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;

@@ -204,7 +204,7 @@ export default function IntroPage() {
                     )
                     .fromTo(scrollIndicator,
                         { opacity: 0, y: 20 },
-                        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+                        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', clearProps: 'transform' },
                         '-=0.5'
                     );
             }

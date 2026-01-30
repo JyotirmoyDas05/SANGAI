@@ -11,18 +11,19 @@ import { getAudioForRegion } from '../../config/audioMapping';
 import {
     HeroSection,
     DescriptionSection,
-    StateGlance,
+    StateAtAGlanceSection,
     NarrativeBlock,
     CulturalThreadsScroll,
     ContributionCards,
     ExplorationGrid,
     GatewayGrid,
     DefiningThemesSection,
+    ShoppingSection,
     VoicesSection
 } from '../../components/RegionalPages';
 import '../NortheastPage/NortheastPage.css'; // Reuse same styles
 
-const HIDE_DELAY = 5000; // 5 seconds before auto-hide
+const HIDE_DELAY = 3000; // 3 seconds before auto-hide
 
 /**
  * Convert URL slug back to display name
@@ -248,9 +249,11 @@ function StateOverview({ data, heroSlides }) {
 
             <DefiningThemesSection />
 
-            {/* Section 2: At a Glance */}
+            <ShoppingSection title={`Buy A Piece of ${data.name}`} />
+
+            {/* Section 2: At a Glance (Redesigned) */}
             {data.glance && (
-                <StateGlance glance={data.glance} />
+                <StateAtAGlanceSection glance={data.glance} stateName={data.name} />
             )}
 
             {/* Section 3: Land & Memory */}

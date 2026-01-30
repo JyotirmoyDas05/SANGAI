@@ -10,7 +10,6 @@ import { getRegionBySlug } from '../../api/apiService';
 import {
     HeroSection,
     DescriptionSection,
-    DefiningThemesGrid,
     NarrativeBlock,
     PeopleGallery,
 
@@ -18,12 +17,14 @@ import {
     ContributionCards,
     ExplorationGrid,
     GatewayGrid,
-    DefiningThemesSection
+    DefiningThemesSection,
+    ShoppingSection,
+    StateAtAGlanceSection
 } from '../../components/RegionalPages';
 import { REGION_AUDIO } from '../../config/audioMapping';
 import './NortheastPage.css';
 
-const HIDE_DELAY = 5000; // 5 seconds before auto-hide
+const HIDE_DELAY = 3000; // 3 seconds before auto-hide
 
 export default function NortheastPage() {
     const location = useLocation();
@@ -174,6 +175,7 @@ function NortheastOverview() {
                 size="large"
             />
 
+
             {/* Section 1.5: Description Split */}
             <DescriptionSection
                 title="Welcome to Northeast India"
@@ -183,13 +185,20 @@ function NortheastOverview() {
 
             <DefiningThemesSection />
 
-            {/* Section 2: Defining Themes */}
-            {regionData.definingThemes?.length > 0 && (
-                <DefiningThemesGrid
-                    themes={regionData.definingThemes}
-                    title="What Defines This Land"
-                />
-            )}
+            <ShoppingSection />
+
+            <StateAtAGlanceSection
+                stateName="Northeast India"
+                glance={{
+                    states: "8 States",
+                    landscapeType: "Mountains & Valleys",
+                    languages: ["220+ Dialects", "English", "Hindi"],
+                    population: "~50 Million",
+                    area: "262,177 km²"
+                }}
+            />
+
+
 
             {/* Section 3: Shared Story */}
             {regionData.sharedStory?.paragraphs?.length > 0 && (

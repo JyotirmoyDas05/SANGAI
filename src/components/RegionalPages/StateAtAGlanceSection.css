@@ -1,0 +1,314 @@
+.glance-section-redesigned {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(23, 23, 23);
+    /* Main Background */
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 60px 40px;
+    margin-top: -60px;
+    /* Counteract parent flex gap */
+}
+
+.glance-container {
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+@media (min-width: 1024px) {
+    .glance-container {
+        flex-direction: row;
+        gap: 60px;
+        align-items: flex-start;
+    }
+}
+
+/* --- Left Column --- */
+.glance-left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.glance-header-content {
+    max-width: 600px;
+}
+
+.glance-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.glance-separator {
+    width: 80px;
+    height: 4px;
+    background-color: #f26522;
+    /* Orange accent */
+    margin-bottom: 24px;
+}
+
+.glance-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #a3a3a3;
+    /* Lighter text for dark mode */
+}
+
+/* Stats Grid - Moved to Left Column */
+.glance-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .glance-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Force 2 columns on large screens for better density in left column */
+@media (min-width: 1280px) {
+    .glance-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.stat-card {
+    background-color: rgb(38, 38, 38);
+    /* Card Background */
+    padding: 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    background-color: rgb(45, 45, 45);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.stat-icon-box {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Subtle transparent white */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f26522;
+    /* Accent color for icon or keep muted? Let's use accent for pop */
+    flex-shrink: 0;
+}
+
+.stat-icon-box .material-symbols-outlined {
+    font-size: 1.5rem;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stat-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* --- Right Column --- */
+.glance-right-column {
+    flex: 0 0 400px;
+    /* Fixed width for map/weather column */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Map Card */
+.glance-map-wrapper {
+    width: 100%;
+    position: relative;
+    height: 280px;
+    /* Fixed height for wrapper */
+}
+
+/* Leaflet Container Styles */
+.glance-leaflet-map {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #2a2a2a;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 4px solid rgb(38, 38, 38);
+    /* Matched card bg */
+    z-index: 1;
+    /* Base z-index */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glance-map-wrapper:hover .glance-leaflet-map {
+    border-color: #f26522;
+    /* Hover state accent */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Overlay Link Button */
+.map-overlay-link {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(38, 38, 38, 0.9);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 400;
+    /* Must be higher than Leaflet tiles (usually ~200-400) */
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.map-overlay-link:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    background: #f26522;
+}
+
+.map-overlay-link .material-symbols-outlined {
+    font-size: 1.2rem;
+}
+
+/* Weather Card */
+.glance-weather-card {
+    background-color: rgb(38, 38, 38);
+    /* Matches other cards */
+    color: #ffffff;
+    padding: 24px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.weather-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0;
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.weather-icon {
+    font-size: 3rem;
+    color: #ffffff;
+}
+
+.weather-temp-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-temp {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.weather-condition {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 4px;
+}
+
+.weather-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4ade80;
+    /* Green accent */
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 8px;
+    transition: color 0.3s ease;
+}
+
+.weather-link:hover {
+    color: #22c55e;
+}
+
+.weather-link .link-icon {
+    font-size: 1rem;
+}
+
+.weather-link .arrow-icon {
+    font-size: 1.2rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 1024px) {
+    .glance-section-redesigned {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+
+    .glance-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .glance-right-column {
+        width: 100%;
+        flex: none;
+    }
+
+    .glance-main-title {
+        font-size: 2.5rem;
+    }
+}

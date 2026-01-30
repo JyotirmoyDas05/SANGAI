@@ -1,0 +1,185 @@
+.shopping-section {
+    background-color: rgb(201, 176, 151);
+    /* Fallback/Base */
+    background-image: linear-gradient(rgba(201, 176, 151, 0.9), rgba(201, 176, 151, 0.9)), url('https://zainalodge-ghana.com/wp-content/uploads/2021/08/Pattern-cream-min.png');
+    background-repeat: repeat;
+    background-size: 600px;
+    /* Consistent with other sections */
+    color: #1a1a1a;
+    padding: 3rem 1rem 3rem;
+    margin-top: -60px;
+    /* Counteract parent flex gap */
+}
+
+.shopping-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 1400px;
+    /* Adjust max-width as needed */
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header Section */
+.shopping-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.shopping-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.shopping-title {
+    font-family: 'Montserrat', sans-serif;
+    /* Fallback to project font if needed */
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #262626;
+    /* neutral-800 */
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .shopping-title {
+        font-size: 3rem;
+        /* md:text-5xl approx */
+    }
+}
+
+.shopping-subtitle {
+    font-family: 'Raleway', sans-serif;
+    color: #171717;
+    /* zinc-900 */
+    margin: 0;
+    max-width: 770px;
+}
+
+.shopping-cta {
+    margin-top: 2rem;
+}
+
+.view-all-btn {
+    background-color: #15803d;
+    /* green-700 */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    /* rounded-md */
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.view-all-btn:hover {
+    background-color: #166534;
+    /* darker green */
+}
+
+/* Grid Section */
+.shopping-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .shopping-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .shopping-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Product Card */
+.shopping-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 400px;
+    background-color: rgb(226, 217, 200);
+    /* neutral-100 */
+    border-radius: 0.375rem;
+    /* rounded-md */
+    padding: 1.5rem;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    text-align: left;
+}
+
+@media (min-width: 1024px) {
+    .shopping-card {
+        height: 500px;
+    }
+}
+
+.shopping-card-text {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    /* text-2xl */
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.card-subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #525252;
+    /* neutral-600 approx */
+    margin: 0;
+}
+
+/* Image Wrapper */
+.shopping-card-figure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+}
+
+/* The snippet had complex transforms: translate-x-1/4 translate-y-1/4 scale-125 */
+.shopping-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.25) translate(25%, 25%);
+    transition: transform 1s ease-in-out;
+}
+
+/* Hover Effect */
+.shopping-card:hover .shopping-card-figure {
+    transform: scale(0.97);
+}
+
+.shopping-card:hover .shopping-card-image {
+    transform: scale(1.1) translate(0, 0);
+    /* Reset translate or adjust as needed */
+}

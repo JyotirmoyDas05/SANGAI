@@ -12,4 +12,6 @@ export { default as GatewayGrid } from './GatewayGrid';
 export { default as StateGlance } from './StateGlance';
 export { default as DescriptionSection } from './DescriptionSection';
 export { default as DefiningThemesSection } from './DefiningThemesSection';
+export { default as ShoppingSection } from './ShoppingSection';
+export { default as StateAtAGlanceSection } from './StateAtAGlanceSection';
 export { default as VoicesSection } from './VoicesSection';
