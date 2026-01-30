@@ -6,7 +6,7 @@
  */
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Outlet, NavLink, useParams, useLocation } from 'react-router-dom';
-import { getStateBySlug, getDistrictBySlug } from '../../api/apiService';
+import { getRegionBySlug, getStateBySlug, getDistrictBySlug } from '../../api/apiService';
 import {
     HeroSection,
     StateGlance,
@@ -109,7 +109,7 @@ export default function RegionPage() {
             </nav>
 
             {/* Content Area */}
-            <main className="region-content">
+            <main className={`region-content ${isRootPath ? 'region-full-content' : ''}`}>
                 {isRootPath ? (
                     <RegionOverview regionSlug={region} displayName={displayName} />
                 ) : (
@@ -128,6 +128,32 @@ function RegionOverview({ regionSlug, displayName }) {
     const [entityType, setEntityType] = useState(null); // 'state' or 'district'
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    // Placeholder Slides (Northeast Hero + 6 Unsplash)
+    const [heroSlides, setHeroSlides] = useState([
+        { url: 'https://images.unsplash.com/photo-1571676674483-e18e87d0c3bc?q=80&w=1920', caption: 'Tea Gardens of Assam' },
+        { url: 'https://images.unsplash.com/photo-1626084288019-3e3902319ec8?q=80&w=1920', caption: 'Majestic Himalayas' },
+        { url: 'https://images.unsplash.com/photo-1598555813876-b6d3763f350c?q=80&w=1920', caption: 'Cascading Waterfalls' },
+        { url: 'https://images.unsplash.com/photo-1533241517006-be2f985b8829?q=80&w=1920', caption: 'Vibrant Tribal Heritage' },
+        { url: 'https://images.unsplash.com/photo-1473133604314-b633d7b8222b?q=80&w=1920', caption: 'Misty Forests' },
+        { url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920', caption: 'Pristine Rivers' },
+        { url: 'https://images.unsplash.com/photo-1523544545175-654859aab053?q=80&w=1920', caption: 'Golden Hour in the Valley' },
+        { url: 'https://images.unsplash.com/photo-1590053165219-c8872cd92348?q=80&w=1920', caption: 'Living Root Bridges' }
+    ]);
+
+    // Fetch primary Northeast image to replace the first placeholder slot if available
+    useEffect(() => {
+        async function fetchPlaceholder() {
+            try {
+                const regionData = await getRegionBySlug('northeast');
+                if (regionData?.heroImages?.[0]) {
+                    setHeroSlides(prev => [regionData.heroImages[0], ...prev.slice(1)]);
+                }
+            } catch (err) {
+                console.error("Failed to fetch northeast placeholder image", err);
+            }
+        }
+        fetchPlaceholder();
+    }, []);
 
     useEffect(() => {
         async function fetchData() {
@@ -188,23 +214,23 @@ function RegionOverview({ regionSlug, displayName }) {
 
     // Render appropriate view based on entity type
     if (entityType === 'state') {
-        return <StateOverview data={data} />;
+        return <StateOverview data={data} heroSlides={heroSlides} />;
     }
 
-    return <DistrictOverview data={data} />;
+    return <DistrictOverview data={data} heroSlides={heroSlides} />;
 }
 
 /**
  * StateOverview - 8-section layout for state pages
  */
-function StateOverview({ data }) {
+function StateOverview({ data, heroSlides }) {
     return (
         <div className="region-overview">
             {/* Section 1: Hero */}
             <HeroSection
                 title={data.name}
                 tagline={data.tagline}
-                heroImage={data.heroImage}
+                heroImages={heroSlides} // Use slideshow
                 badge={{ icon: 'location_on', text: 'Northeast India' }}
                 size="large"
             />
@@ -272,7 +298,7 @@ function StateOverview({ data }) {
 /**
  * DistrictOverview - Intimate 8-section layout for district pages
  */
-function DistrictOverview({ data }) {
+function DistrictOverview({ data, heroSlides }) {
     return (
         <div className="region-overview">
             {/* Section 1: Hero */}
@@ -280,9 +306,9 @@ function DistrictOverview({ data }) {
                 title={data.districtName}
                 tagline={data.tagline}
                 subtitle={data.senseOfPlace?.oneLiner}
-                heroImage={data.heroImage}
+                heroImages={heroSlides} // Use slideshow
                 badge={{ icon: 'place', text: data.stateName }}
-                size="medium"
+                size="medium" // This will now take full height due to overrides if 'region-full-content' is active
             />
 
             {/* Section 2: Context */}

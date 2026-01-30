@@ -187,12 +187,12 @@
 
 /* CTA Button - Premium Feel */
 .explore-btn {
-    padding: 20px 48px;
+    padding: 15px 20px;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #FFFFE3;
-    background: var(--primary);
+    color: #000000;
+    background: #dbefc0;
     border: none;
     border-radius: 60px;
     cursor: pointer;
@@ -200,9 +200,7 @@
     align-items: center;
     gap: 14px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow:
-        0 0 0 0 rgba(109, 129, 150, 0.4),
-        0 10px 40px rgba(109, 129, 150, 0.25);
+    box-shadow: 0 0 0 0 rgba(109, 129, 150, 0.4), 0 10px 40px rgba(109, 129, 150, 0.25);
     will-change: transform, box-shadow;
     position: relative;
     overflow: hidden;
@@ -267,7 +265,7 @@
     }
 
     .explore-btn {
-        padding: 16px 36px;
+        padding: 12px 24px;
         font-size: 1rem;
     }
 }

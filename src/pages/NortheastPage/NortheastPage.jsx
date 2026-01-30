@@ -94,7 +94,7 @@ export default function NortheastPage() {
             </nav>
 
             {/* Content Area */}
-            <main className="region-content">
+            <main className={`region-content ${isRootPath ? 'northeast-content' : ''}`}>
                 {isRootPath ? (
                     <NortheastOverview />
                 ) : (
@@ -146,6 +146,17 @@ function NortheastOverview() {
         return <FallbackOverview />;
     }
 
+    const HERO_SLIDES = [
+        regionData.heroImages?.[0] || { url: 'https://images.unsplash.com/photo-1571676674483-e18e87d0c3bc?q=80&w=1920', caption: 'Tea Gardens of Assam' },
+        { url: 'https://images.unsplash.com/photo-1626084288019-3e3902319ec8?q=80&w=1920', caption: 'Majestic Himalayas' },
+        { url: 'https://images.unsplash.com/photo-1598555813876-b6d3763f350c?q=80&w=1920', caption: 'Cascading Waterfalls' },
+        { url: 'https://images.unsplash.com/photo-1533241517006-be2f985b8829?q=80&w=1920', caption: 'Vibrant Tribal Heritage' },
+        { url: 'https://images.unsplash.com/photo-1473133604314-b633d7b8222b?q=80&w=1920', caption: 'Misty Forests' },
+        { url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920', caption: 'Pristine Rivers' },
+        { url: 'https://images.unsplash.com/photo-1523544545175-654859aab053?q=80&w=1920', caption: 'Golden Hour in the Valley' },
+        { url: 'https://images.unsplash.com/photo-1590053165219-c8872cd92348?q=80&w=1920', caption: 'Living Root Bridges' }
+    ];
+
     return (
         <div className="region-overview">
             {/* Section 1: Hero */}
@@ -153,7 +164,7 @@ function NortheastOverview() {
                 title={regionData.name || 'NORTHEAST INDIA'}
                 tagline={regionData.tagline}
                 subtitle="A land of eight sisters, bound by mountains, rivers, and a tapestry of over 200 tribes. Discover the unexplored paradise."
-                heroImage={regionData.heroImages?.[0]}
+                heroImages={HERO_SLIDES} // Use new slides prop
                 badge={{ icon: 'public', text: 'The Hidden Jewel' }}
                 size="large"
             />

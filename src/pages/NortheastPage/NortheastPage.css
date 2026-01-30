@@ -83,6 +83,47 @@
     /* Extra bottom padding for floating nav */
 }
 
+/* 
+ * Full Bleed Content Override 
+ * Used for pages needing full-width hero (Northeast, States, Districts)
+ */
+.northeast-content,
+.region-full-content {
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+
+.northeast-content .hero-section,
+.region-full-content .hero-section {
+    min-height: 100vh !important;
+    width: 100%;
+    margin-bottom: 60px;
+    /* Space after hero before content starts */
+}
+
+.northeast-content .hero-content,
+.region-full-content .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Constrain other sections back to center */
+.northeast-content .region-overview>*:not(.hero-section),
+.region-full-content .region-overview>*:not(.hero-section) {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* Fallback for loading/error states in full-width mode */
+.northeast-content .loading-container,
+.region-full-content .loading-container {
+    padding-top: 100px;
+}
+
 /* Region Overview */
 .region-overview {
     display: flex;

@@ -1,23 +1,57 @@
-/**
- * HeroSection - Immersive hero with image and overlaid text
- * Used for Region, State, and District pages
- */
+import { useState, useEffect } from 'react';
 import './RegionalPages.css';
 
 export default function HeroSection({
     title,
     tagline,
     subtitle,
-    heroImage,
+    heroImage, // Backward compatibility or single image
+    heroImages, // Array of image objects or strings
     badge,
     size = 'large' // 'large' | 'medium' | 'small'
 }) {
-    const heroStyle = heroImage?.url ? {
-        backgroundImage: `url(${heroImage.url})`
-    } : {};
+    // Normalize images to an array of simple objects { url, caption }
+    const [images, setImages] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        // Prepare list of images
+        let imgList = [];
+        if (heroImages && heroImages.length > 0) {
+            imgList = heroImages.map(img =>
+                typeof img === 'string' ? { url: img } : img
+            );
+        } else if (heroImage) {
+            imgList = [heroImage];
+        }
+
+        setImages(imgList);
+    }, [heroImage, heroImages]);
+
+    // Slideshow interval
+    useEffect(() => {
+        if (images.length <= 1) return;
+
+        const interval = setInterval(() => {
+            setCurrentIndex(prev => (prev + 1) % images.length);
+        }, 3000); // 3 seconds
+
+        return () => clearInterval(interval);
+    }, [images.length]);
 
     return (
-        <section className={`hero-section hero-${size}`} style={heroStyle}>
+        <section className={`hero-section hero-${size}`}>
+            {/* Background Slides */}
+            {images.map((img, index) => (
+                <div
+                    key={index}
+                    className={`hero-slide ${index === currentIndex ? 'active' : ''}`}
+                    style={{ backgroundImage: `url(${img.url})` }}
+                />
+            ))}
+
+            {/* If no images, fallback background color handled by CSS */}
+
             <div className="hero-overlay"></div>
             <div className="hero-content">
                 {badge && (
@@ -33,8 +67,11 @@ export default function HeroSection({
                     <p className="hero-subtitle">{subtitle}</p>
                 )}
 
-                {heroImage?.caption && (
-                    <span className="hero-caption">{heroImage.caption}</span>
+                {/* Caption logic: show caption of current image if available */}
+                {images[currentIndex]?.caption && (
+                    <span className="hero-caption fade-in-caption">
+                        {images[currentIndex].caption}
+                    </span>
                 )}
             </div>
         </section>
