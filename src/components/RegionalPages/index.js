@@ -10,4 +10,6 @@ export { default as ContributionCards } from './ContributionCards';
 export { default as ExplorationGrid } from './ExplorationGrid';
 export { default as GatewayGrid } from './GatewayGrid';
 export { default as StateGlance } from './StateGlance';
+export { default as DescriptionSection } from './DescriptionSection';
+export { default as DefiningThemesSection } from './DefiningThemesSection';
 export { default as VoicesSection } from './VoicesSection';

@@ -1,0 +1,169 @@
+.defining-themes-section {
+    width: 100%;
+    height: 100vh;
+    background-color: #f9f7f2;
+    /* Cream base */
+    background-image: url('https://zainalodge-ghana.com/wp-content/uploads/2021/08/Pattern-cream-min.png');
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0;
+    overflow: hidden;
+    position: relative;
+    margin-top: -60px;
+    /* Counteract parent flex gap */
+    background-size: 300px;
+    /* Zoom out pattern */
+}
+
+.themes-header {
+    padding-left: 80px;
+    margin-bottom: 10px;
+}
+
+.themes-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.themes-title-line {
+    width: 400px;
+    height: 1px;
+    background-color: #e0e0e0;
+}
+
+.themes-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: calc(100vh - 200px);
+    padding: 30px 80px 40px;
+    gap: 40px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.themes-scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.theme-scroll-card {
+    flex: 0 0 450px;
+    height: 100%;
+    scroll-snap-align: start;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.theme-scroll-card:hover {
+    transform: translateY(-10px);
+}
+
+.theme-card-inner {
+    width: 100%;
+    height: 100%;
+    background: #fffdf9;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.theme-card-image {
+    width: 100%;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: visible;
+    /* Important for icon circle overflow */
+}
+
+.theme-icon-circle {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    background-color: #f26522;
+    /* Orange accent */
+    border: 4px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.theme-icon-circle .material-symbols-outlined {
+    font-size: 2rem;
+}
+
+.theme-card-content {
+    flex: 1;
+    padding: 60px 40px 40px;
+    /* Top padding to account for icon */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.theme-card-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #f26522;
+    /* Orange title */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.theme-card-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .themes-header {
+        padding-left: 30px;
+    }
+
+    .themes-main-title {
+        font-size: 2.5rem;
+    }
+
+    .themes-title-line {
+        width: 200px;
+    }
+
+    .themes-scroll-container {
+        padding: 0 30px 40px;
+        gap: 20px;
+    }
+
+    .theme-scroll-card {
+        flex: 0 0 320px;
+    }
+
+    .theme-card-title {
+        font-size: 1.5rem;
+    }
+
+    .theme-card-desc {
+        font-size: 1rem;
+    }
+}

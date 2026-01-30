@@ -1,0 +1,176 @@
+/* Description Section container */
+.description-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1a;
+    /* Dark background as per ref */
+    color: #ffffff;
+    overflow: hidden;
+    padding: 0;
+    margin-top: -60px;
+    /* Counteract parent flex gap */
+}
+
+.desc-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Left: Collage */
+.desc-collage {
+    flex: 1;
+    height: 100%;
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collage-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-rows: 1fr 0.8fr;
+    gap: 20px;
+    width: 100%;
+    height: 80%;
+    max-width: 800px;
+}
+
+.collage-item {
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    transition: transform 0.4s ease;
+}
+
+.collage-item:hover {
+    transform: scale(1.02);
+}
+
+/* Specific item sizing based on reference feel */
+.item-1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    /* Large Left Top */
+}
+
+.item-2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    /* Right Top */
+}
+
+.item-3 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    /* Bottom Left */
+}
+
+.item-4 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    /* Bottom Right */
+}
+
+
+/* Right: Content */
+.desc-content {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 6rem 4rem 2rem;
+    /* More padding on right */
+}
+
+.desc-text-wrapper {
+    max-width: 600px;
+}
+
+.desc-title {
+    font-family: 'Playfair Display', serif;
+    /* Elegant serif font */
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.desc-separator {
+    width: 100px;
+    height: 3px;
+    background-color: #a8a25c;
+    /* Gold/Olive accent color */
+    margin-bottom: 2.5rem;
+}
+
+.desc-paragraph {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 3rem;
+}
+
+.book-now-btn {
+    background-color: #8c8646;
+    /* Olive/Gold btn */
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.book-now-btn:hover {
+    background-color: #a8a25c;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .desc-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .desc-collage {
+        padding: 2rem;
+        height: 60vh;
+    }
+
+    .desc-content {
+        padding: 3rem 2rem;
+        height: auto;
+    }
+
+    .desc-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .collage-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 200px);
+    }
+
+    .item-1,
+    .item-2,
+    .item-3,
+    .item-4 {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
