@@ -5,6 +5,11 @@
  * Note: These are currently placeholder URLs. Replace with actual asset paths.
  */
 
+import assamTheme from '../assets/music/assam_theme.mpeg';
+import meghalayaTheme from '../assets/music/meghalaya_theme.m4a';
+import manipurTheme from '../assets/music/manipur_theme.mp3';
+import nagalandTheme from '../assets/music/nagaland_theme.mp3';
+
 const PLACEHOLDER_SONG = 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3';
 
 export const REGION_AUDIO = {
@@ -13,11 +18,11 @@ export const REGION_AUDIO = {
 
     // States
     'arunachal_pradesh': PLACEHOLDER_SONG,
-    'assam': PLACEHOLDER_SONG,
-    'manipur': PLACEHOLDER_SONG,
-    'meghalaya': PLACEHOLDER_SONG,
+    'assam': assamTheme,
+    'manipur': manipurTheme,
+    'meghalaya': meghalayaTheme,
     'mizoram': PLACEHOLDER_SONG,
-    'nagaland': PLACEHOLDER_SONG,
+    'nagaland': nagalandTheme,
     'sikkim': PLACEHOLDER_SONG,
     'tripura': PLACEHOLDER_SONG
 };

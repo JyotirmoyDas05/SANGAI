@@ -22,8 +22,18 @@ export default function DestinationsView() {
                 const params = { limit: 12 };
 
                 // Apply filter
-                if (filter === 'hidden') {
-                    params.isHiddenGem = true;
+                if (filter !== 'all') {
+                    // Mapping filter keys to API parameters (tags or type)
+                    const filterMap = {
+                        'nature': 'Nature',
+                        'culture': 'Cultural',
+                        'spiritual': 'Spiritual',
+                        'modern': 'Modern',
+                        'adventure': 'Adventure'
+                    };
+                    if (filterMap[filter]) {
+                        params.type = filterMap[filter];
+                    }
                 }
 
                 const response = await getPlaces(params);
@@ -83,9 +93,11 @@ export default function DestinationsView() {
 
                     <div className="filter-bar">
                         <button className={`filter-pill ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>All</button>
-                        <button className={`filter-pill ${filter === 'popular' ? 'active' : ''}`} onClick={() => setFilter('popular')}>Popular</button>
-                        <button className={`filter-pill ${filter === 'hidden' ? 'active' : ''}`} onClick={() => setFilter('hidden')}>Hidden Gems</button>
-                        <button className={`filter-pill ${filter === 'new' ? 'active' : ''}`} onClick={() => setFilter('new')}>New</button>
+                        <button className={`filter-pill ${filter === 'nature' ? 'active' : ''}`} onClick={() => setFilter('nature')}>Nature & Wildlife</button>
+                        <button className={`filter-pill ${filter === 'culture' ? 'active' : ''}`} onClick={() => setFilter('culture')}>Cultural/Historical Sites</button>
+                        <button className={`filter-pill ${filter === 'spiritual' ? 'active' : ''}`} onClick={() => setFilter('spiritual')}>Spiritual Sites</button>
+                        <button className={`filter-pill ${filter === 'modern' ? 'active' : ''}`} onClick={() => setFilter('modern')}>Modern Attractions</button>
+                        <button className={`filter-pill ${filter === 'adventure' ? 'active' : ''}`} onClick={() => setFilter('adventure')}>Adventure</button>
                     </div>
                 </div>
 
@@ -111,7 +123,17 @@ export default function DestinationsView() {
                         {places.map((place, index) => {
                             const badge = getBadge(place, index);
                             return (
-                                <div className="masonry-item" key={place.id}>
+                                <div
+                                    className="masonry-item"
+                                    key={place.id}
+                                    onClick={() => {
+                                        const regionSlug = place.location
+                                            ? place.location.toLowerCase().replace(/\s+/g, '_')
+                                            : 'northeast';
+                                        navigate(`/${regionSlug}/destination/${place.id}`);
+                                    }}
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     <div className="dest-card">
                                         <div className={`card-media ${getHeightClass(index)}`}>
                                             <img src={place.image} alt={place.name} />
@@ -128,10 +150,7 @@ export default function DestinationsView() {
                                             </div>
                                             <div className="card-action-row">
                                                 <span className="category-label">{place.type}</span>
-                                                <button
-                                                    className="btn-sm"
-                                                    onClick={() => navigate(`/mock-destination/${place.id}`)}
-                                                >
+                                                <button className="btn-sm">
                                                     Learn More
                                                 </button>
                                             </div>

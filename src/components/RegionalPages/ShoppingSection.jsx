@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import './ShoppingSection.css';
 
 const ShoppingSection = ({
@@ -7,6 +8,10 @@ const ShoppingSection = ({
     ctaLink = "https://themeghalayanage.store/",
     items = []
 }) => {
+    const navigate = useNavigate();
+    const { region } = useParams();
+    const currentRegion = region || 'northeast';
+
     // Default items based on the user's snippet if none provided
     const displayItems = items.length > 0 ? items : [
         {
@@ -38,9 +43,12 @@ const ShoppingSection = ({
                         <p className="shopping-subtitle">{subtitle}</p>
                     </div>
                     <div className="shopping-cta">
-                        <a href={ctaLink} target="_blank" rel="noopener noreferrer" className="view-all-btn">
+                        <button
+                            onClick={() => navigate(`/${currentRegion}/shopping`)}
+                            className="view-all-btn"
+                        >
                             View All Products
-                        </a>
+                        </button>
                     </div>
                 </div>
 

@@ -72,6 +72,13 @@ export const router = createBrowserRouter([
                 ],
             },
 
+            // Individual Destination Page (New Pattern)
+            // e.g. /manipur/destination/HP011
+            {
+                path: ':region/destination/:id',
+                element: <MockDestinationPage />,
+            },
+
             // Dynamic Region Page (states and districts)
             // e.g., /manipur, /imphal_west
             {
@@ -93,9 +100,5 @@ export const router = createBrowserRouter([
                 ],
             },
         ],
-    },
-    {
-        path: '/mock-destination/:id',
-        element: <MockDestinationPage />,
     },
 ]);

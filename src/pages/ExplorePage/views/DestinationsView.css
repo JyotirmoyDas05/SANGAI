@@ -2,10 +2,9 @@
 
 .destinations-view {
     width: 100%;
-    /* No bg color needed as parent Layout usually handles it, but adding just in case */
     padding: 40px 5%;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 60px auto;
 }
 
 /* HEADER */

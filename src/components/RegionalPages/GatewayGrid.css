@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     /* Use the identified background image */
-    background-image: url('../../assets/background/image.png');
+    background-image: url('../../assets/background/gateway_bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
