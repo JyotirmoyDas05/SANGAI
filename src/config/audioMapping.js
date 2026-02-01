@@ -9,22 +9,26 @@ import assamTheme from '../assets/music/assam_theme.mpeg';
 import meghalayaTheme from '../assets/music/meghalaya_theme.m4a';
 import manipurTheme from '../assets/music/manipur_theme.mp3';
 import nagalandTheme from '../assets/music/nagaland_theme.mp3';
+import tripuraTheme from '../assets/music/tripura_theme.mp3';
+import mizoramTheme from '../assets/music/mizoram_theme.mp3';
+import northeastTheme from '../assets/music/northeast_theme.mp3';
+import sikkimTheme from '../assets/music/sikkim_theme.mp3';
 
 const PLACEHOLDER_SONG = 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3';
 
 export const REGION_AUDIO = {
     // Northeast Region (Overview)
-    'northeast': PLACEHOLDER_SONG,
+    'northeast': northeastTheme,
 
     // States
     'arunachal_pradesh': PLACEHOLDER_SONG,
     'assam': assamTheme,
     'manipur': manipurTheme,
     'meghalaya': meghalayaTheme,
-    'mizoram': PLACEHOLDER_SONG,
+    'mizoram': mizoramTheme,
     'nagaland': nagalandTheme,
-    'sikkim': PLACEHOLDER_SONG,
-    'tripura': PLACEHOLDER_SONG
+    'sikkim': sikkimTheme,
+    'tripura': tripuraTheme
 };
 
 /**
@@ -33,12 +37,15 @@ export const REGION_AUDIO = {
  * @param {string} parentState - (Optional) The parent state slug if this is a district
  */
 export function getAudioForRegion(slug, parentState = null) {
-    if (REGION_AUDIO[slug]) {
-        return REGION_AUDIO[slug];
+    const s = slug?.toLowerCase();
+    const p = parentState?.toLowerCase();
+
+    if (REGION_AUDIO[s]) {
+        return REGION_AUDIO[s];
     }
 
-    if (parentState && REGION_AUDIO[parentState]) {
-        return REGION_AUDIO[parentState];
+    if (p && REGION_AUDIO[p]) {
+        return REGION_AUDIO[p];
     }
 
     // Default to Northeast theme if nothing else matches

@@ -5,5 +5,5 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  assetsInclude: ['**/*.mpeg', '**/*.m4a'],
+  assetsInclude: ['**/*.mpeg', '**/*.m4a', '**/*.mp3'],
 })
