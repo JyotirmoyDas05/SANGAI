@@ -1,0 +1,28 @@
+[
+  {
+    "_id": "MN_GUIDE",
+    "stateId": "MN",
+    "personas": [
+      {
+        "title": "First-time Visitor",
+        "icon": "flag",
+        "description": "Get your ILP online."
+      },
+      {
+        "title": "Solo",
+        "icon": "person",
+        "description": "Safe, but stick to main routes."
+      }
+    ],
+    "travel_realities": {
+      "road_condition": {
+        "label": "Roads",
+        "value": "Moderate"
+      },
+      "connectivity": {
+        "label": "Signal",
+        "value": "Good in Imphal"
+      }
+    }
+  }
+]

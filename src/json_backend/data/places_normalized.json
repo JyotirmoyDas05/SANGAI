@@ -1,0 +1,111 @@
+[
+  {
+    "_id": "HP001",
+    "districtId": "MN_BIS_01",
+    "name": "Loktak Lake",
+    "type": "Nature",
+    "location_summary": "Bishnupur, Manipur",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "The world's only floating lake, home to the dancing deer.",
+    "header_quote": "A mirror to the sky, floating islands drifting in time.",
+    "story": {
+      "overview": "Loktak Lake is the largest freshwater lake in Northeast India and is famous for its phumdis (heterogeneous mass of vegetation, soil and organic matter at various stages of decomposition) floating over it.",
+      "culturalSignificance": "It serves as a lifeline for the people of Manipur, providing water for hydropower generation, irrigation, and drinking supply.",
+      "localBelief": "The lake is considered the mother source of life in Moirang folklore."
+    },
+    "logistics": {
+      "how_to_get_there": [
+        "48 km from Imphal Airport.",
+        "Taxis and buses are readily available from Imphal."
+      ],
+      "when_and_where": {
+        "location_text": "Moirang, Bishnupur District",
+        "distances": {
+          "imphal_airport": "48 km",
+          "dimapur_railway": "215 km"
+        },
+        "best_time": "October to March",
+        "open_hours": "6:00 AM to 5:00 PM"
+      }
+    },
+    "helpline": {
+      "phone": "+91 9856...",
+      "email": "tourism@manipur.gov.in"
+    },
+    "nearby_attractions": [
+      {
+        "name": "Keibul Lamjao Park",
+        "image": "https://images.unsplash.com/photo-1544634076-a90160bcadcb?w=600"
+      },
+      {
+        "name": "INA Museum",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/INA_Martyr%27s_Memorial_Complex_Moirang.jpg/640px-INA_Martyr%27s_Memorial_Complex_Moirang.jpg"
+      }
+    ],
+    "location": {
+      "lat": 24.55,
+      "lng": 93.8
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1605377349974-9463c23e800d?auto=format&fit=crop&q=80&w=2000",
+        "caption": "Fisherman at sunset"
+      }
+    ],
+    "taxonomy_tags": [
+      "nature",
+      "wetlands",
+      "boating"
+    ],
+    "related_homestay_ids": [
+      "HS001"
+    ]
+  },
+  {
+    "_id": "HP002",
+    "districtId": "ML_EKH",
+    "name": "Nohkalikai Falls",
+    "type": "Nature",
+    "location_summary": "Sohra, Meghalaya",
+    "tier": 1,
+    "isHiddenGem": true,
+    "shortDescription": "One of India's tallest waterfalls.",
+    "header_quote": "A dramatic plunge into an emerald pool.",
+    "story": {
+      "overview": "Nohkalikai Falls is one of India's tallest plunge and most breathtaking waterfalls, plunging 340 meters into a deep, emerald-green pool.",
+      "culturalSignificance": "Carries a tragic legend of a woman named Likai.",
+      "localBelief": "Locals respect the pool as a site of grief and beauty."
+    },
+    "logistics": {
+      "how_to_get_there": [
+        "Cabs available from Shillong (54km)."
+      ],
+      "when_and_where": {
+        "location_text": "7.5 km from Sohra (Cherrapunji)",
+        "distances": {
+          "shillong": "54 km",
+          "guwahati": "148 km"
+        },
+        "best_time": "September to December",
+        "open_hours": "8:00 AM to 5:00 PM"
+      }
+    },
+    "location": {
+      "lat": 25.27,
+      "lng": 91.73
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1626015099719-217a151b6601?auto=format&fit=crop&q=80&w=2000",
+        "caption": "The Plunge"
+      }
+    ],
+    "taxonomy_tags": [
+      "nature",
+      "waterfall",
+      "trekking"
+    ],
+    "related_homestay_ids": []
+  }
+]

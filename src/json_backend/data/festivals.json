@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "FEST_MN_SANGAI",
+    "stateId": "MN",
+    "name": "Sangai Festival",
+    "description": "Annual cultural extravaganza.",
+    "startDate": "2025-11-21",
+    "endDate": "2025-11-30",
+    "location": {
+      "address": "Imphal",
+      "lat": 24.81,
+      "lng": 93.93
+    },
+    "images": {
+      "hero": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800",
+      "gallery": []
+    },
+    "bookingLink": "https://manipur.gov.in",
+    "tags": [
+      "culture",
+      "dance"
+    ],
+    "is_eco_certified": false,
+    "related_culture_id": "CUL_MN_FEST_SANGAI"
+  },
+  {
+    "_id": "FEST_ML_CHERRY",
+    "stateId": "ML",
+    "districtId": "ML_EKH",
+    "name": "Shillong Cherry Blossom Festival",
+    "description": "Pink blooms and rock music.",
+    "startDate": "2025-11-14",
+    "endDate": "2025-11-15",
+    "location": {
+      "address": "Jawaharlal Nehru Stadium, Shillong"
+    },
+    "images": {
+      "hero": "https://images.unsplash.com/photo-1522383225653-ed111181a951?w=800",
+      "gallery": []
+    },
+    "bookingLink": "https://rockskitickets.com",
+    "tags": [
+      "music",
+      "nature",
+      "Eco-Certified"
+    ],
+    "is_eco_certified": true,
+    "related_culture_id": null
+  }
+]

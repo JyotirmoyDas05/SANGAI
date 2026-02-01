@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "CUL_MN_FEST_SANGAI",
+    "stateId": "MN",
+    "category": "festivals",
+    "title": "Sangai Festival",
+    "dates": "November 21-30",
+    "location_name": "Hapta Kangjeibung, Imphal",
+    "summary": "Manipur's biggest tourism festival celebrating the state animal, the Sangai deer.",
+    "full_story": "The festival showcases the rich cultural heritage, handloom, handicrafts, and fine arts of the state.",
+    "images": [
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=2000"
+    ],
+    "tags": [
+      "culture",
+      "dance"
+    ],
+    "isHiddenGem": false,
+    "details": {
+      "significance": "Promotes Manipur as a world-class tourism destination.",
+      "best_experienced_at": {
+        "event": "Imphal Main Venue",
+        "dates": "Nov 21-30"
+      },
+      "hero_image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=2000",
+      "article_content": [
+        "The festival is named after the State Animal, Sangai, the brow-antlered deer found only in Manipur.",
+        "It features indigenous sports like Sagol Kangjei (Polo), Thang Ta (Martial Arts), and Mukna Kangjei."
+      ]
+    },
+    "related_festival_id": "FEST_MN_SANGAI"
+  },
+  {
+    "_id": "CUL_AS_MUSIC_DRUM",
+    "stateId": "AS",
+    "category": "music",
+    "title": "Folk Drum (Dhol)",
+    "location_name": "Across Assam",
+    "summary": "The heartbeat of Assamese music.",
+    "images": [
+      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200"
+    ],
+    "isHiddenGem": true,
+    "details": {
+      "significance": "A repository of history and community status.",
+      "best_experienced_at": {
+        "event": "Bihu Festival",
+        "dates": "April"
+      },
+      "hero_image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200",
+      "article_content": [
+        "To truly understand Assam, one must understand its music. The folk drum is more than just a tradition..."
+      ]
+    }
+  }
+]

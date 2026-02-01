@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "PROD_MN_01",
+    "stateId": "MN",
+    "title": "Rani Phee",
+    "price": 4500,
+    "images": [
+      "https://images.unsplash.com/photo-1627519528731-862953835f1e?w=800"
+    ],
+    "category": "textile"
+  }
+]

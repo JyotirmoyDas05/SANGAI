@@ -1,0 +1,69 @@
+[
+  {
+    "_id": "HS001",
+    "placeId": "HP001",
+    "name": "Sendra Cottage",
+    "address": "Sendra Hill, Loktak Lake, Moirang",
+    "rating": {
+      "score": 4.5,
+      "label": "Very Good",
+      "count": 42
+    },
+    "price": {
+      "amount": 3500,
+      "currency": "INR",
+      "unit": "1 Night, 1 Adult"
+    },
+    "amenities_list": [
+      "View",
+      "Restaurant",
+      "Parking"
+    ],
+    "amenities_detailed": [
+      {
+        "icon": "waves",
+        "title": "Lake View",
+        "description": "Direct view of the floating phumdis."
+      },
+      {
+        "icon": "restaurant",
+        "title": "In-house Dining",
+        "description": "Serves traditional Manipuri thali."
+      }
+    ],
+    "host": {
+      "name": "Local Tourism Guild",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200",
+      "bio": "Managed by the community."
+    },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "property_rules": [
+        "Valid ID Required",
+        "No loud music after 9 PM"
+      ],
+      "cancellation_policy": {
+        "text": [
+          "Full refund if cancelled 7 days prior."
+        ],
+        "table": [
+          {
+            "days_before": "7 Days",
+            "refund": "100%"
+          }
+        ]
+      }
+    },
+    "room_types": [
+      {
+        "type": "Cottage",
+        "price": 3500,
+        "capacity": 2
+      }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
+    ]
+  }
+]

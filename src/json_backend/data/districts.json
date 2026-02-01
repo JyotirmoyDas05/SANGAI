@@ -1,0 +1,91 @@
+[
+  {
+    "_id": "MN_BIS_01",
+    "stateId": "MN",
+    "name": "Bishnupur",
+    "slug": "bishnupur",
+    "hq_coordinates": {
+      "lat": 24.63,
+      "lng": 93.76
+    },
+    "tagline": "Land of the Dancing Deer",
+    "audio_key": "bishnupur_intro",
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1544634076-a90160bcadcb?auto=format&fit=crop&q=80&w=2000"
+      ],
+      "map": "url_svg"
+    },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "Where the lake reflects the sky.",
+      "background_texture": "url_texture"
+    },
+    "description": {
+      "title": "Welcome to Bishnupur",
+      "content": "Home to the famous Loktak Lake and Keibul Lamjao National Park."
+    },
+    "defining_themes": [
+      {
+        "icon": "waves",
+        "title": "Wetlands",
+        "description": "Floating biomass ecology."
+      }
+    ],
+    "known_for": [
+      "Loktak Lake",
+      "Red Ware Pottery",
+      "Temples"
+    ],
+    "stats": {
+      "capital": "Bishnupur",
+      "landscape": "Wetland & Valley",
+      "languages": [
+        "Meitei"
+      ],
+      "population": "2.4 Lakhs",
+      "area": "496 sq km"
+    },
+    "land_and_memory": {
+      "title": "Echoes of Moirang",
+      "content": "The ancient kingdom of Moirang, rich in folklore like Khamba Thoibi."
+    },
+    "shopping_cta": {
+      "title": "Crafts of Bishnupur",
+      "categories": [
+        "Pottery",
+        "Handloom"
+      ]
+    }
+  },
+  {
+    "_id": "ML_EKH",
+    "stateId": "ML",
+    "name": "East Khasi Hills",
+    "slug": "east_khasi_hills",
+    "hq_coordinates": {
+      "lat": 25.57,
+      "lng": 91.88
+    },
+    "tagline": "Heart of Meghalaya",
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1566837945700-30057527653a?auto=format&fit=crop&q=80&w=2000"
+      ]
+    },
+    "weather_code": 61,
+    "description": {
+      "title": "Welcome",
+      "content": "The misty hills where clouds come home."
+    },
+    "stats": {
+      "capital": "Shillong",
+      "landscape": "Hills",
+      "population": "8.2 Lakhs",
+      "area": "2,748 sq km",
+      "languages": [
+        "Khasi"
+      ]
+    }
+  }
+]

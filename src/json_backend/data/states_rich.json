@@ -1,0 +1,165 @@
+[
+  {
+    "_id": "MN",
+    "slug": "manipur",
+    "name": "Manipur",
+    "tagline": "Jewel of India",
+    "capital": "Imphal",
+    "coordinates": {
+      "lat": 24.817,
+      "lng": 93.936
+    },
+    "stats": {
+      "population": "2.8 Million",
+      "area": "22,327 sq km",
+      "languages": [
+        "Meitei",
+        "English"
+      ],
+      "landscapeType": "Hills & Valley",
+      "climate": "Sub-tropical"
+    },
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=2000",
+        "https://images.unsplash.com/photo-1605377349974-9463c23e800d?auto=format&fit=crop&q=80&w=2000"
+      ],
+      "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Manipur_locator_map.svg/1200px-Manipur_locator_map.svg.png"
+    },
+    "weatherCode": 95,
+    "funFacts": [
+      "Home to the world's only floating national park.",
+      "The birthplace of modern Polo."
+    ],
+    "description_section": {
+      "title": "Welcome to Manipur",
+      "content": "Manipur is a mosaic of ancient traditions and breathtaking landscapes. Known as the 'Jewel of India', it offers a unique blend of valley culture and hill tribe heritage.",
+      "call_to_action": "Read More"
+    },
+    "land_and_memory": {
+      "title": "Land & Memory",
+      "tone": "philosophical",
+      "content": "Manipur is defined by the phumdis of Loktak Lake and the rolling green hills. It is a land where history is whispered in the winds of the Kangla Fort and sung in the ballads of Khongjom.",
+      "background_image": "https://images.unsplash.com/photo-1626015099719-217a151b6601?auto=format&fit=crop&q=80&w=2000"
+    },
+    "defining_themes": [
+      {
+        "icon": "terrain",
+        "title": "Floating Wetlands",
+        "description": "The unique ecosystem of Loktak Lake."
+      },
+      {
+        "icon": "diversity_3",
+        "title": "Meitei Culture",
+        "description": "Rich classical dance and martial arts traditions."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "sports_kabaddi",
+        "category": "Sports",
+        "title": "Origin of Polo",
+        "description": "Sagol Kangjei, the indigenous form of polo, started here."
+      },
+      {
+        "icon": "checkroom",
+        "category": "Handloom",
+        "title": "Moirang Phee",
+        "description": "Distinctive temple border designs woven by women."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "sailing",
+        "title": "Lake Boating",
+        "description": "Navigate the floating islands of Loktak."
+      },
+      {
+        "icon": "temple_hindu",
+        "title": "Temple Trails",
+        "description": "Visit the Govindaji Temple and historical sites."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "Inner Line Permit (ILP)"
+    }
+  },
+  {
+    "_id": "ML",
+    "slug": "meghalaya",
+    "name": "Meghalaya",
+    "tagline": "Abode of Clouds",
+    "capital": "Shillong",
+    "coordinates": {
+      "lat": 25.578,
+      "lng": 91.893
+    },
+    "stats": {
+      "population": "3.3 Million",
+      "area": "22,429 sq km",
+      "languages": [
+        "Khasi",
+        "Garo",
+        "Pnar",
+        "English"
+      ],
+      "landscapeType": "Plateau & Valleys",
+      "climate": "Wet & Cool"
+    },
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1626015099719-217a151b6601?auto=format&fit=crop&q=80&w=2000",
+        "https://images.unsplash.com/photo-1594975619176-0f8c3534b17a?auto=format&fit=crop&q=80&w=2000"
+      ],
+      "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Meghalaya_locator_map.svg/1200px-Meghalaya_locator_map.svg.png"
+    },
+    "weatherCode": 63,
+    "funFacts": [
+      "Home to the wettest place on Earth, Mawsynram.",
+      "Famous for living root bridges bio-engineered by locals."
+    ],
+    "description_section": {
+      "title": "Welcome to Meghalaya",
+      "content": "Meghalaya, the 'Abode of Clouds', is a mesmerizing tapestry of misty hills, cascading waterfalls, and ancient root bridges.",
+      "call_to_action": "Explore Mist"
+    },
+    "land_and_memory": {
+      "title": "Land & Memory",
+      "tone": "poetic",
+      "content": "Walk through the sacred groves where ancestors whisper in the rustling leaves. The living root bridges stand as a testament to a deep, symbiotic bond with nature.",
+      "background_image": "https://images.unsplash.com/photo-1566837945700-30057527653a?auto=format&fit=crop&q=80&w=2000"
+    },
+    "defining_themes": [
+      {
+        "icon": "forest",
+        "title": "Living Architecture",
+        "description": "Bridges grown from rubber tree roots."
+      },
+      {
+        "icon": "water_drop",
+        "title": "Cascading Falls",
+        "description": "Land of a thousand waterfalls like Nohkalikai."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "music_note",
+        "category": "Music",
+        "title": "Rock Capital",
+        "description": "Shillong is known as India's Rock Capital."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "hiking",
+        "title": "Caving & Trekking",
+        "description": "Explore some of South Asia's longest caves."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": false,
+      "permit_name": "None for Indian Tourists (Registration for Foreigners)"
+    }
+  }
+]

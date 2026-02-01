@@ -1,0 +1,18 @@
+{
+  "categories": {
+    "nature": [
+      "lake",
+      "waterfall"
+    ],
+    "culture": [
+      "festival"
+    ]
+  },
+  "category_icons": {
+    "festivals": "celebration",
+    "music": "music_note",
+    "attire": "checkroom",
+    "food": "restaurant",
+    "wildlife": "nature"
+  }
+}
