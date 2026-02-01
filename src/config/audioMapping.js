@@ -9,22 +9,25 @@ import assamTheme from '../assets/music/assam_theme.mpeg';
 import meghalayaTheme from '../assets/music/meghalaya_theme.m4a';
 import manipurTheme from '../assets/music/manipur_theme.mp3';
 import nagalandTheme from '../assets/music/nagaland_theme.mp3';
+import tripuraTheme from '../assets/music/tripura_theme.mp3';
+import mizoramTheme from '../assets/music/mizoram_theme.mp3';
+import northeastTheme from '../assets/music/northeast_theme.mp3';
 
 const PLACEHOLDER_SONG = 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3';
 
 export const REGION_AUDIO = {
     // Northeast Region (Overview)
-    'northeast': PLACEHOLDER_SONG,
+    'northeast': northeastTheme,
 
     // States
     'arunachal_pradesh': PLACEHOLDER_SONG,
     'assam': assamTheme,
     'manipur': manipurTheme,
     'meghalaya': meghalayaTheme,
-    'mizoram': PLACEHOLDER_SONG,
+    'mizoram': mizoramTheme,
     'nagaland': nagalandTheme,
     'sikkim': PLACEHOLDER_SONG,
-    'tripura': PLACEHOLDER_SONG
+    'tripura': tripuraTheme
 };
 
 /**
