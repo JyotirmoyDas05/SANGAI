@@ -37,12 +37,15 @@ export const REGION_AUDIO = {
  * @param {string} parentState - (Optional) The parent state slug if this is a district
  */
 export function getAudioForRegion(slug, parentState = null) {
-    if (REGION_AUDIO[slug]) {
-        return REGION_AUDIO[slug];
+    const s = slug?.toLowerCase();
+    const p = parentState?.toLowerCase();
+
+    if (REGION_AUDIO[s]) {
+        return REGION_AUDIO[s];
     }
 
-    if (parentState && REGION_AUDIO[parentState]) {
-        return REGION_AUDIO[parentState];
+    if (p && REGION_AUDIO[p]) {
+        return REGION_AUDIO[p];
     }
 
     // Default to Northeast theme if nothing else matches
