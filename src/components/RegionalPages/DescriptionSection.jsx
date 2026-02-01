@@ -7,7 +7,15 @@ import cultureImage from '../../assets/intro page/pexels-north-bengal-tourism-21
 import communityImage from '../../assets/intro page/nilotpal-kalita-IpRIguCAQes-unsplash.jpg';
 import mapImage from '../../assets/intro page/pexels-amshiv-1476065-25311368.jpg';
 
-const INTRO_IMAGES = [heroImage, cultureImage, communityImage, mapImage];
+const INTRO_IMAGES = [
+    heroImage,
+    cultureImage,
+    communityImage,
+    mapImage,
+    // Reuse for 6-grid demo
+    heroImage,
+    cultureImage
+];
 
 /**
  * Description Section Component
@@ -38,10 +46,13 @@ export default function DescriptionSection({
                 {/* Left: Image Collage */}
                 <div className="desc-collage">
                     <div className="collage-grid">
-                        <div className="collage-item item-1" style={{ backgroundImage: `url(${collageImages[0]})` }}></div>
-                        <div className="collage-item item-2" style={{ backgroundImage: `url(${collageImages[1]})` }}></div>
-                        <div className="collage-item item-3" style={{ backgroundImage: `url(${collageImages[2]})` }}></div>
-                        <div className="collage-item item-4" style={{ backgroundImage: `url(${collageImages[3]})` }}></div>
+                        {collageImages.slice(0, 6).map((img, index) => (
+                            <div
+                                key={index}
+                                className={`collage-item item-${index + 1}`}
+                                style={{ backgroundImage: `url(${img})` }}
+                            ></div>
+                        ))}
                     </div>
                 </div>
 

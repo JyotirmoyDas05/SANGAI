@@ -11,6 +11,8 @@ import NortheastPage from './pages/NortheastPage/NortheastPage';
 import RegionPage from './pages/RegionPage/RegionPage';
 import CulturalPage from './pages/CulturalPage/CulturalPage';
 import CulturalDetailView from './pages/CulturalPage/CulturalDetailView';
+import FestivalDetailView from './pages/ExplorePage/views/FestivalDetailView';
+import HomestayDetailView from './pages/DestinationDetailsPage/HomestayDetailView';
 import ShoppingPage from './pages/ShoppingPage/ShoppingPage';
 import CollectionPage from './pages/CollectionPage/CollectionPage';
 import ProductPage from './pages/ProductPage/ProductPage';
@@ -73,6 +75,10 @@ export const router = createBrowserRouter([
                         path: 'festivals',
                         element: <FestivalsView />,
                     },
+                    {
+                        path: 'festivals/:id',
+                        element: <FestivalDetailView />,
+                    },
                 ],
             },
 
@@ -96,6 +102,10 @@ export const router = createBrowserRouter([
                 path: ':region/destination/:id',
                 element: <MockDestinationPage />,
             },
+            {
+                path: ':region/destination/:id/:homestayId',
+                element: <HomestayDetailView />,
+            },
 
             // Dynamic Region Page (states and districts)
             // e.g., /manipur, /imphal_west
@@ -114,6 +124,10 @@ export const router = createBrowserRouter([
                     {
                         path: 'festivals',
                         element: <FestivalsView />,
+                    },
+                    {
+                        path: 'festivals/:id',
+                        element: <FestivalDetailView />,
                     },
                     // Shopping View under specific region
                     {

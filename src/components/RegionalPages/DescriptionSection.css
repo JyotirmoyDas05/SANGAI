@@ -6,12 +6,10 @@
     display: flex;
     align-items: center;
     background-color: #1a1a1a;
-    /* Dark background as per ref */
     color: #ffffff;
     overflow: hidden;
     padding: 0;
     margin-top: -60px;
-    /* Counteract parent flex gap */
 }
 
 .desc-container {
@@ -22,155 +20,168 @@
 
 /* Left: Collage */
 .desc-collage {
-    flex: 1;
+    flex: 1.2;
+    /* Give slightly more space to collage */
     height: 100%;
-    padding: 4rem;
+    padding: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* 
+   MODERN 6-ITEM BENTO GRID 
+   Uneven, Organic Layout
+*/
 .collage-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    grid-template-rows: 1fr 0.8fr;
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 16px;
+    /* Tight, modern gap */
     width: 100%;
-    height: 80%;
-    max-width: 800px;
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
+    /* Keep overall shape balanced */
 }
 
 .collage-item {
     background-size: cover;
     background-position: center;
-    border-radius: 4px;
-    transition: transform 0.4s ease;
+    border-radius: 12px;
+    /* Modern Softness */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 .collage-item:hover {
-    transform: scale(1.02);
+    transform: scale(0.98);
+    /* Subtle press effect */
+    filter: brightness(1.1);
 }
 
-/* Specific item sizing based on reference feel */
+/* 
+   BENTO CELLS 
+   Grid: 4 cols x 3 rows
+*/
+
+/* Item 1: Large Anchor (Top Left) - 2x2 */
 .item-1 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    /* Large Left Top */
+    grid-column: span 2;
+    grid-row: span 2;
 }
 
+/* Item 2: Small Square (Top Right Inner) - 1x1 */
 .item-2 {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    /* Right Top */
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
+/* Item 3: Tall Vertical (Right Edge) - 1x2 */
 .item-3 {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    /* Bottom Left */
+    grid-column: span 1;
+    grid-row: span 2;
 }
 
+/* Item 4: Small Square (Middle Right Inner) - 1x1 */
 .item-4 {
-    grid-column: 2 / 3;
+    grid-column: 3 / 4;
     grid-row: 2 / 3;
-    /* Bottom Right */
+}
+
+/* Item 5: Wide Horizontal (Bottom Left) - 2x1 */
+.item-5 {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+/* Item 6: Wide Horizontal (Bottom Right) - 2x1 */
+.item-6 {
+    grid-column: span 2;
+    grid-row: span 1;
 }
 
 
 /* Right: Content */
 .desc-content {
-    flex: 1;
+    flex: 0.8;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 4rem 6rem 4rem 2rem;
-    /* More padding on right */
 }
 
 .desc-text-wrapper {
-    max-width: 600px;
+    max-width: 500px;
 }
 
 .desc-title {
-    font-family: 'Playfair Display', serif;
-    /* Elegant serif font */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* Standardized Font */
     font-size: 3.5rem;
-    font-weight: 400;
-    line-height: 1.2;
+    font-weight: 700;
+    line-height: 1.1;
     margin-bottom: 2rem;
     color: #ffffff;
 }
 
 .desc-separator {
-    width: 100px;
-    height: 3px;
-    background-color: #a8a25c;
-    /* Gold/Olive accent color */
+    width: 80px;
+    height: 4px;
+    background-color: #6D8196;
+    /* Slate Blue Accent */
     margin-bottom: 2.5rem;
+    border-radius: 2px;
 }
 
 .desc-paragraph {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #cccccc;
+    color: #e5e5e5;
     margin-bottom: 3rem;
+    font-weight: 300;
 }
 
-.book-now-btn {
-    background-color: #8c8646;
-    /* Olive/Gold btn */
-    color: #ffffff;
-    border: none;
-    padding: 1rem 2.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.book-now-btn:hover {
-    background-color: #a8a25c;
-}
 
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
     .desc-container {
         flex-direction: column;
         height: auto;
-        min-height: 100vh;
     }
 
     .desc-collage {
         padding: 2rem;
-        height: 60vh;
+        height: 50vh;
+        width: 100%;
+    }
+
+    .collage-grid {
+        max-width: 500px;
     }
 
     .desc-content {
         padding: 3rem 2rem;
-        height: auto;
-    }
-
-    .desc-title {
-        font-size: 2.5rem;
+        width: 100%;
+        flex: auto;
     }
 }
 
 @media (max-width: 768px) {
+
+    /* Stack grid for mobile */
     .collage-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 200px);
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        aspect-ratio: auto;
     }
 
-    .item-1,
-    .item-2,
-    .item-3,
-    .item-4 {
-        grid-column: auto;
-        grid-row: auto;
+    .collage-item {
+        height: 200px;
+        width: 100%;
     }
 }

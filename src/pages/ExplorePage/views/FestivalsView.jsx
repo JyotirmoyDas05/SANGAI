@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { getUpcomingFestivals, getFestivals } from '../../../api/apiService';
 import './FestivalsView.css';
 
@@ -7,6 +8,8 @@ import './FestivalsView.css';
  * Date-focused cards for festivals - Now using real API data
  */
 export default function FestivalsView() {
+    const navigate = useNavigate();
+    const location = useLocation();
     const [activeTab, setActiveTab] = useState('upcoming');
     const [activeFilter] = useState('all');
     const [festivals, setFestivals] = useState([]);
@@ -118,7 +121,15 @@ export default function FestivalsView() {
                 )}
 
                 {!loading && !error && festivals.map(fest => (
-                    <div className="event-card group" key={fest.id}>
+                    <div
+                        className="event-card group cursor-pointer"
+                        key={fest.id}
+                        onClick={() => {
+                            // Ensure we navigate to the child route regardless of current trailing slash
+                            const currentPath = location.pathname.replace(/\/+$/, '');
+                            navigate(`${currentPath}/${fest.id}`);
+                        }}
+                    >
                         <div className="event-media">
                             <img src={fest.image} alt={fest.name} />
                             <div className="media-overlay"></div>

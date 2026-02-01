@@ -148,7 +148,7 @@ export default function MockDestinationPage() {
                                 <h2 className="mdp-homestays__title">Where to Stay</h2>
 
                                 {/* Homestay Card 1 */}
-                                <div className="mdp-homestay-card">
+                                <div className="mdp-homestay-card" onClick={() => navigate('APRIL_SPRINGS_HOMESTAY')} style={{ cursor: 'pointer' }}>
                                     <div className="mdp-homestay-card__image">
                                         <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" alt="" />
                                     </div>
@@ -182,7 +182,7 @@ export default function MockDestinationPage() {
                                 </div>
 
                                 {/* Homestay Card 2 */}
-                                <div className="mdp-homestay-card">
+                                <div className="mdp-homestay-card" onClick={() => navigate('HILLS_VALLEY_GUESTHOUSE')} style={{ cursor: 'pointer' }}>
                                     <div className="mdp-homestay-card__image">
                                         <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&q=80" alt="" />
                                     </div>
@@ -215,7 +215,7 @@ export default function MockDestinationPage() {
                                 </div>
 
                                 {/* Homestay Card 3 */}
-                                <div className="mdp-homestay-card">
+                                <div className="mdp-homestay-card" onClick={() => navigate('CHERRAPUNJI_HOLIDAY_RESORT')} style={{ cursor: 'pointer' }}>
                                     <div className="mdp-homestay-card__image">
                                         <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&q=80" alt="" />
                                     </div>
@@ -249,7 +249,7 @@ export default function MockDestinationPage() {
                                 </div>
 
                                 {/* Homestay Card 4 */}
-                                <div className="mdp-homestay-card">
+                                <div className="mdp-homestay-card" onClick={() => navigate('SOHRA_PINE_COTTAGE')} style={{ cursor: 'pointer' }}>
                                     <div className="mdp-homestay-card__image">
                                         <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&q=80" alt="" />
                                     </div>
