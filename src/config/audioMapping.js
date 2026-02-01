@@ -12,6 +12,7 @@ import nagalandTheme from '../assets/music/nagaland_theme.mp3';
 import tripuraTheme from '../assets/music/tripura_theme.mp3';
 import mizoramTheme from '../assets/music/mizoram_theme.mp3';
 import northeastTheme from '../assets/music/northeast_theme.mp3';
+import sikkimTheme from '../assets/music/sikkim_theme.mp3';
 
 const PLACEHOLDER_SONG = 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3';
 
@@ -26,7 +27,7 @@ export const REGION_AUDIO = {
     'meghalaya': meghalayaTheme,
     'mizoram': mizoramTheme,
     'nagaland': nagalandTheme,
-    'sikkim': PLACEHOLDER_SONG,
+    'sikkim': sikkimTheme,
     'tripura': tripuraTheme
 };
 
