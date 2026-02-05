@@ -53,11 +53,16 @@ export default function FestivalsView() {
 
                 // Transform API data to match component structure
                 const transformedFestivals = (result.data || []).map(fest => ({
-                    id: fest._id || fest.id,
+                    id: fest.festivalId?._id || fest._id, // Use Master Slug (e.g., 'sangai_festival') for routing
                     name: fest.festivalId?.name || fest.name || 'Festival',
                     desc: fest.festivalId?.description || fest.description || '',
                     date: formatDate(fest.startDate, fest.endDate),
-                    image: fest.festivalId?.image || fest.image || 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800',
+                    // Check for nested images structure (Master)
+                    image: fest.festivalId?.images?.preview ||
+                        fest.festivalId?.images?.hero?.[0] ||
+                        fest.festivalId?.image ||
+                        fest.image ||
+                        'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800',
                     tags: fest.festivalId?.tags || fest.tags || [],
                     location: fest.districtId?.districtName || 'Northeast India'
                 }));

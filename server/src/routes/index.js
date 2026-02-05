@@ -9,9 +9,13 @@ import festivalsRouter from './festivals.js';
 import searchRouter from './search.js';
 import productRoutes from './productRoutes.js';
 import northeastRouter from './northeast.js';
+import cmsRouter from './cms.js';
 import { Tag } from '../models/index.js';
 
 const router = Router();
+
+// CMS Routes (Protected)
+router.use('/cms', cmsRouter);
 
 // NEW: Hierarchical Northeast routes
 router.use('/northeast', northeastRouter);

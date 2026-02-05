@@ -19,7 +19,8 @@
         "helmet": "^7.1.0",
         "mongoose": "^8.5.0",
         "multer": "^2.0.2",
-        "multer-storage-cloudinary": "^4.0.0"
+        "multer-storage-cloudinary": "^4.0.0",
+        "uuid": "^13.0.0"
     },
     "devDependencies": {
         "eslint": "^9.9.0"

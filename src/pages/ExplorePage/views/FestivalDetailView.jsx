@@ -41,20 +41,59 @@ export default function FestivalDetailView() {
     // Use API data if available, otherwise placeholder
     const displayFestival = festival || placeholderFestival;
 
-    // Adapt data to UI
-    const name = displayFestival.name || displayFestival.festivalMaster?.name || "Festival Name";
-    const description = displayFestival.description || displayFestival.festivalMaster?.description || "";
-    const image = displayFestival.image || displayFestival.festivalMaster?.image;
-    const startDate = displayFestival.startDate ? new Date(displayFestival.startDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) : "TBD";
-    const endDate = displayFestival.endDate ? new Date(displayFestival.endDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : "";
+    // Helper to extract data based on API structure vs Placeholder structure
+    // API returns: { name, description, images: { hero: [], content: [] }, occurrences: [{ startDate, districtId: { districtName } }] }
+    // Placeholder returns: { name, description, image, startDate, location: { address } }
+
+    const isApiData = !!festival;
+
+    // 1. Get relevant occurrence (API only)
+    let targetOccurrence = null;
+    if (isApiData && festival.occurrences && festival.occurrences.length > 0) {
+        // Try to find upcoming
+        targetOccurrence = festival.occurrences.find(occ => new Date(occ.startDate) >= new Date());
+        // Fallback to latest
+        if (!targetOccurrence) {
+            targetOccurrence = festival.occurrences[festival.occurrences.length - 1];
+        }
+    }
+
+    // 2. Extract Fields
+    const name = displayFestival.name;
+    const description = displayFestival.description;
+
+    // Image: Try hero[0], then preview, then fallback (API) OR displayFestival.image (Placeholder)
+    let image = displayFestival.image; // Placeholder default
+    if (isApiData) {
+        if (displayFestival.images?.hero?.length > 0) image = displayFestival.images.hero[0];
+        else if (displayFestival.images?.preview) image = displayFestival.images.preview;
+    }
+
+    // Dates
+    let startDateObj = displayFestival.startDate ? new Date(displayFestival.startDate) : null;
+    let endDateObj = displayFestival.endDate ? new Date(displayFestival.endDate) : null;
+
+    if (isApiData && targetOccurrence) {
+        startDateObj = new Date(targetOccurrence.startDate);
+        endDateObj = new Date(targetOccurrence.endDate);
+    }
+
+    const startDate = startDateObj ? startDateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) : "TBD";
+    const endDate = endDateObj ? endDateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : "";
     const fullDate = `${startDate} ${endDate ? `- ${endDate}` : ''}`;
-    const locationName = displayFestival.location?.address || displayFestival.districtId?.districtName || "Megalaya";
+
+    // Location
+    let locationName = "Northeast India";
+    if (isApiData && targetOccurrence?.districtId?.districtName) {
+        locationName = `${targetOccurrence.districtId.districtName}, ${targetOccurrence.districtId.stateName || 'India'}`;
+    } else if (displayFestival.location?.address) {
+        locationName = displayFestival.location.address;
+    }
+
     const bookingLink = displayFestival.bookingLink || "#";
+    const contentImages = isApiData ? (displayFestival.images?.content || []) : [];
 
     if (loading) {
-        // Optional: Show loading or just render immediately with placeholder if preferred. 
-        // For better UX during "placeholder mode", we might skip loading spinner if we just want to show the specific design.
-        // But keeping spinner is standard.
         return (
             <div className="flex items-center justify-center min-h-screen">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-700"></div>
@@ -101,8 +140,21 @@ export default function FestivalDetailView() {
                     </div>
                 </div>
 
-                <div className="fd-content-image-wrapper">
-                    <img src={image} alt={name} className="fd-content-image" />
+                {/* RIGHT COLUMN - IMAGES */}
+                <div className="fd-media-column">
+                    {contentImages.length > 0 ? (
+                        <div className="fd-gallery-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '15px' }}>
+                            {contentImages.map((img, idx) => (
+                                <div key={idx} style={{ borderRadius: '12px', overflow: 'hidden', height: '180px', boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }}>
+                                    <img src={img} alt={`${name} ${idx + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="fd-content-image-wrapper">
+                            <img src={image} alt={name} className="fd-content-image" />
+                        </div>
+                    )}
                 </div>
 
                 <div className="fd-details-grid">
@@ -116,13 +168,15 @@ export default function FestivalDetailView() {
                         <span className="fd-detail-label">Venue</span>
                         <span className="fd-detail-value">{locationName}</span>
                     </div>
-                    <div className="fd-detail-item">
-                        <span className="material-symbols-outlined fd-detail-icon">confirmation_number</span>
-                        <span className="fd-detail-label">Booking</span>
-                        <a href={bookingLink} target="_blank" rel="noopener noreferrer" className="fd-booking-link">
-                            Book Tickets <span className="material-symbols-outlined" style={{ fontSize: '1em', verticalAlign: 'middle' }}>arrow_outward</span>
-                        </a>
-                    </div>
+                    {bookingLink && bookingLink !== '#' && (
+                        <div className="fd-detail-item">
+                            <span className="material-symbols-outlined fd-detail-icon">confirmation_number</span>
+                            <span className="fd-detail-label">Booking</span>
+                            <a href={bookingLink} target="_blank" rel="noopener noreferrer" className="fd-booking-link">
+                                Book Tickets <span className="material-symbols-outlined" style={{ fontSize: '1em', verticalAlign: 'middle' }}>arrow_outward</span>
+                            </a>
+                        </div>
+                    )}
                 </div>
             </section>
         </div>

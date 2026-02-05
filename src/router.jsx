@@ -25,6 +25,9 @@ import FestivalsView from './pages/ExplorePage/views/FestivalsView';
 import PlacesView from './pages/ExplorePage/views/PlacesView';
 import HomestaysView from './pages/ExplorePage/views/HomestaysView';
 import GuidesView from './pages/ExplorePage/views/GuidesView';
+import CMSLayout from './pages/CMS/CMSLayout';
+import CMSDashboard from './pages/CMS/CMSDashboard';
+import FestivalForm from './pages/CMS/FestivalForm';
 
 /**
  * SANGAI Route Configuration
@@ -228,4 +231,22 @@ export const router = createBrowserRouter([
             },
         ],
     },
+    {
+        path: '/dev-cms',
+        element: <CMSLayout />,
+        children: [
+            {
+                index: true,
+                element: <CMSDashboard />
+            },
+            {
+                path: 'festivals/new',
+                element: <FestivalForm />
+            },
+            {
+                path: 'festivals/edit/:id',
+                element: <FestivalForm />
+            }
+        ]
+    }
 ]);
