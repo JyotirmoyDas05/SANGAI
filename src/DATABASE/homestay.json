@@ -1,0 +1,543 @@
+[
+  {
+    "//_COMMENT": "--- ARUNACHAL PRADESH ---"
+  },
+  {
+    "_id": "HS_AR_TAW_001",
+    "placeId": "HP_AR_001",
+    "name": "Dhakar Homestay",
+    "address": "Gompa Road, Tawang, Arunachal Pradesh, 790104",
+    "rating": { "score": 4.8, "label": "Exceptional", "count": 45 },
+    "price": { "amount": 2500, "currency": "INR", "unit": "1 Night, 2 Adults" },
+    "contact": { "phone": "+91 9436000000", "email": "dhakar.tawang@gmail.com" },
+    "amenities_list": ["View", "Heating", "Garden"],
+    "amenities_detailed": [
+      { "icon": "wifi", "title": "Free WiFi", "description": "High-speed internet available in all areas." },
+      { "icon": "thermostat", "title": "Heating", "description": "Essential heating provided for Tawang's cold nights." },
+      { "icon": "local_parking", "title": "Private Parking", "description": "Free private parking available on site." }
+    ],
+    "host": { "name": "Tenzin", "bio": "A local Monpa host sharing stories of the monastery.", "photo": "url_host_tenzin" },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "property_rules": ["Vegetarian breakfast options available.", "No bachelor parties."],
+      "cancellation_policy": {
+        "text": ["Flexible cancellation if notified 7 days prior."],
+        "table": [{ "days_before": "7 Days", "refund": "100%" }, { "days_before": "0-7 Days", "refund": "0%" }]
+      }
+    },
+    "images": ["url_dhakar_1", "url_dhakar_2"]
+  },
+  {
+    "_id": "HS_AR_TAW_002",
+    "placeId": "HP_AR_001",
+    "name": "Pal-Mo Homestay",
+    "address": "Mandrelling, Monastery Road, Tawang",
+    "rating": { "score": 4.5, "label": "Very Good", "count": 28 },
+    "price": { "amount": 2200, "currency": "INR", "unit": "1 Night, 2 Adults" },
+    "contact": { "phone": "+91 9862000000", "email": "palmo.homestay@gmail.com" },
+    "amenities_list": ["24hr Front Desk", "Terrace"],
+    "amenities_detailed": [
+      { "icon": "deck", "title": "Terrace", "description": "Open terrace with mountain views." },
+      { "icon": "security", "title": "24-hour Security", "description": "Round the clock security for safety." }
+    ],
+    "host": { "name": "Palmo Family", "bio": "Traditional hospitality in a quiet neighborhood." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "10:00 AM",
+      "property_rules": ["Couples welcome.", "ID Proof required."],
+      "cancellation_policy": { "text": ["Non-refundable during peak season."], "table": [] }
+    },
+    "images": ["url_palmo_1"]
+  },
+  {
+    "_id": "HS_AR_TAW_003",
+    "placeId": "HP_AR_001",
+    "name": "J.D. House",
+    "address": "Near Market Area, Tawang",
+    "rating": { "score": 4.2, "label": "Good", "count": 35 },
+    "price": { "amount": 1800, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 8730000000", "email": "jd.house@gmail.com" },
+    "amenities_list": ["Market Access", "Hot Water"],
+    "amenities_detailed": [
+      { "icon": "shopping_bag", "title": "Market Proximity", "description": "Walking distance to Tawang main market." },
+      { "icon": "water_heater", "title": "Hot Water", "description": "Geysers available in all bathrooms." }
+    ],
+    "host": { "name": "J.D.", "bio": "Friendly local host." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Standard policy."], "table": [] }
+    },
+    "images": ["url_jd_1"]
+  },
+  {
+    "_id": "HS_AR_TAW_004",
+    "placeId": "HP_AR_001",
+    "name": "Mila Homestay",
+    "address": "Near Tawang War Memorial",
+    "rating": { "score": 4.6, "label": "Excellent", "count": 12 },
+    "price": { "amount": 2000, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 9402000000", "email": "mila.homestay@gmail.com" },
+    "amenities_list": ["Mountain View", "Parking"],
+    "amenities_detailed": [
+      { "icon": "history", "title": "Near War Memorial", "description": "Located close to the Tawang War Memorial." }
+    ],
+    "host": { "name": "Mila", "bio": "Warm and welcoming." },
+    "policies": {
+      "check_in": "1:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Free cancellation 24hrs before."], "table": [] }
+    },
+    "images": ["url_mila_1"]
+  },
+  {
+    "_id": "HS_AR_WK_001",
+    "placeId": "HP_AR_005",
+    "name": "Sangti Nature Love Homestay",
+    "address": "Sangti Valley, Dirang",
+    "rating": { "score": 4.7, "label": "Exceptional", "count": 18 },
+    "price": { "amount": 2500, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 8131000000", "email": "sangti.nature@gmail.com" },
+    "amenities_list": ["River View", "Bonfire"],
+    "amenities_detailed": [
+      { "icon": "landscape", "title": "Valley View", "description": "Stunning views of Sangti Valley." },
+      { "icon": "fire", "title": "Bonfire", "description": "Evening bonfires arranged on request." }
+    ],
+    "host": { "name": "Dorjee", "bio": "Expert in local birdwatching tours (Black-necked Crane)." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "property_rules": ["No loud music after 10 PM."],
+      "cancellation_policy": { "text": ["Moderate."], "table": [] }
+    },
+    "images": ["url_sangti_1"]
+  },
+  {
+    "_id": "HS_AR_WK_002",
+    "placeId": "HP_AR_005",
+    "name": "Red Berry Riverview Homestay",
+    "address": "Shergaon, West Kameng",
+    "rating": { "score": 4.9, "label": "Superb", "count": 42 },
+    "price": { "amount": 3000, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 7005000000", "email": "redberry.shergaon@gmail.com" },
+    "amenities_list": ["Kitchen", "Garden", "Playground"],
+    "amenities_detailed": [
+      { "icon": "kitchen", "title": "Shared Kitchen", "description": "Access to kitchen for basic cooking." },
+      { "icon": "park", "title": "Garden", "description": "Large garden with berry bushes." }
+    ],
+    "host": { "name": "Shergaon Community", "bio": "Farm-to-table experiences available." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "property_rules": ["Pets allowed."],
+      "cancellation_policy": { "text": ["Free cancellation."], "table": [] }
+    },
+    "images": ["url_redberry_1"]
+  },
+  {
+    "_id": "HS_AR_WK_003",
+    "placeId": "HP_AR_005",
+    "name": "Anu Homestay",
+    "address": "Sera Road, Bomdila",
+    "rating": { "score": 4.3, "label": "Very Good", "count": 15 },
+    "price": { "amount": 1500, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 9436200000", "email": "anu.bomdila@gmail.com" },
+    "amenities_list": ["WiFi", "TV"],
+    "amenities_detailed": [
+      { "icon": "tv", "title": "TV", "description": "Cable TV in rooms." }
+    ],
+    "host": { "name": "Anu", "bio": "Homely atmosphere." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Standard."], "table": [] }
+    },
+    "images": ["url_anu_1"]
+  },
+  {
+    "_id": "HS_AR_WK_004",
+    "placeId": "HP_AR_005",
+    "name": "Chander Homestay",
+    "address": "Thembang Heritage Village",
+    "rating": { "score": 4.5, "label": "Authentic", "count": 10 },
+    "price": { "amount": 1200, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 8794000000", "email": "chander.thembang@gmail.com" },
+    "amenities_list": ["Heritage Stay", "Local Food"],
+    "amenities_detailed": [
+      { "icon": "museum", "title": "Heritage Village", "description": "Stay inside a fortified Dzong village." }
+    ],
+    "host": { "name": "Pema", "bio": "Preserving Monpa heritage." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Flexible."], "table": [] }
+    },
+    "images": ["url_chander_1"]
+  },
+  {
+    "_id": "HS_AR_LS_001",
+    "placeId": "HP_AR_003",
+    "name": "Naku's Homestay",
+    "address": "Hari Village, Ziro",
+    "rating": { "score": 4.8, "label": "Exceptional", "count": 60 },
+    "price": { "amount": 1800, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 9863000000", "email": "naku.ziro@gmail.com" },
+    "amenities_list": ["Organic Farm", "Local Guide"],
+    "amenities_detailed": [
+      { "icon": "agriculture", "title": "Organic Farm", "description": "Stay right in the middle of a kiwi and paddy farm." }
+    ],
+    "host": { "name": "Naku", "bio": "Experience Apatani life firsthand." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "property_rules": ["Shoes to be removed inside."],
+      "cancellation_policy": { "text": ["Free cancellation 48 hours prior."], "table": [] }
+    },
+    "images": ["url_naku_1"]
+  },
+  {
+    "_id": "HS_AR_LS_002",
+    "placeId": "HP_AR_003",
+    "name": "Chasa Homestay",
+    "address": "Abulyang, Ziro",
+    "rating": { "score": 4.3, "label": "Good", "count": 15 },
+    "price": { "amount": 1600, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "8014232369", "email": "chasa.ziro@gmail.com" },
+    "amenities_list": ["Basic", "Village Walk"],
+    "amenities_detailed": [
+      { "icon": "directions_walk", "title": "Village Walks", "description": "Guided walks to nearby bamboo groves." }
+    ],
+    "host": { "name": "Chasa Family", "bio": "Warm Apatani hospitality." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Standard."], "table": [] }
+    },
+    "images": ["url_chasa_1"]
+  },
+  {
+    "_id": "HS_AR_LS_003",
+    "placeId": "HP_AR_003",
+    "name": "Tamo Homestay",
+    "address": "Bamin Village, Ziro",
+    "rating": { "score": 4.4, "label": "Very Good", "count": 22 },
+    "price": { "amount": 2000, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 9436000001", "email": "tamo.ziro@gmail.com" },
+    "amenities_list": ["Parking", "Garden"],
+    "amenities_detailed": [
+      { "icon": "local_parking", "title": "Parking", "description": "Ample space for vehicles." }
+    ],
+    "host": { "name": "Tamo", "bio": "Knowledgeable about Apatani history." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Moderate."], "table": [] }
+    },
+    "images": ["url_tamo_1"]
+  },
+  {
+    "_id": "HS_AR_LS_004",
+    "placeId": "HP_AR_003",
+    "name": "Dogindo Homestay",
+    "address": "Old Ziro",
+    "rating": { "score": 4.5, "label": "Excellent", "count": 30 },
+    "price": { "amount": 2200, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 8974000000", "email": "dogindo.ziro@gmail.com" },
+    "amenities_list": ["Bonfire", "Music"],
+    "amenities_detailed": [
+      { "icon": "music_note", "title": "Cultural Evenings", "description": "Traditional music arranged on request." }
+    ],
+    "host": { "name": "Dogindo", "bio": "Loves music and hosting." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Standard."], "table": [] }
+    },
+    "images": ["url_dogindo_1"]
+  },
+  {
+    "_id": "HS_AR_ES_001",
+    "placeId": "HP_AR_007",
+    "name": "Mama Loung's Abode",
+    "address": "Pasighat, East Siang",
+    "rating": { "score": 4.9, "label": "Superb", "count": 98 },
+    "price": { "amount": 2500, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 9612000000", "email": "mamaloung.pasighat@gmail.com" },
+    "amenities_list": ["Library", "Organic Garden", "Pet Friendly"],
+    "amenities_detailed": [
+      { "icon": "library_books", "title": "Mini Library", "description": "Collection of books on NE India." },
+      { "icon": "pets", "title": "Pet Friendly", "description": "Your furry friends are welcome." }
+    ],
+    "host": { "name": "Mama Loung", "bio": "A passionate cook and gardener." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Free cancellation."], "table": [] }
+    },
+    "images": ["url_mama_1"]
+  },
+  {
+    "_id": "HS_AR_ES_002",
+    "placeId": "HP_AR_007",
+    "name": "Abor Country Homestay",
+    "address": "Raklek, Pasighat",
+    "rating": { "score": 4.5, "label": "Excellent", "count": 40 },
+    "price": { "amount": 3000, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 9436000002", "email": "abor.country@gmail.com" },
+    "amenities_list": ["River View", "Tours"],
+    "amenities_detailed": [
+      { "icon": "tour", "title": "Guided Tours", "description": "Arranges rafting and angling trips on the Siang." }
+    ],
+    "host": { "name": "Oken Tayeng", "bio": "Adventure tourism pioneer." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Standard."], "table": [] }
+    },
+    "images": ["url_abor_1"]
+  },
+  {
+    "_id": "HS_AR_ES_003",
+    "placeId": "HP_AR_007",
+    "name": "Keyi Gumin Homestay",
+    "address": "Romdum, Mebo",
+    "rating": { "score": 4.4, "label": "Very Good", "count": 25 },
+    "price": { "amount": 1800, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "8729989123", "email": "keyi.gumin@gmail.com" },
+    "amenities_list": ["Traditional Stay", "Garden"],
+    "amenities_detailed": [
+      { "icon": "bungalow", "title": "Traditional House", "description": "Stay in a Chang-Ghar (stilt house)." }
+    ],
+    "host": { "name": "Oter Ering Tayeng", "bio": "Preserving Adi traditions." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Moderate."], "table": [] }
+    },
+    "images": ["url_keyi_1"]
+  },
+  {
+    "_id": "HS_AR_ES_004",
+    "placeId": "HP_AR_007",
+    "name": "Pineapple Homestay",
+    "address": "Napit Village, Pasighat",
+    "rating": { "score": 4.3, "label": "Good", "count": 18 },
+    "price": { "amount": 1500, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "9862571827", "email": "pineapple.napit@gmail.com" },
+    "amenities_list": ["Fruit Orchard", "Home Food"],
+    "amenities_detailed": [
+      { "icon": "nutrition", "title": "Fresh Fruit", "description": "Located amidst pineapple gardens." }
+    ],
+    "host": { "name": "Merry Koyu", "bio": "Friendly and helpful." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Standard."], "table": [] }
+    },
+    "images": ["url_pineapple_1"]
+  },
+  {
+    "_id": "HS_AR_SY_001",
+    "placeId": "HP_AR_012",
+    "name": "Almost Heritage",
+    "address": "Mechuka Town",
+    "rating": { "score": 4.7, "label": "Excellent", "count": 35 },
+    "price": { "amount": 2800, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "9402888585", "email": "almost.heritage@gmail.com" },
+    "amenities_list": ["Mountain View", "Wooden Interior"],
+    "amenities_detailed": [
+      { "icon": "cabin", "title": "Wooden Interiors", "description": "Cozy wooden rooms perfect for cold weather." }
+    ],
+    "host": { "name": "Mrs. Lhamu Sona", "bio": "Known for her warm hospitality." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Strict cancellation due to remoteness."], "table": [] }
+    },
+    "images": ["url_almost_1"]
+  },
+  {
+    "_id": "HS_AR_SY_002",
+    "placeId": "HP_AR_012",
+    "name": "Gebu Sona’s Traditional Homestay",
+    "address": "Dechengthan, Mechuka",
+    "rating": { "score": 4.8, "label": "Exceptional", "count": 50 },
+    "price": { "amount": 2500, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "9436074877", "email": "gebu.sona@gmail.com" },
+    "amenities_list": ["Traditional Food", "Fireplace"],
+    "amenities_detailed": [
+      { "icon": "fireplace", "title": "Bukhari", "description": "Traditional wood-fired heater in the common room." }
+    ],
+    "host": { "name": "Gebu Sona", "bio": "A local legend in Mechuka tourism." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Standard."], "table": [] }
+    },
+    "images": ["url_gebu_1"]
+  },
+
+  {
+    "//_COMMENT": "--- ASSAM ---"
+  },
+  {
+    "_id": "HS_AS_GOL_001",
+    "placeId": "HP_AS_001",
+    "name": "Aranya Tourist Lodge",
+    "address": "Kohora, Kaziranga",
+    "rating": { "score": 4.2, "label": "Good", "count": 200 },
+    "price": { "amount": 3500, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "03776-262429", "email": "aranya.kaziranga@gmail.com" },
+    "amenities_list": ["AC", "Restaurant", "Safari Booking"],
+    "amenities_detailed": [
+      { "icon": "restaurant", "title": "In-house Restaurant", "description": "Serving traditional Assamese Thali and continental dishes." },
+      { "icon": "jeep", "title": "Safari Booking", "description": "Assistance with Jeep and Elephant safari booking." }
+    ],
+    "host": { "name": "ATDC Manager", "bio": "Government managed property." },
+    "policies": {
+      "check_in": "1:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Non-refundable during peak season."], "table": [] }
+    },
+    "images": ["url_aranya_1"]
+  },
+  {
+    "_id": "HS_AS_GOL_002",
+    "placeId": "HP_AS_001",
+    "name": "Green House Homestay",
+    "address": "Kaziranga",
+    "rating": { "score": 4.4, "label": "Very Good", "count": 25 },
+    "price": { "amount": 1500, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 9854000000", "email": "greenhouse.kaziranga@gmail.com" },
+    "amenities_list": ["Garden", "Budget Friendly"],
+    "amenities_detailed": [
+      { "icon": "grass", "title": "Lush Greenery", "description": "Surrounded by tea gardens." }
+    ],
+    "host": { "name": "Local Family", "bio": "Eco-friendly hosts." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Flexible."], "table": [] }
+    },
+    "images": ["url_greenhouse_1"]
+  },
+  {
+    "_id": "HS_AS_MAJ_001",
+    "placeId": "HP_AS_002",
+    "name": "Risong Family Guest House",
+    "address": "Sitadar Chuk, Garamur, Majuli",
+    "rating": { "score": 4.6, "label": "Excellent", "count": 55 },
+    "price": { "amount": 1200, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 9954000000", "email": "risong.majuli@gmail.com" },
+    "amenities_list": ["Mishing Food", "Stilt Cottage"],
+    "amenities_detailed": [
+      { "icon": "restaurant", "title": "Tribal Kitchen", "description": "Authentic Mishing cuisine (Apong, Pork)." }
+    ],
+    "host": { "name": "Manjit Risong", "bio": "Experience Mishing tribal life." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": { "text": ["Free cancellation."], "table": [] }
+    },
+    "images": ["url_risong_1"]
+  },
+  {
+    "_id": "HS_AS_MAJ_002",
+    "placeId": "HP_AS_002",
+    "name": "La Maison de Ananda",
+    "address": "Garamur, Majuli",
+    "rating": { "score": 4.7, "label": "Exceptional", "count": 85 },
+    "price": { "amount": 1500, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 9854000001", "email": "maison.ananda@gmail.com" },
+    "amenities_list": ["Bamboo Cottage", "Bicycle Rental"],
+    "amenities_detailed": [
+      { "icon": "pedal_bike", "title": "Bicycle Rental", "description": "Rent cycles to explore the island." },
+      { "icon": "cottage", "title": "Bamboo Architecture", "description": "Eco-friendly bamboo cottages." }
+    ],
+    "host": { "name": "Manjit", "bio": "The first homestay on the island." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "property_rules": ["ID required.", "No plastic."],
+      "cancellation_policy": { "text": ["Flexible."], "table": [] }
+    },
+    "images": ["url_maison_1"]
+  },
+
+  {
+    "//_COMMENT": "--- MEGHALAYA ---"
+  },
+  {
+    "_id": "HS_ML_001",
+    "placeId": "HP_ML_003",
+    "name": "Krangshuri Homestay & Camping",
+    "address": "Krangshuri Road, Krangshuri, Amlarem",
+    "rating": { "score": 5.0, "label": "Excellent", "count": 12 },
+    "price": { "amount": 1500, "currency": "INR", "unit": "1 Night, 1 Adult" },
+    "contact": { "phone": "6002704160", "email": "buamlinus45@gmail.com" },
+    "amenities_list": ["Room Heater", "Campfire", "Parking"],
+    "amenities_detailed": [
+      {
+        "icon": "thermostat",
+        "title": "Room Heater",
+        "description": "In the hotel room, a room heater is provided as an additional amenity to enhance guests' comfort during colder seasons."
+      },
+      {
+        "icon": "fire_truck",
+        "title": "Campfire",
+        "description": "Imagine the crackling of wood, the warmth of glowing embers, and the camaraderie of friends gathered under a starlit sky."
+      },
+      {
+        "icon": "local_parking",
+        "title": "Parking",
+        "description": "Convenient parking awaits at our property, with ample well-lit spaces near the entrance."
+      }
+    ],
+    "host": { "name": "Linus Buam", "bio": "Passionate about adventure.", "photo": "url_linus" },
+    "policies": {
+      "check_in": "11:00 AM",
+      "check_out": "12:00 PM",
+      "property_rules": [
+        "A valid Government ID (Passport, Aadhar) is required.",
+        "Foreign nationals must present passport and visa.",
+        "Minimum age for check-in is 18 years.",
+        "Pets are allowed.",
+        "Unmarried couples are allowed."
+      ],
+      "cancellation_policy": {
+        "text": ["Refund credited within 7-14 working days."],
+        "table": [
+          { "days_before": "30 - 15 Days", "refund": "100%" },
+          { "days_before": "15 - 0 Days", "refund": "50%" }
+        ]
+      }
+    },
+    "images": ["url_krangshuri_1"]
+  },
+  {
+    "_id": "HS_ML_002",
+    "placeId": "HP_ML_001",
+    "name": "Orange Homestay",
+    "address": "Laitkor, Shillong",
+    "rating": { "score": 4.6, "label": "Excellent", "count": 120 },
+    "price": { "amount": 3000, "currency": "INR", "unit": "1 Night" },
+    "contact": { "phone": "+91 9436000005", "email": "orange.shillong@gmail.com" },
+    "amenities_list": ["View", "Kitchenette", "Rooftop"],
+    "amenities_detailed": [
+      { "icon": "deck", "title": "Rooftop Terrace", "description": "Enjoy afternoon tea with scenic views." },
+      { "icon": "kitchen", "title": "Kitchenette", "description": "Basic cooking facilities available." }
+    ],
+    "host": { "name": "Dashisha", "bio": "Hosting since 2017, very approachable." },
+    "policies": {
+      "check_in": "12:00 PM",
+      "check_out": "11:00 AM",
+      "property_rules": ["ID Proof required.", "No outside food."],
+      "cancellation_policy": {
+        "text": ["Full refund if cancelled 5 days prior."],
+        "table": [{ "days_before": "5 Days", "refund": "100%" }]
+      }
+    },
+    "images": ["url_orange_1"]
+  }
+]

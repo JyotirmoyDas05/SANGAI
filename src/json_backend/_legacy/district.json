@@ -1,0 +1,870 @@
+[
+    {
+        "_id": "AR-01",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Anjaw",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-02",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Capital Complex (Itanagar)",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-03",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Changlang",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-04",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Dibang Valley",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-05",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "East Kameng",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-06",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "East Siang",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-07",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Kamle",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-08",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Kra Daadi",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-09",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Kurung Kumey",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-10",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Lepa Rada",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-11",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Lohit",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-12",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Longding",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-13",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Lower Dibang Valley",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-14",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Lower Siang",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-15",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Lower Subansiri",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-16",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Namsai",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-17",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Pakke Kessang",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-18",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Papum Pare",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-19",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Shi Yomi",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-20",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Siang",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-21",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Tawang",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-22",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Tirap",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-23",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Upper Siang",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-24",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "Upper Subansiri",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-25",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "West Kameng",
+        "region": "northeast"
+    },
+    {
+        "_id": "AR-26",
+        "stateCode": "AR",
+        "stateName": "Arunachal Pradesh",
+        "districtName": "West Siang",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-01",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Bajali",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-02",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Baksa",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-03",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Barpeta",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-04",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Biswanath",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-05",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Bongaigaon",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-06",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Cachar",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-07",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Charaideo",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-08",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Chirang",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-09",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Darrang",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-10",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Dhemaji",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-11",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Dhubri",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-12",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Dibrugarh",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-13",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Dima Hasao",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-14",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Goalpara",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-15",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Golaghat",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-16",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Hailakandi",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-17",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Hojai",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-18",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Jorhat",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-19",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Kamrup",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-20",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Kamrup Metropolitan",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-21",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Karbi Anglong",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-22",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Kokrajhar",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-23",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Lakhimpur",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-24",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Majuli",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-25",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Morigaon",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-26",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Nagaon",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-27",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Nalbari",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-28",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Sivasagar",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-29",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Sonitpur",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-30",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "South Salmara–Mankachar",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-31",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Tamulpur",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-32",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Tinsukia",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-33",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Udalguri",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-34",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "West Karbi Anglong",
+        "region": "northeast"
+    },
+    {
+        "_id": "AS-35",
+        "stateCode": "AS",
+        "stateName": "Assam",
+        "districtName": "Karimganj",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-01",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Bishnupur",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-02",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Chandel",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-03",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Churachandpur",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-04",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Imphal East",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-05",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Imphal West",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-06",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Jiribam",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-07",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Kakching",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-08",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Kamjong",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-09",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Kangpokpi",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-10",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Noney",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-11",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Pherzawl",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-12",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Senapati",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-13",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Tamenglong",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-14",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Tengnoupal",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-15",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Thoubal",
+        "region": "northeast"
+    },
+    {
+        "_id": "MN-16",
+        "stateCode": "MN",
+        "stateName": "Manipur",
+        "districtName": "Ukhrul",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-01",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "East Garo Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-02",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "East Jaintia Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-03",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "East Khasi Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-04",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "North Garo Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-05",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "Ri Bhoi",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-06",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "South Garo Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-07",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "South West Garo Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-08",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "South West Khasi Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-09",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "West Garo Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-10",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "West Jaintia Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-11",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "West Khasi Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "ML-12",
+        "stateCode": "ML",
+        "stateName": "Meghalaya",
+        "districtName": "Eastern West Khasi Hills",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-01",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Aizawl",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-02",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Champhai",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-03",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Hnahthial",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-04",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Khawzawl",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-05",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Kolasib",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-06",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Lawngtlai",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-07",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Lunglei",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-08",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Mamit",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-09",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Saiha",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-10",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Serchhip",
+        "region": "northeast"
+    },
+    {
+        "_id": "MZ-11",
+        "stateCode": "MZ",
+        "stateName": "Mizoram",
+        "districtName": "Saitual",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-01",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Chümoukedima",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-02",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Dimapur",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-03",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Kiphire",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-04",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Kohima",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-05",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Longleng",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-06",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Mokokchung",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-07",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Mon",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-08",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Niuland",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-09",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Noklak",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-10",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Peren",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-11",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Phek",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-12",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Shamator",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-13",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Tseminyü",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-14",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Tuensang",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-15",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Wokha",
+        "region": "northeast"
+    },
+    {
+        "_id": "NL-16",
+        "stateCode": "NL",
+        "stateName": "Nagaland",
+        "districtName": "Zünheboto",
+        "region": "northeast"
+    },
+    {
+        "_id": "TR-01",
+        "stateCode": "TR",
+        "stateName": "Tripura",
+        "districtName": "Dhalai",
+        "region": "northeast"
+    },
+    {
+        "_id": "TR-02",
+        "stateCode": "TR",
+        "stateName": "Tripura",
+        "districtName": "Gomati",
+        "region": "northeast"
+    },
+    {
+        "_id": "TR-03",
+        "stateCode": "TR",
+        "stateName": "Tripura",
+        "districtName": "Khowai",
+        "region": "northeast"
+    },
+    {
+        "_id": "TR-04",
+        "stateCode": "TR",
+        "stateName": "Tripura",
+        "districtName": "North Tripura",
+        "region": "northeast"
+    },
+    {
+        "_id": "TR-05",
+        "stateCode": "TR",
+        "stateName": "Tripura",
+        "districtName": "Sepahijala",
+        "region": "northeast"
+    },
+    {
+        "_id": "TR-06",
+        "stateCode": "TR",
+        "stateName": "Tripura",
+        "districtName": "South Tripura",
+        "region": "northeast"
+    },
+    {
+        "_id": "TR-07",
+        "stateCode": "TR",
+        "stateName": "Tripura",
+        "districtName": "Unakoti",
+        "region": "northeast"
+    },
+    {
+        "_id": "TR-08",
+        "stateCode": "TR",
+        "stateName": "Tripura",
+        "districtName": "West Tripura",
+        "region": "northeast"
+    }
+]

@@ -404,41 +404,7 @@
 }
 ```
 
-### 3.3 `products_master.json`
-**Primary Key:** `_id` (PROD + Number)
-**Foreign Key:** `stateId` -> `states_rich._id`
-**Purpose:** Powers `ProductPage` and `ShoppingSection`.
 
-```json
-{
-  "_id": "PROD_MN_01",
-  "slug": "rani-phee-shawl",
-  "stateId": "MN",
-  "category": "textile", // Valid: textile, craft, food, wellness, books
-  "title": "Rani Phee Handloom Shawl",
-  "price": 4500,
-  "compareAtPrice": 5500,
-  "images": ["url_main", "url_thumb1"],
-  "variants": [
-    { "id": "v1", "name": "Red/Black", "price": 4500, "inStock": true }
-  ],
-  "description": "Handwoven by the Meitei community...",
-  "accordions": [
-    { "title": "Material & Care", "content": "100% Cotton..." },
-    { "title": "Shipping", "content": "Dispatched in 48 hours..." }
-  ],
-  "story": {
-    "title": "Weaving the Tradition",
-    "content": "The Rani Phee is not just a cloth...",
-    "image": "url_story_img",
-    "logo": "url_brand_logo"
-  },
-  "facets": {
-    "location": "Imphal East",
-    "artisan_group": "Ima Market Collective"
-  }
-}
-```
 
 ### 3.4 `collections_metadata.json` (New)
 **Purpose:** Powers `CollectionPage` Hero videos and banners.

@@ -1,0 +1,671 @@
+[
+  {
+    "//_COMMENT": "--- ARUNACHAL PRADESH (AR) ---"
+  },
+  {
+    "_id": "AR_GUIDE",
+    "stateId": "AR",
+    "permits": {
+      "name": "Inner Line Permit (ILP) & PAP",
+      "cost": "₹100 (Domestic) / $50 (Foreigner)",
+      "apply_link": "https://arunachalilp.com",
+      "documents_needed": [
+        "Aadhar/Voter ID",
+        "Passport Photo"
+      ],
+      "note": "Indian tourists need ILP. Foreigners need a Protected Area Permit (PAP) obtainable via registered tour operators."
+    },
+    "transport_hubs": {
+      "airport": "Donyi Polo Airport, Itanagar (HGI) / Lilabari (IXI)",
+      "railway": "Naharlagun Railway Station",
+      "gateway_city": "Guwahati (Assam)"
+    },
+    "personas": [
+      {
+        "title": "First-time Visitor",
+        "icon": "flag",
+        "description": "Start with the Tawang Circuit. Ensure you have your ILP approved 48hrs before arrival."
+      },
+      {
+        "title": "Solo Travel",
+        "icon": "person",
+        "description": "Safe, but transport is expensive. Use shared Sumos from Tezpur or Banddewa."
+      },
+      {
+        "title": "Cultural Travel",
+        "icon": "diversity_3",
+        "description": "Respect the Donyi-Polo flags outside homes. Visit during Losar or Ziro Festival."
+      }
+    ],
+    "cultural_etiquette": [
+      {
+        "title": "Respect Local Privacy",
+        "description": "Tribal hearths are sacred. Ask before entering kitchen areas."
+      },
+      {
+        "title": "Learn Greetings",
+        "description": "Say 'Namaste' or local greetings like 'Tashi Delek' (Monpa)."
+      },
+      {
+        "title": "Shoe Removal",
+        "description": "Remove shoes before entering Monasteries and homes."
+      }
+    ],
+    "photography_tips": [
+      {
+        "title": "Landscapes",
+        "description": "Free to capture the stunning Himalayas.",
+        "status_icon": "check_circle"
+      },
+      {
+        "title": "Ask First",
+        "description": "Tribal elders may require consent for portraits.",
+        "status_icon": "front_hand"
+      },
+      {
+        "title": "Restricted Areas",
+        "description": "Strictly NO photos near China border posts (Bum La).",
+        "status_icon": "no_photography"
+      }
+    ],
+    "travel_realities": {
+      "road_condition": {
+        "icon": "landscape",
+        "label": "Road Difficulty",
+        "value": "Hard / Alpine",
+        "note": "High altitude passes like Sela can be snowed in. 4x4 recommended."
+      },
+      "connectivity": {
+        "icon": "wifi",
+        "label": "Signal Reliability",
+        "value": "Intermittent",
+        "note": "BSNL works best in remote border districts like Anjaw."
+      }
+    }
+  },
+  {
+    "//_COMMENT": "--- ASSAM (AS) ---"
+  },
+  {
+    "_id": "AS_GUIDE",
+    "stateId": "AS",
+    "permits": {
+      "name": "No Entry Permit Required",
+      "cost": "N/A",
+      "apply_link": null,
+      "documents_needed": [
+        "Valid Photo ID"
+      ],
+      "note": "Assam is open to all Indian and Foreign tourists without specific entry permits."
+    },
+    "transport_hubs": {
+      "airport": "Lokpriya Gopinath Bordoloi International Airport (GAU)",
+      "railway": "Guwahati Railway Station (GHY)",
+      "gateway_city": "Guwahati (Gateway to Northeast)"
+    },
+    "personas": [
+      {
+        "title": "First-time Visitor",
+        "icon": "flag",
+        "description": "Ideal entry point. Visit Kaziranga and Kamakhya Temple first."
+      },
+      {
+        "title": "Solo Travel",
+        "icon": "person",
+        "description": "Very well connected by bus and rail. Safe and bustling."
+      },
+      {
+        "title": "Cultural Travel",
+        "icon": "diversity_3",
+        "description": "Visit during Bihu (April/Jan). Explore Majuli's Satra culture."
+      }
+    ],
+    "cultural_etiquette": [
+      {
+        "title": "Respect Heritage",
+        "description": "Dress modestly in Satras (Vaishnavite monasteries)."
+      },
+      {
+        "title": "Learn Greetings",
+        "description": "A simple 'Nomoskar' is the universal greeting."
+      },
+      {
+        "title": "Shoe Removal",
+        "description": "Strictly remove shoes before entering Prayer Halls (Namghar)."
+      }
+    ],
+    "photography_tips": [
+      {
+        "title": "Landscapes",
+        "description": "Tea gardens and River Brahmaputra are open for shoots.",
+        "status_icon": "check_circle"
+      },
+      {
+        "title": "Ask First",
+        "description": "Ask before photographing women weaving.",
+        "status_icon": "front_hand"
+      },
+      {
+        "title": "Restricted Areas",
+        "description": "No drones over Kaziranga (Anti-poaching zone).",
+        "status_icon": "no_photography"
+      }
+    ],
+    "travel_realities": {
+      "road_condition": {
+        "icon": "landscape",
+        "label": "Road Difficulty",
+        "value": "Easy / Moderate",
+        "note": "Mostly flat plains. Traffic can be heavy in Guwahati."
+      },
+      "connectivity": {
+        "icon": "wifi",
+        "label": "Signal Reliability",
+        "value": "Excellent",
+        "note": "Strong 4G/5G coverage across the state."
+      }
+    }
+  },
+  {
+    "//_COMMENT": "--- MANIPUR (MN) ---"
+  },
+  {
+    "_id": "MN_GUIDE",
+    "stateId": "MN",
+    "permits": {
+      "name": "Inner Line Permit (ILP)",
+      "cost": "₹100",
+      "apply_link": "https://manipurilponline.mn.gov.in",
+      "documents_needed": [
+        "Aadhar Card",
+        "Passport Photo"
+      ],
+      "note": "Mandatory for all non-Manipuri Indians. Foreigners register at immigration."
+    },
+    "transport_hubs": {
+      "airport": "Bir Tikendrajit International Airport (IMF)",
+      "railway": "Jiribam (Connecting to Imphal soon)",
+      "gateway_city": "Imphal"
+    },
+    "personas": [
+      {
+        "title": "First-time Visitor",
+        "icon": "flag",
+        "description": "Base yourself in Imphal. Visit Loktak Lake as a day trip."
+      },
+      {
+        "title": "Solo Travel",
+        "icon": "person",
+        "description": "Women-run markets (Ima Keithel) are very safe and welcoming."
+      },
+      {
+        "title": "Cultural Travel",
+        "icon": "diversity_3",
+        "description": "Witness the Raas Leela or Sankirtana performances."
+      }
+    ],
+    "cultural_etiquette": [
+      {
+        "title": "Respect Elders",
+        "description": "Elders are highly respected. Use 'Ema' (Mother) for older women."
+      },
+      {
+        "title": "Learn Greetings",
+        "description": "Say 'Khurumjari' (Hello/Respect)."
+      },
+      {
+        "title": "Shoe Removal",
+        "description": "Remove shoes before entering Govindajee Temple."
+      }
+    ],
+    "photography_tips": [
+      {
+        "title": "Landscapes",
+        "description": "Loktak Lake is a photographer's paradise.",
+        "status_icon": "check_circle"
+      },
+      {
+        "title": "Ask First",
+        "description": "Ask before photographing specific rituals.",
+        "status_icon": "front_hand"
+      },
+      {
+        "title": "Restricted Areas",
+        "description": "High security zones near Moreh border.",
+        "status_icon": "no_photography"
+      }
+    ],
+    "travel_realities": {
+      "road_condition": {
+        "icon": "landscape",
+        "label": "Road Difficulty",
+        "value": "Moderate",
+        "note": "Valley roads are good; Hill district roads can be rough."
+      },
+      "connectivity": {
+        "icon": "wifi",
+        "label": "Signal Reliability",
+        "value": "Good",
+        "note": "4G available in Imphal and valley districts."
+      }
+    }
+  },
+  {
+    "//_COMMENT": "--- MEGHALAYA (ML) ---"
+  },
+  {
+    "_id": "ML_GUIDE",
+    "stateId": "ML",
+    "permits": {
+      "name": "Tourist Registration (E-Invite)",
+      "cost": "Free",
+      "apply_link": "https://megtourism.gov.in/install-app",
+      "documents_needed": [
+        "Photo ID"
+      ],
+      "note": "No ILP, but registration on the Meghalaya Tourism App is mandatory to generate an E-Invite."
+    },
+    "transport_hubs": {
+      "airport": "Shillong Airport (SHL) / Guwahati (GAU)",
+      "railway": "Guwahati (Assam) is the nearest major railhead",
+      "gateway_city": "Shillong"
+    },
+    "personas": [
+      {
+        "title": "First-time Visitor",
+        "icon": "flag",
+        "description": "Shillong and Sohra (Cherrapunji) are essential stops."
+      },
+      {
+        "title": "Solo Travel",
+        "icon": "person",
+        "description": "Very safe. Shared taxis (Sumos) connect all major towns."
+      },
+      {
+        "title": "Cultural Travel",
+        "icon": "diversity_3",
+        "description": "Explore the matrilineal society and Sacred Groves."
+      }
+    ],
+    "cultural_etiquette": [
+      {
+        "title": "Matrilineal Respect",
+        "description": "Women hold high status in Khasi society. Be respectful."
+      },
+      {
+        "title": "Learn Greetings",
+        "description": "Say 'Khublei' (Thank you/God Bless)."
+      },
+      {
+        "title": "Cleanliness",
+        "description": "Meghalaya prides itself on cleanliness. Do not litter."
+      }
+    ],
+    "photography_tips": [
+      {
+        "title": "Landscapes",
+        "description": "Waterfalls and Root Bridges are free to shoot.",
+        "status_icon": "check_circle"
+      },
+      {
+        "title": "Ask First",
+        "description": "Ask permission in traditional markets like Iewduh.",
+        "status_icon": "front_hand"
+      },
+      {
+        "title": "Restricted Areas",
+        "description": "Avoid photos inside sacred forests if advised.",
+        "status_icon": "no_photography"
+      }
+    ],
+    "travel_realities": {
+      "road_condition": {
+        "icon": "landscape",
+        "label": "Road Difficulty",
+        "value": "Moderate",
+        "note": "Scenic but winding roads. Fog can reduce visibility to zero."
+      },
+      "connectivity": {
+        "icon": "wifi",
+        "label": "Signal Reliability",
+        "value": "Good",
+        "note": "4G widespread, but drops in deep valleys (e.g., Nongriat)."
+      }
+    }
+  },
+  {
+    "//_COMMENT": "--- MIZORAM (MZ) ---"
+  },
+  {
+    "_id": "MZ_GUIDE",
+    "stateId": "MZ",
+    "permits": {
+      "name": "Inner Line Permit (ILP)",
+      "cost": "₹120 (Regular) / ₹20 (Temporary)",
+      "apply_link": "https://ilp.mizoram.gov.in",
+      "documents_needed": [
+        "Aadhar/Voter ID",
+        "Passport Photo"
+      ],
+      "note": "Mandatory for entering via Vairengte or Lengpui Airport."
+    },
+    "transport_hubs": {
+      "airport": "Lengpui Airport (AJL)",
+      "railway": "Bairabi Railway Station",
+      "gateway_city": "Aizawl"
+    },
+    "personas": [
+      {
+        "title": "First-time Visitor",
+        "icon": "flag",
+        "description": "Aizawl is built on ridges. Prepare for steep walking."
+      },
+      {
+        "title": "Solo Travel",
+        "icon": "person",
+        "description": "Extremely safe. The 'Nghah Lou Dawr' (shops without keepers) show high trust."
+      },
+      {
+        "title": "Cultural Travel",
+        "icon": "diversity_3",
+        "description": "Experience 'Tlawmngaihna' - the Mizo code of altruism."
+      }
+    ],
+    "cultural_etiquette": [
+      {
+        "title": "Sunday Silence",
+        "description": "Everything closes on Sunday for church. Plan accordingly."
+      },
+      {
+        "title": "Learn Greetings",
+        "description": "Say 'Chibai' (Hello)."
+      },
+      {
+        "title": "Community",
+        "description": "Do not overtake ceremonial processions on roads."
+      }
+    ],
+    "photography_tips": [
+      {
+        "title": "Landscapes",
+        "description": "Blue Mountain (Phawngpui) is stunning.",
+        "status_icon": "check_circle"
+      },
+      {
+        "title": "Ask First",
+        "description": "Polite to ask before clicking pics of traditional attire.",
+        "status_icon": "front_hand"
+      },
+      {
+        "title": "Restricted Areas",
+        "description": "Border areas near Myanmar.",
+        "status_icon": "no_photography"
+      }
+    ],
+    "travel_realities": {
+      "road_condition": {
+        "icon": "landscape",
+        "label": "Road Difficulty",
+        "value": "Hard",
+        "note": "Mountainous terrain. Landslides common in monsoon."
+      },
+      "connectivity": {
+        "icon": "wifi",
+        "label": "Signal Reliability",
+        "value": "Moderate",
+        "note": "Good in Aizawl, spotty in southern districts."
+      }
+    }
+  },
+  {
+    "//_COMMENT": "--- NAGALAND (NL) ---"
+  },
+  {
+    "_id": "NL_GUIDE",
+    "stateId": "NL",
+    "permits": {
+      "name": "Inner Line Permit (ILP)",
+      "cost": "₹50 - ₹100",
+      "apply_link": "https://ilp.nagaland.gov.in",
+      "documents_needed": [
+        "Aadhar Card",
+        "Passport Photo"
+      ],
+      "note": "Strictly enforced. Even Dimapur (railhead) requires ILP for stay."
+    },
+    "transport_hubs": {
+      "airport": "Dimapur Airport (DMU)",
+      "railway": "Dimapur Railway Station",
+      "gateway_city": "Kohima (Capital) / Dimapur (Commercial)"
+    },
+    "personas": [
+      {
+        "title": "First-time Visitor",
+        "icon": "flag",
+        "description": "Visit during Hornbill Festival (Dec) for a cultural crash course."
+      },
+      {
+        "title": "Solo Travel",
+        "icon": "person",
+        "description": "Locals are English-speaking and helpful. Hire local taxis."
+      },
+      {
+        "title": "Cultural Travel",
+        "icon": "diversity_3",
+        "description": "Explore the distinct Morung (dormitory) systems of each tribe."
+      }
+    ],
+    "cultural_etiquette": [
+      {
+        "title": "Tribal Respect",
+        "description": "Each tribe has distinct customs. Be open to learning."
+      },
+      {
+        "title": "Learn Greetings",
+        "description": "Say 'Kulo' (Angami) or 'Nmapu' (Ao)."
+      },
+      {
+        "title": "Food Habits",
+        "description": "Respect local dietary choices (smoked meats/fermented soy)."
+      }
+    ],
+    "photography_tips": [
+      {
+        "title": "Landscapes",
+        "description": "Dzukou Valley is a prime spot.",
+        "status_icon": "check_circle"
+      },
+      {
+        "title": "Ask First",
+        "description": "Portraits of elders in traditional shawl require consent.",
+        "status_icon": "front_hand"
+      },
+      {
+        "title": "Restricted Areas",
+        "description": "Military zones are strictly off-limits.",
+        "status_icon": "no_photography"
+      }
+    ],
+    "travel_realities": {
+      "road_condition": {
+        "icon": "landscape",
+        "label": "Road Difficulty",
+        "value": "Hard",
+        "note": "Roads can be rough ('Naga Massage'). Allow extra travel time."
+      },
+      "connectivity": {
+        "icon": "wifi",
+        "label": "Signal Reliability",
+        "value": "Moderate",
+        "note": "4G in Kohima/Dimapur. Weak in Mon/Tuensang."
+      }
+    }
+  },
+  {
+    "//_COMMENT": "--- SIKKIM (SK) ---"
+  },
+  {
+    "_id": "SK_GUIDE",
+    "stateId": "SK",
+    "permits": {
+      "name": "Restricted Area Permit (RAP/PAP)",
+      "cost": "Varies by agency",
+      "apply_link": "https://sikkimtourism.gov.in",
+      "documents_needed": [
+        "Photo ID",
+        "Passport Photos"
+      ],
+      "note": "No permit for Gangtok/South/West. Mandatory PAP for North Sikkim (Gurudongmar) and Nathu La."
+    },
+    "transport_hubs": {
+      "airport": "Pakyong Airport (PYG) / Bagdogra (IXB)",
+      "railway": "New Jalpaiguri (NJP) in West Bengal",
+      "gateway_city": "Gangtok"
+    },
+    "personas": [
+      {
+        "title": "First-time Visitor",
+        "icon": "flag",
+        "description": "Stick to East and South Sikkim. Visit Tsomgo Lake."
+      },
+      {
+        "title": "Solo Travel",
+        "icon": "person",
+        "description": "Shared jeeps are the lifeline of Sikkim travel."
+      },
+      {
+        "title": "Cultural Travel",
+        "icon": "diversity_3",
+        "description": "Visit Monasteries (Rumtek/Pemayangtse) for Buddhist culture."
+      }
+    ],
+    "cultural_etiquette": [
+      {
+        "title": "Sacred Sites",
+        "description": "Do not smoke or talk loudly in Monasteries."
+      },
+      {
+        "title": "Learn Greetings",
+        "description": "Say 'Kuzu Zangpo' (Bhutia) or 'Namaste' (Nepali)."
+      },
+      {
+        "title": "Environment",
+        "description": "Sikkim is plastic-free. Do not carry single-use plastic bottles."
+      }
+    ],
+    "photography_tips": [
+      {
+        "title": "Landscapes",
+        "description": "Kanchenjunga views are free to capture.",
+        "status_icon": "check_circle"
+      },
+      {
+        "title": "Ask First",
+        "description": "Monks may not want to be photographed.",
+        "status_icon": "front_hand"
+      },
+      {
+        "title": "Restricted Areas",
+        "description": "Strictly NO photos at Nathu La (China border).",
+        "status_icon": "no_photography"
+      }
+    ],
+    "travel_realities": {
+      "road_condition": {
+        "icon": "landscape",
+        "label": "Road Difficulty",
+        "value": "Steep / Alpine",
+        "note": "North Sikkim roads are rugged and prone to landslides."
+      },
+      "connectivity": {
+        "icon": "wifi",
+        "label": "Signal Reliability",
+        "value": "Good",
+        "note": "Good in Gangtok. No signal in high altitude Gurudongmar."
+      }
+    }
+  },
+  {
+    "//_COMMENT": "--- TRIPURA (TR) ---"
+  },
+  {
+    "_id": "TR_GUIDE",
+    "stateId": "TR",
+    "permits": {
+      "name": "No Entry Permit Required",
+      "cost": "N/A",
+      "apply_link": null,
+      "documents_needed": [
+        "Valid Photo ID"
+      ],
+      "note": "Open to all domestic tourists."
+    },
+    "transport_hubs": {
+      "airport": "Maharaja Bir Bikram Airport, Agartala (IXA)",
+      "railway": "Agartala Railway Station",
+      "gateway_city": "Agartala"
+    },
+    "personas": [
+      {
+        "title": "First-time Visitor",
+        "icon": "flag",
+        "description": "Explore the royal heritage of Ujjayanta Palace and Neermahal."
+      },
+      {
+        "title": "Solo Travel",
+        "icon": "person",
+        "description": "Agartala is safe and easy to navigate by auto-rickshaw."
+      },
+      {
+        "title": "Cultural Travel",
+        "icon": "diversity_3",
+        "description": "Visit Unakoti for ancient rock carvings and tribal history."
+      }
+    ],
+    "cultural_etiquette": [
+      {
+        "title": "Royal History",
+        "description": "Respect the Manikya dynasty heritage sites."
+      },
+      {
+        "title": "Learn Greetings",
+        "description": "Say 'Khulumkha' (Kokborok greeting)."
+      },
+      {
+        "title": "Temple Rules",
+        "description": "Follow dress codes at Tripura Sundari Temple."
+      }
+    ],
+    "photography_tips": [
+      {
+        "title": "Landscapes",
+        "description": "Palaces and Lakes are photogenic.",
+        "status_icon": "check_circle"
+      },
+      {
+        "title": "Ask First",
+        "description": "Respect privacy in rural tribal hamlets.",
+        "status_icon": "front_hand"
+      },
+      {
+        "title": "Restricted Areas",
+        "description": "Border fences with Bangladesh.",
+        "status_icon": "no_photography"
+      }
+    ],
+    "travel_realities": {
+      "road_condition": {
+        "icon": "landscape",
+        "label": "Road Difficulty",
+        "value": "Easy",
+        "note": "National Highways are good. Rural roads moderate."
+      },
+      "connectivity": {
+        "icon": "wifi",
+        "label": "Signal Reliability",
+        "value": "Good",
+        "note": "Reliable network across most tourist sites."
+      }
+    }
+  }
+]

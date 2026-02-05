@@ -1,0 +1,82 @@
+[
+  {
+    "id": "AR",
+    "type": "State",
+    "title": "Arunachal Pradesh",
+    "subtitle": "Land of the Dawn-Lit Mountains",
+    "link": "/ar",
+    "keywords": ["tawang", "ziro", "monpa", "northeast"]
+  },
+  {
+    "id": "AS",
+    "type": "State",
+    "title": "Assam",
+    "subtitle": "The Land of Red River and Blue Hills",
+    "link": "/as",
+    "keywords": ["kaziranga", "tea", "brahmaputra", "guwahati"]
+  },
+  {
+    "id": "HP_AR_001",
+    "type": "Destination",
+    "title": "Tawang Monastery",
+    "subtitle": "Tawang, Arunachal Pradesh",
+    "link": "/ar/destination/HP_AR_001",
+    "keywords": ["buddhism", "monastery", "gompa", "largest"]
+  },
+  {
+    "id": "HP_AS_001",
+    "type": "Destination",
+    "title": "Kaziranga National Park",
+    "subtitle": "Golaghat, Assam",
+    "link": "/as/destination/HP_AS_001",
+    "keywords": ["rhino", "wildlife", "safari", "unesco"]
+  },
+  {
+    "id": "HP_NL_002",
+    "type": "Destination",
+    "title": "Dzukou Valley",
+    "subtitle": "Nagaland / Manipur Border",
+    "link": "/nl/destination/HP_NL_002",
+    "keywords": ["trek", "valley", "flowers", "nature"]
+  },
+  {
+    "id": "FEST_NL_HORNBILL",
+    "type": "Festival",
+    "title": "Hornbill Festival",
+    "subtitle": "Kisama, Nagaland (Dec 1-10)",
+    "link": "/nl/festival/FEST_NL_HORNBILL",
+    "keywords": ["culture", "dance", "tribal", "december"]
+  },
+  {
+    "id": "FEST_AS_RONGALI",
+    "type": "Festival",
+    "title": "Rongali Bihu",
+    "subtitle": "Assam (April)",
+    "link": "/as/festival/FEST_AS_RONGALI",
+    "keywords": ["new year", "dance", "spring", "april"]
+  },
+  {
+    "id": "CUL_TR_CRAFT_BAMBOO",
+    "type": "Culture",
+    "title": "Tripura Bamboo Craft",
+    "subtitle": "Handicraft",
+    "link": "/tr/culture/CUL_TR_CRAFT_BAMBOO",
+    "keywords": ["art", "souvenir", "furniture", "cane"]
+  },
+  {
+    "id": "CUL_NL_FOOD_AXONE",
+    "type": "Culture",
+    "title": "Smoked Pork with Axone",
+    "subtitle": "Food",
+    "link": "/nl/culture/CUL_NL_FOOD_AXONE",
+    "keywords": ["cuisine", "dish", "fermented", "pork"]
+  },
+  {
+    "id": "AR_GUIDE",
+    "type": "Guide",
+    "title": "Arunachal ILP Guide",
+    "subtitle": "Travel Essentials",
+    "link": "/ar/essentials",
+    "keywords": ["permit", "entry", "rules", "pass"]
+  }
+]

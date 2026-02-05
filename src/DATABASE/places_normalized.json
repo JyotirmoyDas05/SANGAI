@@ -1,0 +1,1614 @@
+[
+  {
+    "//_COMMENT": "--- ARUNACHAL PRADESH (AR) ---"
+  },
+  {
+    "_id": "HP_AR_001",
+    "districtId": "AR_TAW",
+    "name": "Tawang Monastery",
+    "type": "Cultural",
+    "location_summary": "Tawang Town",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "India's largest monastery, founded in 1680.",
+    "header_quote": "A golden citadel floating above the clouds.",
+    "story": {
+      "overview": "Founded by Merag Lama Lodre Gyatso, this fortified complex is the spiritual heart of the Monpa people. It houses a Parkhang (library) with ancient manuscripts and a 28-foot Golden Buddha.",
+      "culturalSignificance": "The second largest monastery in the world; center of the Gelugpa school.",
+      "localBelief": "Site chosen by a celestial horse (Ta-Wang)."
+    },
+    "logistics": {
+      "how_to_get_there": ["Helicopter from Guwahati.", "Drive via Sela Pass."],
+      "when_and_where": {
+        "location_text": "2 km from Market",
+        "distances": { "tezpur": "317 km", "guwahati": "435 km" },
+        "best_time": "Mar-Oct",
+        "open_hours": "Sunrise-Sunset"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [{ "name": "War Memorial", "image": "url_war_mem" }],
+    "location": { "lat": 27.58, "lng": 91.87 },
+    "images": [{ "url": "url_tawang_mon", "caption": "Main Assembly Hall" }],
+    "taxonomy_tags": ["monastery", "buddhism", "architecture"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_002",
+    "districtId": "AR_TAW",
+    "name": "Sela Pass",
+    "type": "Nature",
+    "location_summary": "Tawang Border",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "High-altitude pass at 13,700 ft.",
+    "header_quote": "The frozen gateway to the hidden land.",
+    "story": {
+      "overview": "A critical waypoint featuring the Sela Lake, often frozen in winter. It serves as a botanical boundary for rhododendrons.",
+      "culturalSignificance": "Site of conflict during the 1962 war.",
+      "localBelief": "Named after Sela, a local girl who aided a soldier."
+    },
+    "logistics": {
+      "how_to_get_there": ["On the BCT Road."],
+      "when_and_where": {
+        "location_text": "78 km from Tawang",
+        "distances": { "tawang": "78 km", "bomdila": "100 km" },
+        "best_time": "Mar-May, Sept-Nov",
+        "open_hours": "Daylight only"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [{ "name": "Sela Lake", "image": "url_sela_lake" }],
+    "location": { "lat": 27.50, "lng": 92.10 },
+    "images": [{ "url": "url_sela", "caption": "Frozen Lake" }],
+    "taxonomy_tags": ["snow", "mountain", "lake"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_003",
+    "districtId": "AR_TAW",
+    "name": "Sangetsar Lake",
+    "type": "Nature",
+    "location_summary": "Tawang District",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Also known as Madhuri Lake.",
+    "header_quote": "Where dead trees stand guard over silent waters.",
+    "story": {
+      "overview": "Formed by a tectonic earthquake in 1971. Characterized by eerie, upright trunks of dead trees emerging from the water.",
+      "culturalSignificance": "Popularized by the Bollywood movie Koyla.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Tawang town."],
+      "when_and_where": {
+        "location_text": "30 km from Tawang",
+        "distances": { "tawang": "30 km" },
+        "best_time": "Summer/Autumn",
+        "open_hours": "Permit required"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 27.65, "lng": 91.85 },
+    "images": [{ "url": "url_sangetsar", "caption": "Tree trunks in lake" }],
+    "taxonomy_tags": ["lake", "nature", "film_tourism"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_004",
+    "districtId": "AR_TAW",
+    "name": "Nuranang Falls",
+    "type": "Nature",
+    "location_summary": "Jang, Tawang",
+    "tier": 2,
+    "isHiddenGem": true,
+    "shortDescription": "100-meter perennial waterfall.",
+    "header_quote": "A thunderous cascade in the Jang valley.",
+    "story": {
+      "overview": "Unlike seasonal falls, this is perennial and feeds a hydel plant. Also known as Jang Falls.",
+      "culturalSignificance": "Site of song shooting for movie Koyla.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Stop on the way to Tawang."],
+      "when_and_where": {
+        "location_text": "Jang Town",
+        "distances": { "tawang": "40 km" },
+        "best_time": "Year-round",
+        "open_hours": "Sunrise-Sunset"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 27.60, "lng": 91.98 },
+    "images": [{ "url": "url_nuranang", "caption": "Waterfall view" }],
+    "taxonomy_tags": ["waterfall", "nature"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_005",
+    "districtId": "AR_WKA",
+    "name": "Bomdila Monastery",
+    "type": "Cultural",
+    "location_summary": "Bomdila HQ",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Gentse Gaden Rabgyel Lling monastery.",
+    "header_quote": "Watching over the Kameng valley.",
+    "story": {
+      "overview": "A vital center for the Gelugpa school. Offers panoramic views of Kangto and Gorichen peaks.",
+      "culturalSignificance": "Contrast to the older Tawang monastery architecture.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Tezpur."],
+      "when_and_where": {
+        "location_text": "Bomdila Town",
+        "distances": { "tezpur": "155 km" },
+        "best_time": "Year-round",
+        "open_hours": "Morning-Evening"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 27.26, "lng": 92.41 },
+    "images": [{ "url": "url_bomdila_mon", "caption": "Monastery view" }],
+    "taxonomy_tags": ["monastery", "viewpoint"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_006",
+    "districtId": "AR_WKA",
+    "name": "Eaglenest Wildlife Sanctuary",
+    "type": "Nature",
+    "location_summary": "West Kameng",
+    "tier": 1,
+    "isHiddenGem": true,
+    "shortDescription": "Global birding hotspot.",
+    "header_quote": "Home of the Bugun Liocichla.",
+    "story": {
+      "overview": "Biodiversity hotspot where the Bugun Liocichla bird was discovered. Spans tropical to temperate zones.",
+      "culturalSignificance": "Named after the Indian Army's Red Eagle Division.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Entry via Tenga or Bhalukpong."],
+      "when_and_where": {
+        "location_text": "Tenga",
+        "distances": { "tezpur": "100 km" },
+        "best_time": "Nov-Apr (Birding)",
+        "open_hours": "Permit required"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 27.10, "lng": 92.40 },
+    "images": [{ "url": "url_eaglenest", "caption": "Dense forest" }],
+    "taxonomy_tags": ["birding", "wildlife", "forest"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_007",
+    "districtId": "AR_EKA",
+    "name": "Pakhui Tiger Reserve",
+    "type": "Nature",
+    "location_summary": "Seijosa",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Community-led conservation success.",
+    "header_quote": "Where hornbills fly free.",
+    "story": {
+      "overview": "Known for its hornbill nest adoption program. Connects to Nameri National Park in Assam.",
+      "culturalSignificance": "Model for eco-tourism.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Tezpur via Soibari."],
+      "when_and_where": {
+        "location_text": "Seijosa",
+        "distances": { "tezpur": "65 km" },
+        "best_time": "Nov-Mar",
+        "open_hours": "Safari timings"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 26.95, "lng": 92.85 },
+    "images": [{ "url": "url_pakke", "caption": "Hornbill spotting" }],
+    "taxonomy_tags": ["wildlife", "tiger", "hornbill"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_008",
+    "districtId": "AR_PAP",
+    "name": "Ita Fort",
+    "type": "Heritage",
+    "location_summary": "Itanagar",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "14th-century brick fortress.",
+    "header_quote": "The fort of bricks.",
+    "story": {
+      "overview": "Built by the Chutiya Kingdom. The city Itanagar is named after this 'Fort of Bricks'.",
+      "culturalSignificance": "Challenges the notion that the region lacked stone architecture.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["In the city center."],
+      "when_and_where": {
+        "location_text": "Itanagar",
+        "distances": { "naharlagun": "10 km" },
+        "best_time": "Year-round",
+        "open_hours": "Daytime"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [{ "name": "State Museum", "image": "url_museum" }],
+    "location": { "lat": 27.08, "lng": 93.60 },
+    "images": [{ "url": "url_ita_fort", "caption": "Brick ruins" }],
+    "taxonomy_tags": ["fort", "history", "archaeology"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_009",
+    "districtId": "AR_LSU",
+    "name": "Ziro Valley",
+    "type": "Cultural",
+    "location_summary": "Ziro HQ",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "UNESCO Tentative Site.",
+    "header_quote": "Golden paddy fields and tattooed faces.",
+    "story": {
+      "overview": "Home to the Apatani tribe, famous for paddy-cum-fish cultivation and facial tattoos.",
+      "culturalSignificance": "Host of Ziro Music Festival.",
+      "localBelief": "Cradle of Apatani civilization."
+    },
+    "logistics": {
+      "how_to_get_there": ["Sumo from Itanagar/North Lakhimpur."],
+      "when_and_where": {
+        "location_text": "Old Ziro / Hapoli",
+        "distances": { "itanagar": "115 km" },
+        "best_time": "Sept (Festival) or Spring",
+        "open_hours": "24 hours"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [{ "name": "Talley Valley", "image": "url_talley" }],
+    "location": { "lat": 27.59, "lng": 93.83 },
+    "images": [{ "url": "url_ziro", "caption": "Paddy fields" }],
+    "taxonomy_tags": ["valley", "indigenous", "festival", "agriculture"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_010",
+    "districtId": "AR_CHA",
+    "name": "Namdapha National Park",
+    "type": "Nature",
+    "location_summary": "Miao",
+    "tier": 1,
+    "isHiddenGem": true,
+    "shortDescription": "The biodiversity hotspot.",
+    "header_quote": "Where the four big cats roam.",
+    "story": {
+      "overview": "India's easternmost tiger reserve. Home to Tiger, Leopard, Snow Leopard, and Clouded Leopard.",
+      "culturalSignificance": "Home to the Lisu tribe.",
+      "localBelief": "Spirits guard the deep forest."
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Dibrugarh airport."],
+      "when_and_where": {
+        "location_text": "Miao",
+        "distances": { "dibrugarh": "160 km" },
+        "best_time": "Nov-Mar",
+        "open_hours": "Permit required"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 27.50, "lng": 96.33 },
+    "images": [{ "url": "url_namdapha", "caption": "Rainforest canopy" }],
+    "taxonomy_tags": ["wildlife", "rainforest", "trekking"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_011",
+    "districtId": "AR_LOH",
+    "name": "Parashuram Kund",
+    "type": "Spiritual",
+    "location_summary": "Lohit River",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Major Hindu pilgrimage site.",
+    "header_quote": "Washing away the sins in the Lohit.",
+    "story": {
+      "overview": "Thousands take a holy dip here during Makar Sankranti. Situated on the lower reaches of the Lohit River.",
+      "culturalSignificance": "Linked to the legend of Parashuram washing his axe.",
+      "localBelief": "Cleanses all sins."
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Tinsukia/Tezu."],
+      "when_and_where": {
+        "location_text": "Wakro Circle",
+        "distances": { "tinsukia": "165 km" },
+        "best_time": "January (Festival)",
+        "open_hours": "Daylight"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 27.83, "lng": 96.35 },
+    "images": [{ "url": "url_kund", "caption": "Pilgrims at river" }],
+    "taxonomy_tags": ["pilgrimage", "river", "hindu"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_012",
+    "districtId": "AR_WSI",
+    "name": "Mechuka Valley",
+    "type": "Nature",
+    "location_summary": "Shi Yomi (West Siang 2011)",
+    "tier": 1,
+    "isHiddenGem": true,
+    "shortDescription": "Little Ladakh of the East.",
+    "header_quote": "A hidden paradise of horses and snow.",
+    "story": {
+      "overview": "A breathtaking valley with the 400-year-old Samten Yongcha monastery. Offers a blend of nature and spirituality.",
+      "culturalSignificance": "Historically part of the Tibetan trade route.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Long drive from Aalo."],
+      "when_and_where": {
+        "location_text": "Mechuka",
+        "distances": { "aalo": "180 km" },
+        "best_time": "Oct-Apr",
+        "open_hours": "24 hours"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [{ "name": "Yarlung Camp", "image": "url_yarlung" }],
+    "location": { "lat": 28.60, "lng": 94.12 },
+    "images": [{ "url": "url_mechuka", "caption": "Valley view" }],
+    "taxonomy_tags": ["valley", "buddhism", "snow", "horses"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AR_013",
+    "districtId": "AR_ANJ",
+    "name": "Dong Valley",
+    "type": "Adventure",
+    "location_summary": "Anjaw District",
+    "tier": 1,
+    "isHiddenGem": true,
+    "shortDescription": "First sunrise in India.",
+    "header_quote": "Catch the first ray of light.",
+    "story": {
+      "overview": "The location that receives the first sunlight in India. Requires a trek to the peak.",
+      "culturalSignificance": "Easternmost point of the country.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Trek from Walong."],
+      "when_and_where": {
+        "location_text": "Dong",
+        "distances": { "walong": "7 km trek" },
+        "best_time": "Year-round (Clear weather)",
+        "open_hours": "Start trek at 2 AM"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.ar@gov.in" },
+    "nearby_attractions": [{ "name": "Walong War Memorial", "image": "url_walong" }],
+    "location": { "lat": 28.00, "lng": 97.00 },
+    "images": [{ "url": "url_dong", "caption": "Sunrise view" }],
+    "taxonomy_tags": ["trekking", "sunrise", "border"],
+    "related_homestay_ids": []
+  },
+
+  {
+    "//_COMMENT": "--- ASSAM (AS) ---"
+  },
+  {
+    "_id": "HP_AS_001",
+    "districtId": "AS_GOL",
+    "name": "Kaziranga National Park",
+    "type": "Nature",
+    "location_summary": "Golaghat & Nagaon",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "UNESCO Heritage Site.",
+    "header_quote": "The land of the unicorn rhino.",
+    "story": {
+      "overview": "Hosts two-thirds of the world's great one-horned rhinoceroses. Vast elephant grass and marshland.",
+      "culturalSignificance": "Symbol of conservation success.",
+      "localBelief": "Forest deities protect the rhino."
+    },
+    "logistics": {
+      "how_to_get_there": ["NH-37 from Guwahati/Jorhat."],
+      "when_and_where": {
+        "location_text": "Kohora/Bagori Ranges",
+        "distances": { "guwahati": "217 km", "jorhat": "97 km" },
+        "best_time": "Nov-Apr",
+        "open_hours": "Safari timings"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "info@kaziranga.co.in" },
+    "nearby_attractions": [{ "name": "Orchid Park", "image": "url_orchid" }],
+    "location": { "lat": 26.57, "lng": 93.17 },
+    "images": [{ "url": "url_kaziranga", "caption": "Rhino in grass" }],
+    "taxonomy_tags": ["wildlife", "safari", "rhino", "UNESCO"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AS_002",
+    "districtId": "AS_JOR",
+    "name": "Majuli Island",
+    "type": "Cultural",
+    "location_summary": "Brahmaputra River",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "World's largest river island.",
+    "header_quote": "A floating world of devotion.",
+    "story": {
+      "overview": "Hub of Neo-Vaishnavite culture housing numerous Satras. Famous for mask-making and pottery.",
+      "culturalSignificance": "Cradle of Satriya dance and music.",
+      "localBelief": "Spiritual center of Assam."
+    },
+    "logistics": {
+      "how_to_get_there": ["Ferry from Nimati Ghat."],
+      "when_and_where": {
+        "location_text": "Majuli",
+        "distances": { "jorhat": "20 km (plus ferry)" },
+        "best_time": "Oct-Mar (Raas Festival)",
+        "open_hours": "Ferry: 7AM-3PM"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.assam@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 26.95, "lng": 94.20 },
+    "images": [{ "url": "url_majuli", "caption": "Mask making" }],
+    "taxonomy_tags": ["island", "culture", "river", "art"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AS_003",
+    "districtId": "AS_KAM_M",
+    "name": "Kamakhya Temple",
+    "type": "Spiritual",
+    "location_summary": "Guwahati",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Revered Shakti Peeth.",
+    "header_quote": "Where the mother goddess is worshipped.",
+    "story": {
+      "overview": "Located on Nilachal Hill. Center of the Kulachara Tantra Marga. Hosts the Ambubachi Mela.",
+      "culturalSignificance": "Celebrates the menstruation of the goddess.",
+      "localBelief": "Represents the yoni of Sati."
+    },
+    "logistics": {
+      "how_to_get_there": ["Taxi from Guwahati city."],
+      "when_and_where": {
+        "location_text": "Nilachal Hill",
+        "distances": { "dispur": "10 km" },
+        "best_time": "Year-round",
+        "open_hours": "8AM-1PM, 2:30PM-5:30PM"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.assam@gov.in" },
+    "nearby_attractions": [{ "name": "Umananda Temple", "image": "url_umananda" }],
+    "location": { "lat": 26.16, "lng": 91.70 },
+    "images": [{ "url": "url_kamakhya", "caption": "Temple dome" }],
+    "taxonomy_tags": ["temple", "pilgrimage", "history"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AS_004",
+    "districtId": "AS_SIV",
+    "name": "Rang Ghar",
+    "type": "Heritage",
+    "location_summary": "Sivasagar",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Ahom sports pavilion.",
+    "header_quote": "The Colosseum of the East.",
+    "story": {
+      "overview": "Two-storied royal sports pavilion built by Ahom kings. Used for buffalo fights and other sports.",
+      "culturalSignificance": "Symbol of Ahom architecture.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["In Sivasagar town."],
+      "when_and_where": {
+        "location_text": "Sivasagar",
+        "distances": { "jorhat": "60 km" },
+        "best_time": "Year-round",
+        "open_hours": "Daytime"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.assam@gov.in" },
+    "nearby_attractions": [{ "name": "Talatal Ghar", "image": "url_talatal" }],
+    "location": { "lat": 26.96, "lng": 94.63 },
+    "images": [{ "url": "url_rang_ghar", "caption": "Red brick structure" }],
+    "taxonomy_tags": ["history", "architecture", "monument"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AS_005",
+    "districtId": "AS_MOR",
+    "name": "Pobitora Wildlife Sanctuary",
+    "type": "Nature",
+    "location_summary": "Morigaon",
+    "tier": 2,
+    "isHiddenGem": false,
+    "shortDescription": "Highest rhino density.",
+    "header_quote": "Mini Kaziranga.",
+    "story": {
+      "overview": "Holds the highest density of One-horned Rhinos in the world. Close to Guwahati.",
+      "culturalSignificance": "Critical conservation site.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Guwahati."],
+      "when_and_where": {
+        "location_text": "Mayong",
+        "distances": { "guwahati": "50 km" },
+        "best_time": "Nov-Mar",
+        "open_hours": "Safari timings"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.assam@gov.in" },
+    "nearby_attractions": [{ "name": "Mayong Black Magic Museum", "image": "url_mayong" }],
+    "location": { "lat": 26.25, "lng": 92.05 },
+    "images": [{ "url": "url_pobitora", "caption": "Rhino close up" }],
+    "taxonomy_tags": ["wildlife", "rhino", "safari"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AS_006",
+    "districtId": "AS_TIN",
+    "name": "Dibru-Saikhowa National Park",
+    "type": "Nature",
+    "location_summary": "Tinsukia",
+    "tier": 1,
+    "isHiddenGem": true,
+    "shortDescription": "Riverine biosphere reserve.",
+    "header_quote": "Wild horses and river dolphins.",
+    "story": {
+      "overview": "Bounded by Brahmaputra and Lohit rivers. Famous for feral horses and river dolphins.",
+      "culturalSignificance": "N/A",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Tinsukia to Guijan."],
+      "when_and_where": {
+        "location_text": "Guijan Ghat",
+        "distances": { "tinsukia": "12 km" },
+        "best_time": "Nov-Mar",
+        "open_hours": "Boat safari only"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.assam@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 27.65, "lng": 95.35 },
+    "images": [{ "url": "url_dibru", "caption": "Feral horses" }],
+    "taxonomy_tags": ["wildlife", "river", "boat_safari"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AS_007",
+    "districtId": "AS_DIM",
+    "name": "Haflong Lake",
+    "type": "Nature",
+    "location_summary": "Dima Hasao",
+    "tier": 2,
+    "isHiddenGem": false,
+    "shortDescription": "Only hill station in Assam.",
+    "header_quote": "Scotland of Assam.",
+    "story": {
+      "overview": "Centerpiece of Haflong town. Known for scenic beauty and cool climate.",
+      "culturalSignificance": "N/A",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Train to New Haflong."],
+      "when_and_where": {
+        "location_text": "Haflong Town",
+        "distances": { "guwahati": "300 km" },
+        "best_time": "Year-round",
+        "open_hours": "24 hours"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.assam@gov.in" },
+    "nearby_attractions": [{ "name": "Jatinga", "image": "url_jatinga" }],
+    "location": { "lat": 25.17, "lng": 93.02 },
+    "images": [{ "url": "url_haflong", "caption": "Lake view" }],
+    "taxonomy_tags": ["hill_station", "lake", "nature"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_AS_008",
+    "districtId": "AS_KAM",
+    "name": "Sualkuchi",
+    "type": "Cultural",
+    "location_summary": "Kamrup Rural",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Manchester of the East.",
+    "header_quote": "The village of golden silk.",
+    "story": {
+      "overview": "Famous for Muga and Pat silk weaving. Almost every household has a loom.",
+      "culturalSignificance": "Preserves ancient weaving traditions.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Guwahati."],
+      "when_and_where": {
+        "location_text": "Sualkuchi Village",
+        "distances": { "guwahati": "35 km" },
+        "best_time": "Year-round",
+        "open_hours": "Daytime for workshops"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.assam@gov.in" },
+    "nearby_attractions": [{ "name": "Hajo", "image": "url_hajo" }],
+    "location": { "lat": 26.17, "lng": 91.57 },
+    "images": [{ "url": "url_sualkuchi", "caption": "Weaving loom" }],
+    "taxonomy_tags": ["craft", "textile", "village"],
+    "related_homestay_ids": []
+  },
+
+  {
+    "//_COMMENT": "--- MANIPUR (MN) ---"
+  },
+  {
+    "_id": "HP_MN_001",
+    "districtId": "MN_BIS",
+    "name": "Loktak Lake",
+    "type": "Nature",
+    "location_summary": "Bishnupur",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Largest freshwater lake in NE.",
+    "header_quote": "Floating islands on a mirror.",
+    "story": {
+      "overview": "Famous for Phumdis (floating biomass). Hosts Keibul Lamjao, the only floating national park.",
+      "culturalSignificance": "Central to Moirang folklore (Khamba Thoibi).",
+      "localBelief": "Mother source of life."
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Imphal."],
+      "when_and_where": {
+        "location_text": "Moirang",
+        "distances": { "imphal": "45 km" },
+        "best_time": "Oct-Mar",
+        "open_hours": "Sunrise-Sunset"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism@manipur.gov.in" },
+    "nearby_attractions": [{ "name": "INA Museum", "image": "url_ina" }],
+    "location": { "lat": 24.55, "lng": 93.80 },
+    "images": [{ "url": "url_loktak", "caption": "Phumdis" }],
+    "taxonomy_tags": ["lake", "wetlands", "boating"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_MN_002",
+    "districtId": "MN_IMW",
+    "name": "Kangla Fort",
+    "type": "Heritage",
+    "location_summary": "Imphal",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Ancient capital of Manipur.",
+    "header_quote": "Seat of the Manipuri Kings.",
+    "story": {
+      "overview": "Houses temples, colonial ruins, and the Govindajee temple. Historic seat of power.",
+      "culturalSignificance": "Sacred to the Meitei people.",
+      "localBelief": "Home to the ruling deity."
+    },
+    "logistics": {
+      "how_to_get_there": ["Center of Imphal."],
+      "when_and_where": {
+        "location_text": "Imphal City",
+        "distances": { "airport": "8 km" },
+        "best_time": "Year-round",
+        "open_hours": "9AM-4PM (Closed Wed)"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism@manipur.gov.in" },
+    "nearby_attractions": [{ "name": "Ima Keithel", "image": "url_ima" }],
+    "location": { "lat": 24.80, "lng": 93.94 },
+    "images": [{ "url": "url_kangla", "caption": "Fort Gate" }],
+    "taxonomy_tags": ["fort", "history", "temple"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_MN_003",
+    "districtId": "MN_IMW",
+    "name": "Ima Keithel",
+    "type": "Cultural",
+    "location_summary": "Imphal",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Mother's Market.",
+    "header_quote": "World's largest all-women market.",
+    "story": {
+      "overview": "A centuries-old market run exclusively by women. Hub for handlooms and produce.",
+      "culturalSignificance": "Symbol of women's economic power.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Center of Imphal."],
+      "when_and_where": {
+        "location_text": "Khwairamband Bazar",
+        "distances": { "airport": "8 km" },
+        "best_time": "Morning/Evening",
+        "open_hours": "4AM-7PM"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism@manipur.gov.in" },
+    "nearby_attractions": [{ "name": "Shaheed Minar", "image": "url_minar" }],
+    "location": { "lat": 24.80, "lng": 93.93 },
+    "images": [{ "url": "url_ima", "caption": "Market scene" }],
+    "taxonomy_tags": ["market", "women", "shopping"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_MN_004",
+    "districtId": "MN_UKH",
+    "name": "Shirui Peak",
+    "type": "Nature",
+    "location_summary": "Ukhrul",
+    "tier": 1,
+    "isHiddenGem": true,
+    "shortDescription": "Home of the Shirui Lily.",
+    "header_quote": "Where the pink lilies bloom.",
+    "story": {
+      "overview": "Only place in the world where Lilium mackliniae grows. Blooms in May-June.",
+      "culturalSignificance": "State flower of Manipur.",
+      "localBelief": "Flower dies if transplanted."
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Imphal to Ukhrul, then trek."],
+      "when_and_where": {
+        "location_text": "Ukhrul",
+        "distances": { "imphal": "80 km" },
+        "best_time": "May-Jun",
+        "open_hours": "Day trek"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism@manipur.gov.in" },
+    "nearby_attractions": [{ "name": "Khangkhui Cave", "image": "url_khangkhui" }],
+    "location": { "lat": 25.12, "lng": 94.40 },
+    "images": [{ "url": "url_shirui", "caption": "Lily in bloom" }],
+    "taxonomy_tags": ["trekking", "flower", "mountain"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_MN_005",
+    "districtId": "MN_THO",
+    "name": "Khongjom War Memorial",
+    "type": "Heritage",
+    "location_summary": "Thoubal",
+    "tier": 2,
+    "isHiddenGem": false,
+    "shortDescription": "Site of the last battle.",
+    "header_quote": "Bravery etched in stone.",
+    "story": {
+      "overview": "Marks the site of the 1891 Anglo-Manipuri war. Features the Paona Brajabashi statue.",
+      "culturalSignificance": "Symbol of Manipuri independence.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Imphal on AH1."],
+      "when_and_where": {
+        "location_text": "Khongjom",
+        "distances": { "imphal": "36 km" },
+        "best_time": "April (Khongjom Day)",
+        "open_hours": "Daytime"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism@manipur.gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 24.50, "lng": 94.05 },
+    "images": [{ "url": "url_khongjom", "caption": "Memorial gate" }],
+    "taxonomy_tags": ["history", "war", "monument"],
+    "related_homestay_ids": []
+  },
+
+  {
+    "//_COMMENT": "--- MEGHALAYA (ML) ---"
+  },
+  {
+    "_id": "HP_ML_001",
+    "districtId": "ML_EKH",
+    "name": "Nohkalikai Falls",
+    "type": "Nature",
+    "location_summary": "Sohra",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Tallest plunge waterfall.",
+    "header_quote": "A tragic leap into emerald waters.",
+    "story": {
+      "overview": "Plunges 340 meters into a green pool. Rain-fed spectacular sight.",
+      "culturalSignificance": "Named after Likai, a woman who jumped off the cliff.",
+      "localBelief": "Pool turns green in winter."
+    },
+    "logistics": {
+      "how_to_get_there": ["Taxi from Shillong."],
+      "when_and_where": {
+        "location_text": "Sohra (Cherrapunji)",
+        "distances": { "shillong": "54 km" },
+        "best_time": "Sept-Dec",
+        "open_hours": "8AM-5PM"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "info@meghalayatourism.in" },
+    "nearby_attractions": [{ "name": "Mawsmai Cave", "image": "url_mawsmai" }],
+    "location": { "lat": 25.27, "lng": 91.73 },
+    "images": [{ "url": "url_nohkalikai", "caption": "Waterfall view" }],
+    "taxonomy_tags": ["waterfall", "nature", "legend"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_ML_002",
+    "districtId": "ML_EKH",
+    "name": "Living Root Bridges",
+    "type": "Adventure",
+    "location_summary": "Nongriat / Mawlynnong",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Bio-engineering marvel.",
+    "header_quote": "Bridges grown, not built.",
+    "story": {
+      "overview": "Grown from Ficus elastica roots by Khasi people. The Double Decker at Nongriat is famous.",
+      "culturalSignificance": "Ancient sustainable infrastructure.",
+      "localBelief": "Bridges grow stronger with age."
+    },
+    "logistics": {
+      "how_to_get_there": ["Trek from Tyrna."],
+      "when_and_where": {
+        "location_text": "Nongriat Village",
+        "distances": { "sohra": "15 km" },
+        "best_time": "Year-round (Careful in monsoon)",
+        "open_hours": "Day trek"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "info@meghalayatourism.in" },
+    "nearby_attractions": [{ "name": "Rainbow Falls", "image": "url_rainbow" }],
+    "location": { "lat": 25.25, "lng": 91.68 },
+    "images": [{ "url": "url_rootbridge", "caption": "Double decker bridge" }],
+    "taxonomy_tags": ["trekking", "nature", "eco"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_ML_003",
+    "districtId": "ML_JAI",
+    "name": "Dawki River (Umngot)",
+    "type": "Nature",
+    "location_summary": "Dawki",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Crystal clear river.",
+    "header_quote": "Boats floating on air.",
+    "story": {
+      "overview": "Famous for emerald clear waters. Borders Bangladesh.",
+      "culturalSignificance": "Site of annual boat races.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Shillong."],
+      "when_and_where": {
+        "location_text": "Dawki",
+        "distances": { "shillong": "80 km" },
+        "best_time": "Winter (Clear water)",
+        "open_hours": "Daytime"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "info@meghalayatourism.in" },
+    "nearby_attractions": [{ "name": "Shnongpdeng", "image": "url_shnongpdeng" }],
+    "location": { "lat": 25.20, "lng": 92.02 },
+    "images": [{ "url": "url_dawki", "caption": "Clear water boating" }],
+    "taxonomy_tags": ["river", "boating", "border"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_ML_004",
+    "districtId": "ML_WGH",
+    "name": "Nokrek Biosphere Reserve",
+    "type": "Nature",
+    "location_summary": "Tura",
+    "tier": 1,
+    "isHiddenGem": true,
+    "shortDescription": "Home of Citrus Indica.",
+    "header_quote": "Gene pool of the citrus.",
+    "story": {
+      "overview": "UNESCO site. Home to Red Panda and wild oranges.",
+      "culturalSignificance": "Garo heritage.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Tura."],
+      "when_and_where": {
+        "location_text": "Tura Peak",
+        "distances": { "tura": "40 km" },
+        "best_time": "Oct-Apr",
+        "open_hours": "Permit required"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "info@meghalayatourism.in" },
+    "nearby_attractions": [{ "name": "Pelga Falls", "image": "url_pelga" }],
+    "location": { "lat": 25.46, "lng": 90.32 },
+    "images": [{ "url": "url_nokrek", "caption": "Forest view" }],
+    "taxonomy_tags": ["wildlife", "UNESCO", "trekking"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_ML_005",
+    "districtId": "ML_RIB",
+    "name": "Umiam Lake",
+    "type": "Nature",
+    "location_summary": "Ri Bhoi",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Barapani Lake.",
+    "header_quote": "The blue expanse.",
+    "story": {
+      "overview": "Large man-made reservoir. Popular for water sports and scenic beauty.",
+      "culturalSignificance": "N/A",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Stop on Guwahati-Shillong road."],
+      "when_and_where": {
+        "location_text": "Umiam",
+        "distances": { "shillong": "15 km" },
+        "best_time": "Year-round",
+        "open_hours": "Sunrise-Sunset"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "info@meghalayatourism.in" },
+    "nearby_attractions": [{ "name": "Lum Nehru Park", "image": "url_nehru_park" }],
+    "location": { "lat": 25.65, "lng": 91.90 },
+    "images": [{ "url": "url_umiam", "caption": "Lake panoramic" }],
+    "taxonomy_tags": ["lake", "water_sports", "picnic"],
+    "related_homestay_ids": []
+  },
+
+  {
+    "//_COMMENT": "--- MIZORAM (MZ) ---"
+  },
+  {
+    "_id": "HP_MZ_001",
+    "districtId": "MZ_AIZ",
+    "name": "Reiek Tlang",
+    "type": "Adventure",
+    "location_summary": "Aizawl",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Peak with model village.",
+    "header_quote": "Standing on the Mizo edge.",
+    "story": {
+      "overview": "Prominent hill offering views of valleys. Features a model Mizo heritage village.",
+      "culturalSignificance": "Site of Anthurium Festival.",
+      "localBelief": "Ancient hunting ground."
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Aizawl."],
+      "when_and_where": {
+        "location_text": "Reiek Village",
+        "distances": { "aizawl": "29 km" },
+        "best_time": "Sept-Jan",
+        "open_hours": "Day trip"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "mizoram.tourism@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 23.68, "lng": 92.60 },
+    "images": [{ "url": "url_reiek", "caption": "Peak view" }],
+    "taxonomy_tags": ["trekking", "viewpoint", "village"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_MZ_002",
+    "districtId": "MZ_SER",
+    "name": "Vantawng Falls",
+    "type": "Nature",
+    "location_summary": "Thenzawl",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Highest waterfall in Mizoram.",
+    "header_quote": "A silver thread in bamboo.",
+    "story": {
+      "overview": "750 feet high two-tiered waterfall. Surrounded by dense bamboo forests.",
+      "culturalSignificance": "Named after excellent swimmer Vantawnga.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive to Thenzawl."],
+      "when_and_where": {
+        "location_text": "Thenzawl",
+        "distances": { "aizawl": "90 km" },
+        "best_time": "Post-monsoon",
+        "open_hours": "Viewpoint access"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "mizoram.tourism@gov.in" },
+    "nearby_attractions": [{ "name": "Tuirihiau Falls", "image": "url_tuirihiau" }],
+    "location": { "lat": 23.25, "lng": 92.75 },
+    "images": [{ "url": "url_vantawng", "caption": "Waterfall" }],
+    "taxonomy_tags": ["waterfall", "nature", "bamboo"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_MZ_003",
+    "districtId": "MZ_LAW",
+    "name": "Phawngpui National Park",
+    "type": "Adventure",
+    "location_summary": "Blue Mountain",
+    "tier": 1,
+    "isHiddenGem": true,
+    "shortDescription": "Highest peak in Mizoram.",
+    "header_quote": "The Blue Mountain.",
+    "story": {
+      "overview": "Home to the Goral and diverse orchids. Highest peak (2157m).",
+      "culturalSignificance": "Abode of the gods in Mizo folklore.",
+      "localBelief": "Sacred peak."
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive to Sangau village."],
+      "when_and_where": {
+        "location_text": "Sangau",
+        "distances": { "aizawl": "300 km" },
+        "best_time": "Nov-Mar",
+        "open_hours": "Permit required"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "mizoram.tourism@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 22.63, "lng": 93.04 },
+    "images": [{ "url": "url_phawngpui", "caption": "Cloud covered peak" }],
+    "taxonomy_tags": ["trekking", "wildlife", "mountain"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_MZ_004",
+    "districtId": "MZ_CHA",
+    "name": "Rih Dil",
+    "type": "Spiritual",
+    "location_summary": "Myanmar Border",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Heart-shaped lake.",
+    "header_quote": "Passage of souls.",
+    "story": {
+      "overview": "Geographically in Myanmar but culturally Mizo. Central to folklore about the afterlife.",
+      "culturalSignificance": "Souls pass through here on way to Pialral.",
+      "localBelief": "Gateway to the other world."
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive to Zokhawthar border."],
+      "when_and_where": {
+        "location_text": "Zokhawthar",
+        "distances": { "champhai": "27 km" },
+        "best_time": "Year-round",
+        "open_hours": "Daytime (Border formalities)"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "mizoram.tourism@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 23.37, "lng": 93.38 },
+    "images": [{ "url": "url_rih_dil", "caption": "Heart shaped lake" }],
+    "taxonomy_tags": ["lake", "legend", "border"],
+    "related_homestay_ids": []
+  },
+
+  {
+    "//_COMMENT": "--- NAGALAND (NL) ---"
+  },
+  {
+    "_id": "HP_NL_001",
+    "districtId": "NL_KOH",
+    "name": "Kisama Heritage Village",
+    "type": "Cultural",
+    "location_summary": "Kohima",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Hornbill Festival venue.",
+    "header_quote": "Window to Nagaland.",
+    "story": {
+      "overview": "Heritage complex showcasing architecture of 16 Naga tribes. Venue of Hornbill Festival.",
+      "culturalSignificance": "Symbol of Naga unity.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Taxi from Kohima."],
+      "when_and_where": {
+        "location_text": "12km from Kohima",
+        "distances": { "dimapur": "84 km" },
+        "best_time": "Dec 1-10",
+        "open_hours": "9AM-4PM"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism@nagaland.gov.in" },
+    "nearby_attractions": [{ "name": "War Cemetery", "image": "url_war_cem" }],
+    "location": { "lat": 25.56, "lng": 94.13 },
+    "images": [{ "url": "url_kisama", "caption": "Tribal Morungs" }],
+    "taxonomy_tags": ["festival", "culture", "museum"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_NL_002",
+    "districtId": "NL_KOH",
+    "name": "Dzukou Valley",
+    "type": "Adventure",
+    "location_summary": "Kohima Border",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Valley of Flowers.",
+    "header_quote": "The valley of the soul.",
+    "story": {
+      "overview": "Rolling green hills and seasonal flowers. Famous for Dzukou Lily.",
+      "culturalSignificance": "Shared heritage of Angami and Mao tribes.",
+      "localBelief": "Souls rest here."
+    },
+    "logistics": {
+      "how_to_get_there": ["Trek from Viswema/Zakhama."],
+      "when_and_where": {
+        "location_text": "Border area",
+        "distances": { "kohima": "25 km" },
+        "best_time": "Jun-Sept (Flowers)",
+        "open_hours": "Trek only"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism@nagaland.gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 25.55, "lng": 94.07 },
+    "images": [{ "url": "url_dzukou", "caption": "Valley view" }],
+    "taxonomy_tags": ["trekking", "nature", "valley"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_NL_003",
+    "districtId": "NL_KOH",
+    "name": "Kohima War Cemetery",
+    "type": "Heritage",
+    "location_summary": "Kohima",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "WWII Memorial.",
+    "header_quote": "When you go home, tell them of us.",
+    "story": {
+      "overview": "On Garrison Hill, site of the tennis court battle. Maintained by CWGC.",
+      "culturalSignificance": "Turning point of WWII in the East.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Center of Kohima."],
+      "when_and_where": {
+        "location_text": "Kohima City",
+        "distances": { "dimapur": "74 km" },
+        "best_time": "Year-round",
+        "open_hours": "Daytime"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism@nagaland.gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 25.67, "lng": 94.10 },
+    "images": [{ "url": "url_cemetery", "caption": "Grave markers" }],
+    "taxonomy_tags": ["history", "war", "monument"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_NL_004",
+    "districtId": "NL_KOH",
+    "name": "Khonoma Village",
+    "type": "Cultural",
+    "location_summary": "Kohima",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "India's first Green Village.",
+    "header_quote": "Warriors turned conservationists.",
+    "story": {
+      "overview": "Historic Angami village known for resisting British and now for conservation (Tragopan sanctuary).",
+      "culturalSignificance": "Model of community conservation.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Taxi from Kohima."],
+      "when_and_where": {
+        "location_text": "Khonoma",
+        "distances": { "kohima": "20 km" },
+        "best_time": "Year-round",
+        "open_hours": "Daytime"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism@nagaland.gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 25.65, "lng": 94.02 },
+    "images": [{ "url": "url_khonoma", "caption": "Terraced fields" }],
+    "taxonomy_tags": ["village", "eco", "history"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_NL_005",
+    "districtId": "NL_MON",
+    "name": "Longwa Village",
+    "type": "Cultural",
+    "location_summary": "Mon Border",
+    "tier": 1,
+    "isHiddenGem": true,
+    "shortDescription": "Dual citizenship village.",
+    "header_quote": "Bedroom in India, kitchen in Myanmar.",
+    "story": {
+      "overview": "The Angh's (Chief's) house sits on the border. Villagers move freely between countries.",
+      "culturalSignificance": "Konyak headhunter heritage.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Mon town."],
+      "when_and_where": {
+        "location_text": "Border",
+        "distances": { "mon": "42 km" },
+        "best_time": "Nov-Apr",
+        "open_hours": "Daytime"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism@nagaland.gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 26.83, "lng": 95.28 },
+    "images": [{ "url": "url_longwa", "caption": "Angh's house" }],
+    "taxonomy_tags": ["village", "border", "tribal"],
+    "related_homestay_ids": []
+  },
+
+  {
+    "//_COMMENT": "--- TRIPURA (TR) ---"
+  },
+  {
+    "_id": "HP_TR_001",
+    "districtId": "TR_WES",
+    "name": "Ujjayanta Palace",
+    "type": "Heritage",
+    "location_summary": "Agartala",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Royal Museum.",
+    "header_quote": "White gleam of history.",
+    "story": {
+      "overview": "Former royal palace of Manikya dynasty, now a state museum. Built in 1901.",
+      "culturalSignificance": "Heart of Agartala.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["City center."],
+      "when_and_where": {
+        "location_text": "Agartala",
+        "distances": { "airport": "10 km" },
+        "best_time": "Year-round",
+        "open_hours": "10AM-5PM (Mon closed)"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.tripura@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 23.83, "lng": 91.28 },
+    "images": [{ "url": "url_ujjayanta", "caption": "Palace facade" }],
+    "taxonomy_tags": ["museum", "palace", "history"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_TR_002",
+    "districtId": "TR_WES",
+    "name": "Neermahal",
+    "type": "Heritage",
+    "location_summary": "Melaghar",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Water Palace.",
+    "header_quote": "Floating on Rudrasagar.",
+    "story": {
+      "overview": "Summer palace built in the middle of Rudrasagar Lake. Blend of Hindu and Islamic architecture.",
+      "culturalSignificance": "Only water palace in NE India.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Agartala then boat."],
+      "when_and_where": {
+        "location_text": "Melaghar",
+        "distances": { "agartala": "53 km" },
+        "best_time": "Winter",
+        "open_hours": "9AM-5PM"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.tripura@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 23.49, "lng": 91.32 },
+    "images": [{ "url": "url_neermahal", "caption": "Palace in lake" }],
+    "taxonomy_tags": ["palace", "lake", "boating"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_TR_003",
+    "districtId": "TR_NOR",
+    "name": "Unakoti",
+    "type": "Heritage",
+    "location_summary": "Kailashahar",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Rock carvings.",
+    "header_quote": "Lost hill of faces.",
+    "story": {
+      "overview": "Massive bas-relief sculptures of Shiva carved into the hill. Dates to 7th-9th century.",
+      "culturalSignificance": "Means 'one less than a crore'.",
+      "localBelief": "Cursed gods turned to stone."
+    },
+    "logistics": {
+      "how_to_get_there": ["Train to Kumarghat then taxi."],
+      "when_and_where": {
+        "location_text": "Kailashahar",
+        "distances": { "agartala": "178 km" },
+        "best_time": "Oct-Mar",
+        "open_hours": "Sunrise-Sunset"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.tripura@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 24.31, "lng": 92.06 },
+    "images": [{ "url": "url_unakoti", "caption": "Shiva head" }],
+    "taxonomy_tags": ["archaeology", "sculpture", "spiritual"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_TR_004",
+    "districtId": "TR_SOU",
+    "name": "Tripura Sundari Temple",
+    "type": "Spiritual",
+    "location_summary": "Udaipur",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Matabari.",
+    "header_quote": "One of the 51 Shakti Peeths.",
+    "story": {
+      "overview": "Ancient temple dedicated to Goddess Kali. Shaped like a tortoise (Kurma Peeth).",
+      "culturalSignificance": "Holiest shrine in the state.",
+      "localBelief": "Sati's right foot fell here."
+    },
+    "logistics": {
+      "how_to_get_there": ["Train/Bus to Udaipur."],
+      "when_and_where": {
+        "location_text": "Udaipur",
+        "distances": { "agartala": "55 km" },
+        "best_time": "Diwali",
+        "open_hours": "Morning-Evening"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.tripura@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 23.53, "lng": 91.49 },
+    "images": [{ "url": "url_matabari", "caption": "Temple view" }],
+    "taxonomy_tags": ["temple", "pilgrimage", "hindu"],
+    "related_homestay_ids": []
+  },
+
+  {
+    "//_COMMENT": "--- SIKKIM (SK) ---"
+  },
+  {
+    "_id": "HP_SK_001",
+    "districtId": "SK_EAS",
+    "name": "Tsomgo Lake",
+    "type": "Nature",
+    "location_summary": "Gangtok",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Glacial lake.",
+    "header_quote": "Changing colors.",
+    "story": {
+      "overview": "High altitude lake at 12,400 ft. Remains frozen in winter.",
+      "culturalSignificance": "Sacred to locals.",
+      "localBelief": "Lamas predict future by water color."
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Gangtok (Permit)."],
+      "when_and_where": {
+        "location_text": "Nathula Road",
+        "distances": { "gangtok": "40 km" },
+        "best_time": "Winter/Spring",
+        "open_hours": "Day trip"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.sikkim@gov.in" },
+    "nearby_attractions": [{ "name": "Nathula Pass", "image": "url_nathula" }],
+    "location": { "lat": 27.37, "lng": 88.76 },
+    "images": [{ "url": "url_tsomgo", "caption": "Yak ride" }],
+    "taxonomy_tags": ["lake", "snow", "yak"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_SK_002",
+    "districtId": "SK_EAS",
+    "name": "Nathula Pass",
+    "type": "Adventure",
+    "location_summary": "Border",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Indo-China Border.",
+    "header_quote": "The Silk Route.",
+    "story": {
+      "overview": "Historic trade route at 14,140 ft. Tourists can shake hands with Chinese soldiers across the fence.",
+      "culturalSignificance": "Old Silk Route.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Gangtok (Permit)."],
+      "when_and_where": {
+        "location_text": "Border",
+        "distances": { "gangtok": "56 km" },
+        "best_time": "Wed-Sun (Closed Mon/Tue)",
+        "open_hours": "Day trip"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.sikkim@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 27.38, "lng": 88.83 },
+    "images": [{ "url": "url_nathula", "caption": "Border gate" }],
+    "taxonomy_tags": ["border", "snow", "history"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_SK_003",
+    "districtId": "SK_EAS",
+    "name": "Rumtek Monastery",
+    "type": "Cultural",
+    "location_summary": "Gangtok",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Seat of Karmapa.",
+    "header_quote": "Dharma Chakra Centre.",
+    "story": {
+      "overview": "Largest monastery in Sikkim. Seat of the Black Hat sect (Kagyu).",
+      "culturalSignificance": "Golden Stupa contains relics of 16th Karmapa.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Gangtok."],
+      "when_and_where": {
+        "location_text": "Rumtek",
+        "distances": { "gangtok": "24 km" },
+        "best_time": "Year-round",
+        "open_hours": "Daytime"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.sikkim@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 27.30, "lng": 88.52 },
+    "images": [{ "url": "url_rumtek", "caption": "Monastery courtyard" }],
+    "taxonomy_tags": ["monastery", "buddhism"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_SK_004",
+    "districtId": "SK_WES",
+    "name": "Pelling",
+    "type": "Nature",
+    "location_summary": "West Sikkim",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Kanchenjunga views.",
+    "header_quote": "Closest view of the sleeping Buddha.",
+    "story": {
+      "overview": "Hill station offering the closest view of Mt Kanchenjunga. Base for Pemayangtse Monastery.",
+      "culturalSignificance": "N/A",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Gangtok/Siliguri."],
+      "when_and_where": {
+        "location_text": "Pelling Town",
+        "distances": { "gangtok": "115 km" },
+        "best_time": "Oct-May",
+        "open_hours": "24 hours"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.sikkim@gov.in" },
+    "nearby_attractions": [{ "name": "Skywalk", "image": "url_skywalk" }],
+    "location": { "lat": 27.31, "lng": 88.24 },
+    "images": [{ "url": "url_pelling", "caption": "Mountain view" }],
+    "taxonomy_tags": ["viewpoint", "mountain", "monastery"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_SK_005",
+    "districtId": "SK_NOR",
+    "name": "Gurudongmar Lake",
+    "type": "Spiritual",
+    "location_summary": "North Sikkim",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "17,800 ft high lake.",
+    "header_quote": "Blessed by the Guru.",
+    "story": {
+      "overview": "One of the highest lakes in the world. Guru Padmasambhava touched it, so part of it never freezes.",
+      "culturalSignificance": "Sacred to Buddhists/Sikhs.",
+      "localBelief": "Water cures infertility."
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Lachen (Start 4AM)."],
+      "when_and_where": {
+        "location_text": "High Plateau",
+        "distances": { "lachen": "66 km" },
+        "best_time": "Apr-Jun, Oct-Nov",
+        "open_hours": "Leave by 11AM"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.sikkim@gov.in" },
+    "nearby_attractions": [],
+    "location": { "lat": 28.02, "lng": 88.71 },
+    "images": [{ "url": "url_gurudongmar", "caption": "Frozen lake" }],
+    "taxonomy_tags": ["lake", "high_altitude", "spiritual"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_SK_006",
+    "districtId": "SK_NOR",
+    "name": "Yumthang Valley",
+    "type": "Nature",
+    "location_summary": "North Sikkim",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Valley of Flowers.",
+    "header_quote": "Rhododendron sanctuary.",
+    "story": {
+      "overview": "Alpine valley with river and hot springs. Blooms with rhododendrons in spring.",
+      "culturalSignificance": "N/A",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Lachung."],
+      "when_and_where": {
+        "location_text": "Yumthang",
+        "distances": { "lachung": "25 km" },
+        "best_time": "Mar-May (Flowers)",
+        "open_hours": "Day trip"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.sikkim@gov.in" },
+    "nearby_attractions": [{ "name": "Zero Point", "image": "url_zeropoint" }],
+    "location": { "lat": 27.82, "lng": 88.70 },
+    "images": [{ "url": "url_yumthang", "caption": "Flowering valley" }],
+    "taxonomy_tags": ["valley", "flower", "snow"],
+    "related_homestay_ids": []
+  },
+  {
+    "_id": "HP_SK_007",
+    "districtId": "SK_SOU",
+    "name": "Namchi Char Dham",
+    "type": "Spiritual",
+    "location_summary": "Namchi",
+    "tier": 1,
+    "isHiddenGem": false,
+    "shortDescription": "Siddheshwar Dham.",
+    "header_quote": "Pilgrimage atop Solophok.",
+    "story": {
+      "overview": "Complex featuring replicas of four Dhams and a giant Shiva statue.",
+      "culturalSignificance": "Major pilgrimage site.",
+      "localBelief": "N/A"
+    },
+    "logistics": {
+      "how_to_get_there": ["Drive from Gangtok."],
+      "when_and_where": {
+        "location_text": "Solophok Hill",
+        "distances": { "gangtok": "78 km" },
+        "best_time": "Year-round",
+        "open_hours": "Morning-Evening"
+      }
+    },
+    "helpline": { "phone": "+91 6002972179", "email": "tourism.sikkim@gov.in" },
+    "nearby_attractions": [{ "name": "Samdruptse", "image": "url_samdruptse" }],
+    "location": { "lat": 27.16, "lng": 88.35 },
+    "images": [{ "url": "url_chardham", "caption": "Shiva statue" }],
+    "taxonomy_tags": ["temple", "pilgrimage", "statue"],
+    "related_homestay_ids": []
+  }
+]

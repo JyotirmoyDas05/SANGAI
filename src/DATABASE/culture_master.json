@@ -1,0 +1,655 @@
+[
+  {
+    "//_COMMENT": "--- ARUNACHAL PRADESH (AR) ---"
+  },
+  {
+    "_id": "CUL_AR_FEST_MOPIN",
+    "stateId": "AR",
+    "category": "festivals",
+    "title": "Mopin Festival",
+    "location_name": "Siang Belt (Aalo, Pasighat)",
+    "summary": "The premier fertility festival of the Galo tribe, famous for the smearing of white rice paste.",
+    "isHiddenGem": false,
+    "images": ["url_mopin_main"],
+    "tags": ["harvest", "spiritual", "community"],
+    "details": {
+      "significance": "A ritual to ward off evil spirits and ensure a bumper harvest.",
+      "hero_image": "url_mopin_hero",
+      "best_experienced_at": {
+        "event": "Mopin Ground, Aalo",
+        "dates": "April 5"
+      },
+      "article_content": [
+        "To truly understand the Galo tribe, one must witness Mopin. It is a fertility festival dedicated to the Goddess Mopin, ensuring prosperity for the community.",
+        "The festival is visually characterized by the smearing of 'Ette' (white rice paste) on participants' faces, symbolizing purity and social cohesion.",
+        "Women perform the rhythmic Popir dance in traditional white attire, creating a mesmerizing spectacle of unity."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_AR_DANCE_AJILAMU",
+    "stateId": "AR",
+    "category": "music",
+    "title": "Aji Lamu Dance",
+    "location_name": "Tawang Monastery",
+    "summary": "A grand masked dance depicting the story of King Gyalpo.",
+    "isHiddenGem": true,
+    "images": ["url_ajilamu_main"],
+    "tags": ["mask_dance", "buddhism", "heritage"],
+    "details": {
+      "significance": "A historical reenactment of the region's Buddhist history.",
+      "hero_image": "url_ajilamu_hero",
+      "best_experienced_at": {
+        "event": "Losar Festival",
+        "dates": "February/March"
+      },
+      "article_content": [
+        "Performed by the Monpa tribe, this dance is not merely entertainment but a sacred ritual. Dancers wear ornate brocade costumes and animal masks.",
+        "The dance depicts the triumph of good over evil and is central to the Losar (New Year) celebrations at the Tawang Monastery."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_AR_FOOD_APANG",
+    "stateId": "AR",
+    "category": "food",
+    "title": "Apang (Rice Beer)",
+    "location_name": "Across Arunachal",
+    "summary": "The ubiquitous fermented rice beverage central to all tribal festivities.",
+    "isHiddenGem": false,
+    "images": ["url_apang_main"],
+    "tags": ["beverage", "fermented", "ritual"],
+    "details": {
+      "significance": "More than a drink, it is a ritual offering connecting the living with the spirits.",
+      "hero_image": "url_apang_hero",
+      "best_experienced_at": {
+        "event": "Any Tribal Festival",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "Apang comes in two main varieties: Ngin (white) and Poka (dark/millet-based). It is earthy, sweet, and potent.",
+        "No festival or ceremony in the Tani belt is complete without the offering of Apang to the ancestors and guests."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_AR_ATTIRE_BYOPA",
+    "stateId": "AR",
+    "category": "attire",
+    "title": "Byopa Helmet",
+    "location_name": "Nyishi Inhabited Areas",
+    "summary": "A cane helmet uniquely decorated with the beak of the Great Indian Hornbill.",
+    "isHiddenGem": true,
+    "images": ["url_byopa_main"],
+    "tags": ["headgear", "identity", "craft"],
+    "details": {
+      "significance": "A symbol of masculine identity and tribal pride for the Nyishi men.",
+      "hero_image": "url_byopa_hero",
+      "best_experienced_at": {
+        "event": "Nyokum Festival",
+        "dates": "February"
+      },
+      "article_content": [
+        "The Byopa is an intricate cane helmet. Traditionally, it featured the actual beak of the Great Indian Hornbill, signifying the wearer's connection to nature.",
+        "Today, conservation efforts have led to the use of artificial beaks, preserving the tradition while protecting the bird."
+      ]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- ASSAM (AS) ---"
+  },
+  {
+    "_id": "CUL_AS_FEST_BIHU",
+    "stateId": "AS",
+    "category": "festivals",
+    "title": "Rongali Bihu",
+    "location_name": "Statewide",
+    "summary": "The Assamese New Year marking the onset of the agricultural cycle.",
+    "isHiddenGem": false,
+    "images": ["url_bihu_main"],
+    "tags": ["new_year", "dance", "joy"],
+    "details": {
+      "significance": "Symbolizes the spirit and resilience of the Assamese identity.",
+      "hero_image": "url_bihu_hero",
+      "best_experienced_at": {
+        "event": "Guwahati Bihu Sanmilan",
+        "dates": "April 14-20"
+      },
+      "article_content": [
+        "Rongali Bihu is the festival of joy. It celebrates the arrival of spring and the sowing season with energetic dances and heart-pounding drum beats.",
+        "It is a time when the 'Kopou' orchid blooms and the sound of the Pepa (buffalo horn) echoes across the Brahmaputra valley."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_AS_ATTIRE_MUGA",
+    "stateId": "AS",
+    "category": "attire",
+    "title": "Mekhela Chador (Muga)",
+    "location_name": "Sualkuchi",
+    "summary": "The Golden Silk of Assam, found nowhere else on Earth.",
+    "isHiddenGem": false,
+    "images": ["url_muga_main"],
+    "tags": ["textile", "GI_tag", "luxury"],
+    "details": {
+      "significance": "A fabric that outlives the wearer, increasing in luster with every wash.",
+      "hero_image": "url_muga_hero",
+      "best_experienced_at": {
+        "event": "Assamese Weddings",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "To truly understand Assam, one must understand its attire. The Mekhela Chador made of Muga silk is a repository of history.",
+        "Muga, the golden silk, is endemic to Assam. Historically reserved for royalty, it is now the pride of every Assamese woman."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_AS_FOOD_KHAR",
+    "stateId": "AS",
+    "category": "food",
+    "title": "Khar",
+    "location_name": "Assamese Households",
+    "summary": "An alkaline delicacy unique to Assamese cuisine.",
+    "isHiddenGem": true,
+    "images": ["url_khar_main"],
+    "tags": ["alkaline", "heritage_food", "vegan"],
+    "details": {
+      "significance": "A meal in Assam always begins with Khar to cleanse the palate.",
+      "hero_image": "url_khar_hero",
+      "best_experienced_at": {
+        "event": "Traditional Assamese Thali",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "Khar is prepared by filtering water through the ashes of sun-dried banana skins. It has a unique alkaline taste and medicinal properties.",
+        "It is usually cooked with raw papaya, pulses, or fish heads, representing the distinct flavor profile of the region."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_AS_MUSIC_SATTRIYA",
+    "stateId": "AS",
+    "category": "music",
+    "title": "Sattriya Dance",
+    "location_name": "Majuli Island",
+    "summary": "One of India's 8 Classical Dances, born in the monasteries.",
+    "isHiddenGem": false,
+    "images": ["url_sattriya_main"],
+    "tags": ["classical", "devotional", "grace"],
+    "details": {
+      "significance": "A living tradition of the Neo-Vaishnavite movement.",
+      "hero_image": "url_sattriya_hero",
+      "best_experienced_at": {
+        "event": "Majuli Raas Mahotsav",
+        "dates": "November"
+      },
+      "article_content": [
+        "Developed by Srimanta Sankardev in the 15th century, Sattriya was preserved for centuries within the Sattras (monasteries) of Majuli.",
+        "It is a dance of devotion, characterized by graceful hand gestures and fluid movements depicting stories of Lord Krishna."
+      ]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- MANIPUR (MN) ---"
+  },
+  {
+    "_id": "CUL_MN_FEST_SANGAI",
+    "stateId": "MN",
+    "category": "festivals",
+    "title": "Sangai Festival",
+    "location_name": "Hapta Kangjeibung, Imphal",
+    "summary": "Manipur's biggest tourism festival celebrating the state animal.",
+    "isHiddenGem": false,
+    "images": ["url_sangai_main"],
+    "tags": ["culture", "dance", "tourism"],
+    "details": {
+      "significance": "Promotes Manipur as a world-class tourism destination.",
+      "hero_image": "url_sangai_hero",
+      "best_experienced_at": {
+        "event": "Imphal Main Venue",
+        "dates": "November 21-30"
+      },
+      "article_content": [
+        "The festival is named after the State Animal, Sangai, the brow-antlered deer found only in Manipur.",
+        "It features indigenous sports like Sagol Kangjei (Polo), Thang Ta (Martial Arts), and Mukna Kangjei."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_MN_DANCE_PUNG",
+    "stateId": "MN",
+    "category": "music",
+    "title": "Pung Cholom",
+    "location_name": "Imphal Valley",
+    "summary": "The Roaring Drum Dance of Manipur.",
+    "isHiddenGem": false,
+    "images": ["url_pung_main"],
+    "tags": ["drum", "acrobatic", "energy"],
+    "details": {
+      "significance": "An integral part of Sankirtana music.",
+      "hero_image": "url_pung_hero",
+      "best_experienced_at": {
+        "event": "Yaoshang Festival",
+        "dates": "March"
+      },
+      "article_content": [
+        "Dancers play the Pung (drum) while performing acrobatic jumps and spins. It is a unique blend of rhythm and martial movement.",
+        "Starting with gentle rhythms, it builds up to a thunderous climax, showcasing the physical stamina and artistic grace of the performers."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_MN_FOOD_EROMBA",
+    "stateId": "MN",
+    "category": "food",
+    "title": "Eromba",
+    "location_name": "Meitei Households",
+    "summary": "A fiery mash of boiled vegetables and fermented fish.",
+    "isHiddenGem": true,
+    "images": ["url_eromba_main"],
+    "tags": ["spicy", "fermented", "staple"],
+    "details": {
+      "significance": "The defining comfort food of the Meitei people.",
+      "hero_image": "url_eromba_hero",
+      "best_experienced_at": {
+        "event": "Lunch at Ima Keithel",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "Eromba is a staple dish made by mashing boiled vegetables (like bamboo shoots or beans) with 'Ngari' (fermented fish) and fiery King Chilies.",
+        "It represents the Manipuri love for strong, umami flavors and fresh, organic ingredients."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_MN_CRAFT_LONGPI",
+    "stateId": "MN",
+    "category": "craft",
+    "title": "Longpi Pottery",
+    "location_name": "Ukhrul District",
+    "summary": "Black stone pottery crafted without a potter's wheel.",
+    "isHiddenGem": false,
+    "images": ["url_longpi_main"],
+    "tags": ["pottery", "black_stone", "organic"],
+    "details": {
+      "significance": "A craft unique to the Tangkhul Naga tribe.",
+      "hero_image": "url_longpi_hero",
+      "best_experienced_at": {
+        "event": "Longpi Village",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "Originating from Longpi village, this pottery is made from a mixture of crushed black serpentine stone and clay.",
+        "It is shaped by hand using molds and polished with local leaves to get its distinct metallic black sheen. It is widely used for slow cooking."
+      ]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- MEGHALAYA (ML) ---"
+  },
+  {
+    "_id": "CUL_ML_FEST_WANGALA",
+    "stateId": "ML",
+    "category": "festivals",
+    "title": "Wangala Festival",
+    "location_name": "Garo Hills",
+    "summary": "The 100 Drums Festival honoring the Sun God.",
+    "isHiddenGem": false,
+    "images": ["url_wangala_main"],
+    "tags": ["drums", "harvest", "energy"],
+    "details": {
+      "significance": "A thanksgiving to Saljong (Sun God) for a rich harvest.",
+      "hero_image": "url_wangala_hero",
+      "best_experienced_at": {
+        "event": "Asanang Village",
+        "dates": "November"
+      },
+      "article_content": [
+        "Wangala is Meghalaya's most vibrant festival. It features the rhythmic beating of 100 long oval drums (Dama) by men.",
+        "Women perform a synchronized dance with slow, shuffling steps, creating a hypnotic visual and auditory experience."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_ML_CRAFT_ROOTBRIDGE",
+    "stateId": "ML",
+    "category": "craft",
+    "title": "Living Root Bridges",
+    "location_name": "Khasi Hills",
+    "summary": "Bio-engineering marvels grown from rubber trees.",
+    "isHiddenGem": false,
+    "images": ["url_rootbridge_main"],
+    "tags": ["bio_engineering", "nature", "heritage"],
+    "details": {
+      "significance": "A testament to the Khasi people's harmony with nature.",
+      "hero_image": "url_rootbridge_hero",
+      "best_experienced_at": {
+        "event": "Nongriat Village",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "These bridges are not built, but grown. The Khasi people guide the roots of the Ficus elastica tree across rivers using hollowed betel nut trunks.",
+        "It takes 15-30 years for a bridge to become functional, and unlike concrete, they grow stronger with age, lasting centuries."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_ML_FOOD_JADOH",
+    "stateId": "ML",
+    "category": "food",
+    "title": "Jadoh",
+    "location_name": "Shillong & Rural Meghalaya",
+    "summary": "The signature rice and meat dish of the hills.",
+    "isHiddenGem": false,
+    "images": ["url_jadoh_main"],
+    "tags": ["pork", "rice", "staple"],
+    "details": {
+      "significance": "The heart of Khasi hospitality.",
+      "hero_image": "url_jadoh_hero",
+      "best_experienced_at": {
+        "event": "Don Bosco Square",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "Often called the 'Biryani of the Hills', Jadoh is short-grain rice cooked with pork meat and, traditionally, blood (or turmeric).",
+        "It is rich, savory, and aromatic, best enjoyed with Dohkhlieh (Pork Salad) and Tungrymbai (Fermented Soy)."
+      ]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- MIZORAM (MZ) ---"
+  },
+  {
+    "_id": "CUL_MZ_DANCE_CHERAW",
+    "stateId": "MZ",
+    "category": "music",
+    "title": "Cheraw (Bamboo Dance)",
+    "location_name": "Across Mizoram",
+    "summary": "The iconic dance of rhythm and agility.",
+    "isHiddenGem": false,
+    "images": ["url_cheraw_main"],
+    "tags": ["bamboo", "skill", "iconic"],
+    "details": {
+      "significance": "Originally performed to ensure safe passage for a soul.",
+      "hero_image": "url_cheraw_hero",
+      "best_experienced_at": {
+        "event": "Chapchar Kut",
+        "dates": "March"
+      },
+      "article_content": [
+        "Cheraw is a feat of timing. Men crouch and clap bamboo staves in a rhythmic grid, while women step in and out with grace.",
+        "It requires perfect synchronization to avoid injury, symbolizing the Mizo values of discipline and community cooperation."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_MZ_ATTIRE_PUAN",
+    "stateId": "MZ",
+    "category": "attire",
+    "title": "Puan",
+    "location_name": "Mizo Households",
+    "summary": "The traditional handwoven sarong of dignity.",
+    "isHiddenGem": false,
+    "images": ["url_puan_main"],
+    "tags": ["textile", "weaving", "fashion"],
+    "details": {
+      "significance": "The cultural identity of every Mizo woman.",
+      "hero_image": "url_puan_hero",
+      "best_experienced_at": {
+        "event": "Festive Occasions",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "The Puan is more than clothing; it is an inheritance. The 'Puanchei' is the most colorful version worn during festivals.",
+        "It features black and white bands with intricate colorful motifs woven on a loin loom, representing the weaver's skill and status."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_MZ_FEST_CHAPCHAR",
+    "stateId": "MZ",
+    "category": "festivals",
+    "title": "Chapchar Kut",
+    "location_name": "Aizawl",
+    "summary": "The Spring Festival celebrating the clearing of forests.",
+    "isHiddenGem": false,
+    "images": ["url_chapchar_main"],
+    "tags": ["harvest", "spring", "joy"],
+    "details": {
+      "significance": "A time of immense joy after the arduous Jhum task.",
+      "hero_image": "url_chapchar_hero",
+      "best_experienced_at": {
+        "event": "A R Ground, Aizawl",
+        "dates": "March"
+      },
+      "article_content": [
+        "Chapchar Kut marks the time when the bamboo forests have been cut and are drying for Jhum burning.",
+        "It is the biggest festival in Mizoram, celebrated with community feasts, the Cheraw dance, and traditional games."
+      ]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- NAGALAND (NL) ---"
+  },
+  {
+    "_id": "CUL_NL_FEST_HORNBILL",
+    "stateId": "NL",
+    "category": "festivals",
+    "title": "Hornbill Festival",
+    "location_name": "Kisama Heritage Village",
+    "summary": "The 'Festival of Festivals' uniting all 16 tribes.",
+    "isHiddenGem": false,
+    "images": ["url_hornbill_main"],
+    "tags": ["unity", "tourism", "tribal"],
+    "details": {
+      "significance": "Preserves and displays the sheer diversity of Naga culture.",
+      "hero_image": "url_hornbill_hero",
+      "best_experienced_at": {
+        "event": "Kisama",
+        "dates": "December 1-10"
+      },
+      "article_content": [
+        "Hornbill is a spectacular 10-day event where all major Naga tribes gather to showcase their distinct heritage.",
+        "From the warrior dances of the Konyaks to the folk songs of the Angamis, it is the ultimate cultural immersion for any visitor."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_NL_FOOD_AXONE",
+    "stateId": "NL",
+    "category": "food",
+    "title": "Smoked Pork with Axone",
+    "location_name": "Naga Kitchens",
+    "summary": "The distinct aroma of Nagaland.",
+    "isHiddenGem": true,
+    "images": ["url_axone_main"],
+    "tags": ["pork", "fermented", "spicy"],
+    "details": {
+      "significance": "A flavor profile that defines Naga cuisine.",
+      "hero_image": "url_axone_hero",
+      "best_experienced_at": {
+        "event": "Local Eateries",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "The quintessential Naga dish. Pork is smoked over a kitchen fire for days, then cooked with 'Axone' (fermented soya bean cakes).",
+        "The fermentation gives it a strong, pungent, and umami-rich flavor that is best enjoyed with steamed rice and spicy Raja Mircha chutney."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_NL_ATTIRE_SHAWL",
+    "stateId": "NL",
+    "category": "attire",
+    "title": "Naga Shawls",
+    "location_name": "Tribal Villages",
+    "summary": "Woven identities where patterns tell a warrior's history.",
+    "isHiddenGem": false,
+    "images": ["url_shawl_main"],
+    "tags": ["textile", "warrior", "status"],
+    "details": {
+      "significance": "A shawl functions as a CV for a Naga warrior.",
+      "hero_image": "url_shawl_hero",
+      "best_experienced_at": {
+        "event": "Hornbill Festival Stalls",
+        "dates": "December"
+      },
+      "article_content": [
+        "In Nagaland, patterns on a shawl indicate tribe, social status, and achievements.",
+        "The 'Tsungkotepsu' of the Ao tribe features painted black bands and animal figures, traditionally worn only by warriors who had taken heads."
+      ]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- SIKKIM (SK) ---"
+  },
+  {
+    "_id": "CUL_SK_DANCE_CHAM",
+    "stateId": "SK",
+    "category": "music",
+    "title": "Cham (Mask Dance)",
+    "location_name": "Monasteries (Rumtek)",
+    "summary": "Monastic dances to exorcise evil spirits.",
+    "isHiddenGem": false,
+    "images": ["url_cham_main"],
+    "tags": ["spiritual", "mask", "buddhism"],
+    "details": {
+      "significance": "A ritual to destroy negative forces before the New Year.",
+      "hero_image": "url_cham_hero",
+      "best_experienced_at": {
+        "event": "Losar Festival",
+        "dates": "February"
+      },
+      "article_content": [
+        "Performed by Lamas in monasteries, Cham dances involve elaborate brocade costumes and terrifying masks representing deities.",
+        "The dance is a meditative act for the performer and a blessing for the viewer, symbolizing the triumph of Dharma."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_SK_CRAFT_THANGKA",
+    "stateId": "SK",
+    "category": "craft",
+    "title": "Thangka Painting",
+    "location_name": "Gangtok",
+    "summary": "Sacred scrolls depicting the life of Buddha.",
+    "isHiddenGem": true,
+    "images": ["url_thangka_main"],
+    "tags": ["art", "painting", "meditation"],
+    "details": {
+      "significance": "An aid to meditation and a tool for teaching Buddhist philosophy.",
+      "hero_image": "url_thangka_hero",
+      "best_experienced_at": {
+        "event": "Directorate of Handicrafts",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "Thangkas are religious scrolls painted on cotton or silk using mineral colors and gold dust.",
+        "The art requires immense discipline and adherence to strict iconographic proportions, often taking months to complete a single piece."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_SK_FOOD_MOMO",
+    "stateId": "SK",
+    "category": "food",
+    "title": "Momo & Thukpa",
+    "location_name": "MG Marg, Gangtok",
+    "summary": "The Himalayan comfort food that conquered the world.",
+    "isHiddenGem": false,
+    "images": ["url_momo_main"],
+    "tags": ["comfort_food", "street_food", "iconic"],
+    "details": {
+      "significance": "Essential warmth for surviving the cold winters.",
+      "hero_image": "url_momo_hero",
+      "best_experienced_at": {
+        "event": "Local Cafes",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "While now global, the authentic Sikkimese Momo is a steamed dumpling filled with pork, cheese (churpi), or vegetables, served with fiery chili chutney.",
+        "Thukpa, a hearty noodle soup, is the daily fuel for the people of the high Himalayas."
+      ]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- TRIPURA (TR) ---"
+  },
+  {
+    "_id": "CUL_TR_DANCE_HOZAGIRI",
+    "stateId": "TR",
+    "category": "music",
+    "title": "Hozagiri Dance",
+    "location_name": "Reang Settlements",
+    "summary": "A spectacular display of balance and rhythm.",
+    "isHiddenGem": false,
+    "images": ["url_hozagiri_main"],
+    "tags": ["acrobatic", "folk", "skill"],
+    "details": {
+      "significance": "Performed to appease the Goddess Laxmi for a good harvest.",
+      "hero_image": "url_hozagiri_hero",
+      "best_experienced_at": {
+        "event": "Hojagiri Festival",
+        "dates": "October"
+      },
+      "article_content": [
+        "Performed by women of the Reang (Bru) tribe, this dance is famous for its acrobatic difficulty.",
+        "Dancers balance on an earthen pitcher while keeping a bottle with a lighted lamp on their heads, moving only their lower bodies in a rhythmic cadence."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_TR_ATTIRE_RIGNAI",
+    "stateId": "TR",
+    "category": "attire",
+    "title": "Rignai and Risa",
+    "location_name": "Tripura",
+    "summary": "The woven identity of Tripuri women.",
+    "isHiddenGem": false,
+    "images": ["url_rignai_main"],
+    "tags": ["textile", "weaving", "heritage"],
+    "details": {
+      "significance": "Patterns on the Rignai often indicate the wearer's clan.",
+      "hero_image": "url_rignai_hero",
+      "best_experienced_at": {
+        "event": "Kharchi Puja",
+        "dates": "July"
+      },
+      "article_content": [
+        "The Rignai is the traditional wrap-around skirt, while the Risa is the upper garment.",
+        "The Risa is culturally vital—it is used in weddings, religious festivals, and as a mark of respect when presented to elders."
+      ]
+    }
+  },
+  {
+    "_id": "CUL_TR_CRAFT_BAMBOO",
+    "stateId": "TR",
+    "category": "craft",
+    "title": "Bamboo & Cane Craft",
+    "location_name": "Agartala",
+    "summary": "Exquisite furniture and screens from the land of bamboo.",
+    "isHiddenGem": false,
+    "images": ["url_bamboo_main"],
+    "tags": ["eco_friendly", "furniture", "art"],
+    "details": {
+      "significance": "Tripura is one of the largest bamboo producers in India.",
+      "hero_image": "url_bamboo_hero",
+      "best_experienced_at": {
+        "event": "Purbasha Emporium",
+        "dates": "Year-round"
+      },
+      "article_content": [
+        "Tripura produces some of the finest bamboo screens, lamp shades, and furniture in India.",
+        "The craftsmanship is so fine that bamboo splits are woven like textile threads to create intricate mats and jewelry, showcasing the versatility of 'Green Gold'."
+      ]
+    }
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "_id": "COL_WILDLIFE",
+    "title": "Wildlife & Nature",
+    "description": "Explore the biodiversity hotspots of the Northeast, from rhinos to red pandas.",
+    "icon": "nature_people",
+    "cover_image": "url_kaziranga_hero",
+    "item_ids": [
+      "HP_AS_001", 
+      "HP_AS_006", 
+      "HP_AR_006", 
+      "HP_AR_010", 
+      "HP_MN_001", 
+      "HP_ML_004"
+    ]
+  },
+  {
+    "_id": "COL_SPIRITUAL",
+    "title": "Spiritual Journeys",
+    "description": "Monasteries, temples, and sacred lakes that define the region's soul.",
+    "icon": "temple_buddhist",
+    "cover_image": "url_tawang_monastery",
+    "item_ids": [
+      "HP_AR_001", 
+      "HP_AS_003", 
+      "HP_SK_003", 
+      "HP_TR_004", 
+      "HP_SK_007", 
+      "HP_AR_011"
+    ]
+  },
+  {
+    "_id": "COL_HERITAGE",
+    "title": "Royal & Colonial Heritage",
+    "description": "Ancient forts, palaces, and war memorials.",
+    "icon": "history_edu",
+    "cover_image": "url_ujjayanta",
+    "item_ids": [
+      "HP_TR_001", 
+      "HP_TR_002", 
+      "HP_MN_002", 
+      "HP_AS_004", 
+      "HP_AR_008", 
+      "HP_NL_003"
+    ]
+  },
+  {
+    "_id": "COL_ADVENTURE",
+    "title": "Trekking & Adventure",
+    "description": "High altitude passes, living root bridges, and valley treks.",
+    "icon": "hiking",
+    "cover_image": "url_dzukou",
+    "item_ids": [
+      "HP_NL_002", 
+      "HP_ML_002", 
+      "HP_AR_002", 
+      "HP_SK_002", 
+      "HP_MZ_001", 
+      "HP_AR_013"
+    ]
+  },
+  {
+    "_id": "COL_FESTIVALS_SPRING",
+    "title": "Spring Festivals 2026",
+    "description": "Vibrant harvest and new year celebrations in Q1/Q2.",
+    "icon": "celebration",
+    "cover_image": "url_chapchar",
+    "item_ids": [
+      "FEST_AS_RONGALI", 
+      "FEST_MZ_CHAPCHAR", 
+      "FEST_AR_MOPIN", 
+      "FEST_NL_SEKRENYI", 
+      "FEST_MN_YAOSHANG", 
+      "FEST_TR_GARIA"
+    ]
+  }
+]

@@ -1,0 +1,512 @@
+[
+  {
+    "_id": "AR",
+    "slug": "arunachal_pradesh",
+    "name": "Arunachal Pradesh",
+    "tagline": "The Dawn-Lit Frontier",
+    "capital": "Itanagar",
+    "coordinates": { "lat": 27.08, "lng": 93.60 },
+    "stats": {
+      "population": "1.58 Million",
+      "area": "83,743 sq km",
+      "languages": ["English", "Nyishi", "Adi", "Monpa"],
+      "landscapeType": "Himalayan Highlands",
+      "climate": "Sub-tropical to Alpine"
+    },
+    "images": {
+      "hero": ["url_tawang", "url_ziro_valley", "url_arunachal_hills"],
+      "map": "url_to_arunachal_svg"
+    },
+    "weatherCode": 95,
+    "funFacts": [
+      "The first Indian soil to receive the morning sun.",
+      "Home to India's largest monastery in Tawang."
+    ],
+    "description_section": {
+      "title": "The Land of the Dawn-Lit Mountains",
+      "content": "Arunachal Pradesh stands as India’s sentinel in the east, a massive carbon sink where the Himalayas meet the sun.",
+      "call_to_action": "Explore the Frontier"
+    },
+    "land_and_memory": {
+      "title": "Donyi-Polo & The Tani Spirit",
+      "tone": "philosophical",
+      "content": "A cosmic worldview where the Sun and Moon are the physical eyes of the Supreme Power, fostering a symbiotic relationship with nature.",
+      "background_image": "url_donyi_polo_texture"
+    },
+    "defining_themes": [
+      {
+        "icon": "landscape",
+        "title": "Vertical Landscapes",
+        "description": "Transitions from sub-tropical valleys to glaciated Himalayan peaks."
+      },
+      {
+        "icon": "diversity_3",
+        "title": "Tribal Mosaic",
+        "description": "Home to 26 major tribes and over 100 sub-tribes."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "eco",
+        "category": "Horticulture",
+        "title": "Kiwi Bowl of India",
+        "description": "Producer of over 56% of India's Kiwis with organic certification."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "temple_buddhist",
+        "title": "Spiritual Monasteries",
+        "description": "Visit the Tawang Monastery, 'Chosen by Horse'."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "ILP for Indians / PAP for Foreigners"
+    }
+  },
+  {
+    "_id": "AS",
+    "slug": "assam",
+    "name": "Assam",
+    "tagline": "The Riverine Engine",
+    "capital": "Dispur",
+    "coordinates": { "lat": 26.14, "lng": 91.73 },
+    "stats": {
+      "population": "36.49 Million",
+      "area": "78,438 sq km",
+      "languages": ["Assamese", "Bodo", "Bengali"],
+      "landscapeType": "Riverine Plains",
+      "climate": "Tropical Monsoon"
+    },
+    "images": {
+      "hero": ["url_tea_garden", "url_kaziranga_rhino", "url_majuli"],
+      "map": "url_to_assam_svg"
+    },
+    "weatherCode": 63,
+    "funFacts": [
+      "Home to the world's largest contiguous tea-growing area.",
+      "Host to Majuli, the world's largest river island."
+    ],
+    "description_section": {
+      "title": "The Gateway to the East",
+      "content": "Dominated by the mighty Brahmaputra, Assam is the demographic and economic anchor of the Northeast.",
+      "call_to_action": "Discover the Brahmaputra"
+    },
+    "land_and_memory": {
+      "title": "The Philosophy of Lahe Lahe",
+      "tone": "philosophical",
+      "content": "An unhurried pace of life that values patience and social connection over hyper-productivity.",
+      "background_image": "url_brahmaputra_texture"
+    },
+    "defining_themes": [
+      {
+        "icon": "water",
+        "title": "Brahmaputra Lifeblood",
+        "description": "The only 'male' river in India, shaping culture and agriculture."
+      },
+      {
+        "icon": "nature",
+        "title": "Wild Resilience",
+        "description": "Success stories in rhino conservation at Kaziranga."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "coffee",
+        "category": "Industry",
+        "title": "Global Tea Hub",
+        "description": "Produces over 50% of India's malty Assam tea."
+      },
+      {
+        "icon": "checkroom",
+        "category": "Crafts",
+        "title": "Muga Silk",
+        "description": "The golden silk that improves its luster with every wash."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "kayaking",
+        "title": "River Island Life",
+        "description": "Experience Neo-Vaishnavite culture at Majuli."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": false,
+      "permit_name": "No ILP Required"
+    }
+  },
+  {
+    "_id": "MN",
+    "slug": "manipur",
+    "name": "Manipur",
+    "tagline": "The Jewel of India",
+    "capital": "Imphal",
+    "coordinates": { "lat": 24.81, "lng": 93.93 },
+    "stats": {
+      "population": "3.23 Million",
+      "area": "22,327 sq km",
+      "languages": ["Meitei", "English"],
+      "landscapeType": "Oval Valley & Hills",
+      "climate": "Sub-tropical"
+    },
+    "images": {
+      "hero": ["url_loktak", "url_ima_keithel", "url_raas_lila"],
+      "map": "url_to_manipur_svg"
+    },
+    "weatherCode": 95,
+    "funFacts": [
+      "Birthplace of modern Polo (Sagol Kangjei).",
+      "Home to the world's only floating National Park."
+    ],
+    "description_section": {
+      "title": "A Mosaic of Ancient Traditions",
+      "content": "Manipur is a crossroad of Southeast Asian influence and Indian heritage.",
+      "call_to_action": "Start Exploring"
+    },
+    "land_and_memory": {
+      "title": "The Floating World",
+      "tone": "philosophical",
+      "content": "Defined by Loktak Lake and its Phumdis—floating masses of life that support entire communities.",
+      "background_image": "url_loktak_texture"
+    },
+    "defining_themes": [
+      {
+        "icon": "woman",
+        "title": "Matriarchal Commerce",
+        "description": "The Ima Keithel is the only market in the world run entirely by women."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "sports_polo",
+        "category": "Sports",
+        "title": "Origin of Polo",
+        "description": "Historically played with seven players on indigenous ponies."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "theater_comedy",
+        "title": "Classical Dance",
+        "description": "Witness the fluid grace of the Raas Lila."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "ILP Mandatory"
+    }
+  },
+  {
+    "_id": "ML",
+    "slug": "meghalaya",
+    "name": "Meghalaya",
+    "tagline": "The Abode of Clouds",
+    "capital": "Shillong",
+    "coordinates": { "lat": 25.57, "lng": 91.89 },
+    "stats": {
+      "population": "3.42 Million",
+      "area": "22,429 sq km",
+      "languages": ["Khasi", "Garo", "English"],
+      "landscapeType": "Cloudy Highlands",
+      "climate": "Sub-tropical / High Rainfall"
+    },
+    "images": {
+      "hero": ["url_root_bridge", "url_dawki", "url_shillong_peak"],
+      "map": "url_to_meghalaya_svg"
+    },
+    "weatherCode": 63,
+    "funFacts": [
+      "Mawsynram is the rainiest place on earth.",
+      "Home to bridges made of living tree roots."
+    ],
+    "description_section": {
+      "title": "Where Rain Tells Stories",
+      "content": "A geological marvel of caves and waterfalls carved by the highest rainfall on the planet.",
+      "call_to_action": "Discover the Clouds"
+    },
+    "land_and_memory": {
+      "title": "Lineage of the Mother",
+      "tone": "philosophical",
+      "content": "A rare matrilineal society where property and family name pass through the youngest daughter.",
+      "background_image": "url_cloud_texture"
+    },
+    "defining_themes": [
+      {
+        "icon": "engineering",
+        "title": "Bio-Engineering",
+        "description": "The Jingkieng Jri (Living Root Bridges) grow stronger with age."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "health_and_safety",
+        "category": "Agriculture",
+        "title": "Lakadong Turmeric",
+        "description": "World-renowned for its high curcumin content (7%+)."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "music_note",
+        "title": "Whistling Villages",
+        "description": "In Kongthong, mothers call their children with unique musical tunes."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": false,
+      "permit_name": "Registration App Mandatory"
+    }
+  },
+  {
+    "_id": "MZ",
+    "slug": "mizoram",
+    "name": "Mizoram",
+    "tagline": "Land of the Highlanders",
+    "capital": "Aizawl",
+    "coordinates": { "lat": 23.73, "lng": 92.71 },
+    "stats": {
+      "population": "1.26 Million",
+      "area": "21,081 sq km",
+      "languages": ["Mizo", "English"],
+      "landscapeType": "Parallel Hill Ranges",
+      "climate": "Mild Tropical"
+    },
+    "images": {
+      "hero": ["url_aizawl_night", "url_blue_mountain", "url_cheraw"],
+      "map": "url_to_mizoram_svg"
+    },
+    "weatherCode": 95,
+    "funFacts": [
+      "Highest literacy rate in India (98%+).",
+      "Hosts shops without shopkeepers based on total trust."
+    ],
+    "description_section": {
+      "title": "The High-Altitude Haven",
+      "content": "A land of deep valleys and community discipline, where ethics guide daily life.",
+      "call_to_action": "Meet the Highlanders"
+    },
+    "land_and_memory": {
+      "title": "The Code of Tlawmngaihna",
+      "tone": "philosophical",
+      "content": "An ethical code of selflessness and hospitality that defines the Mizo spirit.",
+      "background_image": "url_mizo_pattern"
+    },
+    "defining_themes": [
+      {
+        "icon": "handshake",
+        "title": "Community Trust",
+        "description": "Nghahlou Dawr - shops where you pay based on honesty."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "local_florist",
+        "category": "Floriculture",
+        "title": "Anthurium Export",
+        "description": "Successfully exports high-quality Anthuriums globally."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "groups",
+        "title": "Cheraw Dance",
+        "description": "The rhythmic bamboo dance, ancient and precise."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "ILP Mandatory"
+    }
+  },
+  {
+    "_id": "NL",
+    "slug": "nagaland",
+    "name": "Nagaland",
+    "tagline": "The Land of Festivals",
+    "capital": "Kohima",
+    "coordinates": { "lat": 25.67, "lng": 94.12 },
+    "stats": {
+      "population": "2.25 Million",
+      "area": "16,579 sq km",
+      "languages": ["English", "Nagamese", "Tribal Dialects"],
+      "landscapeType": "Rugged Mountains",
+      "climate": "Montane Sub-tropical"
+    },
+    "images": {
+      "hero": ["url_hornbill", "url_dzukou_valley", "url_war_cemetery"],
+      "map": "url_to_nagaland_svg"
+    },
+    "weatherCode": 95,
+    "funFacts": [
+      "Home to the Naga Mircha, one of the world's hottest chillies.",
+      "Kohima was the turning point of WWII in the East."
+    ],
+    "description_section": {
+      "title": "The Warrior Spirit",
+      "content": "A land of 16 major tribes, each guarding a distinct legacy of song, dance, and craft.",
+      "call_to_action": "Visit the Tribes"
+    },
+    "land_and_memory": {
+      "title": "The Morung Legacy",
+      "tone": "philosophical",
+      "content": "Traditional bachelor dormitories served as the heartbeat of oral history and social values.",
+      "background_image": "url_naga_textile"
+    },
+    "defining_themes": [
+      {
+        "icon": "celebration",
+        "title": "Festival of Festivals",
+        "description": "The Hornbill Festival brings all 16 tribes together in unity."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "restaurant",
+        "category": "Spices",
+        "title": "King Chilli",
+        "description": "Naga Mircha was the first product from the state to get a GI tag."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "history_edu",
+        "title": "WWII History",
+        "description": "Pay respects at the Kohima War Cemetery on Garrison Hill."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "ILP Mandatory (Online Available)"
+    }
+  },
+  {
+    "_id": "SK",
+    "slug": "sikkim",
+    "name": "Sikkim",
+    "tagline": "The Hidden Land",
+    "capital": "Gangtok",
+    "coordinates": { "lat": 27.33, "lng": 88.61 },
+    "stats": {
+      "population": "0.69 Million",
+      "area": "7,096 sq km",
+      "languages": ["Nepali", "Bhutia", "Lepcha", "English"],
+      "landscapeType": "High Himalayan",
+      "climate": "Alpine to Tundra"
+    },
+    "images": {
+      "hero": ["url_kangchenjunga", "url_rumtek", "url_gurudongmar"],
+      "map": "url_to_sikkim_svg"
+    },
+    "weatherCode": 63,
+    "funFacts": [
+      "India's first fully organic state (since 2016).",
+      "Home to the third highest peak in the world, Mt. Kangchenjunga."
+    ],
+    "description_section": {
+      "title": "The Spiritual Sanctuary",
+      "content": "A Buddhist kingdom turned state, where mountains are deities and lakes are holy.",
+      "call_to_action": "Seek Serenity"
+    },
+    "land_and_memory": {
+      "title": "Beyul Demazong",
+      "tone": "philosophical",
+      "content": "The 'Hidden Valley of Rice'—a spiritual landscape blessed by Guru Rinpoche.",
+      "background_image": "url_monastery_texture"
+    },
+    "defining_themes": [
+      {
+        "icon": "eco",
+        "title": "Organic Living",
+        "description": "100% organic farming, banning all chemical pesticides."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "agriculture",
+        "category": "Spices",
+        "title": "Large Cardamom",
+        "description": "The majority producer of India's high-value large cardamom."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "hiking",
+        "title": "High Passes",
+        "description": "Travel to Nathu La, the ancient silk route pass."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "RAP for Foreigners / PAP for Border Areas"
+    }
+  },
+  {
+    "_id": "TR",
+    "slug": "tripura",
+    "name": "Tripura",
+    "tagline": "The Land of Myths",
+    "capital": "Agartala",
+    "coordinates": { "lat": 23.83, "lng": 91.28 },
+    "stats": {
+      "population": "4.22 Million",
+      "area": "10,491 sq km",
+      "languages": ["Kokborok", "Bengali", "English"],
+      "landscapeType": "Low Hills & Valleys",
+      "climate": "Tropical Savanna"
+    },
+    "images": {
+      "hero": ["url_neermahal", "url_unakoti", "url_ujjayanta"],
+      "map": "url_to_tripura_svg"
+    },
+    "weatherCode": 63,
+    "funFacts": [
+      "Unakoti houses 'one less than a crore' rock-cut carvings.",
+      "Home to the second largest rubber production in India."
+    ],
+    "description_section": {
+      "title": "A Royal Legacy",
+      "content": "A former princely kingdom blending Hindu, Tribal, and Islamic architectural influences.",
+      "call_to_action": "Explore the Palaces"
+    },
+    "land_and_memory": {
+      "title": "The Curse of Unakoti",
+      "tone": "philosophical",
+      "content": "Ancient stone carvings that tell the story of one night when Shiva cursed a crore of deities.",
+      "background_image": "url_unakoti_stone"
+    },
+    "defining_themes": [
+      {
+        "icon": "castle",
+        "title": "Lake Palaces",
+        "description": "Neermahal, the water palace built in the middle of Rudrasagar Lake."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "forest",
+        "category": "Industry",
+        "title": "Natural Rubber",
+        "description": "A major contributor to the rural economy through rubber plantations."
+      },
+      {
+        "icon": "nutrition",
+        "category": "Fruits",
+        "title": "Queen Pineapple",
+        "description": "The state fruit, GI-tagged for its unique sweetness."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "history",
+        "title": "Royal Museums",
+        "description": "Visit the Indo-Saracenic Ujjayanta Palace."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": false,
+      "permit_name": "No ILP Required"
+    }
+  }
+]

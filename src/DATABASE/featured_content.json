@@ -1,0 +1,72 @@
+{
+  "hero_carousel": [
+    {
+      "id": "SLIDE_01",
+      "title": "The Hornbill Awaits",
+      "subtitle": "Plan your trip to the Festival of Festivals in Nagaland.",
+      "image": "url_hornbill_hero_wide",
+      "cta_link": "/nl/festival/FEST_NL_HORNBILL",
+      "cta_text": "View Guide"
+    },
+    {
+      "id": "SLIDE_02",
+      "title": "Kaziranga Calling",
+      "subtitle": "Witness the giants of the grasslands in Assam.",
+      "image": "url_kaziranga_hero_wide",
+      "cta_link": "/as/destination/HP_AS_001",
+      "cta_text": "Explore Park"
+    },
+    {
+      "id": "SLIDE_03",
+      "title": "Chasing Waterfalls",
+      "subtitle": "Discover the cascading beauty of Meghalaya.",
+      "image": "url_nohkalikai_hero_wide",
+      "cta_link": "/ml/destination/HP_ML_001",
+      "cta_text": "See Falls"
+    }
+  ],
+  "trending_now": [
+    {
+      "item_id": "FEST_MZ_CHAPCHAR",
+      "type": "festival",
+      "reason": "Happening Soon (March)"
+    },
+    {
+      "item_id": "HP_AR_002",
+      "type": "destination",
+      "reason": "Snow Season Peak"
+    },
+    {
+      "item_id": "HP_SK_001",
+      "type": "destination",
+      "reason": "Popular Choice"
+    }
+  ],
+  "hidden_gems": [
+    {
+      "item_id": "HP_AR_012",
+      "type": "destination",
+      "reason": "Undiscovered Paradise (Mechuka)"
+    },
+    {
+      "item_id": "HP_TR_002",
+      "type": "destination",
+      "reason": "Architectural Marvel (Neermahal)"
+    },
+    {
+      "item_id": "HP_MZ_004",
+      "type": "destination",
+      "reason": "Mystical Lake (Rih Dil)"
+    }
+  ],
+  "spotlight_culture": {
+    "title": "Weaving Traditions",
+    "description": "Discover the stories behind the fabric of the Northeast.",
+    "items": [
+      "CUL_AS_CRAFT_MUGA",
+      "CUL_MZ_ATTIRE_PUAN",
+      "CUL_NL_ATTIRE_SHAWL",
+      "CUL_TR_ATTIRE_RIGNAI"
+    ]
+  }
+}

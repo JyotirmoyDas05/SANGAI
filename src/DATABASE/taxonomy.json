@@ -1,0 +1,80 @@
+{
+  "categories": {
+    "nature": [
+      "lake",
+      "waterfall",
+      "hill",
+      "forest",
+      "cave",
+      "trail",
+      "biodiversity_hotspot"
+    ],
+    "culture": [
+      "festival",
+      "music",
+      "attire",
+      "food",
+      "folklore",
+      "tribal_heritage"
+    ],
+    "adventure": [
+      "trekking",
+      "caving",
+      "camping",
+      "nature_walk"
+    ],
+    "spiritual": [
+      "temple",
+      "sacred_grove",
+      "monolith"
+    ],
+    "modern": [
+      "museum",
+      "city_center",
+      "park"
+    ],
+    "commerce": [
+      "craft",
+      "textile",
+      "food_preserves"
+    ]
+  },
+  "category_icons": {
+    "nature": "forest",
+    "culture": "diversity_3",
+    "adventure": "hiking",
+    "spiritual": "self_improvement",
+    "commerce": "storefront",
+    "festivals": "celebration",
+    "music": "music_note",
+    "attire": "checkroom",
+    "food": "restaurant",
+    "wildlife": "pets",
+    "landscape": "terrain",
+    "history": "history_edu"
+  },
+  "display_names": {
+    "lake": "Lakes & Wetlands",
+    "hill": "Hills & Valleys",
+    "waterfall": "Waterfalls",
+    "cave": "Caves & Caverns",
+    "trail": "Trekking Trails",
+    "food_preserves": "Homegrown Flavors",
+    "craft": "Handwoven Treasures",
+    "biodiversity_hotspot": "Living Biodiversity"
+  },
+  "badging": {
+    "is_eco_certified": {
+      "label": "Eco-Certified",
+      "icon": "eco"
+    },
+    "is_hidden_gem": {
+      "label": "Hidden Gem",
+      "icon": "diamond"
+    },
+    "is_restricted": {
+      "label": "Restricted Area",
+      "icon": "no_photography"
+    }
+  }
+}

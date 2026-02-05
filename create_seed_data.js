@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Base Path
-const JSON_BACKEND = path.join(__dirname, 'src', 'json_backend', 'data');
+const JSON_BACKEND = path.join(__dirname, 'server', 'data');
 
 // ------------------------------------------------------------------
 // 1. STATES RICH DATA
@@ -166,61 +166,107 @@ const statesRich = [
 // ------------------------------------------------------------------
 // 2. DISTRICTS DATA
 // ------------------------------------------------------------------
-const districts = [
+// ------------------------------------------------------------------
+// 2. DISTRICTS DATA
+// ------------------------------------------------------------------
+console.log('...Loading districts from src/DATABASE/district.json');
+const districtJsonPath = path.join(__dirname, 'src', 'DATABASE', 'district.json');
+let rawDistricts = [];
+try {
+    const fileContent = fs.readFileSync(districtJsonPath, 'utf-8');
+    rawDistricts = JSON.parse(fileContent);
+} catch (err) {
+    console.warn('Warning: Could not read district.json:', err.message);
+    // Fallback to minimal data if file missing
+    rawDistricts = [];
+}
+
+// Filter out comments and prepare base list
+const validDistricts = rawDistricts.filter(d => !d["//_COMMENT"]);
+
+// Manual Additions (Missing in JSON)
+const missingDistricts = [
     {
-        "_id": "MN_BIS_01",
-        "stateId": "MN",
-        "name": "Bishnupur",
-        "slug": "bishnupur",
-        "hq_coordinates": { "lat": 24.63, "lng": 93.76 },
-        "tagline": "Land of the Dancing Deer",
-        "audio_key": "bishnupur_intro",
+        "_id": "AS_KAR_ANG",
+        "stateId": "AS",
+        "name": "Karbi Anglong",
+        "slug": "karbi_anglong",
+        "hq_coordinates": { "lat": 25.85, "lng": 93.43 },
+        "tagline": "Land of the Hills",
         "images": {
-            "hero": ["https://images.unsplash.com/photo-1544634076-a90160bcadcb?auto=format&fit=crop&q=80&w=2000"],
+            "hero": ["https://images.unsplash.com/photo-1590053165219-c8872cd92348?auto=format&fit=crop&q=80&w=2000"],
             "map": "url_svg"
         },
         "weather_code": 95,
         "sense_of_place": {
-            "one_liner": "Where the lake reflects the sky.",
-            "background_texture": "url_texture"
+            "one_liner": "A pristine hill district rich in tribal heritage.",
+            "background_texture": "url_texture_hills"
         },
         "description": {
-            "title": "Welcome to Bishnupur",
-            "content": "Home to the famous Loktak Lake and Keibul Lamjao National Park."
+            "title": "Welcome to Karbi Anglong",
+            "content": "The largest district in Assam, known for its lush green hills, rare flora, and the vibrant culture of the Karbi people."
         },
-        "defining_themes": [
-            { "icon": "waves", "title": "Wetlands", "description": "Floating biomass ecology." }
-        ],
-        "known_for": ["Loktak Lake", "Red Ware Pottery", "Temples"],
         "stats": {
-            "capital": "Bishnupur",
-            "landscape": "Wetland & Valley",
-            "languages": ["Meitei"],
-            "population": "2.4 Lakhs",
-            "area": "496 sq km"
+            "capital": "Diphu",
+            "landscape": "Hills & Forests",
+            "languages": ["Karbi", "English", "Assamese"],
+            "population": "9.6 Lakhs",
+            "area": "10,434 sq km"
         },
         "land_and_memory": {
-            "title": "Echoes of Moirang",
-            "content": "The ancient kingdom of Moirang, rich in folklore like Khamba Thoibi."
+            "title": "Ancient Hills",
+            "content": "These hills have been the home of the Karbi people since time immemorial, echoing with folklore and songs."
         },
+        "defining_themes": [
+            { "icon": "forest", "title": "Green Cover", "description": "Dense tropical forests." },
+            { "icon": "groups", "title": "Tribal Culture", "description": "Rich traditions of the Karbi tribe." }
+        ],
         "shopping_cta": {
-            "title": "Crafts of Bishnupur",
-            "categories": ["Pottery", "Handloom"]
+            "title": "Karbi Crafts",
+            "categories": ["Traditional Weaving", "Bamboo Crafts"]
         }
     },
+    // Adding Majuli manually if missing or just to be safe as it's a key destination
     {
-        "_id": "ML_EKH",
-        "stateId": "ML",
-        "name": "East Khasi Hills",
-        "slug": "east_khasi_hills",
-        "hq_coordinates": { "lat": 25.57, "lng": 91.88 },
-        "tagline": "Heart of Meghalaya",
-        "images": { "hero": ["https://images.unsplash.com/photo-1566837945700-30057527653a?auto=format&fit=crop&q=80&w=2000"] },
-        "weather_code": 61,
-        "description": { "title": "Welcome", "content": "The misty hills where clouds come home." },
-        "stats": { "capital": "Shillong", "landscape": "Hills", "population": "8.2 Lakhs", "area": "2,748 sq km", "languages": ["Khasi"] }
+        "_id": "AS_MAJ",
+        "stateId": "AS",
+        "name": "Majuli",
+        "slug": "majuli",
+        "hq_coordinates": { "lat": 26.95, "lng": 94.22 },
+        "tagline": "Culture amidst the River",
+        "images": {
+            "hero": ["https://images.unsplash.com/photo-1628062137937-23b938446187?auto=format&fit=crop&q=80&w=2000"],
+            "map": "url_svg"
+        },
+        "weather_code": 63,
+        "sense_of_place": {
+            "one_liner": "The world's largest river island.",
+            "background_texture": "url_texture_river"
+        },
+        "description": {
+            "title": "Welcome to Majuli",
+            "content": "A spiritual and cultural hub in the Brahmaputra river, famous for its Satras (monasteries)."
+        },
+        "stats": {
+            "capital": "Garamur",
+            "landscape": "River Island",
+            "languages": ["Assamese", "Mising"],
+            "population": "1.6 Lakhs",
+            "area": "352 sq km"
+        },
+        "land_and_memory": {
+            "title": "River's Song",
+            "content": "Life here flows with the rhythm of the Brahmaputra."
+        },
+        "shopping_cta": {
+            "title": "Island Crafts",
+            "categories": ["Masks", "Handloom"]
+        }
     }
 ];
+
+// Combine them
+const districts = [...validDistricts, ...missingDistricts];
 
 // ------------------------------------------------------------------
 // 3. PLACES NORMALIZED (Destinations)

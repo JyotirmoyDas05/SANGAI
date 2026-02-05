@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { State, District, Place, Guide, FestivalMaster } from '../models/index.js';
+import { State, District } from '../models/index.js';
 import ApiError from '../utils/ApiError.js';
 
 const router = Router();
@@ -11,13 +11,23 @@ const router = Router();
 router.get('/', async (req, res, next) => {
     try {
         const states = await State.find()
-            .select('code name slug tagline heroImage districtCount regionId')
-            .sort({ name: 1 });
+            .select('name slug tagline images description_section')
+            .lean();
+
+        // Map to light version for list
+        const responseData = states.map(s => ({
+            code: s._id,
+            name: s.name,
+            slug: s.slug,
+            tagline: s.tagline,
+            heroImage: s.images?.hero?.[0],
+            description: s.description_section?.content
+        }));
 
         res.json({
             success: true,
-            count: states.length,
-            data: states
+            count: responseData.length,
+            data: responseData
         });
     }
     catch (error) {
@@ -32,34 +42,34 @@ router.get('/', async (req, res, next) => {
 router.get('/:slug', async (req, res, next) => {
     try {
         const { slug } = req.params;
-        const state = await State.findOne({ slug: slug.toLowerCase() });
+        const state = await State.findOne({ slug });
 
         if (!state) {
-            throw ApiError.notFound(`State not found: ${slug}`);
+            throw ApiError.notFound(`State not found: ${slug} `);
         }
 
-        // Get districts in this state
-        const districts = await District.find({ stateCode: state.code })
-            .select('_id districtName slug tagline heroImage')
-            .sort({ districtName: 1 });
+        const stateObj = state.toObject();
 
-        // Get stats for the state
-        const [placesCount, guidesCount, festivalsCount] = await Promise.all([
-            Place.countDocuments({ districtId: { $in: districts.map(d => d._id) } }),
-            Guide.countDocuments({ districtId: { $in: districts.map(d => d._id) } }),
-            FestivalMaster.countDocuments({ stateCode: state.code })
-        ]);
+        // Fetch districts for this state
+        // District uses stateCode to reference State _id (e.g. 'MN')
+        const districts = await District.find({ stateCode: state._id }).sort({ districtName: 1 }).lean();
+
+        // Map districts to ensure 'name' property exists for frontend generic components
+        const districtsMapped = districts.map(d => ({
+            ...d,
+            name: d.districtName
+        }));
 
         res.json({
             success: true,
             data: {
-                ...state.toObject(),
-                districts,
+                ...stateObj,
+                code: state._id,
+                districts: districtsMapped,
                 stats: {
                     districtsCount: districts.length,
-                    placesCount,
-                    guidesCount,
-                    festivalsCount
+                    placesCount: 0,
+                    homestaysCount: 0
                 }
             }
         });
@@ -76,14 +86,13 @@ router.get('/:slug', async (req, res, next) => {
 router.get('/:slug/districts', async (req, res, next) => {
     try {
         const { slug } = req.params;
-        const state = await State.findOne({ slug: slug.toLowerCase() });
+        const state = await State.findOne({ slug });
 
         if (!state) {
-            throw ApiError.notFound(`State not found: ${slug}`);
+            throw ApiError.notFound(`State not found: ${slug} `);
         }
 
-        const districts = await District.find({ stateCode: state.code })
-            .sort({ districtName: 1 });
+        const districts = await District.find({ stateCode: state._id }).sort({ districtName: 1 });
 
         res.json({
             success: true,

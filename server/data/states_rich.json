@@ -1,0 +1,650 @@
+[
+  {
+    "_id": "MN",
+    "slug": "manipur",
+    "name": "Manipur",
+    "tagline": "Jewel of India",
+    "capital": "Imphal",
+    "coordinates": {
+      "lat": 24.817,
+      "lng": 93.936
+    },
+    "stats": {
+      "population": "2.8 Million",
+      "area": "22,327 sq km",
+      "languages": [
+        "Meitei",
+        "English"
+      ],
+      "landscapeType": "Hills & Valley",
+      "climate": "Sub-tropical"
+    },
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=2000",
+        "https://images.unsplash.com/photo-1605377349974-9463c23e800d?auto=format&fit=crop&q=80&w=2000"
+      ],
+      "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Manipur_locator_map.svg/1200px-Manipur_locator_map.svg.png"
+    },
+    "weatherCode": 95,
+    "funFacts": [
+      "Home to the world's only floating national park.",
+      "The birthplace of modern Polo."
+    ],
+    "description_section": {
+      "title": "Welcome to Manipur",
+      "content": "Manipur is a mosaic of ancient traditions and breathtaking landscapes. Known as the 'Jewel of India', it offers a unique blend of valley culture and hill tribe heritage.",
+      "call_to_action": "Read More"
+    },
+    "land_and_memory": {
+      "title": "Land & Memory",
+      "tone": "philosophical",
+      "content": "Manipur is defined by the phumdis of Loktak Lake and the rolling green hills. It is a land where history is whispered in the winds of the Kangla Fort and sung in the ballads of Khongjom.",
+      "background_image": "https://images.unsplash.com/photo-1626015099719-217a151b6601?auto=format&fit=crop&q=80&w=2000"
+    },
+    "defining_themes": [
+      {
+        "icon": "terrain",
+        "title": "Floating Wetlands",
+        "description": "The unique ecosystem of Loktak Lake."
+      },
+      {
+        "icon": "diversity_3",
+        "title": "Meitei Culture",
+        "description": "Rich classical dance and martial arts traditions."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "sports_kabaddi",
+        "category": "Sports",
+        "title": "Origin of Polo",
+        "description": "Sagol Kangjei, the indigenous form of polo, started here."
+      },
+      {
+        "icon": "checkroom",
+        "category": "Handloom",
+        "title": "Moirang Phee",
+        "description": "Distinctive temple border designs woven by women."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "sailing",
+        "title": "Lake Boating",
+        "description": "Navigate the floating islands of Loktak."
+      },
+      {
+        "icon": "temple_hindu",
+        "title": "Temple Trails",
+        "description": "Visit the Govindaji Temple and historical sites."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "Inner Line Permit (ILP)"
+    }
+  },
+  {
+    "_id": "ML",
+    "slug": "meghalaya",
+    "name": "Meghalaya",
+    "tagline": "Abode of Clouds",
+    "capital": "Shillong",
+    "coordinates": {
+      "lat": 25.578,
+      "lng": 91.893
+    },
+    "stats": {
+      "population": "3.3 Million",
+      "area": "22,429 sq km",
+      "languages": [
+        "Khasi",
+        "Garo",
+        "Pnar",
+        "English"
+      ],
+      "landscapeType": "Plateau & Valleys",
+      "climate": "Wet & Cool"
+    },
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1626015099719-217a151b6601?auto=format&fit=crop&q=80&w=2000",
+        "https://images.unsplash.com/photo-1594975619176-0f8c3534b17a?auto=format&fit=crop&q=80&w=2000"
+      ],
+      "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Meghalaya_locator_map.svg/1200px-Meghalaya_locator_map.svg.png"
+    },
+    "weatherCode": 63,
+    "funFacts": [
+      "Home to the wettest place on Earth, Mawsynram.",
+      "Famous for living root bridges bio-engineered by locals."
+    ],
+    "description_section": {
+      "title": "Welcome to Meghalaya",
+      "content": "Meghalaya, the 'Abode of Clouds', is a mesmerizing tapestry of misty hills, cascading waterfalls, and ancient root bridges.",
+      "call_to_action": "Explore Mist"
+    },
+    "land_and_memory": {
+      "title": "Land & Memory",
+      "tone": "poetic",
+      "content": "Walk through the sacred groves where ancestors whisper in the rustling leaves. The living root bridges stand as a testament to a deep, symbiotic bond with nature.",
+      "background_image": "https://images.unsplash.com/photo-1566837945700-30057527653a?auto=format&fit=crop&q=80&w=2000"
+    },
+    "defining_themes": [
+      {
+        "icon": "forest",
+        "title": "Living Architecture",
+        "description": "Bridges grown from rubber tree roots."
+      },
+      {
+        "icon": "water_drop",
+        "title": "Cascading Falls",
+        "description": "Land of a thousand waterfalls like Nohkalikai."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "music_note",
+        "category": "Music",
+        "title": "Rock Capital",
+        "description": "Shillong is known as India's Rock Capital."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "hiking",
+        "title": "Caving & Trekking",
+        "description": "Explore some of South Asia's longest caves."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": false,
+      "permit_name": "None for Indian Tourists (Registration for Foreigners)"
+    }
+  },
+  {
+    "_id": "AS",
+    "slug": "assam",
+    "name": "Assam",
+    "tagline": "The Awesome Assam",
+    "capital": "Dispur",
+    "coordinates": {
+      "lat": 26.2006,
+      "lng": 92.9376
+    },
+    "stats": {
+      "population": "35 Million",
+      "area": "78,438 sq km",
+      "languages": [
+        "Assamese",
+        "Bengali",
+        "English"
+      ],
+      "landscapeType": "River Valley",
+      "climate": "Tropical Monsoon"
+    },
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1571676674483-e18e87d0c3bc?q=80&w=2000"
+      ],
+      "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Assam_locator_map.svg/1200px-Assam_locator_map.svg.png"
+    },
+    "weatherCode": 51,
+    "funFacts": [
+      "Known for Assam Tea and One-Horned Rhinos.",
+      "Majuli is the world's largest river island."
+    ],
+    "description_section": {
+      "title": "Welcome to Assam",
+      "content": "The gateway to the Northeast, Assam is blessed with the mighty Brahmaputra river, lush tea gardens, and rich diverse wildlife.",
+      "call_to_action": "Discover Wildlife"
+    },
+    "land_and_memory": {
+      "title": "Land & Memory",
+      "tone": "historical",
+      "content": "From the Ahom Kingdom that ruled for 600 years to the vibrant Bihu beats, Assam is a land where tradition flows as perennially as the Red River.",
+      "background_image": "https://images.unsplash.com/photo-1598555813876-b6d3763f350c?q=80&w=2000"
+    },
+    "defining_themes": [
+      {
+        "icon": "emoji_nature",
+        "title": "Tea Gardens",
+        "description": "Endless waves of green tea bushes."
+      },
+      {
+        "icon": "pets",
+        "title": "Wildlife",
+        "description": "Home to the one-horned rhinoceros."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "local_cafe",
+        "category": "Economy",
+        "title": "Assam Tea",
+        "description": "Produces some of the world's finest strong teas."
+      },
+      {
+        "icon": "history_edu",
+        "category": "History",
+        "title": "Ahom Dynasty",
+        "description": "One of India's longest-ruling dynasties."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "directions_boat",
+        "title": "River Cruises",
+        "description": "Sunset cruise on the Brahmaputra."
+      },
+      {
+        "icon": "camera_outdoor",
+        "title": "Safari",
+        "description": "Jeep safari in Kaziranga National Park."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": false,
+      "permit_name": "None"
+    }
+  },
+  {
+    "_id": "AP",
+    "slug": "arunachal_pradesh",
+    "name": "Arunachal Pradesh",
+    "tagline": "Land of the Dawn-Lit Mountains",
+    "capital": "Itanagar",
+    "coordinates": {
+      "lat": 28.2180,
+      "lng": 94.7278
+    },
+    "stats": {
+      "population": "1.4 Million",
+      "area": "83,743 sq km",
+      "languages": [
+        "English",
+        "Hindi",
+        "Monpa",
+        "Adi"
+      ],
+      "landscapeType": "High Himalayas",
+      "climate": "Alpine to Temperate"
+    },
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1626084288019-3e3902319ec8?q=80&w=2000"
+      ],
+      "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Arunachal_Pradesh_locator_map.svg/1200px-Arunachal_Pradesh_locator_map.svg.png"
+    },
+    "weatherCode": 71,
+    "funFacts": [
+      "The first Indian soil to greet the rising sun.",
+      "Home to over 26 major tribes and 100 sub-tribes."
+    ],
+    "description_section": {
+      "title": "Welcome to Arunachal Pradesh",
+      "content": "A spiritual and adventurous frontier, Arunachal offers snow-capped peaks, ancient monasteries, and untouched biodiversity.",
+      "call_to_action": "Explore Peaks"
+    },
+    "land_and_memory": {
+      "title": "Land & Memory",
+      "tone": "spiritual",
+      "content": "Where the chant of monks meets the roar of the Siang river. It is a land of hidden valleys and ancient wisdom.",
+      "background_image": "https://images.unsplash.com/photo-1610715367332-6a7516d20398?q=80&w=2000"
+    },
+    "defining_themes": [
+      {
+        "icon": "temple_buddhist",
+        "title": "Spirituality",
+        "description": "Tawang Monastery is India's largest."
+      },
+      {
+        "icon": "groups",
+        "title": "Tribal Heritage",
+        "description": "Diverse cultures living in harmony."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "forest",
+        "category": "Ecology",
+        "title": "Biodiversity",
+        "description": "One of the world's 18 biodiversity hotspots."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "hiking",
+        "title": "High Altitude Trekking",
+        "description": "Trek through the Bailey Trail."
+      },
+      {
+        "icon": "festival",
+        "title": "Ziro Festival",
+        "description": "Attend the famous music festival in Ziro Valley."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "Inner Line Permit (ILP)"
+    }
+  },
+  {
+    "_id": "NL",
+    "slug": "nagaland",
+    "name": "Nagaland",
+    "tagline": "Land of Festivals",
+    "capital": "Kohima",
+    "coordinates": {
+      "lat": 26.1584,
+      "lng": 94.5624
+    },
+    "stats": {
+      "population": "2 Million",
+      "area": "16,579 sq km",
+      "languages": [
+        "English",
+        "Nagamese"
+      ],
+      "landscapeType": "Rolling Hills",
+      "climate": "Sub-tropical"
+    },
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1544634076-a90160bcadcb?auto=format&fit=crop&q=80&w=2000"
+      ],
+      "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Nagaland_locator_map.svg/1200px-Nagaland_locator_map.svg.png"
+    },
+    "weatherCode": 95,
+    "funFacts": [
+      "Famous for the Hornbill Festival.",
+      "Known for the fierce warrior traditions of the past."
+    ],
+    "description_section": {
+      "title": "Welcome to Nagaland",
+      "content": "Vibrant, raw, and deeply cultural. Nagaland is a place where every month has a festival and every tribe has a unique story.",
+      "call_to_action": "Witness Culture"
+    },
+    "land_and_memory": {
+      "title": "Land & Memory",
+      "tone": "intense",
+      "content": "From the Battle of Kohima to the vibrant Hornbill gatherings, Nagaland carries the legacy of warriors and the spirit of community.",
+      "background_image": "https://images.unsplash.com/photo-1605377349974-9463c23e800d?auto=format&fit=crop&q=80&w=2000"
+    },
+    "defining_themes": [
+      {
+        "icon": "festival",
+        "title": "Festivals",
+        "description": "Hornbill Festival attracts global visitors."
+      },
+      {
+        "icon": "history",
+        "title": "WWII History",
+        "description": "Kohima War Cemetery is a significant landmark."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "diversity_3",
+        "category": "Culture",
+        "title": "Tribal Unity",
+        "description": "16 major tribes showcasing unity in diversity."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "restaurant",
+        "title": "Naga Cuisine",
+        "description": "Taste the famous Raja Mircha (King Chilli)."
+      },
+      {
+        "icon": "cabin",
+        "title": "Village Stays",
+        "description": "Experience life in Khonoma Village."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "Inner Line Permit (ILP)"
+    }
+  },
+  {
+    "_id": "MZ",
+    "slug": "mizoram",
+    "name": "Mizoram",
+    "tagline": "Land of the Hill People",
+    "capital": "Aizawl",
+    "coordinates": {
+      "lat": 23.1645,
+      "lng": 92.9376
+    },
+    "stats": {
+      "population": "1.1 Million",
+      "area": "21,081 sq km",
+      "languages": [
+        "Mizo",
+        "English"
+      ],
+      "landscapeType": "Steep Hills",
+      "climate": "Temperate"
+    },
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1590053165219-c8872cd92348?q=80&w=2000"
+      ],
+      "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Mizoram_locator_map.svg/1200px-Mizoram_locator_map.svg.png"
+    },
+    "weatherCode": 61,
+    "funFacts": [
+      "High literacy rate.",
+      "Chapchar Kut is the most important festival."
+    ],
+    "description_section": {
+      "title": "Welcome to Mizoram",
+      "content": "Peaceful, scenic, and disciplined. Mizoram offers endless blue hills and a unique culture of extensive hospitality.",
+      "call_to_action": "Find Peace"
+    },
+    "land_and_memory": {
+      "title": "Land & Memory",
+      "tone": "serene",
+      "content": "Meaning 'Land of the Mizos', it sits perched on the ridges of hills, a sentinel of culture and calm.",
+      "background_image": "https://images.unsplash.com/photo-1523544545175-654859aab053?q=80&w=2000"
+    },
+    "defining_themes": [
+      {
+        "icon": "landscape",
+        "title": "Blue Mountains",
+        "description": "Phawngpui (Blue Mountain) is the highest peak."
+      },
+      {
+        "icon": "handshake",
+        "title": "Tlawmngaihna",
+        "description": "The Mizo code of ethics and self-sacrifice."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "school",
+        "category": "Society",
+        "title": "High Literacy",
+        "description": "One of the highest literacy rates in India."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "hiking",
+        "title": "Trekking",
+        "description": "Explore the Blue Mountain National Park."
+      },
+      {
+        "icon": "music_note",
+        "title": "Cheraw Dance",
+        "description": "Watch the famous Bamboo Dance."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "Inner Line Permit (ILP)"
+    }
+  },
+  {
+    "_id": "TR",
+    "slug": "tripura",
+    "name": "Tripura",
+    "tagline": "Land of Myths and Legends",
+    "capital": "Agartala",
+    "coordinates": {
+      "lat": 23.8315,
+      "lng": 91.2868
+    },
+    "stats": {
+      "population": "3.7 Million",
+      "area": "10,491 sq km",
+      "languages": [
+        "Bengali",
+        "Kokborok",
+        "English"
+      ],
+      "landscapeType": "Plains & Hills",
+      "climate": "Tropical Savanna"
+    },
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1596894454648-261546944e23?q=80&w=2000"
+      ],
+      "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Tripura_locator_map.svg/1200px-Tripura_locator_map.svg.png"
+    },
+    "weatherCode": 51,
+    "funFacts": [
+      "Home to the Neermahal, the only lake palace in Northeast India.",
+      "Unakoti features rock carvings of Shiva."
+    ],
+    "description_section": {
+      "title": "Welcome to Tripura",
+      "content": "A royal history carved in stone and built on water. Tripura blends tribal culture with Bengali heritage.",
+      "call_to_action": "Discover Heritage"
+    },
+    "land_and_memory": {
+      "title": "Land & Memory",
+      "tone": "regal",
+      "content": "The Ujjayanta Palace stands as a witness to the Manikya dynasty, while Unakoti whispers legends carved in rock.",
+      "background_image": "https://images.unsplash.com/photo-1626084288019-3e3902319ec8?q=80&w=2000"
+    },
+    "defining_themes": [
+      {
+        "icon": "castle",
+        "title": "Royal Palaces",
+        "description": "Ujjayanta and Neermahal palaces."
+      },
+      {
+        "icon": "sculpture",
+        "title": "Rock Carvings",
+        "description": "Massive rock-cut sculptures at Unakoti."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "spa",
+        "category": "Crafts",
+        "title": "Bamboo Crafts",
+        "description": "Exquisite cane and bamboo furniture."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "history_edu",
+        "title": "Heritage Walk",
+        "description": "Walk through Agartala's royal history."
+      },
+      {
+        "icon": "forest",
+        "title": "Wildlife Sanctuary",
+        "description": "Visit Sepahijala Wildlife Sanctuary."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": false,
+      "permit_name": "None"
+    }
+  },
+  {
+    "_id": "SK",
+    "slug": "sikkim",
+    "name": "Sikkim",
+    "tagline": "Small but Beautiful",
+    "capital": "Gangtok",
+    "coordinates": {
+      "lat": 27.3314,
+      "lng": 88.6138
+    },
+    "stats": {
+      "population": "0.7 Million",
+      "area": "7,096 sq km",
+      "languages": [
+        "Nepali",
+        "Sikkimese",
+        "English"
+      ],
+      "landscapeType": "Alpine",
+      "climate": "Alpine"
+    },
+    "images": {
+      "hero": [
+        "https://images.unsplash.com/photo-1544634076-a90160bcadcb?auto=format&fit=crop&q=80&w=2000"
+      ],
+      "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Sikkim_locator_map.svg/1200px-Sikkim_locator_map.svg.png"
+    },
+    "weatherCode": 73,
+    "funFacts": [
+      "India's first fully organic state.",
+      "Home to Kanchenjunga, the third highest peak in the world."
+    ],
+    "description_section": {
+      "title": "Welcome to Sikkim",
+      "content": "A Himalayan paradise where nature is revered and protected. Sikkim offers majestic views of Kanchenjunga and spiritual peace.",
+      "call_to_action": "Climb Higher"
+    },
+    "land_and_memory": {
+      "title": "Land & Memory",
+      "tone": "reverent",
+      "content": "Under the watchful gaze of Khangchendzonga, the guardian deity, Sikkim remains a sanctuary of peace and organic living.",
+      "background_image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000"
+    },
+    "defining_themes": [
+      {
+        "icon": "local_florist",
+        "title": "Organic",
+        "description": "100% Organic farming state."
+      },
+      {
+        "icon": "mountain_flag",
+        "title": "Kanchenjunga",
+        "description": "The majestic mountain deity."
+      }
+    ],
+    "contributions": [
+      {
+        "icon": "recycling",
+        "category": "Sustainability",
+        "title": "Green Model",
+        "description": "Global leader in sustainable tourism."
+      }
+    ],
+    "ways_to_experience": [
+      {
+        "icon": "temple_buddhist",
+        "title": "Monasteries",
+        "description": "Visit Rumtek and Pemayangtse."
+      },
+      {
+        "icon": "hiking",
+        "title": "Yak Safari",
+        "description": "Ride a yak near Tsomgo Lake."
+      }
+    ],
+    "essentials_summary": {
+      "permit_required": true,
+      "permit_name": "Inner Line Permit (ILP) / RAP"
+    }
+  }
+]

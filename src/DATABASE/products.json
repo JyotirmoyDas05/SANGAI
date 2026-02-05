@@ -1,0 +1,1940 @@
+[{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116aa"
+  },
+  "title": "VERTIVER SOAP",
+  "slug": "vertiver-soap",
+  "category": "wellness",
+  "price": 150,
+  "compareAtPrice": 150,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8176_S.jpg?v=1741759010",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8186_S.jpg?v=1741759010"
+  ],
+  "facets": {
+    "location": "Jaiaw, East Khasi Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.385Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.385Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ab"
+  },
+  "title": "BAY LEAF SOAP",
+  "slug": "bay-leaf-soap",
+  "category": "wellness",
+  "price": 150,
+  "compareAtPrice": 150,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8194_S.jpg?v=1741758903",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8202_S.jpg?v=1741758903"
+  ],
+  "facets": {
+    "location": "Ri Bhoi"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.386Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.386Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ac"
+  },
+  "title": "HANGING DIFFUSER LEMON GRASS",
+  "slug": "hanging-diffuser-lemon-grass",
+  "category": "wellness",
+  "price": 400,
+  "compareAtPrice": 400,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8273_S.jpg?v=1741757265",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8291_S.jpg?v=1741757265"
+  ],
+  "facets": {
+    "location": "West Khasi Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.386Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.386Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ad"
+  },
+  "title": "HANGING DIFFUSER VERTIVER",
+  "slug": "hanging-diffuser-vertiver",
+  "category": "wellness",
+  "price": 500,
+  "compareAtPrice": 500,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8308_S_6827db38-01be-4ad1-8faa-5405bec63d07.jpg?v=1741757765",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8326_S_f7e6190e-6a40-44ca-9f4c-52525d8b6bac.jpg?v=1741757766"
+  ],
+  "facets": {
+    "location": "Shillong"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.386Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.386Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ae"
+  },
+  "title": "LEMON GRASS SOAP",
+  "slug": "lemon-grass-soap",
+  "category": "wellness",
+  "price": 150,
+  "compareAtPrice": 150,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8208_S.jpg?v=1741758536",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8217_S.jpg?v=1741758536"
+  ],
+  "facets": {
+    "location": "Garo Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.386Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.386Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116af"
+  },
+  "title": "HANGING DIFFUSER ORANGE",
+  "slug": "hanging-diffuser-orange",
+  "category": "wellness",
+  "price": 450,
+  "compareAtPrice": 450,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8340_S_ffccd144-dc43-47ce-818a-20d5e1984224.jpg?v=1741759342",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8359_S_67c1ecb6-1b47-4857-8ab9-3f2407551055.jpg?v=1741759343"
+  ],
+  "facets": {
+    "location": "Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.386Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.386Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116b0"
+  },
+  "title": "HANGING DIFFUSER CITRONELLA GRASS",
+  "slug": "hanging-diffuser-citronella-grass",
+  "category": "wellness",
+  "price": 400,
+  "compareAtPrice": 400,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8237_S.jpg?v=1741756585",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8265_S.jpg?v=1741756585"
+  ],
+  "facets": {
+    "location": "Ri Bhoi"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116b1"
+  },
+  "title": "BATH TOWEL",
+  "slug": "pure-cotton-bath-towel",
+  "category": "textile",
+  "price": 850,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7503_5fcb5aba-57e0-43fe-b2e9-73a719a3dcf7.jpg?v=1757334823"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116b2"
+  },
+  "title": "HAND TOWEL",
+  "slug": "pure-cotton-hand-towel",
+  "category": "textile",
+  "price": 450,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7555.jpg?v=1757334672",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7510.jpg?v=1757675488"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116b3"
+  },
+  "title": "MEGH VERDURE Muffler",
+  "slug": "sanjita-muffler",
+  "category": "textile",
+  "price": 3000,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7641.jpg?v=1757673363",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7639.jpg?v=1757673363"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116b4"
+  },
+  "title": "ERI STOLE (LAC-INDIGO)",
+  "slug": "handwoven-eri-silk-ryndia-stoles-lac-with-indigo",
+  "category": "textile",
+  "price": 5650,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/66c477ba5750c_download.jpg?v=1724151872",
+    "https://themeghalayanage.store/cdn/shop/files/66c477f90a8f7_download.jpg?v=1724151872"
+  ],
+  "facets": {
+    "location": "Ri Bhoi"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116b5"
+  },
+  "title": "ERI STOLE (ONION PEEL)",
+  "slug": "handwoven-eri-silk-ryndia-stoles-onion-peel",
+  "category": "textile",
+  "price": 5650,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/66c47a0a34e0d_download.jpg?v=1724152382",
+    "https://themeghalayanage.store/cdn/shop/files/66c479ee7874d_download.jpg?v=1724152381"
+  ],
+  "facets": {
+    "location": "Ri Bhoi"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116b6"
+  },
+  "title": "MEGH RIVA Stole",
+  "slug": "jullitha-stole",
+  "category": "textile",
+  "price": 4300,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7663_0ebbcc11-435f-47b4-9120-1ef21b4e6901.jpg?v=1757673991",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7670_80c73fca-0586-4983-b9db-bcfd7454b687.jpg?v=1757673991"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116b7"
+  },
+  "title": "MEGH NIVA - Fabric Yardage for shirting",
+  "slug": "anamika-fabric-yardage-for-shirting",
+  "category": "textile",
+  "price": 4950,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7876.jpg?v=1757673614",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7877.jpg?v=1757673613"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116b8"
+  },
+  "title": "MEGH LIORA Stole",
+  "slug": "sajolata-stole",
+  "category": "textile",
+  "price": 2500,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7714.jpg?v=1757673059",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7719.jpg?v=1757673059"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116b9"
+  },
+  "title": "MEGH AURA - Fabric Yardage for jackets",
+  "slug": "priti-fabric-yardage-for-jackets",
+  "category": "textile",
+  "price": 4000,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7847.jpg?v=1757672452",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7854.jpg?v=1757672453"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ba"
+  },
+  "title": "MEGH RAYNA - Fabric Yardage for jackets",
+  "slug": "sonali-fabric-yardage-for-jackets",
+  "category": "textile",
+  "price": 5700,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7838.jpg?v=1757671980",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_7839.jpg?v=1757671980"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116bb"
+  },
+  "title": "MURRAH",
+  "slug": "murrah-small",
+  "category": "craft",
+  "price": 850,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8719_S.jpg?v=1741754915",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8723_S.jpg"
+  ],
+  "facets": {
+    "location": "Tangmang, East Khasi Hills"
+  },
+  "inStock": false,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116bc"
+  },
+  "title": "KYLLUM (GATHER) GIFT HAMPER BASKET",
+  "slug": "kyllum-gift-hamper",
+  "category": "craft",
+  "price": 1250,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/66c4701c1114d_download.jpg?v=1724149873",
+    "https://themeghalayanage.store/cdn/shop/files/66c4704f80810_download.jpg"
+  ],
+  "facets": {
+    "location": "Garo Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116bd"
+  },
+  "title": "BAMBOO TOOTHBRUSH",
+  "slug": "bamboo-toothbrush",
+  "category": "craft",
+  "price": 150,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/EB_2501.jpg?v=1723545446",
+    "https://themeghalayanage.store/cdn/shop/files/EB_2525.jpg"
+  ],
+  "facets": {
+    "location": "Tangmang, East Khasi Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116be"
+  },
+  "title": "DA SIANG BAMBOO COASTER",
+  "slug": "da-siang-coaster",
+  "category": "craft",
+  "price": 140,
+  "compareAtPrice": 200,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/EB_3420_1.jpg?v=1723552200",
+    "https://themeghalayanage.store/cdn/shop/files/EB_3434_1.jpg"
+  ],
+  "facets": {
+    "location": "Tangmang, East Khasi Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116bf"
+  },
+  "title": "WINNOWING TRAY",
+  "slug": "winnowing-tray",
+  "category": "craft",
+  "price": 1100,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/EB_5593.jpg?v=1741756349",
+    "https://themeghalayanage.store/cdn/shop/files/EB_5609.jpg"
+  ],
+  "facets": {
+    "location": "Mawsynram, East Khasi Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116c0"
+  },
+  "title": "Shang Kwai Pnar - Timeless Weaves Basket",
+  "slug": "shang-kwai-pnar",
+  "category": "bamboo",
+  "price": 1365,
+  "compareAtPrice": 1950,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8573_S.jpg?v=1741849809",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8592_S_e0c0fb87-8938-413f-96c4-0ffecdff09db.jpg"
+  ],
+  "facets": {
+    "location": "Mawkyndeng, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "Shangkwai pnar (basket), handcrafted from the fundamental element of the region is nothing short of the most useful commodity one could ever ask. Carefully woven with time-honoured techniques through generations this basket embodies the artistry and tradition of the locals’ community. With its rustic charm and sturdy construction, our handmade basket not only serves as a practical storage for betel nut and betel leave but also a piece of art that tells a story of craftsmanship and heritage.",
+  "variants": [
+    {
+      "id": "small",
+      "name": "Small",
+      "price": 700,
+      "compareAtPrice": 1000,
+      "inStock": false,
+      "_id": {
+        "$oid": "697e81718c3ab7d1a42116c1"
+      }
+    },
+    {
+      "id": "medium",
+      "name": "Medium",
+      "price": 1015,
+      "compareAtPrice": 1450,
+      "inStock": false,
+      "_id": {
+        "$oid": "697e81718c3ab7d1a42116c2"
+      }
+    },
+    {
+      "id": "big",
+      "name": "Big",
+      "price": 1365,
+      "compareAtPrice": 1950,
+      "inStock": true,
+      "_id": {
+        "$oid": "697e81718c3ab7d1a42116c3"
+      }
+    }
+  ],
+  "accordions": [
+    {
+      "title": "Product Details",
+      "content": "Shangkwai pnar (basket), handcrafted from the fundamental element of the region is nothing short of the most useful commodity one could ever ask. Carefully woven with time-honoured techniques through generations this basket embodies the artistry and tradition of the locals’ community. With its rustic charm and sturdy construction, our handmade basket not only serves as a practical storage for betel nut and betel leave but also a piece of art that tells a story of craftsmanship and heritage.",
+      "_id": {
+        "$oid": "697e81718c3ab7d1a42116c4"
+      }
+    },
+    {
+      "title": "Care Instructions",
+      "content": "Keep stored in a cool, dry environment. Use a dry cloth or a soft bristle brush for cleaning.",
+      "_id": {
+        "$oid": "697e81718c3ab7d1a42116c5"
+      }
+    },
+    {
+      "title": "Manufacturing Process",
+      "content": "Bamboo products are crafted with meticulous care, utilizing sustainably sourced bamboo—a fast-growing and renewable material. Selected for its exceptional quality, strength, and flexibility, bamboo guarantees the creation of durable and long-lasting cushion covers. The manufacturing process begins with harvesting mature bamboo stalks from bamboo forests. These stalks are then carefully split into thin strips, processed to eliminate impurities, and enhance flexibility.<br>Additionally, after cutting the bamboo, it undergoes a unique process to further enhance its properties. The bamboo is submerged in a pond followed by smoking in a dedicated smoking chamber.",
+      "_id": {
+        "$oid": "697e81718c3ab7d1a42116c6"
+      }
+    }
+  ],
+  "story": {
+    "title": "ISABELLA PAKMA",
+    "image": "https://themeghalayanage.store/cdn/shop/files/M_S_PAKMA_HANDICRAFTS_-_ISABELLA_PAKMA_1_800x.jpg?v=1754465136",
+    "logo": "https://cdn.shopify.com/s/files/1/0694/6180/3234/files/MAL-logo.gif?v=1713938776",
+    "content": "Smt. Isabella Pakma stands as a towering figure in the realm of handicrafts and social entrepreneurship..."
+  },
+  "reviews": 0,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116c7"
+  },
+  "title": "MURRAH",
+  "slug": "murrah",
+  "category": "bamboo",
+  "price": 2470,
+  "compareAtPrice": 3800,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8595_S.jpg?v=1741850123",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8614_S.jpg?v=1741850123"
+  ],
+  "facets": {
+    "location": "Mawkyndeng, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116c8"
+  },
+  "title": "TRADITIONAL UMBRELLA (KNUP)",
+  "slug": "traditional-umbrella-knup",
+  "category": "bamboo",
+  "price": 2600,
+  "compareAtPrice": 4000,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8622_S.jpg?v=1741850406",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8639_S_1.jpg?v=1741850406"
+  ],
+  "facets": {
+    "location": "Mawkyndeng, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116c9"
+  },
+  "title": "KHO H",
+  "slug": "kho-h",
+  "category": "bamboo",
+  "price": 3600,
+  "compareAtPrice": 3600,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8656_S.jpg?v=1741851086",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8679_S.jpg?v=1741851086"
+  ],
+  "facets": {
+    "location": "Mawkyndeng, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ca"
+  },
+  "title": "KYLLUM (GATHER) GIFT HAMPER BASKET",
+  "slug": "kyllum-gift-hamper-basket",
+  "category": "bamboo",
+  "price": 360,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/66c4701c1114d_download.jpg?v=1724149873",
+    "https://themeghalayanage.store/cdn/shop/files/66c4704f80810_download.jpg"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116cb"
+  },
+  "title": "DA SIANG BAMBOO COASTER",
+  "slug": "woven-bamboo-coaster",
+  "category": "bamboo",
+  "price": 140,
+  "compareAtPrice": 200,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/EB_3420_1.jpg?v=1723552200",
+    "https://themeghalayanage.store/cdn/shop/files/EB_3434_1.jpg?v=1723552200"
+  ],
+  "facets": {
+    "location": "Tangmang, East Khasi Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116cc"
+  },
+  "title": "BAMBOO COASTERS (SET)",
+  "slug": "bamboo-coasters",
+  "category": "bamboo",
+  "price": 350,
+  "compareAtPrice": 350,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8559_S.jpg?v=1741851893"
+  ],
+  "facets": {
+    "location": "Mawkyndeng, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116cd"
+  },
+  "title": "BAMBOO PLACEMATS",
+  "slug": "bamboo-placemats",
+  "category": "bamboo",
+  "price": 450,
+  "compareAtPrice": 450,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8550_S.jpg?v=1741851939"
+  ],
+  "facets": {
+    "location": "Mawkyndeng, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ce"
+  },
+  "title": "BAMBOO TABLE RUNNER",
+  "slug": "bamboo-table-runner",
+  "category": "bamboo",
+  "price": 850,
+  "compareAtPrice": 850,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8564_S.jpg?v=1741851978"
+  ],
+  "facets": {
+    "location": "West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116cf"
+  },
+  "title": "KHIEW RANEI (COOKING POT) - BIG",
+  "slug": "khiew-ranei-cooking-pot-big",
+  "category": "pottery",
+  "price": 1560,
+  "compareAtPrice": 2400,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8501_S.jpg?v=1741853488",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8515_S.jpg?v=1741853488"
+  ],
+  "facets": {
+    "location": "Larnai, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116d0"
+  },
+  "title": "KHIEW RANEI (COOKING POT) - MEDIUM",
+  "slug": "khiew-ranei-cooking-pot-medium",
+  "category": "pottery",
+  "price": 1105,
+  "compareAtPrice": 1700,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8484_S.jpg?v=1741853531",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8497_S.jpg?v=1741853531"
+  ],
+  "facets": {
+    "location": "Larnai, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116d1"
+  },
+  "title": "KHIEW RANEI (COOKING POT) - SMALL",
+  "slug": "khiew-ranei-cooking-pot-small",
+  "category": "pottery",
+  "price": 650,
+  "compareAtPrice": 1000,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8478_S.jpg?v=1741853589",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8481_S.jpg?v=1741853589"
+  ],
+  "facets": {
+    "location": "Larnai, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116d2"
+  },
+  "title": "KHIEW JA (RICE POT) - MEDIUM",
+  "slug": "khiew-ja-rice-pot-medium",
+  "category": "pottery",
+  "price": 845,
+  "compareAtPrice": 1300,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8521_S.jpg?v=1741853634",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8535_S.jpg?v=1741853634"
+  ],
+  "facets": {
+    "location": "Larnai, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116d3"
+  },
+  "title": "KHIEW JA (RICE POT) - BIG",
+  "slug": "khiew-ja-rice-pot-big",
+  "category": "pottery",
+  "price": 1365,
+  "compareAtPrice": 2100,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8540_S.jpg?v=1741853676",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8549_S.jpg?v=1741853676"
+  ],
+  "facets": {
+    "location": "Larnai, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116d4"
+  },
+  "title": "KHIEW UM (WATER DISPENSER) - BIG",
+  "slug": "khiew-um-water-dispenser-big",
+  "category": "pottery",
+  "price": 2470,
+  "compareAtPrice": 3800,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8453_S_1.jpg?v=1741853723",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8467_S_2.jpg?v=1741853723"
+  ],
+  "facets": {
+    "location": "Larnai, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116d5"
+  },
+  "title": "KHIEW UM (WATER DISPENSER) - MEDIUM",
+  "slug": "khiew-um-water-dispenser-medium",
+  "category": "pottery",
+  "price": 1560,
+  "compareAtPrice": 2400,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8444_S_1.jpg?v=1741853768",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8451_S_1.jpg?v=1741853768"
+  ],
+  "facets": {
+    "location": "Larnai, West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116d6"
+  },
+  "title": "SAMLANG BOWL - MEDIUM",
+  "slug": "samlang-bowl-medium",
+  "category": "pottery",
+  "price": 80,
+  "compareAtPrice": 80,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8473_S.jpg?v=1741853818"
+  ],
+  "facets": {
+    "location": "West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116d7"
+  },
+  "title": "SAMLANG BOWL - SMALL",
+  "slug": "samlang-bowl-small",
+  "category": "pottery",
+  "price": 50,
+  "compareAtPrice": 50,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8471_S.jpg?v=1741853818"
+  ],
+  "facets": {
+    "location": "West Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116d8"
+  },
+  "title": "LAKADONG TURMERIC POWDER",
+  "slug": "lakhadong-turmeric-powder",
+  "category": "food",
+  "price": 500,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/Lakadong3.jpg?v=1750158615",
+    "https://themeghalayanage.store/cdn/shop/files/Lakadong1.jpg?v=1750158615"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116d9"
+  },
+  "title": "WILD FOREST HONEY",
+  "slug": "wild-forest-honey-200g",
+  "category": "food",
+  "price": 600,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/Honey3.jpg?v=1750232552",
+    "https://themeghalayanage.store/cdn/shop/files/Honey_2.jpg?v=1750232552"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116da"
+  },
+  "title": "Sohiong Jam",
+  "slug": "sohiong-jam",
+  "category": "food",
+  "price": 300,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/685a7196ba6bc_download.jpg?v=1760005720",
+    "https://themeghalayanage.store/cdn/shop/files/685a716fd8cf7_download.jpg?v=1760005720"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116db"
+  },
+  "title": "Black Pepper",
+  "slug": "black-pepper",
+  "category": "food",
+  "price": 280,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/BlackPepper3.jpg?v=1750332432",
+    "https://themeghalayanage.store/cdn/shop/files/BlackPepper2.jpg?v=1750332432"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116dc"
+  },
+  "title": "Dried Ginger",
+  "slug": "ginger",
+  "category": "food",
+  "price": 200,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/68514a3fc777d_download.jpg?v=1750157900",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_1339.jpg?v=1750157864"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116dd"
+  },
+  "title": "Cinnamon Stick",
+  "slug": "cinnamon-stick",
+  "category": "food",
+  "price": 200,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/Cinnamon3.jpg?v=1750231016",
+    "https://themeghalayanage.store/cdn/shop/files/Cinnamon1.jpg?v=1750231016"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116de"
+  },
+  "title": "Green Tea",
+  "slug": "green-tea",
+  "category": "food",
+  "price": 400,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/GreenTea3.jpg?v=1750398176",
+    "https://themeghalayanage.store/cdn/shop/files/Greentea2.jpg?v=1750398176"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116df"
+  },
+  "title": "Lychee Honey",
+  "slug": "lychee-honey",
+  "category": "food",
+  "price": 700,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/Lychee.jpg?v=1757333081"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116e0"
+  },
+  "title": "Khasi Mandarin Honey",
+  "slug": "khasi-mandarin-honey",
+  "category": "food",
+  "price": 600,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/KhasiMandarin.jpg?v=1757332710"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116e1"
+  },
+  "title": "Coffee Beans",
+  "slug": "coffee-beans",
+  "category": "food",
+  "price": 250,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/CoffeeBean.jpg?v=1750231709",
+    "https://themeghalayanage.store/cdn/shop/files/CoffeeBean_2.jpg?v=1750231708"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116e2"
+  },
+  "title": "Cashew Nut",
+  "slug": "cashew-nut",
+  "category": "food",
+  "price": 350,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_1558.jpg?v=1750158342",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_1315.jpg?v=1750158342"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116e3"
+  },
+  "title": "The Root Bridge",
+  "slug": "the-root-bridge",
+  "category": "books",
+  "price": 315,
+  "compareAtPrice": 350,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8097_S.jpg?v=1741772487",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8107_S.jpg?v=1741772487"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116e4"
+  },
+  "title": "Ban’s Journey in Music",
+  "slug": "bans-journey-in-music",
+  "category": "books",
+  "price": 315,
+  "compareAtPrice": 350,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8012_S.jpg?v=1741771757",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8018_S.jpg?v=1741771757"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116e5"
+  },
+  "title": "Name Place Animal Thing",
+  "slug": "name-place-animal-thing",
+  "category": "books",
+  "price": 445,
+  "compareAtPrice": 495,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_7765_S.jpg?v=1741770481",
+    "https://themeghalayanage.store/cdn/shop/files/PER_7786_S.jpg?v=1741770481"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116e6"
+  },
+  "title": "Boats on Land",
+  "slug": "boats-on-land",
+  "category": "books",
+  "price": 315,
+  "compareAtPrice": 350,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_7837_S.jpg?v=1741770027",
+    "https://themeghalayanage.store/cdn/shop/files/PER_7841_S.jpg?v=1741770027"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.388Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116e7"
+  },
+  "title": "THE KHASI KITCHEN",
+  "slug": "the-khasi-kitchen",
+  "category": "books",
+  "price": 445,
+  "compareAtPrice": 495,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/66c4686c67b33_download.jpg?v=1724147939",
+    "https://themeghalayanage.store/cdn/shop/files/66c46856abb93_download.jpg?v=1724147939"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116e8"
+  },
+  "title": "Difficult Pleasures",
+  "slug": "difficult-pleasures",
+  "category": "books",
+  "price": 315,
+  "compareAtPrice": 350,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_1176.jpg?v=1754293293",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_1187.jpg?v=1754293293"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116e9"
+  },
+  "title": "The Bowstring Winter",
+  "slug": "the-bowstring-winter",
+  "category": "books",
+  "price": 350,
+  "compareAtPrice": 399,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_1147.jpg?v=1754044599",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_1157.jpg?v=1754044598"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ea"
+  },
+  "title": "The Girl from Nongrim Hills",
+  "slug": "the-girl-from-nongrim-hills",
+  "category": "books",
+  "price": 179,
+  "compareAtPrice": 199,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/HRK_1167_e5ef6deb-1099-40b8-9b96-a43eb8d733f8.jpg?v=1753943746",
+    "https://themeghalayanage.store/cdn/shop/files/HRK_1171_a0a67d50-b245-41de-bdd2-37eabdb53c75.jpg?v=1753943746"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116eb"
+  },
+  "title": "Polaroid",
+  "slug": "polaroid",
+  "category": "books",
+  "price": 179,
+  "compareAtPrice": 199,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/6863bcd736fe7_download.jpg?v=1751367094",
+    "https://themeghalayanage.store/cdn/shop/files/6863bce6b9aec_download.jpg?v=1751367094"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ec"
+  },
+  "title": "The Tunes of Kongthong",
+  "slug": "the-tunes-of-kongthong",
+  "category": "books",
+  "price": 315,
+  "compareAtPrice": 350,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_8126_S.jpg?v=1741772560",
+    "https://themeghalayanage.store/cdn/shop/files/PER_8128_S.jpg?v=1741772560"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ed"
+  },
+  "title": "The Nine Chambered heart",
+  "slug": "2-the-nine-chambered-heart",
+  "category": "books",
+  "price": 359,
+  "compareAtPrice": 399,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/files/PER_7794_S.jpg?v=1741770294",
+    "https://themeghalayanage.store/cdn/shop/files/PER_7820_S.jpg?v=1741770293"
+  ],
+  "facets": {
+    "location": "Meghalaya"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "697e81718c3ab7d1a42116ee"
+  },
+  "title": "Black Pottery Kettle",
+  "slug": "black-pottery-kettle",
+  "category": "pottery",
+  "price": 1500,
+  "compareAtPrice": null,
+  "images": [
+    "https://themeghalayanage.store/cdn/shop/collections/Ellipse_95.png?v=1713436934"
+  ],
+  "facets": {
+    "location": "Larnai, Jaintia Hills"
+  },
+  "inStock": true,
+  "rating": 0,
+  "description": "",
+  "reviews": 0,
+  "variants": [],
+  "accordions": [],
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-31T22:25:53.389Z"
+  }
+}]

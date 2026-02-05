@@ -1,0 +1,638 @@
+[
+  {
+    "//_COMMENT": "--- ARUNACHAL PRADESH ---"
+  },
+  {
+    "_id": "AR_TAW",
+    "stateId": "AR",
+    "name": "Tawang",
+    "slug": "tawang",
+    "hq_coordinates": { "lat": 27.58, "lng": 91.86 },
+    "tagline": "The Spiritual Sanctuary",
+    "images": {
+      "hero": ["url_tawang_monastery"],
+      "map": "url_svg"
+    },
+    "weather_code": 71,
+    "sense_of_place": {
+      "one_liner": "Where the chants of monks meet the winter snow.",
+      "background_texture": "url_texture_buddhist"
+    },
+    "description": {
+      "title": "Welcome to Tawang",
+      "content": "A high-altitude cultural sanctuary and the spiritual heart of the Monpa tribe."
+    },
+    "defining_themes": [
+      { "icon": "temple_buddhist", "title": "Monpa Spirit", "description": "Mahayana Buddhism traditions." },
+      { "icon": "landscape", "title": "Alpine Lakes", "description": "Pristine high-altitude lakes." }
+    ],
+    "known_for": ["Tawang Monastery", "Sela Pass", "War Memorial"],
+    "stats": {
+      "capital": "Tawang",
+      "landscape": "Alpine & Glacial",
+      "languages": ["Monpa", "Tibetan"],
+      "population": "49,950",
+      "area": "2,172 sq km"
+    },
+    "land_and_memory": {
+      "title": "The Hidden Land",
+      "content": "Historically known as the 'Land of Mon', it shares deep cultural ties with Lhasa and memories of the 1962 border conflict."
+    },
+    "shopping_cta": {
+      "title": "Crafts of Tawang",
+      "categories": ["Woolen Carpets", "Wood Carving", "Thangka Painting"]
+    }
+  },
+  {
+    "_id": "AR_WKA",
+    "stateId": "AR",
+    "name": "West Kameng",
+    "slug": "west_kameng",
+    "hq_coordinates": { "lat": 27.26, "lng": 92.41 },
+    "tagline": "The Orchid Highlands",
+    "images": { "hero": ["url_bomdila"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "The misty gateway to the high Himalayas.",
+      "background_texture": "url_texture_mist"
+    },
+    "description": {
+      "title": "Welcome to West Kameng",
+      "content": "A transition zone between the humid foothills and snowy peaks, home to the Sherdukpen tribe."
+    },
+    "stats": {
+      "capital": "Bomdila",
+      "landscape": "Misty Hills",
+      "languages": ["Sherdukpen", "Monpa", "Miziji"],
+      "population": "87,013",
+      "area": "7,422 sq km"
+    },
+    "land_and_memory": {
+      "title": "Trade Routes",
+      "content": "Historically, the Sherdukpen people maintained migratory trade relations with the plains of Assam."
+    },
+    "shopping_cta": {
+      "title": "Buy Local",
+      "categories": ["Orchids", "Cane Bridges"]
+    }
+  },
+  {
+    "_id": "AR_PAP",
+    "stateId": "AR",
+    "name": "Papum Pare",
+    "slug": "papum_pare",
+    "hq_coordinates": { "lat": 27.13, "lng": 93.63 },
+    "tagline": "The Capital Complex",
+    "images": { "hero": ["url_itanagar"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "The political and educational nucleus of the state.",
+      "background_texture": "url_texture_urban"
+    },
+    "description": {
+      "title": "Welcome to Papum Pare",
+      "content": "Hosting the twin capital cities of Itanagar and Naharlagun, this is the melting pot of Arunachal."
+    },
+    "stats": {
+      "capital": "Yupia",
+      "landscape": "Foothills",
+      "languages": ["Nyishi", "English", "Hindi"],
+      "population": "176,573",
+      "area": "2,875 sq km"
+    },
+    "land_and_memory": {
+      "title": "The Nyishi Homeland",
+      "content": "Once a dense jungle, now the center of governance, yet still rooted in Nyishi traditions."
+    },
+    "shopping_cta": {
+      "title": "City Crafts",
+      "categories": ["Beadwork Jewellery", "Modern Souvenirs"]
+    }
+  },
+  {
+    "_id": "AR_LSU",
+    "stateId": "AR",
+    "name": "Lower Subansiri",
+    "slug": "lower_subansiri",
+    "hq_coordinates": { "lat": 27.60, "lng": 93.83 },
+    "tagline": "The Apatani Valley",
+    "images": { "hero": ["url_ziro"], "map": "url_svg" },
+    "weather_code": 63,
+    "sense_of_place": {
+      "one_liner": "Golden paddy fields surrounded by pine clad hills.",
+      "background_texture": "url_texture_paddy"
+    },
+    "description": {
+      "title": "Welcome to Ziro",
+      "content": "Home to the Apatani tribe, famous for their sustainable wet-rice cultivation and facial tattoos."
+    },
+    "stats": {
+      "capital": "Ziro",
+      "landscape": "Plateau Valley",
+      "languages": ["Apatani"],
+      "population": "82,839",
+      "area": "3,508 sq km"
+    },
+    "land_and_memory": {
+      "title": "Sustainable Harmony",
+      "content": "The Apatani practice of paddy-cum-fish cultivation is a UNESCO-recognized example of coexistence with nature."
+    },
+    "shopping_cta": {
+      "title": "Ziro Crafts",
+      "categories": ["Bamboo Crafts", "Cane Hats"]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- ASSAM ---"
+  },
+  {
+    "_id": "AS_JOR",
+    "stateId": "AS",
+    "name": "Jorhat",
+    "slug": "jorhat",
+    "hq_coordinates": { "lat": 26.75, "lng": 94.20 },
+    "tagline": "The Cultural Capital",
+    "images": { "hero": ["url_majuli", "url_tea"], "map": "url_svg" },
+    "weather_code": 63,
+    "sense_of_place": {
+      "one_liner": "Where tea gardens meet the river island.",
+      "background_texture": "url_texture_tea"
+    },
+    "description": {
+      "title": "Welcome to Jorhat",
+      "content": "The heart of Assam's tea industry and home to Majuli, the world's largest river island."
+    },
+    "stats": {
+      "capital": "Jorhat",
+      "landscape": "Plains & Riverine",
+      "languages": ["Assamese"],
+      "population": "1,092,256",
+      "area": "2,851 sq km"
+    },
+    "land_and_memory": {
+      "title": "Satria Culture",
+      "content": "Majuli Island preserves the ancient Neo-Vaishnavite culture and mask-making traditions."
+    },
+    "shopping_cta": {
+      "title": "Treasures of Jorhat",
+      "categories": ["Majuli Masks", "Assam Tea", "Muga Silk"]
+    }
+  },
+  {
+    "_id": "AS_KAM_M",
+    "stateId": "AS",
+    "name": "Kamrup Metropolitan",
+    "slug": "kamrup_metropolitan",
+    "hq_coordinates": { "lat": 26.14, "lng": 91.73 },
+    "tagline": "Gateway to the Northeast",
+    "images": { "hero": ["url_guwahati"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "The bustling urban heart of the region.",
+      "background_texture": "url_texture_city"
+    },
+    "description": {
+      "title": "Welcome to Guwahati",
+      "content": "The most urbanized district, hosting the capital Dispur and the ancient Kamakhya Temple."
+    },
+    "stats": {
+      "capital": "Guwahati",
+      "landscape": "Urban & Riverbank",
+      "languages": ["Assamese", "English", "Hindi"],
+      "population": "1,253,938",
+      "area": "955 sq km"
+    },
+    "land_and_memory": {
+      "title": "Pragjyotishpura",
+      "content": "Known anciently as the 'City of Eastern Light', it has been a center of astrology and power for millennia."
+    },
+    "shopping_cta": {
+      "title": "City Shopping",
+      "categories": ["Silk Sarees", "Bell Metal", "Handicrafts"]
+    }
+  },
+  {
+    "_id": "AS_KAM",
+    "stateId": "AS",
+    "name": "Kamrup",
+    "slug": "kamrup",
+    "hq_coordinates": { "lat": 26.23, "lng": 91.66 },
+    "tagline": "The Silk Heartland",
+    "images": { "hero": ["url_sualkuchi"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "Where the looms never stop clicking.",
+      "background_texture": "url_texture_silk"
+    },
+    "description": {
+      "title": "Welcome to Rural Kamrup",
+      "content": "Home to Sualkuchi, the 'Manchester of the East', famous for its golden Muga silk."
+    },
+    "stats": {
+      "capital": "Amingaon",
+      "landscape": "Rural Plains",
+      "languages": ["Assamese"],
+      "population": "1,517,542",
+      "area": "3,105 sq km"
+    },
+    "land_and_memory": {
+      "title": "Weaving Legacy",
+      "content": "Generations of weavers in Sualkuchi have preserved the art of Muga and Pat silk weaving."
+    },
+    "shopping_cta": {
+      "title": "Authentic Silk",
+      "categories": ["Muga Silk", "Pat Silk", "Eri Silk"]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- MANIPUR ---"
+  },
+  {
+    "_id": "MN_BIS",
+    "stateId": "MN",
+    "name": "Bishnupur",
+    "slug": "bishnupur",
+    "hq_coordinates": { "lat": 24.63, "lng": 93.76 },
+    "tagline": "Land of the Dancing Deer",
+    "images": { "hero": ["url_loktak"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "Where the lake reflects the sky.",
+      "background_texture": "url_texture_water"
+    },
+    "description": {
+      "title": "Welcome to Bishnupur",
+      "content": "Ecologically defined by Loktak Lake, the largest freshwater lake in the Northeast."
+    },
+    "stats": {
+      "capital": "Bishnupur",
+      "landscape": "Wetland & Valley",
+      "languages": ["Meitei"],
+      "population": "240,363",
+      "area": "496 sq km"
+    },
+    "defining_themes": [
+      { "icon": "water", "title": "Wetlands", "description": "Floating biomass ecology." }
+    ],
+    "land_and_memory": {
+      "title": "Echoes of Moirang",
+      "content": "The ancient kingdom of Moirang, rich in folklore like the Khamba Thoibi epic."
+    },
+    "shopping_cta": {
+      "title": "Crafts of Bishnupur",
+      "categories": ["Red Ware Pottery", "Handloom"]
+    }
+  },
+  {
+    "_id": "MN_UKH",
+    "stateId": "MN",
+    "name": "Ukhrul",
+    "slug": "ukhrul",
+    "hq_coordinates": { "lat": 25.11, "lng": 94.36 },
+    "tagline": "Home of the Shirui Lily",
+    "images": { "hero": ["url_shirui"], "map": "url_svg" },
+    "weather_code": 71,
+    "sense_of_place": {
+      "one_liner": "Mist-covered hills and black pottery.",
+      "background_texture": "url_texture_pottery"
+    },
+    "description": {
+      "title": "Welcome to Ukhrul",
+      "content": "The home of the Tangkhul Nagas, famous for the rare Shirui Lily and Nungbi pottery."
+    },
+    "stats": {
+      "capital": "Ukhrul",
+      "landscape": "Temperate Hills",
+      "languages": ["Tangkhul", "English"],
+      "population": "183,115",
+      "area": "4,544 sq km"
+    },
+    "land_and_memory": {
+      "title": "Black Pottery",
+      "content": "Longpi (Nungbi) pottery is crafted from crushed rock and black clay without a potter's wheel."
+    },
+    "shopping_cta": {
+      "title": "Buy Unique",
+      "categories": ["Longpi Pottery", "Tangkhul Shawls"]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- MEGHALAYA ---"
+  },
+  {
+    "_id": "ML_EKH",
+    "stateId": "ML",
+    "name": "East Khasi Hills",
+    "slug": "east_khasi_hills",
+    "hq_coordinates": { "lat": 25.57, "lng": 91.89 },
+    "tagline": "The Abode of Clouds",
+    "images": { "hero": ["url_shillong"], "map": "url_svg" },
+    "weather_code": 63,
+    "sense_of_place": {
+      "one_liner": "The misty hills where clouds come home.",
+      "background_texture": "url_texture_cloud"
+    },
+    "description": {
+      "title": "Welcome to Shillong",
+      "content": "The administrative titan of the state, home to the wettest places on earth: Sohra and Mawsynram."
+    },
+    "stats": {
+      "capital": "Shillong",
+      "landscape": "Plateau & Gorges",
+      "languages": ["Khasi", "English"],
+      "population": "825,922",
+      "area": "2,748 sq km"
+    },
+    "land_and_memory": {
+      "title": "Sacred Groves",
+      "content": "Ancestors whisper in the rustling leaves of the Mawphlang Sacred Grove."
+    },
+    "shopping_cta": {
+      "title": "Khasi Crafts",
+      "categories": ["Cane Work", "Orange Honey"]
+    }
+  },
+  {
+    "_id": "ML_RIB",
+    "stateId": "ML",
+    "name": "Ri Bhoi",
+    "slug": "ri_bhoi",
+    "hq_coordinates": { "lat": 25.90, "lng": 91.88 },
+    "tagline": "The Silk Gateway",
+    "images": { "hero": ["url_nongpoh"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "Where peace silk is spun from nature.",
+      "background_texture": "url_texture_silk"
+    },
+    "description": {
+      "title": "Welcome to Ri Bhoi",
+      "content": "The industrial belt and the heart of the Eri Silk (Ryndia) cottage industry."
+    },
+    "stats": {
+      "capital": "Nongpoh",
+      "landscape": "Rolling Hills",
+      "languages": ["Bhoi", "Khasi"],
+      "population": "258,840",
+      "area": "2,448 sq km"
+    },
+    "land_and_memory": {
+      "title": "Ahimsa Silk",
+      "content": "Ryndia (Eri Silk) is processed without killing the silkworm, reflecting a deep respect for life."
+    },
+    "shopping_cta": {
+      "title": "Organic Textiles",
+      "categories": ["Eri Silk Shawls", "Bamboo Crafts"]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- MIZORAM ---"
+  },
+  {
+    "_id": "MZ_AIZ",
+    "stateId": "MZ",
+    "name": "Aizawl",
+    "slug": "aizawl",
+    "hq_coordinates": { "lat": 23.73, "lng": 92.71 },
+    "tagline": "The Vertical City",
+    "images": { "hero": ["url_aizawl"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "A city perched on a ridge, reaching for the sky.",
+      "background_texture": "url_texture_ridge"
+    },
+    "description": {
+      "title": "Welcome to Aizawl",
+      "content": "The primate city of Mizoram, housing nearly 40% of the state's population with high literacy."
+    },
+    "stats": {
+      "capital": "Aizawl",
+      "landscape": "Steep Ridges",
+      "languages": ["Mizo", "English"],
+      "population": "400,309",
+      "area": "3,576 sq km"
+    },
+    "land_and_memory": {
+      "title": "Tlawmngaihna",
+      "content": "The city beats to the rhythm of Tlawmngaihna, the Mizo code of selfless service."
+    },
+    "shopping_cta": {
+      "title": "Mizo Trends",
+      "categories": ["Modern Fashion", "Bamboo Hats"]
+    }
+  },
+  {
+    "_id": "MZ_MAM",
+    "stateId": "MZ",
+    "name": "Mamit",
+    "slug": "mamit",
+    "hq_coordinates": { "lat": 23.92, "lng": 92.49 },
+    "tagline": "The Bamboo Heartland",
+    "images": { "hero": ["url_dampa"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "Endless forests of green gold.",
+      "background_texture": "url_texture_bamboo"
+    },
+    "description": {
+      "title": "Welcome to Mamit",
+      "content": "Famous for the Dampa Tiger Reserve and the intricate bamboo weaving of Hmunpui."
+    },
+    "stats": {
+      "capital": "Mamit",
+      "landscape": "Forest Hills",
+      "languages": ["Mizo"],
+      "population": "86,364",
+      "area": "3,025 sq km"
+    },
+    "land_and_memory": {
+      "title": "Green Gold",
+      "content": "Bamboo is not just a plant here; it is the material of life, used for houses, crafts, and food."
+    },
+    "shopping_cta": {
+      "title": "Bamboo Art",
+      "categories": ["Woven Baskets", "Furniture"]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- NAGALAND ---"
+  },
+  {
+    "_id": "NL_KOH",
+    "stateId": "NL",
+    "name": "Kohima",
+    "slug": "kohima",
+    "hq_coordinates": { "lat": 25.67, "lng": 94.10 },
+    "tagline": "The Historic Battleground",
+    "images": { "hero": ["url_kohima"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "Where history and hills converge.",
+      "background_texture": "url_texture_stone"
+    },
+    "description": {
+      "title": "Welcome to Kohima",
+      "content": "The state capital and land of the Angami tribe. Site of the Hornbill Festival."
+    },
+    "stats": {
+      "capital": "Kohima",
+      "landscape": "Rugged Mountains",
+      "languages": ["Angami", "Nagamese"],
+      "population": "267,988",
+      "area": "1,463 sq km"
+    },
+    "land_and_memory": {
+      "title": "Battle of Kohima",
+      "content": "The 'Stalingrad of the East', where the Japanese advance was halted in WWII."
+    },
+    "shopping_cta": {
+      "title": "Naga Heritage",
+      "categories": ["Angami Shawls", "Spears"]
+    }
+  },
+  {
+    "_id": "NL_MON",
+    "stateId": "NL",
+    "name": "Mon",
+    "slug": "mon",
+    "hq_coordinates": { "lat": 26.75, "lng": 95.11 },
+    "tagline": "Land of the Anghs",
+    "images": { "hero": ["url_longwa"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "The misty hills of the tattooed warriors.",
+      "background_texture": "url_texture_tattoo"
+    },
+    "description": {
+      "title": "Welcome to Mon",
+      "content": "The land of the Konyak Nagas, famous for their facial tattoos and gunsmithing skills."
+    },
+    "stats": {
+      "capital": "Mon",
+      "landscape": "Remote Hills",
+      "languages": ["Konyak"],
+      "population": "250,260",
+      "area": "1,786 sq km"
+    },
+    "land_and_memory": {
+      "title": "The Last Headhunters",
+      "content": "A district where the Angh (chieftain) system still holds power, straddling the border with Myanmar."
+    },
+    "shopping_cta": {
+      "title": "Tribal Artifacts",
+      "categories": ["Bead Necklaces", "Wood Carvings", "Brass Skulls"]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- TRIPURA ---"
+  },
+  {
+    "_id": "TR_DHA",
+    "stateId": "TR",
+    "name": "Dhalai",
+    "slug": "dhalai",
+    "hq_coordinates": { "lat": 23.91, "lng": 91.86 },
+    "tagline": "Cascading Waterfalls",
+    "images": { "hero": ["url_dhalai"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "Deep forests and vibrant tribal life.",
+      "background_texture": "url_texture_forest"
+    },
+    "description": {
+      "title": "Welcome to Dhalai",
+      "content": "The district with the highest tribal population, known for its pristine nature."
+    },
+    "stats": {
+      "capital": "Ambassa",
+      "landscape": "Hilly & Forested",
+      "languages": ["Kokborok", "Bengali"],
+      "population": "378,230",
+      "area": "2,400 sq km"
+    },
+    "land_and_memory": {
+      "title": "Green Heritage",
+      "content": "A land where the bamboo forests are ancient and the tribal traditions remain untouched."
+    },
+    "shopping_cta": {
+      "title": "Buy A Piece of Dhalai",
+      "categories": ["Tripura Green Tea", "Bamboo Crafts", "Cane Furniture"]
+    }
+  },
+  {
+    "_id": "TR_NOR",
+    "stateId": "TR",
+    "name": "North Tripura",
+    "slug": "north_tripura",
+    "hq_coordinates": { "lat": 24.22, "lng": 92.01 },
+    "tagline": "The Historic North",
+    "images": { "hero": ["url_unakoti"], "map": "url_svg" },
+    "weather_code": 95,
+    "sense_of_place": {
+      "one_liner": "Where stone gods sleep in the jungle.",
+      "background_texture": "url_texture_stone"
+    },
+    "description": {
+      "title": "Welcome to North Tripura",
+      "content": "Famous for the massive rock-cut carvings of Unakoti and lush tea plantations."
+    },
+    "stats": {
+      "capital": "Kailashahar",
+      "landscape": "Hills & Plantations",
+      "languages": ["Bengali", "Kokborok"],
+      "population": "693,947",
+      "area": "2,036 sq km"
+    },
+    "land_and_memory": {
+      "title": "Unakoti",
+      "content": "The 'One Less Than A Crore' rock carvings tell a mythical story of Shiva's curse."
+    },
+    "shopping_cta": {
+      "title": "Plantation Goods",
+      "categories": ["Rubber", "Tea"]
+    }
+  },
+
+  {
+    "//_COMMENT": "--- SIKKIM ---"
+  },
+  {
+    "_id": "SK_EAS",
+    "stateId": "SK",
+    "name": "East Sikkim",
+    "slug": "east_sikkim",
+    "hq_coordinates": { "lat": 27.33, "lng": 88.61 },
+    "tagline": "The Himalayan Hub",
+    "images": { "hero": ["url_gangtok"], "map": "url_svg" },
+    "weather_code": 71,
+    "sense_of_place": {
+      "one_liner": "The bustling heart of the Himalayas.",
+      "background_texture": "url_texture_mountain"
+    },
+    "description": {
+      "title": "Welcome to East Sikkim",
+      "content": "Hosts the capital Gangtok and the historic Nathu La trade route to China."
+    },
+    "stats": {
+      "capital": "Gangtok",
+      "landscape": "High Mountains",
+      "languages": ["Nepali", "Bhutia", "Lepcha"],
+      "population": "283,583",
+      "area": "954 sq km"
+    },
+    "land_and_memory": {
+      "title": "Silk Route",
+      "content": "Echoes of ancient traders still linger on the Old Silk Route near Nathu La."
+    },
+    "shopping_cta": {
+      "title": "Himalayan Crafts",
+      "categories": ["Thangkas", "Prayer Wheels", "Sikkim Tea"]
+    }
+  }
+]

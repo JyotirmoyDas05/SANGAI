@@ -1,6 +1,6 @@
 /**
- * Database Seeding Script
- * Run with: npm run seed
+ * Database Seeding Script (FIXED)
+ * Transforms legacy district data to new Schema
  */
 import 'dotenv/config';
 import { readFileSync, existsSync } from 'fs';
@@ -21,7 +21,7 @@ import {
 } from '../src/models/index.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const JSON_DIR = join(__dirname, '../../src/json_backend');
+const JSON_DIR = join(__dirname, '../../src/json_backend/_legacy');
 
 /**
  * Load JSON file safely
@@ -41,7 +41,7 @@ const loadJSON = (filename) => {
  */
 const seedDatabase = async () => {
     try {
-        console.log('🌱 Starting database seed...\n');
+        console.log('🌱 Starting database seed (FIXED Script)...\n');
 
         // Connect to MongoDB
         await connectDB();
@@ -64,7 +64,7 @@ const seedDatabase = async () => {
         console.log('📂 Loading JSON files...');
         const regions = loadJSON('regions.json');
         const states = loadJSON('states.json');
-        const districts = loadJSON('districts.json');
+        // const districts = loadJSON('districts.json'); // SKIP legacy missing file
         const tags = loadJSON('tags.json');
         const places = loadJSON('places_normalized.json');
         const homestays = loadJSON('homestays_normalized.json');
@@ -85,107 +85,113 @@ const seedDatabase = async () => {
             console.log(`   ✓ ${states.length} states inserted`);
         }
 
-        console.log('📥 Inserting Districts...');
-        // CUSTOM: Load from src/DATABASE/district.json instead of default location
+        console.log('📥 Inserting Districts (with Transformation)...');
+
+        // 1. Helpers for Schema Transformation
+        const STATE_MAP = {
+            "AR": "Arunachal Pradesh",
+            "AS": "Assam",
+            "MN": "Manipur",
+            "ML": "Meghalaya",
+            "MZ": "Mizoram",
+            "NL": "Nagaland",
+            "SK": "Sikkim",
+            "TR": "Tripura"
+        };
+
+        const transformDistrict = (d) => {
+            return {
+                _id: d._id,
+                stateCode: d.stateId || d.stateCode,
+                stateName: STATE_MAP[d.stateId || d.stateCode] || "Unknown State",
+                districtName: d.name || d.districtName,
+                region: "northeast",
+                slug: d.slug,
+                tagline: d.tagline,
+                heroImage: {
+                    url: d.images?.hero?.[0] || d.heroImage?.url,
+                    caption: d.name
+                },
+                // Map legacy 'description' string or object to new 'context' or 'everydayLife'
+                context: {
+                    landscapeType: d.stats?.landscape || "Diverse Landscape",
+                    partOfState: "Region",
+                    surroundings: d.description?.content || d.description || ""
+                },
+                everydayLife: {
+                    description: d.sense_of_place?.one_liner || "",
+                    rhythms: []
+                },
+                dailyCulture: {
+                    clothing: "",
+                    foodHabits: "",
+                    localCustoms: [],
+                    communityRituals: []
+                },
+                landscapes: [],
+                experiences: [],
+                voices: {},
+                searchKeywords: d.known_for || []
+            };
+        };
+
+        // 2. Load and Transform Data
         const districtDbPath = join(__dirname, '../../src/DATABASE/district.json');
         let districtsList = [];
 
         if (existsSync(districtDbPath)) {
             console.log(`   📂 Reading from ${districtDbPath}`);
             const content = readFileSync(districtDbPath, 'utf-8');
-            // Filter out comment nodes
-            districtsList = JSON.parse(content).filter(d => !d["//_COMMENT"]);
-        } else {
-            console.log(`   ⚠️  Source file not found: ${districtDbPath}`);
+            const legacyData = JSON.parse(content).filter(d => !d["//_COMMENT"]);
+            districtsList = legacyData.map(transformDistrict);
         }
 
-        // CUSTOM: Add missing districts (Karbi Anglong, etc)
+        // 3. Add Missing Districts (Schema Compliant)
         const missingDistricts = [
             {
-                "_id": "AS_KAR_ANG",
-                "stateId": "AS",
-                "name": "Karbi Anglong",
-                "slug": "karbi_anglong",
-                "hq_coordinates": { "lat": 25.85, "lng": 93.43 },
-                "tagline": "Land of the Hills",
-                "images": {
-                    "hero": ["https://images.unsplash.com/photo-1590053165219-c8872cd92348?auto=format&fit=crop&q=80&w=2000"],
-                    "map": "url_svg"
+                _id: "AS_KAR_ANG",
+                stateCode: "AS",
+                stateName: "Assam",
+                districtName: "Karbi Anglong",
+                region: "northeast",
+                slug: "karbi_anglong",
+                tagline: "Land of the Hills",
+                heroImage: {
+                    url: "https://images.unsplash.com/photo-1590053165219-c8872cd92348?auto=format&fit=crop&q=80&w=2000",
+                    caption: "Karbi Anglong Hills"
                 },
-                "weather_code": 95,
-                "sense_of_place": {
-                    "one_liner": "A pristine hill district rich in tribal heritage.",
-                    "background_texture": "url_texture_hills"
+                context: {
+                    landscapeType: "Hills & Forests",
+                    surroundings: "The largest district in Assam, known for lush green hills and rare flora."
                 },
-                "description": {
-                    "title": "Welcome to Karbi Anglong",
-                    "content": "The largest district in Assam, known for its lush green hills, rare flora, and the vibrant culture of the Karbi people."
-                },
-                "stats": {
-                    "capital": "Diphu",
-                    "landscape": "Hills & Forests",
-                    "languages": ["Karbi", "English", "Assamese"],
-                    "population": "9.6 Lakhs",
-                    "area": "10,434 sq km"
-                },
-                "land_and_memory": {
-                    "title": "Ancient Hills",
-                    "content": "These hills have been the home of the Karbi people since time immemorial, echoing with folklore and songs."
-                },
-                "defining_themes": [
-                    { "icon": "forest", "title": "Green Cover", "description": "Dense tropical forests." },
-                    { "icon": "groups", "title": "Tribal Culture", "description": "Rich traditions of the Karbi tribe." }
-                ],
-                "shopping_cta": {
-                    "title": "Karbi Crafts",
-                    "categories": ["Traditional Weaving", "Bamboo Crafts"]
-                },
-                "known_for": ["Hills", "Trekking", "Tribal Culture"]
+                searchKeywords: ["Hills", "Trekking", "Karbi"]
             },
             {
-                "_id": "AS_MAJ",
-                "stateId": "AS",
-                "name": "Majuli",
-                "slug": "majuli",
-                "hq_coordinates": { "lat": 26.95, "lng": 94.22 },
-                "tagline": "Culture amidst the River",
-                "images": {
-                    "hero": ["https://images.unsplash.com/photo-1628062137937-23b938446187?auto=format&fit=crop&q=80&w=2000"],
-                    "map": "url_svg"
+                _id: "AS_MAJ",
+                stateCode: "AS",
+                stateName: "Assam",
+                districtName: "Majuli",
+                region: "northeast",
+                slug: "majuli",
+                tagline: "Culture amidst the River",
+                heroImage: {
+                    url: "https://images.unsplash.com/photo-1628062137937-23b938446187?auto=format&fit=crop&q=80&w=2000",
+                    caption: "Majuli River Island"
                 },
-                "weather_code": 63,
-                "sense_of_place": {
-                    "one_liner": "The world's largest river island.",
-                    "background_texture": "url_texture_river"
+                context: {
+                    landscapeType: "River Island",
+                    surroundings: "A spiritual hub in the Brahmaputra river, famous for its Satras."
                 },
-                "description": {
-                    "title": "Welcome to Majuli",
-                    "content": "A spiritual and cultural hub in the Brahmaputra river, famous for its Satras (monasteries)."
-                },
-                "stats": {
-                    "capital": "Garamur",
-                    "landscape": "River Island",
-                    "languages": ["Assamese", "Mising"],
-                    "population": "1.6 Lakhs",
-                    "area": "352 sq km"
-                },
-                "land_and_memory": {
-                    "title": "River's Song",
-                    "content": "Life here flows with the rhythm of the Brahmaputra."
-                },
-                "shopping_cta": {
-                    "title": "Island Crafts",
-                    "categories": ["Masks", "Handloom"]
-                },
-                "known_for": ["Satras", "Pottery", "Masks"]
+                searchKeywords: ["River", "Culture", "Satras"]
             }
         ];
 
+        // Merge and Insert
         districtsList = [...districtsList, ...missingDistricts];
 
         if (districtsList.length > 0) {
             await District.insertMany(districtsList);
-            console.log(`   ✓ ${districtsList.length} districts inserted (Loaded from DATABASE/district.json + Manual Extras)`);
+            console.log(`   ✓ ${districtsList.length} districts inserted (Transformed & Merged)`);
         }
 
         console.log('📥 Inserting Tags...');
@@ -230,7 +236,7 @@ const seedDatabase = async () => {
         console.log('\n📊 Summary:');
         console.log(`   Regions:             ${regions.length}`);
         console.log(`   States:              ${states.length}`);
-        console.log(`   Districts:           ${districts.length}`);
+        console.log(`   Districts:           ${districtsList.length}`);
         console.log(`   Tags:                ${tags.length}`);
         console.log(`   Places:              ${places.length}`);
         console.log(`   Homestays:           ${homestays.length}`);
@@ -238,7 +244,7 @@ const seedDatabase = async () => {
         console.log(`   Festival Masters:    ${festivalMasters.length}`);
         console.log(`   Festival Occurrences: ${festivalOccurrences.length}`);
         console.log(`   ─────────────────────────────`);
-        const total = regions.length + states.length + districts.length + tags.length +
+        const total = regions.length + states.length + districtsList.length + tags.length +
             places.length + homestays.length + guides.length +
             festivalMasters.length + festivalOccurrences.length;
         console.log(`   Total records:       ${total}`);
