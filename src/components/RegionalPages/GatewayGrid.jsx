@@ -25,7 +25,7 @@ export default function GatewayGrid({
             <div className="gateway-scroll-container">
                 {items.map((item, index) => (
                     <Link
-                        to={`${basePath}${item.slug}`}
+                        to={`${basePath}/${item.slug}`}
                         className="gateway-card"
                         key={item._id || index}
                     >

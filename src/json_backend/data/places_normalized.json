@@ -1,48 +1,15 @@
 [
   {
     "_id": "HP001",
-    "districtId": "MN_BIS_01",
+    "districtId": "MN_BIS",
     "name": "Loktak Lake",
-    "type": "Nature",
-    "location_summary": "Bishnupur, Manipur",
-    "tier": 1,
-    "isHiddenGem": false,
+    "type": "lake",
     "shortDescription": "The world's only floating lake, home to the dancing deer.",
-    "header_quote": "A mirror to the sky, floating islands drifting in time.",
     "story": {
       "overview": "Loktak Lake is the largest freshwater lake in Northeast India and is famous for its phumdis (heterogeneous mass of vegetation, soil and organic matter at various stages of decomposition) floating over it.",
       "culturalSignificance": "It serves as a lifeline for the people of Manipur, providing water for hydropower generation, irrigation, and drinking supply.",
       "localBelief": "The lake is considered the mother source of life in Moirang folklore."
     },
-    "logistics": {
-      "how_to_get_there": [
-        "48 km from Imphal Airport.",
-        "Taxis and buses are readily available from Imphal."
-      ],
-      "when_and_where": {
-        "location_text": "Moirang, Bishnupur District",
-        "distances": {
-          "imphal_airport": "48 km",
-          "dimapur_railway": "215 km"
-        },
-        "best_time": "October to March",
-        "open_hours": "6:00 AM to 5:00 PM"
-      }
-    },
-    "helpline": {
-      "phone": "+91 9856...",
-      "email": "tourism@manipur.gov.in"
-    },
-    "nearby_attractions": [
-      {
-        "name": "Keibul Lamjao Park",
-        "image": "https://images.unsplash.com/photo-1544634076-a90160bcadcb?w=600"
-      },
-      {
-        "name": "INA Museum",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/INA_Martyr%27s_Memorial_Complex_Moirang.jpg/640px-INA_Martyr%27s_Memorial_Complex_Moirang.jpg"
-      }
-    ],
     "location": {
       "lat": 24.55,
       "lng": 93.8
@@ -53,43 +20,24 @@
         "caption": "Fisherman at sunset"
       }
     ],
-    "taxonomy_tags": [
+    "bestTimeToVisit": "October to March",
+    "isHiddenGem": false,
+    "tagIds": [
       "nature",
       "wetlands",
       "boating"
-    ],
-    "related_homestay_ids": [
-      "HS001"
     ]
   },
   {
     "_id": "HP002",
     "districtId": "ML_EKH",
     "name": "Nohkalikai Falls",
-    "type": "Nature",
-    "location_summary": "Sohra, Meghalaya",
-    "tier": 1,
-    "isHiddenGem": true,
-    "shortDescription": "One of India's tallest waterfalls.",
-    "header_quote": "A dramatic plunge into an emerald pool.",
+    "type": "waterfall",
+    "shortDescription": "One of India's tallest waterfalls, plunging 340 meters.",
     "story": {
       "overview": "Nohkalikai Falls is one of India's tallest plunge and most breathtaking waterfalls, plunging 340 meters into a deep, emerald-green pool.",
       "culturalSignificance": "Carries a tragic legend of a woman named Likai.",
       "localBelief": "Locals respect the pool as a site of grief and beauty."
-    },
-    "logistics": {
-      "how_to_get_there": [
-        "Cabs available from Shillong (54km)."
-      ],
-      "when_and_where": {
-        "location_text": "7.5 km from Sohra (Cherrapunji)",
-        "distances": {
-          "shillong": "54 km",
-          "guwahati": "148 km"
-        },
-        "best_time": "September to December",
-        "open_hours": "8:00 AM to 5:00 PM"
-      }
     },
     "location": {
       "lat": 25.27,
@@ -101,11 +49,99 @@
         "caption": "The Plunge"
       }
     ],
-    "taxonomy_tags": [
+    "bestTimeToVisit": "September to December",
+    "isHiddenGem": true,
+    "tagIds": [
       "nature",
       "waterfall",
       "trekking"
+    ]
+  },
+  {
+    "_id": "HP003",
+    "districtId": "MN_IMP_W",
+    "name": "Kangla Fort",
+    "type": "monument",
+    "shortDescription": "The ancient seat of Meitei kings, now a national monument.",
+    "story": {
+      "overview": "Kangla Fort is an ancient capital where the Meitei kings ruled for centuries. The sacred complex houses temples, shrines, and the iconic Kangla Sha dragons.",
+      "culturalSignificance": "The spiritual and political heart of Manipur's identity.",
+      "localBelief": "The Kangla Sha (dragon) guards the land of the Meiteis."
+    },
+    "location": {
+      "lat": 24.81,
+      "lng": 93.94
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1590053165219-c8872cd92348?auto=format&fit=crop&q=80&w=2000",
+        "caption": "Kangla Sha at sunset"
+      }
     ],
-    "related_homestay_ids": []
+    "bestTimeToVisit": "October to March",
+    "isHiddenGem": false,
+    "tagIds": [
+      "history",
+      "culture",
+      "monument"
+    ]
+  },
+  {
+    "_id": "HP004",
+    "districtId": "NL_KOH",
+    "name": "Dzukou Valley",
+    "type": "valley",
+    "shortDescription": "A stunning valley of flowers on the Nagaland-Manipur border.",
+    "story": {
+      "overview": "Dzukou Valley is known for its scenic beauty and biodiversity, especially the Dzukou Lily found nowhere else in the world.",
+      "culturalSignificance": "Considered sacred by the local Angami and Mao tribes.",
+      "localBelief": "The valley is believed to be the abode of spirits."
+    },
+    "location": {
+      "lat": 25.52,
+      "lng": 94.05
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1558171813-4c088753af8f?auto=format&fit=crop&q=80&w=2000",
+        "caption": "Valley of Flowers"
+      }
+    ],
+    "bestTimeToVisit": "June to September",
+    "isHiddenGem": true,
+    "tagIds": [
+      "trekking",
+      "nature",
+      "flowers"
+    ]
+  },
+  {
+    "_id": "HP005",
+    "districtId": "AR_TAW",
+    "name": "Tawang Monastery",
+    "type": "temple",
+    "shortDescription": "India's largest Buddhist monastery, 400 years old.",
+    "story": {
+      "overview": "Founded in 1680-81, Tawang Monastery (Galden Namgey Lhatse) is the largest monastery in India and the second largest in the world after Potala Palace.",
+      "culturalSignificance": "The birthplace of the 6th Dalai Lama and a center of Mahayana Buddhist learning.",
+      "localBelief": "The monastery's library holds sacred manuscripts that carry the wisdom of ages."
+    },
+    "location": {
+      "lat": 27.59,
+      "lng": 91.86
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1626084288019-3e3902319ec8?auto=format&fit=crop&q=80&w=2000",
+        "caption": "Monastery in the clouds"
+      }
+    ],
+    "bestTimeToVisit": "March to October",
+    "isHiddenGem": false,
+    "tagIds": [
+      "spiritual",
+      "buddhist",
+      "architecture"
+    ]
   }
 ]

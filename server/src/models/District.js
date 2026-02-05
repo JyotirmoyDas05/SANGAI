@@ -30,6 +30,59 @@ const districtSchema = new mongoose.Schema(
             caption: String
         },
 
+        // Extended Hero Images (multiple)
+        images: {
+            hero: [String],
+            map: String
+        },
+
+        // Sense of Place (legacy support)
+        senseOfPlace: {
+            oneLiner: String,
+            backgroundTexture: String
+        },
+
+        // Description Section
+        description: {
+            title: String,
+            content: String
+        },
+
+        // Defining Themes (cards)
+        definingThemes: [{
+            icon: String,
+            title: String,
+            description: String
+        }],
+
+        // Known For (quick facts)
+        knownFor: [String],
+
+        // Stats Section
+        population: String,
+        area: String,
+        location: {
+            lat: Number,
+            lng: Number
+        },
+
+        // Land and Memory Section
+        landAndMemory: {
+            title: String,
+            content: String
+        },
+
+        // Shopping CTA
+        shoppingCta: {
+            title: String,
+            categories: [String]
+        },
+
+        // Audio/Weather
+        audioKey: String,
+        weatherCode: Number,
+
+
         // Section 2: Where You Are (Context)
         context: {
             landscapeType: String,

@@ -127,10 +127,20 @@ export default function DestinationsView() {
                                     className="masonry-item"
                                     key={place.id}
                                     onClick={() => {
-                                        const regionSlug = place.location
+                                        // Build hierarchical path: /northeast/:state/:district/destination/:id
+                                        const stateSlug = place.location
                                             ? place.location.toLowerCase().replace(/\s+/g, '_')
-                                            : 'northeast';
-                                        navigate(`/${regionSlug}/destination/${place.id}`);
+                                            : null;
+                                        const districtSlug = place.district
+                                            ? place.district.toLowerCase().replace(/\s+/g, '_')
+                                            : null;
+
+                                        let path = '/northeast';
+                                        if (stateSlug) path += `/${stateSlug}`;
+                                        if (districtSlug) path += `/${districtSlug}`;
+                                        path += `/destination/${place.id}`;
+
+                                        navigate(path);
                                     }}
                                     style={{ cursor: 'pointer' }}
                                 >

@@ -44,7 +44,7 @@ const ShoppingSection = ({
                     </div>
                     <div className="shopping-cta">
                         <button
-                            onClick={() => navigate(`/${currentRegion}/shopping`)}
+                            onClick={() => navigate('/shopping')}
                             className="view-all-btn"
                         >
                             View All Products

@@ -1,39 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { getUpcomingFestivals, getFestivals } from '../../../api/apiService';
+import { useNavigate, useLocation, useParams, useOutletContext } from 'react-router-dom';
 import './FestivalsView.css';
+
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 /**
  * Festivals View - Events Calendar Layout
- * Date-focused cards for festivals - Now using real API data
+ * Now supports hierarchical routing: /northeast, /northeast/:state, /northeast/:state/:district
  */
 export default function FestivalsView() {
     const navigate = useNavigate();
     const location = useLocation();
+    const { stateSlug, districtSlug } = useParams();
+    const context = useOutletContext();
+
     const [activeTab, setActiveTab] = useState('upcoming');
     const [activeFilter] = useState('all');
     const [festivals, setFestivals] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [scope, setScope] = useState('northeast');
 
     useEffect(() => {
         const fetchFestivals = async () => {
             setLoading(true);
             setError(null);
             try {
-                const data = activeTab === 'upcoming'
-                    ? await getUpcomingFestivals(20)
-                    : await getFestivals();
+                // Build API URL based on hierarchy level
+                let apiUrl = `${API_BASE}/northeast`;
+                if (stateSlug && districtSlug) {
+                    apiUrl += `/${stateSlug}/${districtSlug}/festivals`;
+                    setScope('district');
+                } else if (stateSlug) {
+                    apiUrl += `/${stateSlug}/festivals`;
+                    setScope('state');
+                } else {
+                    apiUrl += '/festivals';
+                    setScope('northeast');
+                }
+
+                // Add query params
+                if (activeTab === 'upcoming') {
+                    apiUrl += '?upcoming=true';
+                }
+
+                const response = await fetch(apiUrl);
+                const result = await response.json();
+
+                if (!result.success) {
+                    throw new Error(result.message || 'Failed to fetch festivals');
+                }
 
                 // Transform API data to match component structure
-                const transformedFestivals = (data || []).map(fest => ({
+                const transformedFestivals = (result.data || []).map(fest => ({
                     id: fest._id || fest.id,
-                    name: fest.name || fest.festivalMaster?.name || 'Festival',
-                    desc: fest.description || fest.festivalMaster?.description || '',
+                    name: fest.festivalId?.name || fest.name || 'Festival',
+                    desc: fest.festivalId?.description || fest.description || '',
                     date: formatDate(fest.startDate, fest.endDate),
-                    image: fest.image || fest.festivalMaster?.image || 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800',
-                    tags: fest.tags || (fest.ecoCertified ? ['Eco-Certified'] : []),
-                    location: fest.location || fest.districtId?.districtName || 'Northeast India'
+                    image: fest.festivalId?.image || fest.image || 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800',
+                    tags: fest.festivalId?.tags || fest.tags || [],
+                    location: fest.districtId?.districtName || 'Northeast India'
                 }));
 
                 setFestivals(transformedFestivals);
@@ -46,7 +72,7 @@ export default function FestivalsView() {
         };
 
         fetchFestivals();
-    }, [activeTab]);
+    }, [activeTab, stateSlug, districtSlug]);
 
     // Helper to format date range
     function formatDate(startDate, endDate) {
@@ -63,6 +89,17 @@ export default function FestivalsView() {
         return `${months[start.getMonth()]} ${start.getDate()}`;
     }
 
+    // Determine title based on scope
+    const getTitle = () => {
+        if (scope === 'district' && context?.districtName) {
+            return `Festivals in ${context.districtName}`;
+        }
+        if (scope === 'state' && context?.stateName) {
+            return `Festivals in ${context.stateName}`;
+        }
+        return 'Festivals & Events';
+    };
+
 
     return (
         <div className="festivals-view">
@@ -71,9 +108,10 @@ export default function FestivalsView() {
             {/* HEADER */}
             <div className="fest-header">
                 <div>
-                    <h1>Festivals & Events</h1>
+                    <h1>{getTitle()}</h1>
                     <p>Discover the living culture and vibrant traditions of the Jewel of India.</p>
                 </div>
+
                 <button className="btn-map-view">
                     <span className="material-symbols-outlined">map</span>
                     <span>Map View</span>

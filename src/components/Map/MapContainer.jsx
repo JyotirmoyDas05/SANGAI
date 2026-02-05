@@ -60,14 +60,15 @@ export default function MapContainer() {
 
     /**
      * Handle Explore button click - navigate based on current selection
+     * Uses hierarchical route: /northeast/:state/:district
      */
     const handleExplore = useCallback(() => {
-        if (selectedDistrict) {
-            // District selected → navigate to /:district
-            navigate(`/${toUrlSlug(selectedDistrict)}`);
+        if (selectedDistrict && selectedState) {
+            // District selected → navigate to /northeast/:state/:district
+            navigate(`/northeast/${toUrlSlug(selectedState)}/${toUrlSlug(selectedDistrict)}`);
         } else if (selectedState) {
-            // State selected → navigate to /:state
-            navigate(`/${toUrlSlug(selectedState)}`);
+            // State selected → navigate to /northeast/:state
+            navigate(`/northeast/${toUrlSlug(selectedState)}`);
         } else {
             // No selection → navigate to /northeast
             navigate('/northeast');

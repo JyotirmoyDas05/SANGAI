@@ -62,15 +62,15 @@ const seedDatabase = async () => {
 
         // Load JSON files
         console.log('📂 Loading JSON files...');
-        const regions = loadJSON('regions.json');
-        const states = loadJSON('states.json');
-        const districts = loadJSON('districts.json');
-        const tags = loadJSON('tags.json');
-        const places = loadJSON('places_normalized.json');
-        const homestays = loadJSON('homestays_normalized.json');
-        const guides = loadJSON('guides_normalized.json');
-        const festivalMasters = loadJSON('festival_master.json');
-        const festivalOccurrences = loadJSON('festival_occurrences.json');
+        const regions = loadJSON('_legacy/regions.json');
+        const states = loadJSON('_legacy/states.json');
+        const districts = loadJSON('data/districts.json');
+        const tags = loadJSON('_legacy/tags.json');
+        const places = loadJSON('data/places_normalized.json');
+        const homestays = loadJSON('_legacy/homestays_normalized.json');
+        const guides = loadJSON('_legacy/guides_normalized.json');
+        const festivalMasters = loadJSON('_legacy/festival_master.json');
+        const festivalOccurrences = loadJSON('_legacy/festival_occurrences.json');
 
         // Insert data in order
         console.log('📥 Inserting Regions...');

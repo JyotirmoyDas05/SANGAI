@@ -99,19 +99,19 @@ export default function RegionPage() {
             {/* Floating Navigation - Bottom Center */}
             <nav className={`floating-nav ${isNavVisible ? 'visible' : 'hidden'}`}>
                 <div className="floating-nav-container">
-                    <NavLink to={`/${region}`} end className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
+                    <NavLink to={`/northeast/${region}`} end className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
                         Overview
                     </NavLink>
-                    <NavLink to={`/${region}/destinations`} className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
-                        Destinations
+                    <NavLink to={`/northeast/${region}/places`} className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
+                        Places
                     </NavLink>
-                    <NavLink to={`/${region}/essentials`} className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
-                        Essentials
-                    </NavLink>
-                    <NavLink to={`/${region}/festivals`} className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
+                    <NavLink to={`/northeast/${region}/festivals`} className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
                         Festivals
                     </NavLink>
-                    <NavLink to={`/${region}/shopping`} className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
+                    <NavLink to={`/northeast/${region}/homestays`} className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
+                        Homestays
+                    </NavLink>
+                    <NavLink to="/shopping" className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
                         Shopping
                     </NavLink>
                 </div>
@@ -328,7 +328,7 @@ function StateOverview({ data, heroSlides }) {
                 <GatewayGrid
                     items={data.districts}
                     title={`Explore ${data.name}'s Districts`}
-                    basePath="/"
+                    basePath={`/northeast/${region}`}
                     entityType="district"
                 />
             )}
@@ -425,7 +425,7 @@ function DistrictOverview({ data, heroSlides }) {
                 <GatewayGrid
                     items={data.nearbyDistricts}
                     title="Continue Your Journey"
-                    basePath="/"
+                    basePath="/northeast"
                     entityType="district"
                 />
             )}

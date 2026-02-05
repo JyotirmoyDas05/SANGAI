@@ -8,7 +8,7 @@ const placeSchema = new mongoose.Schema(
         type: {
             type: String,
             required: true,
-            enum: ['waterfall', 'trail', 'hill', 'village', 'lake', 'cave', 'forest', 'valley'],
+            enum: ['waterfall', 'trail', 'hill', 'village', 'lake', 'cave', 'forest', 'valley', 'nature', 'temple', 'monument', 'park', 'river', 'viewpoint'],
             index: true
         },
         shortDescription: { type: String },

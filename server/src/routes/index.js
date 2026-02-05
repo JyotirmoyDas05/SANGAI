@@ -8,11 +8,15 @@ import guidesRouter from './guides.js';
 import festivalsRouter from './festivals.js';
 import searchRouter from './search.js';
 import productRoutes from './productRoutes.js';
+import northeastRouter from './northeast.js';
 import { Tag } from '../models/index.js';
 
 const router = Router();
 
-// Mount routers
+// NEW: Hierarchical Northeast routes
+router.use('/northeast', northeastRouter);
+
+// Legacy flat routes (kept for backward compatibility)
 router.use('/regions', regionsRouter);
 router.use('/states', statesRouter);
 router.use('/districts', districtsRouter);
@@ -22,6 +26,7 @@ router.use('/guides', guidesRouter);
 router.use('/festivals', festivalsRouter);
 router.use('/search', searchRouter);
 router.use('/products', productRoutes);
+
 
 // Tags endpoint
 router.get('/tags', async (req, res, next) => {

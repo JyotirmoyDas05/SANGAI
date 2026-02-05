@@ -29,8 +29,8 @@ const HIDE_DELAY = 3000; // 3 seconds before auto-hide
 export default function NortheastPage() {
     const location = useLocation();
     const isRootPath = location.pathname === '/northeast';
-    const isSubPageFullWidth = ['/destinations', '/festivals', '/essentials'].some(path => location.pathname.includes(path));
-    const useFullWidth = isRootPath || isSubPageFullWidth;
+    // Always use full width - root shows overview, children need full width for state/district pages
+    const useFullWidth = true;
 
     // Floating nav visibility state
     const [isNavVisible, setIsNavVisible] = useState(true);
@@ -250,7 +250,7 @@ function NortheastOverview() {
                 <GatewayGrid
                     items={regionData.states}
                     title="Explore the Eight Sisters"
-                    basePath="/"
+                    basePath="/northeast"
                     entityType="state"
                 />
             )}
