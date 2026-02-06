@@ -1,16 +1,77 @@
 /**
  * CulturalThreadsScroll - Horizontal scroll gallery
  * Section 5 for Region pages (Cultural Threads)
+ * 
+ * Fetches real images from CMS cultural items for each category
  */
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './RegionalPages.css';
 
+// Map thread titles to category slugs
+const CATEGORY_MAP = {
+    'Festival': 'festivals',
+    'Music': 'music',
+    'Woven': 'attire',
+    'Attire': 'attire',
+    'Food': 'food',
+    'Wild': 'wildlife'
+};
+
+function getCategoryFromTitle(title) {
+    for (const [keyword, category] of Object.entries(CATEGORY_MAP)) {
+        if (title.includes(keyword)) return category;
+    }
+    return 'festivals';
+}
+
 export default function CulturalThreadsScroll({
     threads = [],
-    title = "Cultural Threads"
+    title = "Cultural Threads",
+    basePath = "" // Base path for constructing culture links (e.g., "/northeast" or "/northeast/manipur")
 }) {
     const scrollRef = useRef(null);
+    const [categoryImages, setCategoryImages] = useState({});
+
+    // Fetch first image from each category
+    useEffect(() => {
+        const categories = ['festivals', 'music', 'attire', 'food', 'wildlife'];
+
+        async function fetchCategoryImages() {
+            const images = {};
+
+            for (const category of categories) {
+                try {
+                    // Extract state code from basePath if present (e.g., "/northeast/assam" -> "AS")
+                    const pathParts = basePath.split('/').filter(Boolean);
+                    const stateSlug = pathParts.length > 1 ? pathParts[1] : null;
+
+                    // Build API URL with scope - use full backend URL
+                    const API_BASE = 'http://localhost:3001';
+                    let url = `${API_BASE}/api/culture/${category}`;
+                    if (stateSlug) {
+                        // State-level: pass state code (we'll use first 2 chars uppercase as approximation)
+                        url += `?scope=state&state=${stateSlug.substring(0, 2).toUpperCase()}`;
+                    }
+
+                    const response = await fetch(url);
+                    const data = await response.json();
+
+                    if (data.success && data.data.length > 0) {
+                        // Use the first item's image
+                        images[category] = data.data[0].image;
+                    }
+                } catch (err) {
+                    console.warn(`Failed to fetch ${category} image:`, err);
+                }
+            }
+
+            setCategoryImages(images);
+            console.log('CulturalThreads: Fetched category images:', images);
+        }
+
+        fetchCategoryImages();
+    }, [basePath]);
 
     const scroll = (direction) => {
         if (scrollRef.current) {
@@ -48,23 +109,24 @@ export default function CulturalThreadsScroll({
 
             <div className="threads-scroller" ref={scrollRef}>
                 {threads.map((thread, index) => {
-                    // Map titles to section IDs for deep linking
-                    let hash = '';
-                    if (thread.title.includes('Festival')) hash = 'festivals';
-                    else if (thread.title.includes('Music')) hash = 'music';
-                    else if (thread.title.includes('Woven') || thread.title.includes('Attire')) hash = 'attire';
-                    else if (thread.title.includes('Food')) hash = 'food';
-                    else if (thread.title.includes('Wild')) hash = 'wildlife';
+                    // Get category from title
+                    const category = getCategoryFromTitle(thread.title);
+
+                    // Construct full path: basePath + /culture/ + category
+                    const culturePath = basePath ? `${basePath}/culture/${category}` : `culture/${category}`;
+
+                    // Use dynamic image from API if available, otherwise fallback to thread's mock image
+                    const imageUrl = categoryImages[category] || thread.imageUrl;
 
                     return (
                         <Link
-                            to={`culture/${hash}`}
+                            to={culturePath}
                             className="thread-card block transition-transform hover:scale-[1.02]"
                             key={index}
                         >
                             <div
                                 className="thread-image"
-                                style={{ backgroundImage: `url(${thread.imageUrl})` }}
+                                style={{ backgroundImage: `url(${imageUrl})` }}
                             >
                                 <div className="thread-overlay"></div>
                             </div>

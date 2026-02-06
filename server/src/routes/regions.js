@@ -38,7 +38,7 @@ router.get('/:slug', async (req, res, next) => {
 
         // Get states in this region
         const states = await State.find({ regionId: region._id })
-            .select('code name slug tagline heroImage districtCount')
+            .select('code name slug tagline heroImage heroImages districtCount')
             .sort({ name: 1 });
 
         res.json({

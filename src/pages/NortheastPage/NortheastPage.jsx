@@ -61,6 +61,14 @@ export default function NortheastPage() {
         resetHideTimer();
     }, [resetHideTimer]);
 
+    // Helper: Hide nav if we are deeper in the hierarchy (State page)
+    // We check if the path has a segment after '/northeast' that represents a state
+    // Known region-level sub-routes:
+    const regionSubRoutes = ['destinations', 'essentials', 'festivals', 'places', 'homestays', 'guides', 'culture', 'shopping'];
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    // [0]=northeast, [1]=potentialStateOrSubRoute
+    const isStatePage = pathParts.length > 1 && !regionSubRoutes.includes(pathParts[1]);
+
     // Set up mouse move listener and initial timer
     useEffect(() => {
         // Set initial hide timeout (without calling setState synchronously)
@@ -83,7 +91,8 @@ export default function NortheastPage() {
     return (
         <div className="region-page">
             {/* Floating Navigation - Bottom Center */}
-            <nav className={`floating-nav ${isNavVisible ? 'visible' : 'hidden'}`}>
+            {/* Floating Navigation - Bottom Center - Only show if NOT on a child State page */}
+            <nav className={`floating-nav ${isNavVisible && !isStatePage ? 'visible' : 'hidden'}`}>
                 <div className="floating-nav-container">
                     <NavLink to="/northeast" end className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
                         Overview
@@ -96,6 +105,9 @@ export default function NortheastPage() {
                     </NavLink>
                     <NavLink to="/northeast/festivals" className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
                         Festivals
+                    </NavLink>
+                    <NavLink to="/northeast/culture/festivals" className={({ isActive }) => `floating-nav-item ${isActive || location.pathname.includes('/culture/') ? 'active' : ''}`}>
+                        Culture
                     </NavLink>
                 </div>
             </nav>
@@ -186,10 +198,10 @@ function NortheastOverview() {
             <DescriptionSection
                 title="Welcome to Northeast India"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                images={heroSlides}
+                images={(regionData.collageImages && regionData.collageImages.length > 0) ? regionData.collageImages : heroSlides}
             />
 
-            <DefiningThemesSection />
+            <DefiningThemesSection themes={regionData?.definingThemes} />
 
             <ShoppingSection />
 
@@ -230,6 +242,7 @@ function NortheastOverview() {
                 <CulturalThreadsScroll
                     threads={regionData.culturalThreads}
                     title="Cultural Threads That Bind"
+                    basePath="/northeast"
                 />
             )}
 

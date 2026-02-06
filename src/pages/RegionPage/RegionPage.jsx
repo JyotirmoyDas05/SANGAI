@@ -264,7 +264,7 @@ function StateOverview({ data, heroSlides }) {
                 images={heroSlides}
             />
 
-            <DefiningThemesSection />
+            <DefiningThemesSection themes={data?.definingThemes} />
 
             <ShoppingSection title={`Buy A Piece of ${data.name}`} />
 
@@ -372,7 +372,7 @@ function DistrictOverview({ data, heroSlides }) {
                 images={heroSlides}
             />
 
-            <DefiningThemesSection />
+            <DefiningThemesSection themes={data?.definingThemes} />
 
             {/* At a Glance Section */}
             <StateAtAGlanceSection

@@ -10,6 +10,7 @@ import searchRouter from './search.js';
 import productRoutes from './productRoutes.js';
 import northeastRouter from './northeast.js';
 import cmsRouter from './cms.js';
+import cultureRouter from './culture.js';
 import { Tag } from '../models/index.js';
 
 const router = Router();
@@ -19,6 +20,10 @@ router.use('/cms', cmsRouter);
 
 // NEW: Hierarchical Northeast routes
 router.use('/northeast', northeastRouter);
+
+// Culture routes (public)
+router.use('/culture', cultureRouter);
+
 
 // Legacy flat routes (kept for backward compatibility)
 router.use('/regions', regionsRouter);

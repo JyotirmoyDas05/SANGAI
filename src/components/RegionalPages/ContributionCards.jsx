@@ -44,13 +44,13 @@ export default function ContributionCards({
                     <div className="contribution-card" key={index}>
                         <div className="card-image-container">
                             <img
-                                src={CATEGORY_IMAGES[contribution.category] || boatImg}
-                                alt={contribution.category}
+                                src={contribution.image?.url || CATEGORY_IMAGES[contribution.category] || boatImg}
+                                alt={contribution.image?.caption || contribution.category}
                                 className="card-image"
                             />
                             <div className="card-icon-circle">
                                 <span className="material-symbols-outlined">
-                                    {CATEGORY_ICONS[contribution.category] || 'star'}
+                                    {contribution.icon || CATEGORY_ICONS[contribution.category] || 'star'}
                                 </span>
                             </div>
                         </div>

@@ -32,6 +32,23 @@ const stateSchema = new mongoose.Schema(
             caption: String
         }],
 
+        // NEW: Collage Images for DescriptionSection (6 images for bento grid)
+        collageImages: [{
+            url: { type: String, required: true },
+            caption: String
+        }],
+
+        // NEW: Defining Themes (4 cards for What Defines This Land section)
+        definingThemes: [{
+            icon: String,
+            title: String,
+            description: String,
+            image: {
+                url: String,
+                caption: String
+            }
+        }],
+
         // Section 2: State at a Glance (Soft Facts)
         glance: {
             capital: String,
@@ -67,9 +84,13 @@ const stateSchema = new mongoose.Schema(
 
         // Section 6: What This State Gives Back
         contributions: [{
-            type: { type: String, enum: ['Crafts', 'Agriculture', 'Ideas', 'Ecology', 'Culture'] },
+            icon: String,
             title: String,
-            description: String
+            description: String,
+            image: {
+                url: String,
+                caption: String
+            }
         }],
 
         // Section 7: Places & Experiences (Selective)
@@ -77,6 +98,20 @@ const stateSchema = new mongoose.Schema(
             title: String, // "Sacred landscapes"
             description: String,
             icon: String
+        }],
+
+        // Section 8: Shared Story (Philosophical Narrative)
+        sharedStory: {
+            title: String, // "A Story of [State Name]"
+            paragraphs: [String], // 4-5 poetic/philosophical lines
+            tone: { type: String, enum: ['philosophical', 'historical', 'cultural'] }
+        },
+
+        // Section 9: Cultural Threads (State-level, same structure as Region)
+        culturalThreads: [{
+            title: String, // "Festival Rhythms"
+            insight: String, // One-line insight
+            imageUrl: String
         }],
 
         // Search Keywords

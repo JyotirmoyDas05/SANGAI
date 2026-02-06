@@ -1,7 +1,8 @@
 import express from 'express';
 import { devAuth } from '../middleware/devAuth.js';
-import { FestivalMaster, FestivalOccurrence, District, Place, Region } from '../models/index.js'; // Added Region
-import State from '../models/State.js'; // Keep State as it's not in the combined import
+import { FestivalMaster, FestivalOccurrence, District, Place, Region, CulturalItem } from '../models/index.js';
+import State from '../models/State.js';
+
 import cloudinary from '../config/cloudinary.js';
 import multer from 'multer';
 import { v4 as uuidv4 } from 'uuid';
@@ -528,6 +529,446 @@ router.put('/districts/:slug/hero-images', async (req, res) => {
 
         if (!district) return res.status(404).json({ error: 'District not found' });
         res.json({ success: true, data: district });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE State Shared Story
+ * PUT /api/cms/states/:slug/shared-story
+ */
+router.put('/states/:slug/shared-story', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { sharedStory } = req.body; // Expecting { title, paragraphs, tone }
+
+        const state = await State.findOneAndUpdate(
+            { slug: slug },
+            { $set: { sharedStory: sharedStory } },
+            { new: true }
+        );
+
+        if (!state) return res.status(404).json({ error: 'State not found' });
+        res.json({ success: true, data: state });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+/**
+ * UPDATE State Cultural Threads
+ * PUT /api/cms/states/:slug/cultural-threads
+ */
+router.put('/states/:slug/cultural-threads', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { culturalThreads } = req.body; // Expecting [{ title, insight, imageUrl }]
+
+        const state = await State.findOneAndUpdate(
+            { slug: slug },
+            { $set: { culturalThreads: culturalThreads } },
+            { new: true }
+        );
+
+        if (!state) return res.status(404).json({ error: 'State not found' });
+        res.json({ success: true, data: state });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// ============================================
+// CULTURAL ITEMS CMS CRUD
+// ============================================
+
+/**
+ * LIST all cultural items
+ * GET /api/cms/cultural-items
+ */
+router.get('/cultural-items', async (req, res) => {
+    try {
+        const { category, scope } = req.query;
+        const query = {};
+
+        if (category) query.category = category;
+        if (scope) query['scope.type'] = scope;
+
+        const items = await CulturalItem.find(query)
+            .sort({ category: 1, name: 1 });
+
+        res.json({
+            success: true,
+            count: items.length,
+            data: items
+        });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * GET single cultural item
+ * GET /api/cms/cultural-items/:id
+ */
+router.get('/cultural-items/:id', async (req, res) => {
+    try {
+        const item = await CulturalItem.findById(req.params.id);
+        if (!item) return res.status(404).json({ error: 'Item not found' });
+        res.json({ success: true, data: item });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * CREATE new cultural item
+ * POST /api/cms/cultural-items
+ */
+router.post('/cultural-items', async (req, res) => {
+    try {
+        const { name, category, scope, location, shortDescription, images, story, isHiddenGem, tags } = req.body;
+
+        // Generate slug from name
+        const slug = name.toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '_')
+            .substring(0, 50);
+
+        // Check for duplicate slug
+        const existing = await CulturalItem.findOne({ slug });
+        if (existing) {
+            return res.status(400).json({ error: 'An item with this name already exists' });
+        }
+
+        const item = new CulturalItem({
+            slug,
+            name,
+            category,
+            scope: {
+                type: scope?.type || 'region',
+                regionId: scope?.regionId || 'NE',
+                stateCode: scope?.stateCode || null
+            },
+            location,
+            shortDescription,
+            images: images || [],
+            story: story || {},
+            isHiddenGem: isHiddenGem || false,
+            tags: tags || []
+        });
+
+        await item.save();
+        res.status(201).json({ success: true, data: item });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE cultural item
+ * PUT /api/cms/cultural-items/:id
+ */
+router.put('/cultural-items/:id', async (req, res) => {
+    try {
+        const { name, category, scope, location, shortDescription, images, story, isHiddenGem, tags, isPublished } = req.body;
+
+        const updateData = {};
+        if (name !== undefined) updateData.name = name;
+        if (category !== undefined) updateData.category = category;
+        if (scope !== undefined) {
+            updateData.scope = {
+                type: scope.type || 'region',
+                regionId: scope.regionId || 'NE',
+                stateCode: scope.stateCode || null
+            };
+        }
+        if (location !== undefined) updateData.location = location;
+        if (shortDescription !== undefined) updateData.shortDescription = shortDescription;
+        if (images !== undefined) updateData.images = images;
+        if (story !== undefined) updateData.story = story;
+        if (isHiddenGem !== undefined) updateData.isHiddenGem = isHiddenGem;
+        if (tags !== undefined) updateData.tags = tags;
+        if (isPublished !== undefined) updateData.isPublished = isPublished;
+
+        const item = await CulturalItem.findByIdAndUpdate(
+            req.params.id,
+            { $set: updateData },
+            { new: true }
+        );
+
+        if (!item) return res.status(404).json({ error: 'Item not found' });
+        res.json({ success: true, data: item });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * DELETE cultural item
+ * DELETE /api/cms/cultural-items/:id
+ */
+router.delete('/cultural-items/:id', async (req, res) => {
+    try {
+        const item = await CulturalItem.findByIdAndDelete(req.params.id);
+        if (!item) return res.status(404).json({ error: 'Item not found' });
+        res.json({ success: true, message: 'Item deleted' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * ==========================================
+ * STATE CONTENT MANAGEMENT
+ * ==========================================
+ */
+
+/**
+ * UPDATE State Shared Story
+ * PUT /api/cms/states/:slug/shared-story
+ */
+router.put('/states/:slug/shared-story', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { sharedStory } = req.body;
+
+        const state = await State.findOneAndUpdate(
+            { slug },
+            { $set: { sharedStory } },
+            { new: true }
+        );
+
+        if (!state) return res.status(404).json({ error: 'State not found' });
+        res.json({ success: true, data: state.sharedStory });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE State Cultural Threads
+ * PUT /api/cms/states/:slug/cultural-threads
+ */
+router.put('/states/:slug/cultural-threads', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { culturalThreads } = req.body;
+
+        const state = await State.findOneAndUpdate(
+            { slug },
+            { $set: { culturalThreads } },
+            { new: true }
+        );
+
+        if (!state) return res.status(404).json({ error: 'State not found' });
+        res.json({ success: true, data: state.culturalThreads });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE State Collage Images
+ * PUT /api/cms/states/:slug/collage-images
+ */
+router.put('/states/:slug/collage-images', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { collageImages } = req.body;
+
+        const state = await State.findOneAndUpdate(
+            { slug },
+            { $set: { collageImages } },
+            { new: true }
+        );
+
+        if (!state) return res.status(404).json({ error: 'State not found' });
+        res.json({ success: true, data: state.collageImages });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE Region Collage Images
+ * PUT /api/cms/regions/:slug/collage-images
+ */
+router.put('/regions/:slug/collage-images', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { collageImages } = req.body;
+
+        const region = await Region.findOneAndUpdate(
+            { slug },
+            { $set: { collageImages } },
+            { new: true }
+        );
+
+        if (!region) return res.status(404).json({ error: 'Region not found' });
+        res.json({ success: true, data: region.collageImages });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE District Collage Images
+ * PUT /api/cms/districts/:slug/collage-images
+ */
+router.put('/districts/:slug/collage-images', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { collageImages } = req.body;
+
+        const district = await District.findOneAndUpdate(
+            { slug },
+            { $set: { collageImages } },
+            { new: true }
+        );
+
+        if (!district) return res.status(404).json({ error: 'District not found' });
+        res.json({ success: true, data: district.collageImages });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// ============================================
+// DEFINING THEMES MANAGEMENT
+// ============================================
+
+/**
+ * UPDATE Region Defining Themes
+ * PUT /api/cms/regions/:slug/defining-themes
+ */
+router.put('/regions/:slug/defining-themes', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { definingThemes } = req.body;
+
+        const region = await Region.findOneAndUpdate(
+            { slug },
+            { $set: { definingThemes } },
+            { new: true }
+        );
+
+        if (!region) return res.status(404).json({ error: 'Region not found' });
+        res.json({ success: true, data: region.definingThemes });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE State Defining Themes
+ * PUT /api/cms/states/:slug/defining-themes
+ */
+router.put('/states/:slug/defining-themes', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { definingThemes } = req.body;
+
+        const state = await State.findOneAndUpdate(
+            { slug },
+            { $set: { definingThemes } },
+            { new: true }
+        );
+
+        if (!state) return res.status(404).json({ error: 'State not found' });
+        res.json({ success: true, data: state.definingThemes });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE District Defining Themes
+ * PUT /api/cms/districts/:slug/defining-themes
+ */
+router.put('/districts/:slug/defining-themes', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { definingThemes } = req.body;
+
+        const district = await District.findOneAndUpdate(
+            { slug },
+            { $set: { definingThemes } },
+            { new: true }
+        );
+
+        if (!district) return res.status(404).json({ error: 'District not found' });
+        res.json({ success: true, data: district.definingThemes });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
+// ============================================
+// CONTRIBUTIONS MANAGEMENT ("What This Region Gives")
+// ============================================
+
+/**
+ * UPDATE Region Contributions
+ * PUT /api/cms/regions/:slug/contributions
+ */
+router.put('/regions/:slug/contributions', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { contributions } = req.body;
+
+        const region = await Region.findOneAndUpdate(
+            { slug },
+            { $set: { contributions } },
+            { new: true }
+        );
+
+        if (!region) return res.status(404).json({ error: 'Region not found' });
+        res.json({ success: true, data: region.contributions });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE State Contributions
+ * PUT /api/cms/states/:slug/contributions
+ */
+router.put('/states/:slug/contributions', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { contributions } = req.body;
+
+        const state = await State.findOneAndUpdate(
+            { slug },
+            { $set: { contributions } },
+            { new: true }
+        );
+
+        if (!state) return res.status(404).json({ error: 'State not found' });
+        res.json({ success: true, data: state.contributions });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE District Contributions
+ * PUT /api/cms/districts/:slug/contributions
+ */
+router.put('/districts/:slug/contributions', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { contributions } = req.body;
+
+        const district = await District.findOneAndUpdate(
+            { slug },
+            { $set: { contributions } },
+            { new: true }
+        );
+
+        if (!district) return res.status(404).json({ error: 'District not found' });
+        res.json({ success: true, data: district.contributions });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

@@ -23,35 +23,38 @@ export default function GatewayGrid({
             </div>
 
             <div className="gateway-scroll-container">
-                {items.map((item, index) => (
-                    <Link
-                        to={`${basePath}/${item.slug}`}
-                        className="gateway-card"
-                        key={item._id || index}
-                    >
-                        <div
-                            className="gateway-image"
-                            style={{
-                                backgroundImage: item.heroImage?.url
-                                    ? `url(${item.heroImage.url})`
-                                    : 'none'
-                            }}
+                {items.map((item, index) => {
+                    // Prioritize CMS-managed heroImages array over legacy heroImage
+                    const imageUrl = item.heroImages?.[0]?.url || item.heroImage?.url;
+
+                    return (
+                        <Link
+                            to={`${basePath}/${item.slug}`}
+                            className="gateway-card"
+                            key={item._id || index}
                         >
-                            <div className="gateway-overlay"></div>
-                        </div>
-                        <div className="gateway-content">
-                            <h3 className="gateway-name">
-                                {entityType === 'state' ? item.name : item.districtName}
-                            </h3>
-                            <p className="gateway-tagline">{item.tagline}</p>
-                            {item.districtCount && (
-                                <span className="gateway-meta">
-                                    {item.districtCount} districts
-                                </span>
-                            )}
-                        </div>
-                    </Link>
-                ))}
+                            <div
+                                className="gateway-image"
+                                style={{
+                                    backgroundImage: imageUrl ? `url(${imageUrl})` : 'none'
+                                }}
+                            >
+                                <div className="gateway-overlay"></div>
+                            </div>
+                            <div className="gateway-content">
+                                <h3 className="gateway-name">
+                                    {entityType === 'state' ? item.name : item.districtName}
+                                </h3>
+                                <p className="gateway-tagline">{item.tagline}</p>
+                                {item.districtCount && (
+                                    <span className="gateway-meta">
+                                        {item.districtCount} districts
+                                    </span>
+                                )}
+                            </div>
+                        </Link>
+                    );
+                })}
             </div>
         </section>
     );

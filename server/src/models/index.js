@@ -8,3 +8,4 @@ export { default as Guide } from './Guide.js';
 export { default as FestivalMaster } from './FestivalMaster.js';
 export { default as FestivalOccurrence } from './FestivalOccurrence.js';
 export { default as Tag } from './Tag.js';
+export { default as CulturalItem } from './CulturalItem.js';

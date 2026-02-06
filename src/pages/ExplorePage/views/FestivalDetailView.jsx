@@ -135,7 +135,38 @@ export default function FestivalDetailView() {
                     <div>
                         <h2 className="fd-section-title">About the Festival</h2>
                         <div className="fd-description">
-                            <p>{description}</p>
+                            {/* Render CMS Story Content if available */}
+                            {displayFestival.story ? (
+                                <>
+                                    {displayFestival.story.overview && (
+                                        <p className="fd-story-paragraph">{displayFestival.story.overview}</p>
+                                    )}
+
+                                    {displayFestival.story.culturalSignificance && (
+                                        <div className="fd-story-section">
+                                            <h3>Cultural Significance</h3>
+                                            <p>{displayFestival.story.culturalSignificance}</p>
+                                        </div>
+                                    )}
+
+                                    {displayFestival.story.history && (
+                                        <div className="fd-story-section">
+                                            <h3>History & Traditions</h3>
+                                            <p>{displayFestival.story.history}</p>
+                                        </div>
+                                    )}
+
+                                    {displayFestival.story.localInsight && (
+                                        <div className="fd-story-insight">
+                                            <h4><span className="material-symbols-outlined">lightbulb</span> Local Insight</h4>
+                                            <p>"{displayFestival.story.localInsight}"</p>
+                                        </div>
+                                    )}
+                                </>
+                            ) : (
+                                /* Fallback to legacy description */
+                                <p>{description}</p>
+                            )}
                         </div>
                     </div>
                 </div>

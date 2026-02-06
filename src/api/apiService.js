@@ -101,6 +101,24 @@ export async function getPlaceTypes() {
     return result.data;
 }
 
+export async function getPlacesByScope(scope = {}, params = {}) {
+    let endpoint = '/places'; // default global
+
+    // Construct endpoint based on scope
+    if (scope.stateSlug && scope.districtSlug) {
+        endpoint = `/northeast/${scope.stateSlug}/${scope.districtSlug}/places`;
+    } else if (scope.stateSlug) {
+        endpoint = `/northeast/${scope.stateSlug}/places`;
+    } else {
+        // Fallback to global /northeast/places for generic call or specific scoped implementation
+        endpoint = '/northeast/places';
+    }
+
+    const queryString = new URLSearchParams(params).toString();
+    const result = await fetchAPI(`${endpoint}${queryString ? `?${queryString}` : ''}`);
+    return result;
+}
+
 export async function getNearbyPlaces(lat, lng, maxDistance = 50000) {
     const result = await fetchAPI(`/places/nearby?lat=${lat}&lng=${lng}&maxDistance=${maxDistance}`);
     return result.data;
@@ -203,6 +221,19 @@ export async function getProductsByCategory(category) {
     return result; // API returns array directly
 }
 
+// ============ Cultural Items API ============
+
+export async function getCulturalItems(category, params = {}) {
+    const queryString = new URLSearchParams(params).toString();
+    const result = await fetchAPI(`/culture/${category}${queryString ? `?${queryString}` : ''}`);
+    return result; // API returns { count, data }
+}
+
+export async function getCulturalItem(category, slug) {
+    const result = await fetchAPI(`/culture/${category}/${slug}`);
+    return result.data;
+}
+
 // ============ Health Check ============
 
 export async function healthCheck() {
@@ -243,6 +274,9 @@ export default {
     getFestivalById,
     getUpcomingFestivals,
     getFestivalsByMonth,
+    // Cultural Items
+    getCulturalItems,
+    getCulturalItem,
     // Search
     searchAll,
     // Products

@@ -1,36 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import './CulturalPage.css';
 
-// Mock Data (Same as before)
-const CATEGORY_DATA = {
-    festivals: [
-        { id: 'hornbill', name: 'Hornbill Festival', location: 'Nagaland', image: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1200' },
-        { id: 'bihu', name: 'Bihu Festival', location: 'Assam', image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1200' },
-        { id: 'sangai', name: 'Sangai Festival', location: 'Manipur', image: 'https://images.unsplash.com/photo-1605377349974-9463c23e800d?w=1200' },
-        { id: 'ziro', name: 'Ziro Music Festival', location: 'Arunachal Pradesh', image: 'https://images.unsplash.com/photo-1459749411177-042180ce673c?w=1200' },
-    ],
-    music: [
-        { id: 'folk_drum', name: 'Traditional Drums', location: 'Across Region', image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200' },
-        { id: 'bamboo_flute', name: 'Bamboo Flute', location: 'Mizoram', image: 'https://images.unsplash.com/photo-1516055517766-07851299d18b?w=1200' },
-        { id: 'modern_rock', name: 'Northeast Rock', location: 'Shillong', image: 'https://images.unsplash.com/photo-1501612780327-451eaf5a8227?w=1200' },
-    ],
-    attire: [
-        { id: 'mekhela_chador', name: 'Mekhela Chador', location: 'Assam', image: 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200' },
-        { id: 'naga_shawl', name: 'Naga Warrior Shawl', location: 'Nagaland', image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1200' },
-        { id: 'manipuri_phanek', name: 'Manipuri Phanek', location: 'Manipur', image: 'https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=1200' },
-    ],
-    food: [
-        { id: 'smoked_pork', name: 'Smoked Pork with Axone', location: 'Nagaland', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200' },
-        { id: 'iro_pa', name: 'Iromba', location: 'Manipur', image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=1200' },
-        { id: 'masor_tenga', name: 'Masor Tenga', location: 'Assam', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200' },
-    ],
-    wildlife: [
-        { id: 'rhino', name: 'One-Horned Rhino', location: 'Kaziranga', image: 'https://images.unsplash.com/photo-1575550959106-5a7defe28b56?w=1200' },
-        { id: 'sangai_deer', name: 'Sangai Deer', location: 'Loktak Lake', image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200' },
-        { id: 'red_panda', name: 'Red Panda', location: 'Sikkim', image: 'https://images.unsplash.com/photo-1542337351-9556816503c1?w=1200' },
-    ]
+// State slug to code mapping
+const STATE_SLUG_TO_CODE = {
+    'manipur': 'MN',
+    'assam': 'AS',
+    'meghalaya': 'ML',
+    'nagaland': 'NL',
+    'arunachal_pradesh': 'AR',
+    'mizoram': 'MZ',
+    'tripura': 'TR',
+    'sikkim': 'SK'
 };
 
 const CATEGORIES = [
@@ -42,20 +24,68 @@ const CATEGORIES = [
 ];
 
 export default function CulturalPage() {
-    const { region: regionParam, category = 'festivals' } = useParams();
-    const region = regionParam || 'northeast';
+    const { stateSlug, category = 'festivals' } = useParams();
+    const location = useLocation();
     const navigate = useNavigate();
-    const [displayName, setDisplayName] = useState('');
     const pageRef = useRef(null);
 
-    useEffect(() => {
-        const name = region === 'northeast' ? 'Northeast India' : region.replace(/_/g, ' ');
-        setDisplayName(name);
-        window.scrollTo(0, 0);
-    }, [region]);
+    // State management
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [displayName, setDisplayName] = useState('');
 
-    // Simple, Standard GSAP Reveals (No "Maestro" complexity)
+    // Detect if we're at region or state level
+    const isRegionLevel = !stateSlug || location.pathname.startsWith('/northeast/culture');
+    const scopeLabel = isRegionLevel ? 'Northeast India' : stateSlug?.replace(/_/g, ' ');
+
+    const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+
+    // Fetch cultural items from API
     useEffect(() => {
+        const fetchItems = async () => {
+            setLoading(true);
+            setError(null);
+            try {
+                // Build query params based on scope
+                const params = new URLSearchParams();
+                if (!isRegionLevel && stateSlug) {
+                    params.append('scope', 'state');
+                    // Convert slug to 2-letter state code
+                    const stateCode = STATE_SLUG_TO_CODE[stateSlug.toLowerCase()];
+                    if (stateCode) {
+                        params.append('state', stateCode);
+                    }
+                }
+
+                const res = await fetch(`${API_BASE}/culture/${category}?${params}`);
+                const data = await res.json();
+
+                if (data.success) {
+                    setItems(data.data);
+                } else {
+                    setError('Failed to load content');
+                    setItems([]);
+                }
+            } catch (err) {
+                console.error('API fetch failed:', err);
+                setError('Failed to load content');
+                setItems([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchItems();
+        setDisplayName(scopeLabel);
+        window.scrollTo(0, 0);
+    }, [category, stateSlug, isRegionLevel]);
+
+
+    // GSAP Reveal Animation
+    useEffect(() => {
+        if (loading) return;
+
         const ctx = gsap.context(() => {
             gsap.fromTo('.cultural-hero__content',
                 { y: 30, opacity: 0 },
@@ -69,16 +99,22 @@ export default function CulturalPage() {
         }, pageRef);
 
         return () => ctx.revert();
-    }, [category]);
+    }, [category, loading]);
 
+    // Handle category change navigation
     const handleCategoryChange = (newCategory) => {
-        const path = region === 'northeast'
+        const path = isRegionLevel
             ? `/northeast/culture/${newCategory}`
-            : `/${region}/culture/${newCategory}`;
+            : `/northeast/${stateSlug}/culture/${newCategory}`;
         navigate(path);
     };
 
-    const currentItems = CATEGORY_DATA[category] || [];
+    // Build item link path
+    const getItemPath = (itemId) => {
+        return isRegionLevel
+            ? `/northeast/culture/${category}/${itemId}`
+            : `/northeast/${stateSlug}/culture/${category}/${itemId}`;
+    };
 
     return (
         <div className="cultural-page" ref={pageRef}>
@@ -124,17 +160,18 @@ export default function CulturalPage() {
 
             {/* Content Grid */}
             <main className="cultural-grid">
-                {currentItems.map((item) => (
+                {loading ? (
+                    <div className="col-span-full text-center py-20">
+                        <p className="text-xl text-stone-400">Loading cultural content...</p>
+                    </div>
+                ) : items.map((item) => (
                     <Link
                         key={item.id}
-                        to={region === 'northeast'
-                            ? `/northeast/culture/${category}/${item.id}`
-                            : `/${region}/culture/${category}/${item.id}`
-                        }
+                        to={getItemPath(item.id)}
                         className="cultural-card"
                     >
                         <div className="cultural-card__img-container">
-                            <span className="cultural-card__overlay-tag">Hidden Gem</span>
+                            {item.isHiddenGem && <span className="cultural-card__overlay-tag">Hidden Gem</span>}
                             <img
                                 src={item.image}
                                 alt={item.name}
@@ -153,7 +190,7 @@ export default function CulturalPage() {
                     </Link>
                 ))}
 
-                {currentItems.length === 0 && (
+                {!loading && items.length === 0 && (
                     <div className="col-span-full text-center py-20">
                         <p className="text-xl text-stone-400">Content coming soon...</p>
                     </div>
@@ -162,3 +199,4 @@ export default function CulturalPage() {
         </div>
     );
 }
+

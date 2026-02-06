@@ -59,6 +59,12 @@ const districtSchema = new mongoose.Schema(
             description: String
         }],
 
+        // Collage Images for DescriptionSection bento grid
+        collageImages: [{
+            url: { type: String, required: true },
+            caption: String
+        }],
+
         // Known For (quick facts)
         knownFor: [String],
 

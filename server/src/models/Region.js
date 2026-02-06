@@ -26,6 +26,12 @@ const regionSchema = new mongoose.Schema(
             focus: { type: String, enum: ['landscape', 'people', 'culture'] }
         }],
 
+        // NEW: Collage Images for DescriptionSection (6 images for bento grid)
+        collageImages: [{
+            url: { type: String, required: true },
+            caption: String
+        }],
+
         // Section 2: What Defines This Region
         definingThemes: [{
             icon: String, // Material icon name
@@ -58,9 +64,13 @@ const regionSchema = new mongoose.Schema(
 
         // Section 6: Ecological & Cultural Contribution
         contributions: [{
-            category: { type: String, enum: ['Biodiversity', 'Knowledge', 'Agriculture', 'Crafts', 'Culture'] },
+            icon: String,
             title: String,
-            description: String
+            description: String,
+            image: {
+                url: String,
+                caption: String
+            }
         }],
 
         // Section 7: Ways to Explore

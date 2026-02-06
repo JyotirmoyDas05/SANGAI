@@ -29,6 +29,7 @@ import CMSLayout from './pages/CMS/CMSLayout';
 import CMSDashboard from './pages/CMS/CMSDashboard';
 import FestivalForm from './pages/CMS/FestivalForm';
 import DestinationForm from './pages/CMS/DestinationForm';
+import CMSCulturalItemEditor from './pages/CMS/CMSCulturalItemEditor';
 
 /**
  * SANGAI Route Configuration
@@ -160,7 +161,10 @@ export const router = createBrowserRouter([
                                 path: 'culture/:category',
                                 element: <CulturalPage />,
                             },
-
+                            {
+                                path: 'culture/:category/:id',
+                                element: <CulturalDetailView />,
+                            },
                             // DISTRICT LEVEL: /northeast/:stateSlug/:districtSlug
                             {
                                 path: ':districtSlug',
@@ -256,6 +260,15 @@ export const router = createBrowserRouter([
                 path: 'destinations/edit/:id',
                 element: <DestinationForm />
             },
+            {
+                path: 'cultural-items/new',
+                element: <CMSCulturalItemEditor />
+            },
+            {
+                path: 'cultural-items/edit/:id',
+                element: <CMSCulturalItemEditor />
+            },
         ]
     }
 ]);
+

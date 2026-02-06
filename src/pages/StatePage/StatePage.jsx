@@ -15,6 +15,7 @@ import {
     NarrativeBlock,
     CulturalThreadsScroll,
     DefiningThemesSection,
+    ContributionCards,
     ShoppingSection,
     GatewayGrid
 } from '../../components/RegionalPages';
@@ -78,16 +79,27 @@ export default function StatePage() {
     // Build base path for navigation
     const basePath = `/northeast/${stateSlug}`;
 
+    // Helper: Hide nav if we are deeper in the hierarchy (District page)
+    // We check if the path has a segment after the state slug that represents a district
+    // Known state-level sub-routes:
+    const stateSubRoutes = ['festivals', 'places', 'homestays', 'shopping', 'culture'];
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    // [0]=northeast, [1]=stateSlug, [2]=potentialDistrictOrSubRoute
+    const isDistrictPage = pathParts.length > 2 && !stateSubRoutes.includes(pathParts[2]);
+
     return (
         <div className="region-page">
-            {/* Floating Navigation */}
-            <nav className={`floating-nav ${isNavVisible ? 'visible' : 'hidden'}`}>
+            {/* Floating Navigation - Only show if NOT on a district page */}
+            <nav className={`floating-nav ${isNavVisible && !isDistrictPage ? 'visible' : 'hidden'}`}>
                 <div className="floating-nav-container">
                     <NavLink to={basePath} end className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
                         Overview
                     </NavLink>
                     <NavLink to={`${basePath}/festivals`} className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
                         Festivals
+                    </NavLink>
+                    <NavLink to={`${basePath}/culture/festivals`} className={({ isActive }) => `floating-nav-item ${isActive || location.pathname.includes('/culture/') ? 'active' : ''}`}>
+                        Culture
                     </NavLink>
                     <NavLink to={`${basePath}/places`} className={({ isActive }) => `floating-nav-item ${isActive ? 'active' : ''}`}>
                         Places
@@ -173,16 +185,43 @@ function StateOverview({ stateSlug, displayName }) {
             <DescriptionSection
                 title={`Welcome to ${data.name}`}
                 description={data.description || `Explore the rich culture, stunning landscapes, and vibrant traditions of ${data.name}.`}
-                images={heroSlides}
+                images={(data.collageImages && data.collageImages.length > 0) ? data.collageImages : heroSlides}
             />
 
-            <DefiningThemesSection />
+            <DefiningThemesSection themes={data?.definingThemes} />
+
+            {/* Section: Contributions (What This State Gives) */}
+            {data.contributions?.length > 0 && (
+                <ContributionCards
+                    contributions={data.contributions}
+                    title={`What ${data.name} Gives to India`}
+                />
+            )}
 
             {data.glance && (
                 <StateAtAGlanceSection glance={data.glance} stateName={data.name} />
             )}
 
             <ShoppingSection title={`Crafts of ${data.name}`} />
+
+            {/* Section: Shared Story */}
+            {data.sharedStory?.paragraphs?.length > 0 && (
+                <NarrativeBlock
+                    paragraphs={data.sharedStory.paragraphs}
+                    title={data.sharedStory.title || `A Story of ${data.name}`}
+                    tone="philosophical"
+                    align="center"
+                />
+            )}
+
+            {/* Section: Cultural Threads */}
+            {data.culturalThreads?.length > 0 && (
+                <CulturalThreadsScroll
+                    threads={data.culturalThreads}
+                    title={`Cultural Threads of ${data.name}`}
+                    basePath={`/northeast/${stateSlug}`}
+                />
+            )}
 
             {/* Explore Districts - Links to /northeast/:state/:district */}
             {data.districts?.length > 0 && (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { getPlaces } from '../../../api/apiService';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getPlacesByScope } from '../../../api/apiService';
 import './DestinationsView.css';
 
 /**
@@ -9,6 +9,7 @@ import './DestinationsView.css';
  */
 export default function DestinationsView() {
     const navigate = useNavigate();
+    const { stateSlug, districtSlug } = useParams();
     const [filter, setFilter] = useState('all');
     const [places, setPlaces] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -36,7 +37,7 @@ export default function DestinationsView() {
                     }
                 }
 
-                const response = await getPlaces(params);
+                const response = await getPlacesByScope({ stateSlug, districtSlug }, params);
 
                 // Transform API data for display
                 const transformedPlaces = (response.data || []).map(place => ({
@@ -63,7 +64,7 @@ export default function DestinationsView() {
         };
 
         fetchPlaces();
-    }, [filter]);
+    }, [filter, stateSlug, districtSlug]);
 
     // Get card height class based on index for masonry effect
     const getHeightClass = (index) => {
