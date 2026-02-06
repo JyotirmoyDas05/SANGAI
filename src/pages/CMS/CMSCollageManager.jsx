@@ -1,4 +1,42 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  rectSortingStrategy,
+  useSortable,
+} from '@dnd-kit/sortable';
+import {CSS} from '@dnd-kit/utilities';
+
+function SortableItem(props) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+  } = useSortable({id: props.id});
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    ...props.style
+  };
+
+  return (
+    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+      {props.children}
+    </div>
+  );
+}
 
 /**
  * CMSCollageManager
@@ -20,36 +58,28 @@ export default function CMSCollageManager() {
     const [uploading, setUploading] = useState(false);
     const [message, setMessage] = useState(null);
 
+    const sensors = useSensors(
+        useSensor(PointerSensor),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        })
+    );
+
+    const handleDragEnd = (event) => {
+        const {active, over} = event;
+        if (active.id !== over.id) {
+            setCollageImages((items) => {
+                const oldIndex = items.findIndex((item) => item.id === active.id);
+                const newIndex = items.findIndex((item) => item.id === over.id);
+                return arrayMove(items, oldIndex, newIndex);
+            });
+        }
+    };
+
     const getAuthHeader = () => ({ 'Authorization': sessionStorage.getItem('cms_auth') });
     const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
-    // Fetch options when level changes
-    useEffect(() => {
-        if (level === 'region') {
-            setOptions([{ name: 'Northeast India', slug: 'northeast' }]);
-            setSelectedSlug('northeast');
-        } else if (level === 'state') {
-            fetchStates();
-        } else if (level === 'district') {
-            fetchStatesForDistrict();
-        }
-    }, [level]);
-
-    // Fetch collage images when selection changes
-    useEffect(() => {
-        if (selectedSlug) {
-            fetchCollageImages();
-        }
-    }, [selectedSlug, level]);
-
-    // Fetch districts when selected state changes
-    useEffect(() => {
-        if (level === 'district' && selectedStateCode) {
-            fetchDistricts(selectedStateCode);
-        }
-    }, [selectedStateCode, level]);
-
-    const fetchStates = async () => {
+    const fetchStates = useCallback(async () => {
         setLoading(true);
         try {
             const res = await fetch(`${API_BASE}/states`);
@@ -67,9 +97,9 @@ export default function CMSCollageManager() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [API_BASE]);
 
-    const fetchStatesForDistrict = async () => {
+    const fetchStatesForDistrict = useCallback(async () => {
         setLoading(true);
         try {
             const res = await fetch(`${API_BASE}/states`);
@@ -89,9 +119,9 @@ export default function CMSCollageManager() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [API_BASE]);
 
-    const fetchDistricts = async (stateCode) => {
+    const fetchDistricts = useCallback(async (stateCode) => {
         setLoading(true);
         try {
             // Endpoint uses path param: /api/districts/by-state/:stateCode
@@ -115,9 +145,9 @@ export default function CMSCollageManager() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [API_BASE]);
 
-    const fetchCollageImages = async () => {
+    const fetchCollageImages = useCallback(async () => {
         setLoading(true);
         setCollageImages([]);
         try {
@@ -134,14 +164,44 @@ export default function CMSCollageManager() {
             const json = await res.json();
 
             if (json.success && json.data) {
-                setCollageImages(json.data.collageImages || []);
+                const imagesWithIds = (json.data.collageImages || []).map(img => ({
+                    ...img,
+                    id: crypto.randomUUID()
+                }));
+                setCollageImages(imagesWithIds);
             }
         } catch (err) {
             console.error(err);
         } finally {
             setLoading(false);
         }
-    };
+    }, [API_BASE, level, selectedSlug]);
+
+    // Fetch options when level changes
+    useEffect(() => {
+        if (level === 'region') {
+            setOptions([{ name: 'Northeast India', slug: 'northeast' }]);
+            setSelectedSlug('northeast');
+        } else if (level === 'state') {
+            fetchStates();
+        } else if (level === 'district') {
+            fetchStatesForDistrict();
+        }
+    }, [level, fetchStates, fetchStatesForDistrict]);
+
+    // Fetch collage images when selection changes
+    useEffect(() => {
+        if (selectedSlug) {
+            fetchCollageImages();
+        }
+    }, [selectedSlug, level, fetchCollageImages]);
+
+    // Fetch districts when selected state changes
+    useEffect(() => {
+        if (level === 'district' && selectedStateCode) {
+            fetchDistricts(selectedStateCode);
+        }
+    }, [selectedStateCode, level, fetchDistricts]);
 
     const handleUpload = async (e) => {
         const file = e.target.files[0];
@@ -161,13 +221,13 @@ export default function CMSCollageManager() {
 
             if (data.success) {
                 // Add to local state
-                setCollageImages([...collageImages, { url: data.url, caption: '' }]);
+                setCollageImages([...collageImages, { id: crypto.randomUUID(), url: data.url, caption: '' }]);
                 setMessage('Image uploaded!');
                 setTimeout(() => setMessage(null), 2000);
             } else {
                 setMessage('Upload failed: ' + data.error);
             }
-        } catch (err) {
+        } catch {
             setMessage('Upload failed');
         } finally {
             setUploading(false);
@@ -207,7 +267,7 @@ export default function CMSCollageManager() {
             } else {
                 setMessage('Error: ' + data.error);
             }
-        } catch (err) {
+        } catch {
             setMessage('Failed to save');
         } finally {
             setSaving(false);
@@ -231,7 +291,7 @@ export default function CMSCollageManager() {
     };
 
     const addManualEntry = () => {
-        setCollageImages([...collageImages, { url: '', caption: '' }]);
+        setCollageImages([...collageImages, { id: crypto.randomUUID(), url: '', caption: '' }]);
     };
 
     return (
@@ -305,139 +365,157 @@ export default function CMSCollageManager() {
             {loading && <div style={{ marginBottom: '20px' }}>Loading...</div>}
 
             {/* Image Grid */}
-            <div className="image-grid" style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '20px',
-                marginBottom: '30px'
-            }}>
-                {collageImages.map((img, idx) => (
-                    <div key={idx} className="image-card" style={{
-                        border: '1px solid #ddd',
-                        padding: '12px',
-                        borderRadius: '8px',
-                        background: 'white'
-                    }}>
-                        {/* Header */}
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                            <strong>Image {idx + 1}</strong>
-                            <button
-                                onClick={() => removeImage(idx)}
-                                style={{
-                                    background: '#ff4444',
-                                    color: 'white',
-                                    border: 'none',
-                                    padding: '4px 8px',
-                                    borderRadius: '4px',
-                                    cursor: 'pointer'
-                                }}
-                            >
-                                ✕
-                            </button>
-                        </div>
+            <DndContext
+                sensors={sensors}
+                collisionDetection={closestCenter}
+                onDragEnd={handleDragEnd}
+            >
+                <div className="image-grid" style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: '20px',
+                    marginBottom: '30px'
+                }}>
+                    <SortableContext
+                        items={collageImages.map(img => img.id)}
+                        strategy={rectSortingStrategy}
+                    >
+                        {collageImages.map((img, idx) => (
+                            <SortableItem key={img.id} id={img.id} style={{
+                                border: '1px solid #ddd',
+                                padding: '12px',
+                                borderRadius: '8px',
+                                background: 'white',
+                                touchAction: 'none'
+                            }}>
+                                {/* Header */}
+                                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <span style={{ cursor: 'grab', fontSize: '16px' }}>☰</span>
+                                        <strong>Image {idx + 1}</strong>
+                                    </div>
+                                    <button
+                                        onClick={() => removeImage(idx)}
+                                        onPointerDown={(e) => e.stopPropagation()}
+                                        style={{
+                                            background: '#ff4444',
+                                            color: 'white',
+                                            border: 'none',
+                                            padding: '4px 8px',
+                                            borderRadius: '4px',
+                                            cursor: 'pointer'
+                                        }}
+                                    >
+                                        ✕
+                                    </button>
+                                </div>
 
-                        {/* Preview */}
-                        {img.url ? (
-                            <img
-                                src={img.url}
-                                alt={img.caption || `Collage ${idx + 1}`}
+                                {/* Preview */}
+                                {img.url ? (
+                                    <img
+                                        src={img.url}
+                                        alt={img.caption || `Collage ${idx + 1}`}
+                                        style={{
+                                            width: '100%',
+                                            height: '120px',
+                                            objectFit: 'cover',
+                                            borderRadius: '4px',
+                                            marginBottom: '10px',
+                                            background: '#f0f0f0'
+                                        }}
+                                    />
+                                ) : (
+                                    <div style={{
+                                        width: '100%',
+                                        height: '120px',
+                                        background: '#f0f0f0',
+                                        borderRadius: '4px',
+                                        marginBottom: '10px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        color: '#999'
+                                    }}>
+                                        No image
+                                    </div>
+                                )}
+
+                                {/* URL Input */}
+                                <input
+                                    type="text"
+                                    placeholder="Image URL"
+                                    value={img.url || ''}
+                                    onChange={(e) => updateUrl(idx, e.target.value)}
+                                    onPointerDown={(e) => e.stopPropagation()}
+                                    style={{
+                                        width: '100%',
+                                        padding: '6px',
+                                        marginBottom: '6px',
+                                        boxSizing: 'border-box',
+                                        fontSize: '12px'
+                                    }}
+                                />
+
+                                {/* Caption Input */}
+                                <input
+                                    type="text"
+                                    placeholder="Caption (optional)"
+                                    value={img.caption || ''}
+                                    onChange={(e) => updateCaption(idx, e.target.value)}
+                                    onPointerDown={(e) => e.stopPropagation()}
+                                    style={{
+                                        width: '100%',
+                                        padding: '6px',
+                                        boxSizing: 'border-box',
+                                        fontSize: '12px'
+                                    }}
+                                />
+                            </SortableItem>
+                        ))}
+                    </SortableContext>
+
+                    {/* Upload New Card */}
+                    {selectedSlug && (
+                        <div className="add-card" style={{
+                            border: '2px dashed #ccc',
+                            borderRadius: '8px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            minHeight: '200px',
+                            cursor: uploading ? 'wait' : 'pointer',
+                            position: 'relative',
+                            background: uploading ? '#f9f9f9' : 'white'
+                        }}>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={handleUpload}
+                                disabled={uploading}
                                 style={{
+                                    position: 'absolute',
                                     width: '100%',
-                                    height: '120px',
-                                    objectFit: 'cover',
-                                    borderRadius: '4px',
-                                    marginBottom: '10px',
-                                    background: '#f0f0f0'
+                                    height: '100%',
+                                    opacity: 0,
+                                    cursor: uploading ? 'wait' : 'pointer'
                                 }}
                             />
-                        ) : (
-                            <div style={{
-                                width: '100%',
-                                height: '120px',
-                                background: '#f0f0f0',
-                                borderRadius: '4px',
-                                marginBottom: '10px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                color: '#999'
-                            }}>
-                                No image
-                            </div>
-                        )}
-
-                        {/* URL Input */}
-                        <input
-                            type="text"
-                            placeholder="Image URL"
-                            value={img.url || ''}
-                            onChange={(e) => updateUrl(idx, e.target.value)}
-                            style={{
-                                width: '100%',
-                                padding: '6px',
-                                marginBottom: '6px',
-                                boxSizing: 'border-box',
-                                fontSize: '12px'
-                            }}
-                        />
-
-                        {/* Caption Input */}
-                        <input
-                            type="text"
-                            placeholder="Caption (optional)"
-                            value={img.caption || ''}
-                            onChange={(e) => updateCaption(idx, e.target.value)}
-                            style={{
-                                width: '100%',
-                                padding: '6px',
-                                boxSizing: 'border-box',
-                                fontSize: '12px'
-                            }}
-                        />
-                    </div>
-                ))}
-
-                {/* Upload New Card */}
-                {selectedSlug && (
-                    <div className="add-card" style={{
-                        border: '2px dashed #ccc',
-                        borderRadius: '8px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        minHeight: '200px',
-                        cursor: uploading ? 'wait' : 'pointer',
-                        position: 'relative',
-                        background: uploading ? '#f9f9f9' : 'white'
-                    }}>
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleUpload}
-                            disabled={uploading}
-                            style={{
-                                position: 'absolute',
-                                width: '100%',
-                                height: '100%',
-                                opacity: 0,
-                                cursor: uploading ? 'wait' : 'pointer'
-                            }}
-                        />
-                        {uploading ? (
-                            <>
-                                <span style={{ fontSize: '18px', color: '#666' }}>⏳</span>
-                                <span style={{ color: '#666' }}>Uploading...</span>
-                            </>
-                        ) : (
-                            <>
-                                <span style={{ fontSize: '24px', color: '#666' }}>+</span>
-                                <span style={{ color: '#666' }}>Upload Image</span>
-                            </>
-                        )}
-                    </div>
-                )}
-            </div>
+                            {uploading ? (
+                                <>
+                                    <span style={{ fontSize: '18px', color: '#666' }}>⏳</span>
+                                    <span style={{ color: '#666' }}>Uploading...</span>
+                                </>
+                            ) : (
+                                <>
+                                    <span style={{ fontSize: '24px', color: '#666' }}>+</span>
+                                    <span style={{ color: '#666' }}>Upload Image</span>
+                                </>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </DndContext>
 
             {/* Action Bar */}
             <div className="action-bar" style={{ display: 'flex', alignItems: 'center', gap: '15px', flexWrap: 'wrap' }}>
