@@ -33,9 +33,16 @@ export default function DescriptionSection({
     description,
     images = []
 }) {
-    // FORCE usage of Intro Page images for now as per specific user request
-    // "use the images used in the intro page for all places for now"
-    const collageImages = INTRO_IMAGES;
+    // Use passed images if available, otherwise fallback to INTRO_IMAGES
+    // Ensure we have at least 6 images for the grid by repeating if necessary
+    let collageImages = (images && images.length > 0)
+        ? images.map(img => typeof img === 'string' ? img : img.url)
+        : INTRO_IMAGES;
+
+    // Fill up to 6 images if needed
+    while (collageImages.length < 6) {
+        collageImages = [...collageImages, ...collageImages];
+    }
 
     // Default Lorem Ipsum if no description provided
     const contentText = description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";

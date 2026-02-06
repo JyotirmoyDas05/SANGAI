@@ -31,8 +31,12 @@ const districtSchema = new mongoose.Schema(
         },
 
         // Extended Hero Images (multiple)
+        heroImages: [{
+            url: { type: String, required: true },
+            caption: String
+        }],
         images: {
-            hero: [String],
+            hero: [String], // Legacy support, optional
             map: String
         },
 

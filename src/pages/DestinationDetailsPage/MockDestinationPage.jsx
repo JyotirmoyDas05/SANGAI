@@ -1,20 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { getPlaceById } from '../../api/apiService';
 import './MockDestinationPage.css';
 
 export default function MockDestinationPage() {
-    // eslint-disable-next-line no-unused-vars
     const { id } = useParams();
     const navigate = useNavigate();
+    const [place, setPlace] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [weather, setWeather] = useState(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+        fetchPlaceData();
+    }, [id]);
 
-    const heroImage = 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=1920&q=80';
+    const fetchPlaceData = async () => {
+        try {
+            setLoading(true);
+            const data = await getPlaceById(id);
+            setPlace(data);
 
-    // Weather Logic
-    const [weather, setWeather] = React.useState(null);
+            // Fetch weather if location exists
+            if (data.location && data.location.lat && data.location.lng) {
+                fetchWeather(data.location.lat, data.location.lng);
+            }
+        } catch (err) {
+            console.error("Failed to fetch place:", err);
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     // Weather Codes Helper
     const getWeatherDetails = (code) => {
@@ -28,40 +46,39 @@ export default function MockDestinationPage() {
         return { desc: 'Unknown', icon: 'cloud' };
     };
 
-    useEffect(() => {
-        const fetchWeather = async () => {
-            try {
-                // Coordinates for Nohkalikai (Cherrapunji)
-                const lat = 25.27;
-                const lng = 91.73;
+    const fetchWeather = async (lat, lng) => {
+        try {
+            const response = await fetch(
+                `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code`
+            );
 
-                const response = await fetch(
-                    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code`
-                );
+            if (response.ok) {
+                const data = await response.json();
+                const current = data.current;
+                const details = getWeatherDetails(current.weather_code);
 
-                if (response.ok) {
-                    const data = await response.json();
-                    const current = data.current;
-                    const details = getWeatherDetails(current.weather_code);
-
-                    setWeather({
-                        temp: Math.round(current.temperature_2m),
-                        condition: details.desc,
-                        icon: details.icon
-                    });
-                }
-            } catch (error) {
-                console.error("Failed to fetch weather:", error);
+                setWeather({
+                    temp: Math.round(current.temperature_2m),
+                    condition: details.desc,
+                    icon: details.icon
+                });
             }
-        };
+        } catch (error) {
+            console.error("Failed to fetch weather:", error);
+        }
+    };
 
-        fetchWeather();
-    }, []);
+    if (loading) return <div className="loading-screen">Loading destination...</div>;
+    if (error || !place) return <div className="error-screen">Destination not found.</div>;
+
+    const heroImage = place.images?.[0]?.url || 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=1920&q=80';
 
     return (
         <div className="mock-destination-page">
             {/* Back Button */}
-
+            <button className="mdp-back-btn" onClick={() => navigate(-1)} style={{ position: 'fixed', top: '20px', left: '20px', zIndex: 100, background: 'rgba(0,0,0,0.5)', color: 'white', border: 'none', borderRadius: '50%', width: '40px', height: '40px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span className="material-symbols-outlined">arrow_back</span>
+            </button>
 
             {/* Book Now Sticky Button */}
             <button className="mdp-book-btn">
@@ -75,14 +92,15 @@ export default function MockDestinationPage() {
             <header className="mdp-hero">
                 <img
                     src={heroImage}
-                    alt=""
+                    alt={place.name}
                     className="mdp-hero__image"
                     onError={(e) => { e.target.style.display = 'none'; }}
                 />
                 <div className="mdp-hero__overlay"></div>
 
                 <div className="mdp-hero__title-container">
-                    <h1 className="mdp-hero__title">Hidden Place</h1>
+                    <h1 className="mdp-hero__title">{place.name}</h1>
+                    {place.type && <span className="mdp-hero__subtitle" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.2rem', display: 'block', marginTop: '10px', textTransform: 'uppercase', letterSpacing: '2px' }}>{place.type}</span>}
                 </div>
             </header>
 
@@ -93,206 +111,122 @@ export default function MockDestinationPage() {
 
                         {/* Left Column */}
                         <div className="mdp-left-col">
-                            {/* Intro Quote */}
-                            <blockquote className="mdp-quote">
-                                "A dramatic plunge waterfall in Meghalaya, renowned for its towering drop and the striking turquoise pool below, set against the backdrop of rugged cliffs and dense forests."
-                            </blockquote>
+                            {/* Description / Overview */}
+                            <div className="mdp-description">
+                                <h3>Overview</h3>
+                                <p>{place.story?.overview || place.shortDescription}</p>
 
-                            {/* Description */}
-                            <p className="mdp-description">
-                                Nohkalikai Falls is one of India's tallest plunge and most breathtaking waterfalls, plunging 340 meters into a deep, emerald-green pool. Located near Cherrapunjee, one of the wettest places on Earth, this awe-inspiring natural wonder is fed by rainwater collected on a small plateau, making it a sight to behold throughout the year. The sheer force of the waterfall, combined with the surrounding misty cliffs and lush greenery, creates a mesmerizing spectacle that draws visitors from far and wide. Despite its beauty, Nohkalikai Falls carries a tragic legend, adding an air of mystery to its already captivating presence.
-                            </p>
+                                {place.story?.culturalSignificance && (
+                                    <>
+                                        <h3 style={{ marginTop: '20px' }}>Cultural Significance</h3>
+                                        <p>{place.story.culturalSignificance}</p>
+                                    </>
+                                )}
+
+                                {place.story?.localBelief && (
+                                    <>
+                                        <h3 style={{ marginTop: '20px' }}>Local Beliefs & Legends</h3>
+                                        <p>{place.story.localBelief}</p>
+                                    </>
+                                )}
+                            </div>
 
                             {/* Info Section: Getting There & Nearby */}
                             <div className="mdp-info-section">
                                 <div className="mdp-info-col">
                                     <div className="mdp-info-block">
                                         <h2>How to Get There</h2>
-                                        <ul className="mdp-info-list">
-                                            <li>Nohkalikai Falls is located in the East Khasi Hills District of Meghalaya, approximately 7.5 km from Sohra (Cherrapunji).</li>
-                                            <li>Cabs or local transport can be taken from Shillong or Guwahati to Sohra (Cherrapunji), the nearest major town. From Sohra (Cherrapunji), it's about a 20-minute drive to the falls.</li>
-                                            <li>Although the tourist places in Meghalaya are enduring and calling, it is advisable to arrange for a local tourist buddy or guide who is knowledgeable of the location and the language.</li>
-                                        </ul>
+                                        {place.logistics ? (
+                                            <ul className="mdp-info-list">
+                                                {place.logistics.nearestTown && <li><strong>Nearest Town:</strong> {place.logistics.nearestTown} {place.logistics.distanceFromNearestTown && `(${place.logistics.distanceFromNearestTown})`}</li>}
+                                                {place.logistics.distanceFromShillong && <li><strong>From Shillong:</strong> {place.logistics.distanceFromShillong}</li>}
+                                                {place.logistics.distanceFromGuwahati && <li><strong>From Guwahati:</strong> {place.logistics.distanceFromGuwahati}</li>}
+                                                {place.logistics.transportationInfo && <li style={{ marginTop: '10px' }}>{place.logistics.transportationInfo}</li>}
+                                            </ul>
+                                        ) : (
+                                            <ul className="mdp-info-list">
+                                                <li>Located in {place.districtId?.name || 'Northeast India'}.</li>
+                                                <li>Use local cabs or transport from major towns relative to {place.districtId?.name}.</li>
+                                            </ul>
+                                        )}
                                     </div>
 
                                     <div className="mdp-info-block">
-                                        <h2>When and Where</h2>
+                                        <h2>Best Time to Visit</h2>
                                         <ul className="mdp-info-list">
-                                            <li>Nohkalikai Falls is in the East Khasi Hills district of Meghalaya, India, with the nearest town, Sohra (Cherrapunji), being 7.5 km away.</li>
-                                            <li>The distance from Shillong Airport is 79 km and 167 km from Guwahati Airport.</li>
-                                            <li>The best time to visit Nohkalikai Falls is between October and December, when the monsoon season enhances the waterfall, creating a spectacular sight.</li>
-                                            <li>Nohkalikai Falls is open from 8:00 AM to 5:00 PM daily.</li>
+                                            <li>{place.bestTimeToVisit || 'October to April is generally the best time to visit Northeast India.'}</li>
                                         </ul>
                                     </div>
                                 </div>
 
+                                {/* Nearby Attractions Placeholder - could be dynamic later */}
                                 <div className="mdp-attractions-col">
-                                    <h3>Nearby Attractions</h3>
+                                    {place.experience?.highlights?.length > 0 && (
+                                        <div className="mdp-highlights" style={{ marginBottom: '30px' }}>
+                                            <h3>Don't Miss</h3>
+                                            <ul className="mdp-info-list">
+                                                {place.experience.highlights.map((h, i) => (
+                                                    <li key={i}>{h}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
 
-                                    <div className="mdp-attraction-card">
-                                        <img src="https://images.unsplash.com/photo-1705861144411-926a793c1ba2?w=600&q=80" alt="Arwah Cave" />
-                                        <div className="mdp-attraction-overlay"></div>
-                                        <div className="mdp-attraction-name">Arwah Cave</div>
-                                    </div>
-
-                                    <div className="mdp-attraction-card">
-                                        <img src="https://images.unsplash.com/photo-1707055744274-1317d74bd89b?w=600&q=80" alt="Mawsmai Cave" />
-                                        <div className="mdp-attraction-overlay"></div>
-                                        <div className="mdp-attraction-name">Mawsmai Cave</div>
+                                    <h3>Gallery</h3>
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                                        {place.images?.slice(1, 5).map((img, idx) => (
+                                            <div key={idx} className="mdp-attraction-card">
+                                                <img src={img.url || img} alt="" style={{ height: '100px', objectFit: 'cover' }} />
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Homestay Options */}
+                            {/* Homestay Options - Placeholder or Generic for now */}
                             <div className="mdp-homestays">
                                 <h2 className="mdp-homestays__title">Where to Stay</h2>
-
-                                {/* Homestay Card 1 */}
-                                <div className="mdp-homestay-card" onClick={() => navigate('APRIL_SPRINGS_HOMESTAY')} style={{ cursor: 'pointer' }}>
-                                    <div className="mdp-homestay-card__image">
-                                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" alt="" />
-                                    </div>
-                                    <div className="mdp-homestay-card__content">
-                                        <div className="mdp-homestay-card__header">
-                                            <h3 className="mdp-homestay-card__name">APRIL SPRINGS HOMESTAY</h3>
-                                            <div className="mdp-homestay-card__rating">
-                                                <span className="rating-text">Good</span>
-                                                <span className="rating-badge">4.3★</span>
-                                            </div>
-                                        </div>
-                                        <div className="mdp-homestay-card__location">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
-                                            <span>UB 23, Upper Nongrim Hills, Opp NEC Building, Shillong</span>
-                                            <span className="reviews">(4 Reviews)</span>
-                                        </div>
-                                        <div className="mdp-homestay-card__price">₹ 3,500.00</div>
-                                        <div className="mdp-homestay-card__details">1 Night, 1 Adult</div>
-                                        <div className="mdp-homestay-card__amenities">
-                                            <span>📶 WiFi</span>
-                                            <span>🍳 Breakfast</span>
-                                            <span>🍽️ Lunch</span>
-                                            <span>🍽️ Dinner</span>
-                                            <span>🅿️ Parking</span>
-                                        </div>
-                                        <button className="mdp-homestay-card__btn">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><path d="M12 8v8" /><path d="M8 12h8" /></svg>
-                                            See Availability
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* Homestay Card 2 */}
-                                <div className="mdp-homestay-card" onClick={() => navigate('HILLS_VALLEY_GUESTHOUSE')} style={{ cursor: 'pointer' }}>
-                                    <div className="mdp-homestay-card__image">
-                                        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&q=80" alt="" />
-                                    </div>
-                                    <div className="mdp-homestay-card__content">
-                                        <div className="mdp-homestay-card__header">
-                                            <h3 className="mdp-homestay-card__name">HILLS & VALLEY GUESTHOUSE</h3>
-                                            <div className="mdp-homestay-card__rating">
-                                                <span className="rating-text">Excellent</span>
-                                                <span className="rating-badge">4.7★</span>
-                                            </div>
-                                        </div>
-                                        <div className="mdp-homestay-card__location">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
-                                            <span>Near Mawkdok View Point, Sohra (Cherrapunji)</span>
-                                            <span className="reviews">(12 Reviews)</span>
-                                        </div>
-                                        <div className="mdp-homestay-card__price">₹ 4,200.00</div>
-                                        <div className="mdp-homestay-card__details">1 Night, 1 Adult</div>
-                                        <div className="mdp-homestay-card__amenities">
-                                            <span>📶 WiFi</span>
-                                            <span>🍳 Breakfast</span>
-                                            <span>🚗 Pick-up</span>
-                                            <span>🅿️ Parking</span>
-                                        </div>
-                                        <button className="mdp-homestay-card__btn">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><path d="M12 8v8" /><path d="M8 12h8" /></svg>
-                                            See Availability
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* Homestay Card 3 */}
-                                <div className="mdp-homestay-card" onClick={() => navigate('CHERRAPUNJI_HOLIDAY_RESORT')} style={{ cursor: 'pointer' }}>
-                                    <div className="mdp-homestay-card__image">
-                                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&q=80" alt="" />
-                                    </div>
-                                    <div className="mdp-homestay-card__content">
-                                        <div className="mdp-homestay-card__header">
-                                            <h3 className="mdp-homestay-card__name">CHERRAPUNJI HOLIDAY RESORT</h3>
-                                            <div className="mdp-homestay-card__rating">
-                                                <span className="rating-text">Very Good</span>
-                                                <span className="rating-badge">4.5★</span>
-                                            </div>
-                                        </div>
-                                        <div className="mdp-homestay-card__location">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
-                                            <span>Laitkynsew, Near Seven Sisters Falls, Sohra</span>
-                                            <span className="reviews">(8 Reviews)</span>
-                                        </div>
-                                        <div className="mdp-homestay-card__price">₹ 5,800.00</div>
-                                        <div className="mdp-homestay-card__details">1 Night, 2 Adults</div>
-                                        <div className="mdp-homestay-card__amenities">
-                                            <span>📶 WiFi</span>
-                                            <span>🍳 Breakfast</span>
-                                            <span>🍽️ Dinner</span>
-                                            <span>🌄 View</span>
-                                            <span>🅿️ Parking</span>
-                                        </div>
-                                        <button className="mdp-homestay-card__btn">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><path d="M12 8v8" /><path d="M8 12h8" /></svg>
-                                            See Availability
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* Homestay Card 4 */}
-                                <div className="mdp-homestay-card" onClick={() => navigate('SOHRA_PINE_COTTAGE')} style={{ cursor: 'pointer' }}>
-                                    <div className="mdp-homestay-card__image">
-                                        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&q=80" alt="" />
-                                    </div>
-                                    <div className="mdp-homestay-card__content">
-                                        <div className="mdp-homestay-card__header">
-                                            <h3 className="mdp-homestay-card__name">SOHRA PINE COTTAGE</h3>
-                                            <div className="mdp-homestay-card__rating">
-                                                <span className="rating-text">Good</span>
-                                                <span className="rating-badge">4.1★</span>
-                                            </div>
-                                        </div>
-                                        <div className="mdp-homestay-card__location">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
-                                            <span>Main Road, Cherrapunji Market Area, Sohra</span>
-                                            <span className="reviews">(6 Reviews)</span>
-                                        </div>
-                                        <div className="mdp-homestay-card__price">₹ 2,800.00</div>
-                                        <div className="mdp-homestay-card__details">1 Night, 1 Adult</div>
-                                        <div className="mdp-homestay-card__amenities">
-                                            <span>📶 WiFi</span>
-                                            <span>🍳 Breakfast</span>
-                                            <span>🅿️ Parking</span>
-                                        </div>
-                                        <button className="mdp-homestay-card__btn">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><path d="M12 8v8" /><path d="M8 12h8" /></svg>
-                                            See Availability
-                                        </button>
-                                    </div>
-                                </div>
+                                <p style={{ color: '#ccc' }}>Homestay options near {place.name} coming soon.</p>
                             </div>
                         </div>
 
                         {/* Right Sidebar */}
                         <aside className="mdp-sidebar">
                             {/* Map Widget */}
-                            <div className="mdp-map-widget">
-                                <iframe
-                                    title="Location Map"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.854583826503!2d91.68359282611154!3d25.2754767285243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37508d4d52a66213%3A0x1e4a36d9696f9c41!2sNohKaLikai%20Falls!5e0!3m2!1sen!2sin"
-                                    allowFullScreen=""
-                                    loading="lazy"
-                                ></iframe>
-                            </div>
+                            {place.location?.lat && (
+                                <div className="mdp-map-widget">
+                                    <iframe
+                                        title="Location Map"
+                                        src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_KEY || ''}&q=${place.location.lat},${place.location.lng}&zoom=14`}
+                                        width="100%"
+                                        height="300"
+                                        frameBorder="0"
+                                        style={{ border: 0 }}
+                                        allowFullScreen=""
+                                    ></iframe>
+                                    {/* Fallback frame if no key */}
+                                    {!import.meta.env.VITE_GOOGLE_MAPS_KEY && (
+                                        <div style={{ background: '#333', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
+                                            Map Unavailable (No Key)
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            {/* Visitor Tips Widget */}
+                            {place.experience?.visitorTips?.length > 0 && (
+                                <div className="mdp-weather-widget" style={{ marginBottom: '20px', background: '#222' }}>
+                                    <p className="mdp-weather__title">Essential Tips</p>
+                                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.9rem', color: '#ddd' }}>
+                                        {place.experience.visitorTips.map((tip, i) => (
+                                            <li key={i} style={{ marginBottom: '10px', display: 'flex', gap: '8px' }}>
+                                                <span style={{ color: '#ffd700' }}>•</span>
+                                                {tip}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
 
                             {/* Weather Widget */}
                             <div className="mdp-weather-widget">
@@ -309,66 +243,55 @@ export default function MockDestinationPage() {
                                     </div>
                                 ) : (
                                     <div className="mdp-weather__content">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
-                                        </svg>
-                                        <div>
-                                            <span className="mdp-weather__temp">--°</span>
-                                            <span className="mdp-weather__desc">Loading...</span>
-                                        </div>
+                                        <span className="mdp-weather__desc">Loading weather...</span>
                                     </div>
                                 )}
-                                <a
-                                    href="https://www.google.com/search?q=weather+Cherrapunji"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="mdp-weather__link"
-                                >
-                                    Weather Forecast
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
-                                </a>
                             </div>
 
                             {/* Contact Widget */}
-                            <div className="mdp-contact-widget">
-                                <p className="mdp-contact__title">
-                                    Please call for assistance at the <strong>Helpline</strong>
-                                </p>
-                                <div className="mdp-contact-list">
-                                    {/* Phone */}
-                                    <a href="tel:+916002972179" className="mdp-contact__item">
-                                        <div className="mdp-contact__icon-wrap">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                                        </div>
-                                        <div>
-                                            <div className="mdp-contact__label">Call Our Helpline</div>
-                                            <div className="mdp-contact__value">+91 6002972179</div>
-                                        </div>
-                                    </a>
-
-                                    {/* WhatsApp */}
-                                    <a href="https://wa.me/916002972179" target="_blank" rel="noopener noreferrer" className="mdp-contact__item">
-                                        <div className="mdp-contact__icon-wrap">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
-                                        </div>
-                                        <div>
-                                            <div className="mdp-contact__label">WhatsApp / SMS</div>
-                                            <div className="mdp-contact__value">+91 6002972179</div>
-                                        </div>
-                                    </a>
-
-                                    {/* Email */}
-                                    <a href="mailto:duljit29@gmail.com" className="mdp-contact__item">
-                                        <div className="mdp-contact__icon-wrap">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-                                        </div>
-                                        <div>
-                                            <div className="mdp-contact__label">Email Our Travel Desk</div>
-                                            <div className="mdp-contact__value">duljit29@gmail.com</div>
-                                        </div>
-                                    </a>
+                            {/* Contact Widget */}
+                            {(place.contact?.phone || place.contact?.whatsapp || place.contact?.email) && (
+                                <div className="mdp-contact-widget">
+                                    <p className="mdp-contact__title">
+                                        Need assistance? Call our <strong>Helpline</strong>
+                                    </p>
+                                    <div className="mdp-contact-list">
+                                        {place.contact.phone && (
+                                            <a href={`tel:${place.contact.phone}`} className="mdp-contact__item">
+                                                <div className="mdp-contact__icon-wrap">
+                                                    <span className="material-symbols-outlined">call</span>
+                                                </div>
+                                                <div>
+                                                    <div className="mdp-contact__label">Call Our Helpline</div>
+                                                    <div className="mdp-contact__value">{place.contact.phone}</div>
+                                                </div>
+                                            </a>
+                                        )}
+                                        {place.contact.whatsapp && (
+                                            <a href={`https://wa.me/${place.contact.whatsapp.replace(/[^0-9]/g, '')}`} className="mdp-contact__item" target="_blank" rel="noopener noreferrer">
+                                                <div className="mdp-contact__icon-wrap">
+                                                    <span className="material-symbols-outlined" style={{ color: '#25D366' }}>chat</span>
+                                                </div>
+                                                <div>
+                                                    <div className="mdp-contact__label">WhatsApp Us</div>
+                                                    <div className="mdp-contact__value">{place.contact.whatsapp}</div>
+                                                </div>
+                                            </a>
+                                        )}
+                                        {place.contact.email && (
+                                            <a href={`mailto:${place.contact.email}`} className="mdp-contact__item">
+                                                <div className="mdp-contact__icon-wrap">
+                                                    <span className="material-symbols-outlined">mail</span>
+                                                </div>
+                                                <div>
+                                                    <div className="mdp-contact__label">Email Us</div>
+                                                    <div className="mdp-contact__value" style={{ fontSize: '0.8rem' }}>{place.contact.email}</div>
+                                                </div>
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </aside>
                     </div>
                 </div>
@@ -376,3 +299,4 @@ export default function MockDestinationPage() {
         </div>
     );
 }
+

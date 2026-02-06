@@ -21,6 +21,22 @@ const placeSchema = new mongoose.Schema(
             lat: { type: Number, required: true },
             lng: { type: Number, required: true }
         },
+        logistics: {
+            nearestTown: String,
+            distanceFromNearestTown: String,
+            distanceFromShillong: String,
+            distanceFromGuwahati: String,
+            transportationInfo: String
+        },
+        experience: {
+            highlights: [String],
+            visitorTips: [String]
+        },
+        contact: {
+            phone: String,
+            whatsapp: String,
+            email: String
+        },
         images: [
             {
                 url: String,

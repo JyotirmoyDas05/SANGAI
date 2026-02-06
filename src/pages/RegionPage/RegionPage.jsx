@@ -150,7 +150,15 @@ function RegionOverview({ regionSlug, displayName }) {
     ]);
 
     // Fetch primary Northeast image to replace the first placeholder slot if available
+    // OR if generic region page, load its images
     useEffect(() => {
+        // If we have specific data with heroImages, use those
+        if (data && data.heroImages && data.heroImages.length > 0) {
+            setHeroSlides(data.heroImages);
+            return;
+        }
+
+        // Otherwise fallback to Northeast defaults (fetching Northeast image 0)
         async function fetchPlaceholder() {
             try {
                 const regionData = await getRegionBySlug('northeast');
@@ -161,8 +169,12 @@ function RegionOverview({ regionSlug, displayName }) {
                 console.error("Failed to fetch northeast placeholder image", err);
             }
         }
-        fetchPlaceholder();
-    }, []);
+
+        // Only fetch placeholder if we don't have data images
+        if (!data || !data.heroImages || data.heroImages.length === 0) {
+            fetchPlaceholder();
+        }
+    }, [data]);
 
     useEffect(() => {
         async function fetchData() {

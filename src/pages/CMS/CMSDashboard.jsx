@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import CMSHeroManager from './CMSHeroManager'; // Import the new manager
 
 export default function CMSDashboard() {
-    const [festivals, setFestivals] = useState([]);
+    const [activeTab, setActiveTab] = useState('festivals'); // 'festivals', 'destinations', 'hero-images'
+    const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -13,19 +15,24 @@ export default function CMSDashboard() {
     };
 
     useEffect(() => {
-        fetchFestivals();
-    }, []);
+        // Skip fetching items if tab is hero-images
+        if (activeTab === 'hero-images') return;
+        fetchItems();
+    }, [activeTab]);
 
-    const fetchFestivals = async () => {
+    const fetchItems = async () => {
+        setLoading(true);
         try {
             const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
-            const res = await fetch(`${API_BASE}/cms/festivals`, {
+            const endpoint = activeTab === 'festivals' ? '/cms/festivals' : '/cms/destinations';
+
+            const res = await fetch(`${API_BASE}${endpoint}`, {
                 headers: getAuthHeader()
             });
             const data = await res.json();
 
             if (data.success) {
-                setFestivals(data.data);
+                setItems(data.data);
             } else {
                 setError(data.error);
                 if (res.status === 401 || res.status === 403) {
@@ -45,13 +52,15 @@ export default function CMSDashboard() {
 
         try {
             const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
-            const res = await fetch(`${API_BASE}/cms/festivals/${id}`, {
+            const endpoint = activeTab === 'festivals' ? `/cms/festivals/${id}` : `/cms/destinations/${id}`;
+
+            const res = await fetch(`${API_BASE}${endpoint}`, {
                 method: 'DELETE',
                 headers: getAuthHeader()
             });
 
             if (res.ok) {
-                setFestivals(festivals.filter(f => f._id !== id));
+                setItems(items.filter(i => i._id !== id));
             } else {
                 alert('Failed to delete');
             }
@@ -60,64 +69,117 @@ export default function CMSDashboard() {
         }
     };
 
-    if (loading) return <div className="cms-content">Loading...</div>;
+    if (loading && items.length === 0 && activeTab !== 'hero-images') return <div className="cms-content">Loading...</div>;
 
     return (
         <div className="cms-dashboard">
             <div className="dashboard-header">
-                <h1>All Festivals</h1>
-                <Link to="/dev-cms/festivals/new" className="add-btn">+ Add New Festival</Link>
+                <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                    <h1 style={{ margin: 0 }}>CMS Dashboard</h1>
+                    <div className="tabs" style={{ display: 'flex', gap: '10px' }}>
+                        <button
+                            onClick={() => setActiveTab('festivals')}
+                            style={{
+                                padding: '8px 16px',
+                                border: 'none',
+                                background: activeTab === 'festivals' ? '#333' : '#eee',
+                                color: activeTab === 'festivals' ? 'white' : 'black',
+                                cursor: 'pointer', borderRadius: '4px'
+                            }}
+                        >
+                            Festivals
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('destinations')}
+                            style={{
+                                padding: '8px 16px',
+                                border: 'none',
+                                background: activeTab === 'destinations' ? '#333' : '#eee',
+                                color: activeTab === 'destinations' ? 'white' : 'black',
+                                cursor: 'pointer', borderRadius: '4px'
+                            }}
+                        >
+                            Destinations
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('hero-images')}
+                            style={{
+                                padding: '8px 16px',
+                                border: 'none',
+                                background: activeTab === 'hero-images' ? '#333' : '#eee',
+                                color: activeTab === 'hero-images' ? 'white' : 'black',
+                                cursor: 'pointer', borderRadius: '4px'
+                            }}
+                        >
+                            Hero Images
+                        </button>
+                    </div>
+                </div>
+                {activeTab !== 'hero-images' && (
+                    <Link to={activeTab === 'festivals' ? "/dev-cms/festivals/new" : "/dev-cms/destinations/new"} className="add-btn">
+                        + Add New {activeTab === 'festivals' ? 'Festival' : 'Destination'}
+                    </Link>
+                )}
             </div>
 
-            {error && <div className="error">{error}</div>}
+            {error && activeTab !== 'hero-images' && <div className="error">{error}</div>}
 
-            <table className="data-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Dates</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {festivals.map(festival => (
-                        <tr key={festival._id}>
-                            <td>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                    {festival.images?.preview && (
-                                        <img
-                                            src={festival.images.preview}
-                                            alt=""
-                                            style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }}
-                                        />
-                                    )}
-                                    {festival.name}
-                                </div>
-                            </td>
-                            <td>{festival.category}</td>
-                            <td>
-                                {festival.latestOccurrence ? (
-                                    <>
-                                        {new Date(festival.latestOccurrence.startDate).toLocaleDateString()}
-                                        {' - '}
-                                        {new Date(festival.latestOccurrence.endDate).toLocaleDateString()}
-                                    </>
-                                ) : 'No active dates'}
-                            </td>
-                            <td>
-                                <button className="action-btn edit" onClick={() => navigate(`/dev-cms/festivals/edit/${festival._id}`)}>✏️</button>
-                                <button className="action-btn delete" onClick={() => handleDelete(festival._id)}>🗑️</button>
-                            </td>
-                        </tr>
-                    ))}
-                    {festivals.length === 0 && (
+            {activeTab === 'hero-images' ? (
+                <CMSHeroManager />
+            ) : (
+                <table className="data-table">
+                    <thead>
                         <tr>
-                            <td colSpan="4" style={{ textAlign: 'center' }}>No festivals found. Create one!</td>
+                            <th>Name</th>
+                            <th>Type/Category</th>
+                            <th>{activeTab === 'festivals' ? 'Dates' : 'District'}</th>
+                            <th>Actions</th>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {items.map(item => (
+                            <tr key={item._id}>
+                                <td>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                        {/* Handle varied image structures */}
+                                        {(item.images?.preview || (Array.isArray(item.images) && item.images[0]?.url) || (Array.isArray(item.images) && typeof item.images[0] === 'string' && item.images[0])) && (
+                                            <img
+                                                src={item.images?.preview || item.images[0]?.url || item.images[0]}
+                                                alt=""
+                                                style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }}
+                                            />
+                                        )}
+                                        {item.name}
+                                    </div>
+                                </td>
+                                <td>{item.category || item.type}</td>
+                                <td>
+                                    {activeTab === 'festivals' ? (
+                                        item.latestOccurrence ? (
+                                            <>
+                                                {new Date(item.latestOccurrence.startDate).toLocaleDateString()}
+                                                {' - '}
+                                                {new Date(item.latestOccurrence.endDate).toLocaleDateString()}
+                                            </>
+                                        ) : 'No active dates'
+                                    ) : (
+                                        item.districtId?.name || item.districtId || '-'
+                                    )}
+                                </td>
+                                <td>
+                                    <button className="action-btn edit" onClick={() => navigate(`/dev-cms/${activeTab}/edit/${item._id}`)}>✏️</button>
+                                    <button className="action-btn delete" onClick={() => handleDelete(item._id)}>🗑️</button>
+                                </td>
+                            </tr>
+                        ))}
+                        {items.length === 0 && (
+                            <tr>
+                                <td colSpan="4" style={{ textAlign: 'center' }}>No {activeTab} found. Create one!</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            )}
         </div>
     );
 }

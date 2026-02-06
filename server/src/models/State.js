@@ -26,6 +26,11 @@ const stateSchema = new mongoose.Schema(
             url: String,
             caption: String
         },
+        // NEW: Multiple Hero Images
+        heroImages: [{
+            url: { type: String, required: true },
+            caption: String
+        }],
 
         // Section 2: State at a Glance (Soft Facts)
         glance: {

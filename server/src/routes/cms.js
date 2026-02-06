@@ -1,9 +1,7 @@
 import express from 'express';
 import { devAuth } from '../middleware/devAuth.js';
-import FestivalMaster from '../models/FestivalMaster.js';
-import FestivalOccurrence from '../models/FestivalOccurrence.js';
-import State from '../models/State.js';
-import District from '../models/District.js';
+import { FestivalMaster, FestivalOccurrence, District, Place, Region } from '../models/index.js'; // Added Region
+import State from '../models/State.js'; // Keep State as it's not in the combined import
 import cloudinary from '../config/cloudinary.js';
 import multer from 'multer';
 import { v4 as uuidv4 } from 'uuid';
@@ -274,6 +272,255 @@ router.delete('/festivals/:id', async (req, res) => {
         await FestivalOccurrence.deleteMany({ festivalId: id });
 
         res.json({ success: true, message: 'Festival deleted' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * ==========================================
+ * DESTINATIONS (PLACES) MANAGEMENT
+ * ==========================================
+ */
+
+/**
+ * LIST all Destinations
+ * GET /api/cms/destinations
+ */
+router.get('/destinations', async (req, res) => {
+    try {
+        const places = await Place.find({}).sort({ updatedAt: -1 }).populate('districtId', 'name slug');
+        res.json({ success: true, data: places });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * CREATE Destination
+ * POST /api/cms/destinations
+ */
+router.post('/destinations', async (req, res) => {
+    try {
+        const {
+            name, type, districtId, shortDescription,
+            overview, culturalSignificance, localBelief,
+            lat, lng,
+            images, // Expecting array of objects { url, caption } or strings
+            bestTimeToVisit, isHiddenGem, tags,
+            // New Fields
+            logistics, experience, contact
+        } = req.body;
+
+        // Generate ID/Slug
+        const _id = name.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+
+        // Resolve District ID
+        let realDistrictId = districtId;
+        const districtDoc = await District.findOne({ slug: districtId });
+        if (districtDoc) {
+            realDistrictId = districtDoc._id;
+        } else {
+            // If not found, use a fallback valid ObjectId or fail?
+            // Ideally fail, but for now log warning.
+            // Mongoose might strictly require ObjectId if schema defines ref.
+            // Place schema: districtId: { type: String, ref: 'District' } (String ID)
+            // So relying on slug might fail if current districts use ObjectId strings. 
+            // But existing distritcs likely use Slugs as IDs? No, generate_districts used specific IDs.
+        }
+
+        // Process images: Ensure they match schema [{url, caption}]
+        // Form might send array of strings (urls)
+        const processedImages = (images || []).map(img => {
+            if (typeof img === 'string') return { url: img, caption: '' };
+            return img;
+        });
+
+        const placeData = {
+            _id,
+            name,
+            type,
+            districtId: realDistrictId,
+            shortDescription,
+            story: {
+                overview,
+                culturalSignificance,
+                localBelief
+            },
+            location: {
+                lat: parseFloat(lat || 0),
+                lng: parseFloat(lng || 0)
+            },
+            images: processedImages,
+            bestTimeToVisit,
+            isHiddenGem: !!isHiddenGem,
+            logistics: logistics || {},
+            experience: experience || {},
+            contact: contact || {}
+            // tagIds handling skipped for brevity
+        };
+
+        const place = await Place.create(placeData);
+        res.json({ success: true, data: place });
+
+    } catch (error) {
+        console.error('Create Place Error:', error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * GET Single Destination
+ * GET /api/cms/destinations/:id
+ */
+router.get('/destinations/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const place = await Place.findById(id).populate('districtId');
+
+        if (!place) return res.status(404).json({ error: 'Place not found' });
+
+        const responseData = place.toObject();
+        // Inject slug for CMS Select pre-filling if needed
+        if (responseData.districtId && responseData.districtId.slug) {
+            responseData.districtSlug = responseData.districtId.slug;
+        }
+
+        res.json({ success: true, data: responseData });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE Destination
+ * PUT /api/cms/destinations/:id
+ */
+router.put('/destinations/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const {
+            name, type, districtId, shortDescription,
+            overview, culturalSignificance, localBelief,
+            lat, lng,
+            images,
+            bestTimeToVisit, isHiddenGem,
+            // New Fields
+            logistics, experience, contact
+        } = req.body;
+
+        // Resolve District ID
+        let realDistrictId = districtId;
+        const districtDoc = await District.findOne({ slug: districtId });
+        if (districtDoc) {
+            realDistrictId = districtDoc._id;
+        }
+
+        const processedImages = (images || []).map(img => {
+            if (typeof img === 'string') return { url: img, caption: '' };
+            return img;
+        });
+
+        const updateData = {
+            name,
+            type,
+            districtId: realDistrictId,
+            shortDescription,
+            story: {
+                overview,
+                culturalSignificance,
+                localBelief
+            },
+            location: {
+                lat: parseFloat(lat || 0),
+                lng: parseFloat(lng || 0)
+            },
+            images: processedImages,
+            bestTimeToVisit,
+            isHiddenGem: !!isHiddenGem,
+            logistics: logistics || {},
+            experience: experience || {},
+            contact: contact || {}
+        };
+
+        const place = await Place.findByIdAndUpdate(id, updateData, { new: true });
+        if (!place) return res.status(404).json({ error: 'Place not found' });
+
+        res.json({ success: true, data: place });
+
+    } catch (error) {
+        console.error('Update Place Error:', error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * ==========================================
+ * HERO IMAGE MANAGEMENT
+ * ==========================================
+ */
+
+/**
+ * UPDATE Region Hero Images
+ * PUT /api/cms/regions/:slug/hero-images
+ */
+router.put('/regions/:slug/hero-images', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { heroImages } = req.body; // Expecting [{ url, caption }]
+
+        const region = await Region.findOneAndUpdate(
+            { slug: slug },
+            { $set: { heroImages: heroImages } },
+            { new: true }
+        );
+
+        if (!region) return res.status(404).json({ error: 'Region not found' });
+        res.json({ success: true, data: region });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE State Hero Images
+ * PUT /api/cms/states/:slug/hero-images
+ */
+router.put('/states/:slug/hero-images', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { heroImages } = req.body; // Expecting [{ url, caption }]
+
+        const state = await State.findOneAndUpdate(
+            { slug: slug },
+            { $set: { heroImages: heroImages } },
+            { new: true }
+        );
+
+        if (!state) return res.status(404).json({ error: 'State not found' });
+        res.json({ success: true, data: state });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+/**
+ * UPDATE District Hero Images
+ * PUT /api/cms/districts/:slug/hero-images
+ */
+router.put('/districts/:slug/hero-images', async (req, res) => {
+    try {
+        const { slug } = req.params;
+        const { heroImages } = req.body; // Expecting [{ url, caption }]
+
+        const district = await District.findOneAndUpdate(
+            { slug: slug },
+            { $set: { heroImages: heroImages } },
+            { new: true }
+        );
+
+        if (!district) return res.status(404).json({ error: 'District not found' });
+        res.json({ success: true, data: district });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

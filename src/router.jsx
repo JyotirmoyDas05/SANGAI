@@ -22,12 +22,13 @@ import ProductPage from './pages/ProductPage/ProductPage';
 import DestinationsView from './pages/ExplorePage/views/DestinationsView';
 import EssentialsView from './pages/ExplorePage/views/EssentialsView';
 import FestivalsView from './pages/ExplorePage/views/FestivalsView';
-import PlacesView from './pages/ExplorePage/views/PlacesView';
+// import PlacesView from './pages/ExplorePage/views/Places/PlacesView'; // Removed: use DestinationsView
 import HomestaysView from './pages/ExplorePage/views/HomestaysView';
 import GuidesView from './pages/ExplorePage/views/GuidesView';
 import CMSLayout from './pages/CMS/CMSLayout';
 import CMSDashboard from './pages/CMS/CMSDashboard';
 import FestivalForm from './pages/CMS/FestivalForm';
+import DestinationForm from './pages/CMS/DestinationForm';
 
 /**
  * SANGAI Route Configuration
@@ -101,7 +102,7 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: 'places',
-                        element: <PlacesView />,
+                        element: <DestinationsView />,
                     },
                     {
                         path: 'homestays',
@@ -141,7 +142,7 @@ export const router = createBrowserRouter([
                             },
                             {
                                 path: 'places',
-                                element: <PlacesView />,
+                                element: <DestinationsView />,
                             },
                             {
                                 path: 'homestays',
@@ -176,7 +177,7 @@ export const router = createBrowserRouter([
                                     },
                                     {
                                         path: 'places',
-                                        element: <PlacesView />,
+                                        element: <DestinationsView />,
                                     },
                                     {
                                         path: 'homestays',
@@ -246,7 +247,15 @@ export const router = createBrowserRouter([
             {
                 path: 'festivals/edit/:id',
                 element: <FestivalForm />
-            }
+            },
+            {
+                path: 'destinations/new',
+                element: <DestinationForm />
+            },
+            {
+                path: 'destinations/edit/:id',
+                element: <DestinationForm />
+            },
         ]
     }
 ]);
