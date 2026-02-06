@@ -31,7 +31,7 @@ router.get('/', async (req, res, next) => {
 
         const [places, total] = await Promise.all([
             Place.find(filter)
-                .populate('districtId', 'stateName districtName')
+                .populate('districtId', 'stateName districtName slug stateCode')
                 .populate('tagIds', 'name')
                 .skip(skip)
                 .limit(parseInt(limit))

@@ -15,7 +15,8 @@ const placeSchema = new mongoose.Schema(
         story: {
             overview: String,
             culturalSignificance: String,
-            localBelief: String
+            localBelief: String,
+            quote: String // NEW: For the italicized quote
         },
         location: {
             lat: { type: Number, required: true },
@@ -30,8 +31,13 @@ const placeSchema = new mongoose.Schema(
         },
         experience: {
             highlights: [String],
-            visitorTips: [String]
+            visitorTips: [String],
+            dontMiss: [{ // NEW: For the "Don't Miss" grid
+                title: String,
+                description: String
+            }]
         },
+        guideInfo: String, // NEW: For specific guide/buddy recommendations
         contact: {
             phone: String,
             whatsapp: String,

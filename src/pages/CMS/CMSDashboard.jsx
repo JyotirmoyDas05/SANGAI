@@ -163,7 +163,7 @@ export default function CMSDashboard() {
                                             </>
                                         ) : 'No active dates'
                                     ) : (
-                                        item.districtId?.name || item.districtId || '-'
+                                        item.districtId?.name || item.districtId?.districtName || (typeof item.districtId === 'string' ? item.districtId : 'Unknown District')
                                     )}
                                 </td>
                                 <td>

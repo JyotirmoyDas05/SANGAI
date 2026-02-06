@@ -165,11 +165,18 @@ function DistrictOverview({ stateSlug, districtSlug, displayName, stateName }) {
         return <FallbackOverview displayName={displayName} stateName={stateName} />;
     }
 
-    const heroSlides = data.images?.hero?.length > 0
-        ? data.images.hero.map(url => ({ url, caption: displayName }))
-        : [
+    // Priority: New 'heroImages' > Legacy 'images.hero' > Legacy 'heroImage' > Default
+    let heroSlides = [];
+
+    if (data.heroImages && data.heroImages.length > 0) {
+        heroSlides = data.heroImages;
+    } else if (data.images?.hero?.length > 0) {
+        heroSlides = data.images.hero.map(url => ({ url, caption: displayName }));
+    } else {
+        heroSlides = [
             { url: data.heroImage?.url || 'https://images.unsplash.com/photo-1571676674483-e18e87d0c3bc?q=80&w=1920', caption: displayName }
         ];
+    }
 
     return (
         <div className="region-overview">

@@ -18,8 +18,10 @@ export default function DestinationForm() {
         districtId: '',
         shortDescription: '',
         overview: '',
+        quote: '', // NEW
         culturalSignificance: '',
         localBelief: '',
+        guideInfo: '', // NEW
         lat: '',
         lng: '',
         bestTimeToVisit: '',
@@ -35,7 +37,8 @@ export default function DestinationForm() {
         },
         experience: {
             highlights: [],
-            visitorTips: []
+            visitorTips: [],
+            dontMiss: [] // NEW: [{title, description}]
         },
         contact: {
             phone: '',
@@ -98,8 +101,10 @@ export default function DestinationForm() {
                     districtId: data.districtSlug || data.districtId?.slug || '', // Use slug if available
                     shortDescription: data.shortDescription || '',
                     overview: data.story?.overview || '',
+                    quote: data.story?.quote || '', // NEW
                     culturalSignificance: data.story?.culturalSignificance || '',
                     localBelief: data.story?.localBelief || '',
+                    guideInfo: data.guideInfo || '', // NEW
                     lat: data.location?.lat || '',
                     lng: data.location?.lng || '',
                     bestTimeToVisit: data.bestTimeToVisit || '',
@@ -108,7 +113,11 @@ export default function DestinationForm() {
                     logistics: data.logistics || {
                         nearestTown: '', distanceFromNearestTown: '', distanceFromShillong: '', distanceFromGuwahati: '', transportationInfo: ''
                     },
-                    experience: data.experience || { highlights: [], visitorTips: [] },
+                    experience: {
+                        highlights: data.experience?.highlights || [],
+                        visitorTips: data.experience?.visitorTips || [],
+                        dontMiss: data.experience?.dontMiss || [] // NEW
+                    },
                     contact: data.contact || { phone: '', whatsapp: '', email: '' }
                 });
                 // Assuming we can infer state from district or just manual for now
@@ -461,6 +470,78 @@ export default function DestinationForm() {
                             style={{ width: '100%', padding: '8px', height: '120px' }}
                         />
                     </div>
+                </div>
+
+                <div className="form-group">
+                    <label>Inspirational Quote (shown in hero)</label>
+                    <textarea
+                        value={formData.quote}
+                        onChange={e => setFormData({ ...formData, quote: e.target.value })}
+                        style={{ width: '100%', padding: '8px', height: '60px' }}
+                        placeholder="e.g. “Segmented into distinct sections...”"
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Local Guide / Buddy Info</label>
+                    <textarea
+                        value={formData.guideInfo}
+                        onChange={e => setFormData({ ...formData, guideInfo: e.target.value })}
+                        style={{ width: '100%', padding: '8px', height: '60px' }}
+                        placeholder="Info about hiring detailed guides..."
+                    />
+                </div>
+
+                {/* Don't Miss Section */}
+                <h3 style={{ borderBottom: '1px solid #ddd', paddingBottom: '10px', marginTop: '20px' }}>Don't Miss (4 boxes recommended)</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {formData.experience.dontMiss.map((item, index) => (
+                        <div key={index} style={{ display: 'grid', gridTemplateColumns: '1fr 2fr auto', gap: '10px', alignItems: 'center', background: '#f5f5f5', padding: '10px', borderRadius: '4px' }}>
+                            <input
+                                placeholder="Title (optional)"
+                                value={item.title || ''}
+                                onChange={e => {
+                                    const newMiss = [...formData.experience.dontMiss];
+                                    newMiss[index].title = e.target.value;
+                                    setFormData({ ...formData, experience: { ...formData.experience, dontMiss: newMiss } });
+                                }}
+                                style={{ padding: '8px' }}
+                            />
+                            <textarea
+                                placeholder="Description"
+                                value={item.description || ''}
+                                onChange={e => {
+                                    const newMiss = [...formData.experience.dontMiss];
+                                    newMiss[index].description = e.target.value;
+                                    setFormData({ ...formData, experience: { ...formData.experience, dontMiss: newMiss } });
+                                }}
+                                style={{ padding: '8px', height: '40px' }}
+                            />
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    const newMiss = formData.experience.dontMiss.filter((_, i) => i !== index);
+                                    setFormData({ ...formData, experience: { ...formData.experience, dontMiss: newMiss } });
+                                }}
+                                style={{ color: 'red', border: 'none', background: 'none', cursor: 'pointer' }}
+                            >
+                                Remove
+                            </button>
+                        </div>
+                    ))}
+                    <button
+                        type="button"
+                        onClick={() => setFormData({
+                            ...formData,
+                            experience: {
+                                ...formData.experience,
+                                dontMiss: [...formData.experience.dontMiss, { title: '', description: '' }]
+                            }
+                        })}
+                        style={{ padding: '8px', marginTop: '10px', cursor: 'pointer', background: '#eee', border: '1px dashed #999' }}
+                    >
+                        + Add "Don't Miss" Item
+                    </button>
                 </div>
 
                 {/* Contact Section */}

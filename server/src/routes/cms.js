@@ -401,19 +401,19 @@ router.put('/destinations/:id', async (req, res) => {
         const { id } = req.params;
         const {
             name, type, districtId, shortDescription,
-            overview, culturalSignificance, localBelief,
+            overview, culturalSignificance, localBelief, quote,
             lat, lng,
             images,
-            bestTimeToVisit, isHiddenGem,
+            bestTimeToVisit, isHiddenGem, tags,
             // New Fields
-            logistics, experience, contact
+            logistics, experience, guideInfo, contact
         } = req.body;
 
-        // Resolve District ID
-        let realDistrictId = districtId;
-        const districtDoc = await District.findOne({ slug: districtId });
-        if (districtDoc) {
-            realDistrictId = districtDoc._id;
+        // Resolve District if changed (slug passed)
+        let realDistrictId = undefined;
+        if (districtId) {
+            const districtDoc = await District.findOne({ slug: districtId });
+            if (districtDoc) realDistrictId = districtDoc._id;
         }
 
         const processedImages = (images || []).map(img => {
@@ -424,12 +424,12 @@ router.put('/destinations/:id', async (req, res) => {
         const updateData = {
             name,
             type,
-            districtId: realDistrictId,
             shortDescription,
             story: {
                 overview,
                 culturalSignificance,
-                localBelief
+                localBelief,
+                quote
             },
             location: {
                 lat: parseFloat(lat || 0),
@@ -440,8 +440,15 @@ router.put('/destinations/:id', async (req, res) => {
             isHiddenGem: !!isHiddenGem,
             logistics: logistics || {},
             experience: experience || {},
+            guideInfo,
             contact: contact || {}
         };
+
+        // Only update districtId if a valid one was resolved
+        if (realDistrictId !== undefined) {
+            updateData.districtId = realDistrictId;
+        }
+
 
         const place = await Place.findByIdAndUpdate(id, updateData, { new: true });
         if (!place) return res.status(404).json({ error: 'Place not found' });

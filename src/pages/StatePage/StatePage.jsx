@@ -149,11 +149,15 @@ function StateOverview({ stateSlug, displayName }) {
         return <FallbackOverview displayName={displayName} />;
     }
 
-    const heroSlides = [
+    const FALLBACK_SLIDES = [
         { url: 'https://images.unsplash.com/photo-1571676674483-e18e87d0c3bc?q=80&w=1920', caption: displayName },
         { url: 'https://images.unsplash.com/photo-1626084288019-3e3902319ec8?q=80&w=1920', caption: 'Natural Beauty' },
         { url: 'https://images.unsplash.com/photo-1598555813876-b6d3763f350c?q=80&w=1920', caption: 'Rich Heritage' }
     ];
+
+    const heroSlides = (data.heroImages && data.heroImages.length > 0)
+        ? data.heroImages
+        : FALLBACK_SLIDES;
 
     return (
         <div className="region-overview">

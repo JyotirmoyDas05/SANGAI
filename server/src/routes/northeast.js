@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { State, District, Place, Homestay, Guide, FestivalMaster, FestivalOccurrence } from '../models/index.js';
+import { Region, State, District, Place, Homestay, Guide, FestivalMaster, FestivalOccurrence } from '../models/index.js';
 import ApiError from '../utils/ApiError.js';
 
 const router = Router();
@@ -25,15 +25,24 @@ const router = Router();
  */
 router.get('/', async (req, res, next) => {
     try {
+        // Fetch the Northeast region document
+        const region = await Region.findOne({ slug: 'northeast' });
+
         // All states in the database are Northeast states
         const states = await State.find().sort({ name: 1 });
         const districtCount = await District.countDocuments();
 
+        // Base data from DB or fallback
+        const regionData = region ? region.toObject() : {
+            name: 'Northeast India',
+            slug: 'northeast',
+            tagline: 'The Hidden Jewel'
+        };
+
         res.json({
             success: true,
             data: {
-                name: 'Northeast India',
-                slug: 'northeast',
+                ...regionData,
                 stateCount: states.length,
                 districtCount,
                 states: states.map(s => ({

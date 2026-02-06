@@ -185,21 +185,23 @@
     font-weight: 800;
     letter-spacing: 0.08em;
     margin: 0 0 24px 0;
-    color: var(--text-primary);
+    color: #ffffff;
     text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.8;
     max-width: 650px;
     margin: 0 auto 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .hero-caption {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.7);
     opacity: 0.7;
     font-style: italic;
     margin-top: 40px;
@@ -494,8 +496,8 @@
 }
 
 .scroll-btn:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #ffffff;
     background: white;
 }
 

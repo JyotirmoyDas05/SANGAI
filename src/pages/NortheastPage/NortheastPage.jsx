@@ -153,8 +153,8 @@ function NortheastOverview() {
         return <FallbackOverview />;
     }
 
-    const HERO_SLIDES = [
-        regionData.heroImages?.[0] || { url: 'https://images.unsplash.com/photo-1571676674483-e18e87d0c3bc?q=80&w=1920', caption: 'Tea Gardens of Assam' },
+    const FALLBACK_SLIDES = [
+        { url: 'https://images.unsplash.com/photo-1571676674483-e18e87d0c3bc?q=80&w=1920', caption: 'Tea Gardens of Assam' },
         { url: 'https://images.unsplash.com/photo-1626084288019-3e3902319ec8?q=80&w=1920', caption: 'Majestic Himalayas' },
         { url: 'https://images.unsplash.com/photo-1598555813876-b6d3763f350c?q=80&w=1920', caption: 'Cascading Waterfalls' },
         { url: 'https://images.unsplash.com/photo-1533241517006-be2f985b8829?q=80&w=1920', caption: 'Vibrant Tribal Heritage' },
@@ -164,6 +164,10 @@ function NortheastOverview() {
         { url: 'https://images.unsplash.com/photo-1590053165219-c8872cd92348?q=80&w=1920', caption: 'Living Root Bridges' }
     ];
 
+    const heroSlides = (regionData.heroImages && regionData.heroImages.length > 0)
+        ? regionData.heroImages
+        : FALLBACK_SLIDES;
+
     return (
         <div className="region-overview">
             {/* Section 1: Hero */}
@@ -171,7 +175,7 @@ function NortheastOverview() {
                 title={regionData.name || 'NORTHEAST INDIA'}
                 tagline={regionData.tagline}
                 subtitle="A land of eight sisters, bound by mountains, rivers, and a tapestry of over 200 tribes. Discover the unexplored paradise."
-                heroImages={HERO_SLIDES} // Use new slides prop
+                heroImages={heroSlides} // Use new slides prop
                 audioTrack={REGION_AUDIO['northeast']} // Background Audio
                 badge={{ icon: 'public', text: 'The Hidden Jewel' }}
                 size="large"
@@ -182,7 +186,7 @@ function NortheastOverview() {
             <DescriptionSection
                 title="Welcome to Northeast India"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                images={HERO_SLIDES}
+                images={heroSlides}
             />
 
             <DefiningThemesSection />

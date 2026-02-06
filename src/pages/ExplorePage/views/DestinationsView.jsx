@@ -44,6 +44,8 @@ export default function DestinationsView() {
                     name: place.name,
                     location: place.districtId?.stateName || 'Northeast India',
                     district: place.districtId?.districtName || '',
+                    districtSlug: place.districtId?.slug,
+                    stateCode: place.districtId?.stateCode,
                     type: place.type || 'destination',
                     image: place.images?.[0]?.url || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
                     shortDescription: place.shortDescription || '',
@@ -127,20 +129,27 @@ export default function DestinationsView() {
                                     className="masonry-item"
                                     key={place.id}
                                     onClick={() => {
-                                        // Build hierarchical path: /northeast/:state/:district/destination/:id
-                                        const stateSlug = place.location
-                                            ? place.location.toLowerCase().replace(/\s+/g, '_')
-                                            : null;
-                                        const districtSlug = place.district
-                                            ? place.district.toLowerCase().replace(/\s+/g, '_')
-                                            : null;
+                                        // Build hierarchical path if data exists, else fallback to global
+                                        if (place.districtSlug && place.location) {
+                                            // We assume location name maps to state slug or we need actual state slug
+                                            // Better to just fallback to global if simple
+                                            // actually we can try to slugify state name if we don't have code
+                                            // But wait, we added stateCode to API.
 
-                                        let path = '/northeast';
-                                        if (stateSlug) path += `/${stateSlug}`;
-                                        if (districtSlug) path += `/${districtSlug}`;
-                                        path += `/destination/${place.id}`;
+                                            // Let's use the global route for safety for now unless we are SURE
+                                            // actually the user wants hierarchical if possible.
 
-                                        navigate(path);
+                                            // Helper to slugify if needed (fallback)
+                                            const toSlug = (s) => s.toLowerCase().replace(/\s+/g, '_');
+
+                                            const stateSlug = place.stateCode ? place.stateCode.toLowerCase() : toSlug(place.location);
+                                            const districtSlug = place.districtSlug;
+
+                                            navigate(`/northeast/${stateSlug}/${districtSlug}/destination/${place.id}`);
+                                        } else {
+                                            // Global safe route
+                                            navigate(`/destination/${place.id}`);
+                                        }
                                     }}
                                     style={{ cursor: 'pointer' }}
                                 >

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getPlaceById } from '../../api/apiService';
 import './MockDestinationPage.css';
 
@@ -22,7 +22,6 @@ export default function MockDestinationPage() {
             const data = await getPlaceById(id);
             setPlace(data);
 
-            // Fetch weather if location exists
             if (data.location && data.location.lat && data.location.lng) {
                 fetchWeather(data.location.lat, data.location.lng);
             }
@@ -34,7 +33,6 @@ export default function MockDestinationPage() {
         }
     };
 
-    // Weather Codes Helper
     const getWeatherDetails = (code) => {
         if (code === 0) return { desc: 'Clear Sky', icon: 'clear_day' };
         if (code >= 1 && code <= 3) return { desc: 'Partly Cloudy', icon: 'partly_cloudy_day' };
@@ -68,235 +66,347 @@ export default function MockDestinationPage() {
         }
     };
 
-    if (loading) return <div className="loading-screen">Loading destination...</div>;
-    if (error || !place) return <div className="error-screen">Destination not found.</div>;
+    const renderSafeString = (val) => {
+        if (typeof val === 'string') return val;
+        if (typeof val === 'number') return String(val);
+        return '';
+    };
+
+    const getDistrictName = () => {
+        try {
+            if (!place.districtId) return 'Meghalaya';
+            if (typeof place.districtId === 'string') return 'Meghalaya';
+            return place.districtId.districtName || place.districtId.name || place.districtId.slug || 'Meghalaya';
+        } catch (e) {
+            return 'Meghalaya';
+        }
+    };
+
+    if (loading) return <div className="mock-destination-page" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Loading...</div>;
+    if (error || !place) return <div className="mock-destination-page" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Destination not found.</div>;
 
     const heroImage = place.images?.[0]?.url || 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=1920&q=80';
 
     return (
         <div className="mock-destination-page">
-            {/* Back Button */}
-            <button className="mdp-back-btn" onClick={() => navigate(-1)} style={{ position: 'fixed', top: '20px', left: '20px', zIndex: 100, background: 'rgba(0,0,0,0.5)', color: 'white', border: 'none', borderRadius: '50%', width: '40px', height: '40px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <button className="mdp-back-btn" onClick={() => navigate(-1)}>
                 <span className="material-symbols-outlined">arrow_back</span>
             </button>
 
-            {/* Book Now Sticky Button */}
             <button className="mdp-book-btn">
                 <span>Book Now</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                </svg>
+                <span className="material-symbols-outlined">calendar_month</span>
             </button>
 
-            {/* ----- HERO SECTION ----- */}
+            {/* HERO SECTION */}
             <header className="mdp-hero">
-                <img
-                    src={heroImage}
-                    alt={place.name}
-                    className="mdp-hero__image"
-                    onError={(e) => { e.target.style.display = 'none'; }}
-                />
+                <img src={heroImage} alt={renderSafeString(place.name)} className="mdp-hero__image" />
                 <div className="mdp-hero__overlay"></div>
 
                 <div className="mdp-hero__title-container">
-                    <h1 className="mdp-hero__title">{place.name}</h1>
-                    {place.type && <span className="mdp-hero__subtitle" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.2rem', display: 'block', marginTop: '10px', textTransform: 'uppercase', letterSpacing: '2px' }}>{place.type}</span>}
+                    <h1 className="mdp-hero__title">{renderSafeString(place.name)}</h1>
+                </div>
+
+                <div className="mdp-breadcrumbs">
+                    <nav className="mdp-breadcrumbs__nav">
+                        <span className="material-symbols-outlined" style={{ fontSize: '1em', marginRight: '5px' }}>home</span>
+                        <span>Home</span>
+                        <span className="mdp-breadcrumbs__separator">/</span>
+                        <span>Destinations</span>
+                        <span className="mdp-breadcrumbs__separator">/</span>
+                        <span>{getDistrictName()}</span>
+                        <span className="mdp-breadcrumbs__separator">/</span>
+                        <span className="mdp-breadcrumbs__current">{renderSafeString(place.name)}</span>
+                    </nav>
                 </div>
             </header>
 
-            {/* ----- CONTENT SECTION ----- */}
-            <main className="mdp-content">
+            {/* CONTENT GRID */}
+            <div className="mdp-content">
                 <div className="mdp-content__container">
                     <div className="mdp-content__grid">
 
-                        {/* Left Column */}
+                        {/* LEFT COLUMN */}
                         <div className="mdp-left-col">
-                            {/* Description / Overview */}
-                            <div className="mdp-description">
-                                <h3>Overview</h3>
-                                <p>{place.story?.overview || place.shortDescription}</p>
 
-                                {place.story?.culturalSignificance && (
-                                    <>
-                                        <h3 style={{ marginTop: '20px' }}>Cultural Significance</h3>
-                                        <p>{place.story.culturalSignificance}</p>
-                                    </>
+                            {/* Quote & Description */}
+                            {place.story?.quote && (
+                                <blockquote className="mdp-quote">
+                                    "{renderSafeString(place.story.quote)}"
+                                </blockquote>
+                            )}
+
+                            <p className="mdp-description">
+                                {renderSafeString(place.story?.overview || place.shortDescription)}
+                            </p>
+
+                            {/* Info Cards (Best Time, Distance, etc) */}
+                            <div className="mdp-cards-grid">
+                                {place.bestTimeToVisit && (
+                                    <div className="mdp-card">
+                                        <div className="mdp-card__icon">
+                                            <span className="material-symbols-outlined" style={{ fontSize: '2rem' }}>calendar_month</span>
+                                        </div>
+                                        <div className="mdp-card__title">Best Time</div>
+                                        <div className="mdp-card__text">{renderSafeString(place.bestTimeToVisit)}</div>
+                                    </div>
                                 )}
 
-                                {place.story?.localBelief && (
-                                    <>
-                                        <h3 style={{ marginTop: '20px' }}>Local Beliefs & Legends</h3>
-                                        <p>{place.story.localBelief}</p>
-                                    </>
-                                )}
+                                <div className="mdp-card">
+                                    <div className="mdp-card__icon">
+                                        <span className="material-symbols-outlined" style={{ fontSize: '2rem' }}>near_me</span>
+                                    </div>
+                                    <div className="mdp-card__title">Distance</div>
+                                    <div className="mdp-card__text">
+                                        {renderSafeString(place.logistics?.distanceFromShillong ? `${place.logistics.distanceFromShillong} from Shillong` : 'Check map for details')}
+                                    </div>
+                                </div>
+
+                                <div className="mdp-card">
+                                    <div className="mdp-card__icon">
+                                        <span className="material-symbols-outlined" style={{ fontSize: '2rem' }}>hiking</span>
+                                    </div>
+                                    <div className="mdp-card__title">Activity</div>
+                                    <div className="mdp-card__text">{renderSafeString(place.type || 'Sightseeing')}</div>
+                                </div>
                             </div>
 
-                            {/* Info Section: Getting There & Nearby */}
+                            {/* Don't Miss Section */}
+                            {place.experience?.dontMiss && place.experience.dontMiss.length > 0 && (
+                                <section className="mdp-section">
+                                    <h2 className="section-title" style={{ color: 'white', fontSize: '1.5rem', marginBottom: '1.5rem' }}>Don't miss!</h2>
+                                    <div className="mdp-cards-grid">
+                                        {place.experience.dontMiss.map((item, idx) => (
+                                            <div key={idx} className="mdp-card" style={{ background: '#222' }}>
+                                                <div className="mdp-card__title" style={{ fontSize: '1rem' }}>{renderSafeString(item.title)}</div>
+                                                <div className="mdp-card__text">{renderSafeString(item.description)}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </section>
+                            )}
+
+                            {/* How to Get There & Nearby (Info Section) */}
                             <div className="mdp-info-section">
                                 <div className="mdp-info-col">
                                     <div className="mdp-info-block">
                                         <h2>How to Get There</h2>
-                                        {place.logistics ? (
-                                            <ul className="mdp-info-list">
-                                                {place.logistics.nearestTown && <li><strong>Nearest Town:</strong> {place.logistics.nearestTown} {place.logistics.distanceFromNearestTown && `(${place.logistics.distanceFromNearestTown})`}</li>}
-                                                {place.logistics.distanceFromShillong && <li><strong>From Shillong:</strong> {place.logistics.distanceFromShillong}</li>}
-                                                {place.logistics.distanceFromGuwahati && <li><strong>From Guwahati:</strong> {place.logistics.distanceFromGuwahati}</li>}
-                                                {place.logistics.transportationInfo && <li style={{ marginTop: '10px' }}>{place.logistics.transportationInfo}</li>}
-                                            </ul>
-                                        ) : (
-                                            <ul className="mdp-info-list">
-                                                <li>Located in {place.districtId?.name || 'Northeast India'}.</li>
-                                                <li>Use local cabs or transport from major towns relative to {place.districtId?.name}.</li>
-                                            </ul>
-                                        )}
+                                        <ul className="mdp-info-list">
+                                            <li>
+                                                <strong>Nearest Town:</strong> {renderSafeString(place.logistics?.nearestTown || 'N/A')}
+                                                {place.logistics?.distanceFromNearestTown && ` (${renderSafeString(place.logistics.distanceFromNearestTown)})`}
+                                            </li>
+                                            <li>
+                                                <strong>From Shillong:</strong> {renderSafeString(place.logistics?.distanceFromShillong || 'N/A')}
+                                            </li>
+                                            <li>
+                                                <strong>From Guwahati:</strong> {renderSafeString(place.logistics?.distanceFromGuwahati || 'N/A')}
+                                            </li>
+                                            {place.logistics?.transportationInfo && (
+                                                <li>{renderSafeString(place.logistics.transportationInfo)}</li>
+                                            )}
+                                        </ul>
                                     </div>
 
                                     <div className="mdp-info-block">
-                                        <h2>Best Time to Visit</h2>
-                                        <ul className="mdp-info-list">
-                                            <li>{place.bestTimeToVisit || 'October to April is generally the best time to visit Northeast India.'}</li>
-                                        </ul>
+                                        <h2>When and Where</h2>
+                                        <p className="mdp-description">{renderSafeString(place.story?.culturalSignificance || 'Plan your visit during the daylight hours for the best experience.')}</p>
                                     </div>
                                 </div>
 
-                                {/* Nearby Attractions Placeholder - could be dynamic later */}
                                 <div className="mdp-attractions-col">
-                                    {place.experience?.highlights?.length > 0 && (
-                                        <div className="mdp-highlights" style={{ marginBottom: '30px' }}>
-                                            <h3>Don't Miss</h3>
-                                            <ul className="mdp-info-list">
-                                                {place.experience.highlights.map((h, i) => (
-                                                    <li key={i}>{h}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-
-                                    <h3>Gallery</h3>
-                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                                        {place.images?.slice(1, 5).map((img, idx) => (
-                                            <div key={idx} className="mdp-attraction-card">
-                                                <img src={img.url || img} alt="" style={{ height: '100px', objectFit: 'cover' }} />
-                                            </div>
-                                        ))}
+                                    <h3>Nearby Attractions</h3>
+                                    {/* Placeholder for nearby attractions if data exists, or generic ones */}
+                                    <div className="mdp-attraction-card">
+                                        <img src="https://images.unsplash.com/photo-1590452366110-38435882e88a?w=800&q=80" alt="Attraction" />
+                                        <div className="mdp-attraction-overlay"></div>
+                                        <div className="mdp-attraction-name">Arwah Cave</div>
+                                    </div>
+                                    <div className="mdp-attraction-card">
+                                        <img src="https://images.unsplash.com/photo-1627894483216-2138af692e32?w=800&q=80" alt="Attraction" />
+                                        <div className="mdp-attraction-overlay"></div>
+                                        <div className="mdp-attraction-name">Mawsmai Cave</div>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Homestay Options - Placeholder or Generic for now */}
-                            <div className="mdp-homestays">
-                                <h2 className="mdp-homestays__title">Where to Stay</h2>
-                                <p style={{ color: '#ccc' }}>Homestay options near {place.name} coming soon.</p>
-                            </div>
                         </div>
 
-                        {/* Right Sidebar */}
+                        {/* RIGHT SIDEBAR */}
                         <aside className="mdp-sidebar">
                             {/* Map Widget */}
-                            {place.location?.lat && (
-                                <div className="mdp-map-widget">
+                            <div className="mdp-map-widget">
+                                {place.location?.lat ? (
                                     <iframe
-                                        title="Location Map"
-                                        src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_KEY || ''}&q=${place.location.lat},${place.location.lng}&zoom=14`}
-                                        width="100%"
-                                        height="300"
-                                        frameBorder="0"
-                                        style={{ border: 0 }}
-                                        allowFullScreen=""
+                                        title="Map"
+                                        src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_KEY}&q=${place.location.lat},${place.location.lng}&zoom=14`}
+                                        loading="lazy"
+                                        allowFullScreen
                                     ></iframe>
-                                    {/* Fallback frame if no key */}
-                                    {!import.meta.env.VITE_GOOGLE_MAPS_KEY && (
-                                        <div style={{ background: '#333', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
-                                            Map Unavailable (No Key)
-                                        </div>
-                                    )}
-                                </div>
-                            )}
+                                ) : (
+                                    <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666' }}>Map Unavailable</div>
+                                )}
+                            </div>
 
-                            {/* Visitor Tips Widget */}
-                            {place.experience?.visitorTips?.length > 0 && (
-                                <div className="mdp-weather-widget" style={{ marginBottom: '20px', background: '#222' }}>
-                                    <p className="mdp-weather__title">Essential Tips</p>
-                                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.9rem', color: '#ddd' }}>
-                                        {place.experience.visitorTips.map((tip, i) => (
-                                            <li key={i} style={{ marginBottom: '10px', display: 'flex', gap: '8px' }}>
-                                                <span style={{ color: '#ffd700' }}>•</span>
-                                                {tip}
-                                            </li>
+                            {/* Weather Widget */}
+                            <div className="mdp-weather-widget">
+                                <div className="mdp-weather__title">Weather Today</div>
+                                {weather ? (
+                                    <div className="mdp-weather__content">
+                                        <span className="material-symbols-outlined" style={{ fontSize: '3rem', color: '#ffbd59' }}>{weather.icon}</span>
+                                        <div>
+                                            <div className="mdp-weather__temp">{weather.temp}°</div>
+                                            <div className="mdp-weather__desc">{weather.condition}</div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div style={{ color: '#666' }}>Loading...</div>
+                                )}
+                                <button className="mdp-weather__link">
+                                    Weather Forecast <span className="material-symbols-outlined">arrow_right_alt</span>
+                                </button>
+                            </div>
+
+                            {/* Contact Widget */}
+                            <div className="mdp-contact-widget">
+                                <div className="mdp-contact__title">Please tell us about your <strong>toll free number</strong></div>
+
+                                {place.contact?.phone && (
+                                    <a href={`tel:${place.contact.phone}`} className="mdp-contact__item">
+                                        <div className="mdp-contact__icon-wrap">
+                                            <span className="material-symbols-outlined">call</span>
+                                        </div>
+                                        <div>
+                                            <div className="mdp-contact__label">Call Our Helpline</div>
+                                            <div className="mdp-contact__value">{renderSafeString(place.contact.phone)}</div>
+                                        </div>
+                                    </a>
+                                )}
+
+                                {place.contact?.whatsapp && (
+                                    <a href={`https://wa.me/${place.contact.whatsapp}`} className="mdp-contact__item">
+                                        <div className="mdp-contact__icon-wrap">
+                                            <span className="material-symbols-outlined">chat</span>
+                                        </div>
+                                        <div>
+                                            <div className="mdp-contact__label">WhatsApp / SMS</div>
+                                            <div className="mdp-contact__value">{renderSafeString(place.contact.whatsapp)}</div>
+                                        </div>
+                                    </a>
+                                )}
+
+                                <a href="mailto:info@meghalayatourism.in" className="mdp-contact__item">
+                                    <div className="mdp-contact__icon-wrap">
+                                        <span className="material-symbols-outlined">mail</span>
+                                    </div>
+                                    <div>
+                                        <div className="mdp-contact__label">Email Our Travel Desk</div>
+                                        <div className="mdp-contact__value">info@meghalayatourism.in</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            {/* Visitor Tips */}
+                            {place.experience?.visitorTips && place.experience.visitorTips.length > 0 && (
+                                <div className="mdp-contact-widget">
+                                    <div className="mdp-contact__title"><strong>Visitor Tips</strong></div>
+                                    <ul className="mdp-info-list">
+                                        {place.experience.visitorTips.map((tip, idx) => (
+                                            <li key={idx}>{renderSafeString(tip)}</li>
                                         ))}
                                     </ul>
                                 </div>
                             )}
 
-                            {/* Weather Widget */}
-                            <div className="mdp-weather-widget">
-                                <p className="mdp-weather__title">Weather Today</p>
-                                {weather ? (
-                                    <div className="mdp-weather__content">
-                                        <span className="material-symbols-outlined" style={{ fontSize: '48px', color: 'white' }}>
-                                            {weather.icon}
-                                        </span>
-                                        <div>
-                                            <span className="mdp-weather__temp">{weather.temp}°</span>
-                                            <span className="mdp-weather__desc">{weather.condition}</span>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="mdp-weather__content">
-                                        <span className="mdp-weather__desc">Loading weather...</span>
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Contact Widget */}
-                            {/* Contact Widget */}
-                            {(place.contact?.phone || place.contact?.whatsapp || place.contact?.email) && (
-                                <div className="mdp-contact-widget">
-                                    <p className="mdp-contact__title">
-                                        Need assistance? Call our <strong>Helpline</strong>
-                                    </p>
-                                    <div className="mdp-contact-list">
-                                        {place.contact.phone && (
-                                            <a href={`tel:${place.contact.phone}`} className="mdp-contact__item">
-                                                <div className="mdp-contact__icon-wrap">
-                                                    <span className="material-symbols-outlined">call</span>
-                                                </div>
-                                                <div>
-                                                    <div className="mdp-contact__label">Call Our Helpline</div>
-                                                    <div className="mdp-contact__value">{place.contact.phone}</div>
-                                                </div>
-                                            </a>
-                                        )}
-                                        {place.contact.whatsapp && (
-                                            <a href={`https://wa.me/${place.contact.whatsapp.replace(/[^0-9]/g, '')}`} className="mdp-contact__item" target="_blank" rel="noopener noreferrer">
-                                                <div className="mdp-contact__icon-wrap">
-                                                    <span className="material-symbols-outlined" style={{ color: '#25D366' }}>chat</span>
-                                                </div>
-                                                <div>
-                                                    <div className="mdp-contact__label">WhatsApp Us</div>
-                                                    <div className="mdp-contact__value">{place.contact.whatsapp}</div>
-                                                </div>
-                                            </a>
-                                        )}
-                                        {place.contact.email && (
-                                            <a href={`mailto:${place.contact.email}`} className="mdp-contact__item">
-                                                <div className="mdp-contact__icon-wrap">
-                                                    <span className="material-symbols-outlined">mail</span>
-                                                </div>
-                                                <div>
-                                                    <div className="mdp-contact__label">Email Us</div>
-                                                    <div className="mdp-contact__value" style={{ fontSize: '0.8rem' }}>{place.contact.email}</div>
-                                                </div>
-                                            </a>
-                                        )}
-                                    </div>
-                                </div>
-                            )}
                         </aside>
                     </div>
                 </div>
-            </main>
+            </div>
+
+            {/* FOOTER */}
+            <footer className="mdp-footer">
+                <div className="mdp-footer__container">
+                    <div className="mdp-footer__grid">
+
+                        {/* Brand Column */}
+                        <div className="mdp-footer__col">
+                            <div className="mdp-footer__brand" style={{ fontSize: '2rem', fontWeight: 'bold', color: 'white', marginBottom: '1rem' }}>
+                                SANGAI
+                            </div>
+                            <p className="mdp-footer__text">
+                                Welcome to Meghalaya, the homeland of the Khasi, Jaintia, and Garo tribes. Immerse yourself in stunning landscapes and rich heritage.
+                            </p>
+                            <div className="mdp-footer__social">
+                                <a href="#"><span className="material-symbols-outlined">public</span></a>
+                                <a href="#"><span className="material-symbols-outlined">photo_camera</span></a>
+                                <a href="#"><span className="material-symbols-outlined">play_arrow</span></a>
+                            </div>
+                        </div>
+
+                        {/* Quick Links */}
+                        <div className="mdp-footer__col">
+                            <h4 className="mdp-footer__title">Quick Links</h4>
+                            <ul className="mdp-footer__links">
+                                <li><a href="#">About Meghalaya Tourism</a></li>
+                                <li><a href="#">NIDHI - Ministry of Tourism</a></li>
+                                <li><a href="#">Social Investment Databank (SID-Goal)</a></li>
+                                <li><a href="#">Sustainable & Responsible Tourism Tip</a></li>
+                                <li><a href="#">Image Credits</a></li>
+                                <li><a href="#">Sitemap</a></li>
+                            </ul>
+                        </div>
+
+                        {/* Contact Us */}
+                        <div className="mdp-footer__col">
+                            <h4 className="mdp-footer__title">Contact Us</h4>
+                            <ul className="mdp-footer__contact">
+                                <li>
+                                    <span className="material-symbols-outlined">location_on</span>
+                                    <span>3rd Secretariat, Nokrek Building, Lower Lachumiere, Shillong 793001, Meghalaya, India</span>
+                                </li>
+                                <li>
+                                    <span className="material-symbols-outlined">call</span>
+                                    <span>+91 364 2222731</span>
+                                </li>
+                                <li>
+                                    <span className="material-symbols-outlined">mail</span>
+                                    <span>info@meghalayatourism.gov.in</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* App Downloads */}
+                        <div className="mdp-footer__col">
+                            <h4 className="mdp-footer__title">Get the App</h4>
+                            <div style={{ display: 'flex', gap: '10px', marginTop: '1rem' }}>
+                                <button style={{ background: 'black', color: 'white', border: '1px solid #333', borderRadius: '4px', padding: '5px 10px', display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
+                                    <span className="material-symbols-outlined">apple</span>
+                                    <div style={{ textAlign: 'left', lineHeight: '1' }}>
+                                        <div style={{ fontSize: '0.6rem' }}>Download on the</div>
+                                        <div style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>App Store</div>
+                                    </div>
+                                </button>
+                                <button style={{ background: 'black', color: 'white', border: '1px solid #333', borderRadius: '4px', padding: '5px 10px', display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
+                                    <span className="material-symbols-outlined">android</span>
+                                    <div style={{ textAlign: 'left', lineHeight: '1' }}>
+                                        <div style={{ fontSize: '0.6rem' }}>GET IT ON</div>
+                                        <div style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Google Play</div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className="mdp-footer__bottom">
+                        <div>© 2026 Meghalaya Tourism. All Rights Reserved.</div>
+                        <div style={{ display: 'flex', gap: '1rem' }}>
+                            <a href="#" style={{ color: '#888', textDecoration: 'none' }}>Privacy Policy</a>
+                            <a href="#" style={{ color: '#888', textDecoration: 'none' }}>Terms of Use</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 }
-
